@@ -1,0 +1,22 @@
+{
+  "n_lectures": 7,
+  "total_latency_sec": {
+    "mean": 39.20870757142857,
+    "median": 34.249027,
+    "sd": 12.228203309328327,
+    "min": 31.98028,
+    "max": 66.343903
+  },
+  "stage_means_sec": {
+    "transcript_fetch": 10.115769571428572,
+    "ai_generation": 23.491850857142857,
+    "transformation": 0.053489285714285704,
+    "pdf_render": 5.299691857142856
+  },
+  "ai_generation_pct_of_total_mean": 58.70080756785647,
+  "pearson_r_charcount_vs_latency": 0.9814555331317709,
+  "pearson_p": 8.90556544073498e-05,
+  "fallback_rate": 0.0,
+  "failure_rate": 0.0,
+  "source_raw_file": "expD_latency_real_regen_batch.json"
+}

@@ -1,0 +1,359 @@
+{
+  "video_id": "T4lGm7MjA6Y",
+  "title": "Problem Solving and Search Strategies",
+  "overview": "This lecture covers core problem-solving methodologies in Artificial Intelligence, spanning **Uninformed Search Strategies** (blind search), **Informed Search Strategies** (heuristic search), **Heuristic Functions & Optimization Techniques** (Hill Climbing, Simulated Annealing), **Constraint Satisfaction Problems (CSP)**, and adversarial **Game Playing Algorithms** (Minimax, Alpha-Beta Pruning, Stochastic/Partially Observable Games).",
+  "notes_markdown": "# \ud83d\udcd8 Problem Solving and Search Strategies\n\n### \ud83d\udccc Overview\nThis lecture covers core problem-solving methodologies in Artificial Intelligence, spanning **Uninformed Search Strategies** (blind search), **Informed Search Strategies** (heuristic search), **Heuristic Functions & Optimization Techniques** (Hill Climbing, Simulated Annealing), **Constraint Satisfaction Problems (CSP)**, and adversarial **Game Playing Algorithms** (Minimax, Alpha-Beta Pruning, Stochastic/Partially Observable Games).\n\n---\n\n## \ud83d\udd0d Uninformed Search Strategies\n\nUninformed search (or blind search) refers to algorithms that search for a goal state without receiving any extra information, hints, or domain-specific clues regarding where the goal node is located.\n\n* **Core Characteristic**: It explores alternative paths iteratively based solely on the defined problem parameters.\n* **Lecture Example**: Imagine searching for your friend Nikhil's classroom in an unfamiliar school knowing only his name. Without room numbers or clues, you must check every classroom one by one until you find him.\n\n```mermaid\ngraph TD\n    A[Uninformed Search] --> B[BFS: Queue / Level-Order]\n    A --> C[DFS: Stack / Depth-Order]\n    A --> D[IDS: Increasing Depth Limit]\n```\n\n---\n\n### \ud83c\udf33 Breadth-First Search (BFS)\nBreadth-First Search explores the search space level-by-level starting from the source/root node.\n\n* **Exploration Order**: Visits all nodes at depth \\( d \\) before moving to depth \\( d+1 \\).\n* **Data Structure**: Uses a **Queue** operating on a **FIFO (First In, First Out)** basis.\n* **Property**: Guarantees finding the **shortest path** in an unweighted graph.\n\n#### \ud83d\udd04 Algorithm Steps\n1. Start at the source/root node and insert it into the Queue.\n2. Dequeue the front node and visit it.\n3. Insert all unvisited adjacent neighbor nodes (children) into the Queue.\n4. Repeat dequeueing and expanding until the goal node is reached or the Queue becomes empty.\n\n---\n\n### \ud83c\udf32 Depth-First Search (DFS)\nDepth-First Search explores deeply down a single branch before backtracking to explore alternate branches.\n\n* **Exploration Order**: Traverses as deep as possible along a path until a dead-end is reached, then backtracks to the most recent decision point.\n* **Data Structure**: Uses a **Stack** operating on a **LIFO (Last In, First Out)** basis.\n* **Property**: Lower memory overhead compared to BFS, but does not guarantee the shortest path.\n\n#### \ud83d\udd04 Algorithm Steps\n1. Push the source node onto the Stack.\n2. Pop the top node and visit it.\n3. Push all unvisited adjacent neighbor nodes onto the Stack.\n4. Continue moving deeper into the path.\n5. Backtrack to previous nodes when no unvisited neighbors exist. Repeat until all nodes are explored or the goal is found.\n\n---\n\n### \ud83d\udd04 Iterative Deepening Search (IDS)\nIterative Deepening Search (also known as IDDFS) combines the benefits of both BFS and DFS.\n\n* **Core Idea**: It repeatedly performs Depth-First Search up to an artificially imposed **depth limit** (\\( L \\)). If the goal is not found, the depth limit is incremented by 1 (\\( L = 0, 1, 2, \\dots \\)), and the search restarts from the root.\n* **Advantage**: Achieves the memory efficiency of DFS along with the completeness and optimality guarantees of BFS.\n\n#### \ud83d\udd04 Algorithm Steps\n1. Initialize depth limit \\( L = 0 \\).\n2. Perform Depth-Limited DFS starting from the root node.\n3. If the goal is found within depth limit \\( L \\), terminate and return the solution.\n4. If the goal is not found, increment depth limit (\\( L = L + 1 \\)) and repeat DFS from the root.\n\n---\n\n### \ud83d\udcca Comparison Table: Uninformed Search Methods\n\n| Feature | Breadth-First Search (BFS) | Depth-First Search (DFS) | Iterative Deepening (IDS) |\n|---|---|---|---|\n| **Traversal Order** | Level-by-level | Branch-by-branch (deep) | Iterative depth limits |\n| **Data Structure** | Queue (FIFO) | Stack (LIFO) | Call Stack (LIFO) |\n| **Shortest Path** | Guaranteed (unweighted) | Not guaranteed | Guaranteed (unweighted) |\n| **Memory Demand** | High | Low | Low |\n\n---\n\n## \ud83c\udfaf Informed Search Strategies\n\nInformed search strategies utilize domain-specific hints or problem knowledge via a **Heuristic Function** \\( h(n) \\) to guide the search process efficiently towards the goal.\n\n* **Lecture Example**: Finding a route on a map using a straight-line distance towards the destination as a clue to select roads that move closer to the goal.\n\n---\n\n### \u26a1 Greedy Best-First Search\nGreedy Best-First Search selects the next expansion node that appears closest to the goal based exclusively on its heuristic evaluation.\n\n* **Evaluation Function**: \n  \\[\n  f(n) = h(n)\n  \\]\n  *(where \\( h(n) \\) is the estimated cost from node \\( n \\) to the goal).*\n* **Greedy Nature**: It makes immediate, locally optimal choices using \\( h(n) \\) while ignoring the actual accumulated path cost \\( g(n) \\).\n\n#### \ud83d\udcd0 Lecture Numerical Example\nGiven starting node \\( S \\) and heuristic values: \\( h(S)=10, h(A)=8, h(B)=6, h(F)=3, h(G)=0 \\):\n1. **Start at \\( S \\)**: Neighbors are \\( A \\ (h=8) \\) and \\( B \\ (h=6) \\).\n2. **Select \\( B \\)**: Since \\( h(B) = 6 < h(A) = 8 \\).\n3. **From \\( B \\)**: Neighbors evaluated via \\( h(n) \\); selects \\( F \\ (h=3) \\).\n4. **From \\( F \\)**: Reaches goal node \\( G \\ (h=0) \\).\n5. **Final Selected Path**: \\( S \\rightarrow B \\rightarrow F \\rightarrow G \\).\n\n---\n\n### \u2b50\ufe0f A* Search Algorithm\nA* Search combines path cost already traveled with estimated heuristic cost to determine the globally optimal path.\n\n* **Evaluation Function**:\n  \\[\n  f(n) = g(n) + h(n)\n  \\]\n  * \\( g(n) \\): Actual cost incurred from the start node to current node \\( n \\).\n  * \\( h(n) \\): Estimated heuristic cost from node \\( n \\) to the goal node.\n  * \\( f(n) \\): Total estimated path cost through node \\( n \\).\n\n```mermaid\ngraph LR\n    A[Start Node] --> B[\"Calculate f(n) = g(n) + h(n)\"]\n    B --> C[Select Lowest f(n)]\n    C --> D{Goal Node?}\n    D -- Yes --> E[Optimal Path Found]\n    D -- No --> F[Expand & Update Neighbors]\n    F --> B\n```\n\n#### \ud83d\udd04 Algorithm Steps\n1. Compute \\( f(n) = g(n) + h(n) \\) for the initial root node.\n2. Maintain `OPEN` (unvisited) and `CLOSED` (visited) node lists.\n3. Select the node from `OPEN` with the smallest \\( f(n) \\) value.\n4. Check if the selected node is the goal node:\n   * If **Yes**: Stop and return the optimal path.\n   * If **No**: Expand the node, calculate \\( f(n) \\) for all newly generated neighbors, move current node to `CLOSED`, and repeat.\n\n---\n\n## \ud83e\udde0 Heuristic Functions & Optimization Techniques\n\n### \ud83d\udcd0 Heuristic Function \\( h(n) \\)\nA **Heuristic Function** \\( h(n) \\) provides an estimated guess of the path cost from node \\( n \\) to the target goal.\n* **Purpose**: Avoids exhaustively searching all paths by prioritizing nodes that appear most promising.\n* **Lecture Example**: Using straight-line distance from Delhi to Lucknow to estimate proximity to the destination.\n\n---\n\n### \ud83d\udcc8 Optimization & Hill Climbing\n**Optimization** refers to the process of finding the best possible solution (yielding maximum benefit or minimum cost/time) among all available choices.\n\n#### \u26f0\ufe0f Hill Climbing Algorithm\nHill Climbing is a local search optimization technique where the algorithm continuously moves in the upward direction (improving state) to reach the highest peak (solution).\n\n* **Metaphor**: Climbing a mountain in dense fog where you can only view neighboring steps. You move upwards step-by-step and stop when no neighboring step is higher.\n* **Local Optimum**: The highest point among immediate neighboring states where search stops, which may not always be the global peak.\n\n#### \ud83d\udccc Types of Hill Climbing\n1. **Simple Hill Climbing**: Evaluates neighbor nodes one by one and immediately moves to the **first** neighbor that offers a higher/better value than the current state.\n2. **Steepest-Ascent Hill Climbing**: Evaluates **all** neighboring states first and selects the single **best** (highest) neighbor to move to.\n3. **Stochastic Hill Climbing**: Selects a higher neighbor state **randomly** to avoid picking a deterministic path.\n\n---\n\n### \ud83e\uddea Simulated Annealing\nSimulated Annealing (SA) is an advanced local search algorithm designed to overcome local optima by allowing occasional \"downhill\" moves.\n\n* **Metallurgical Analogy**: Inspired by the process of annealing metals\u2014heating a metal to a high temperature and cooling it slowly to allow atoms to settle into a strong, optimal structural layout.\n* **High Temperature Phase**: Allows accepting worse/downhill moves to broadly explore the search space and escape local optima traps.\n* **Cooling Phase**: As the temperature gradually decreases, the algorithm restricts downhill moves and converges carefully on the global optimum solution.\n\n---\n\n## \ud83e\udde9 Constraint Satisfaction Problems (CSP)\n\nA **Constraint Satisfaction Problem (CSP)** involves finding valid variable assignments such that all specified conditions (**constraints**) are satisfied without violation.\n\n### \ud83d\udccc Lecture Example: Student Seating\n* **Problem**: Seat 3 students (\\( A, B, C \\)) across 3 available chairs (\\( 1, 2, 3 \\)).\n* **Constraint**: Student \\( A \\) and Student \\( B \\) cannot sit adjacent to each other.\n* **Solution Assignment**: Place Student \\( C \\) in Chair 2 (middle), Student \\( A \\) in Chair 1, and Student \\( B \\) in Chair 3.\n\n```mermaid\ngraph LR\n    A[CSP Components] --> B[\"Variables (X): A, B, C\"]\n    A --> C[\"Domains (D): Chairs 1, 2, 3\"]\n    A --> D[\"Constraints (C): A and B not adjacent\"]\n```\n\n### \ud83e\udde9 Core Components of CSP\n1. **Variables (\\( X \\))**: The elements requiring value assignments (e.g., \\( A, B, C \\)).\n2. **Domain (\\( D \\))**: The set of permissible values available for each variable (e.g., Chairs 1, 2, 3).\n3. **Constraints (\\( C \\))**: Explicit mathematical or logical rules restricting specific variable assignments (e.g., \\( A \\neq \\text{adjacent to } B \\)).\n\n---\n\n## \ud83c\udfae Game Playing Algorithms\n\nGame playing algorithms address adversarial decision-making environments where AI agents must select optimal strategies against opponents.\n\n* **Game Categories**: Single-player, Two-player (Adversarial), and Multi-player games.\n\n---\n\n### \u265f\ufe0f Minimax Algorithm\nMinimax is a decision-making algorithm designed for two-player, zero-sum, perfect-information games (e.g., Chess, Tic-Tac-Toe).\n\n* **Players**:\n  * **MAX (AI)**: Attempts to **maximize** its score.\n  * **MIN (Opponent)**: Attempts to **minimize** MAX's score/benefit.\n* **Execution**: Evaluates game tree states bottom-up. Alternating layers select minimum values at MIN nodes and maximum values at MAX nodes.\n\n#### \ud83d\udcd0 Minimax Evaluation Example\n* Given leaf layer values: \\( [3, 5] \\) under left MIN node; \\( [2, 9] \\) under right MIN node.\n* **Left MIN Choice**: \\( \\min(3, 5) = 3 \\).\n* **Right MIN Choice**: \\( \\min(2, 9) = 2 \\).\n* **Root MAX Choice**: \\( \\max(3, 2) = 3 \\).\n\n---\n\n### \u2702\ufe0f Alpha-Beta Pruning\nAlpha-Beta Pruning is an optimized variant of the Minimax algorithm that reduces the number of evaluated nodes in the game tree by pruning unpromising branches.\n\n* **Alpha (\\( \\alpha \\))**: The best (highest) value that **MAX** can guarantee so far.\n* **Beta (\\( \\beta \\))**: The best (lowest) value that **MIN** can guarantee so far.\n* **Pruning Condition**: Prune (cut off) a branch whenever:\n  \\[\n  \\alpha \\ge \\beta\n  \\]\n\n```mermaid\ngraph TD\n    A[Max Node: alpha] --> B[Min Node: beta]\n    B --> C[Evaluate Children]\n    C --> D{\"Is alpha >= beta?\"}\n    D -- Yes --> E[Pruning Triggered: Cut Branch]\n    D -- No --> F[Continue Search]\n```\n\n---\n\n### \ud83c\udfb2 Stochastic & Partially Observable Games\n\n#### \ud83c\udfb2 Stochastic Games\nGames that combine deterministic player choices with elements of randomness or luck.\n* **Key Factor**: Game outcomes depend on player actions combined with random chance (e.g., dice rolls, card shuffling).\n* **Examples**: Ludo, Snakes & Ladders, Poker, Monopoly.\n\n#### \ud83d\ude48 Partially Observable Games\nGames where players lack complete information regarding the current game state.\n* **Key Factor**: Players make moves with incomplete visibility, forcing them to reason under uncertainty.\n* **Examples**: Poker, Rummy, Bridge (players see their own cards but cannot see opponent cards).",
+  "video_duration": 3702.3190000000004,
+  "video_duration_formatted": "01:01:42",
+  "timestamps": [
+    {
+      "time": "00:00",
+      "sec": 0,
+      "label": "Lecture Introduction & Overview"
+    }
+  ],
+  "topics": [
+    {
+      "id": "topic-2",
+      "title": "\ud83d\udd0d Uninformed Search Strategies",
+      "content": "## \ud83d\udd0d Uninformed Search Strategies\n\nUninformed search (or blind search) refers to algorithms that search for a goal state without receiving any extra information, hints, or domain-specific clues regarding where the goal node is located.\n\n* **Core Characteristic**: It explores alternative paths iteratively based solely on the defined problem parameters.\n* **Lecture Example**: Imagine searching for your friend Nikhil's classroom in an unfamiliar school knowing only his name. Without room numbers or clues, you must check every classroom one by one until you find him.\n\n```mermaid\ngraph TD\n    A[Uninformed Search] --> B[BFS: Queue / Level-Order]\n    A --> C[DFS: Stack / Depth-Order]\n    A --> D[IDS: Increasing Depth Limit]\n```\n\n---\n\n### \ud83c\udf33 Breadth-First Search (BFS)\nBreadth-First Search explores the search space level-by-level starting from the source/root node.\n\n* **Exploration Order**: Visits all nodes at depth \\( d \\) before moving to depth \\( d+1 \\).\n* **Data Structure**: Uses a **Queue** operating on a **FIFO (First In, First Out)** basis.\n* **Property**: Guarantees finding the **shortest path** in an unweighted graph.\n\n#### \ud83d\udd04 Algorithm Steps\n1. Start at the source/root node and insert it into the Queue.\n2. Dequeue the front node and visit it.\n3. Insert all unvisited adjacent neighbor nodes (children) into the Queue.\n4. Repeat dequeueing and expanding until the goal node is reached or the Queue becomes empty.\n\n---\n\n### \ud83c\udf32 Depth-First Search (DFS)\nDepth-First Search explores deeply down a single branch before backtracking to explore alternate branches.\n\n* **Exploration Order**: Traverses as deep as possible along a path until a dead-end is reached, then backtracks to the most recent decision point.\n* **Data Structure**: Uses a **Stack** operating on a **LIFO (Last In, First Out)** basis.\n* **Property**: Lower memory overhead compared to BFS, but does not guarantee the shortest path.\n\n#### \ud83d\udd04 Algorithm Steps\n1. Push the source node onto the Stack.\n2. Pop the top node and visit it.\n3. Push all unvisited adjacent neighbor nodes onto the Stack.\n4. Continue moving deeper into the path.\n5. Backtrack to previous nodes when no unvisited neighbors exist. Repeat until all nodes are explored or the goal is found.\n\n---\n\n### \ud83d\udd04 Iterative Deepening Search (IDS)\nIterative Deepening Search (also known as IDDFS) combines the benefits of both BFS and DFS.\n\n* **Core Idea**: It repeatedly performs Depth-First Search up to an artificially imposed **depth limit** (\\( L \\)). If the goal is not found, the depth limit is incremented by 1 (\\( L = 0, 1, 2, \\dots \\)), and the search restarts from the root.\n* **Advantage**: Achieves the memory efficiency of DFS along with the completeness and optimality guarantees of BFS.\n\n#### \ud83d\udd04 Algorithm Steps\n1. Initialize depth limit \\( L = 0 \\).\n2. Perform Depth-Limited DFS starting from the root node.\n3. If the goal is found within depth limit \\( L \\), terminate and return the solution.\n4. If the goal is not found, increment depth limit (\\( L = L + 1 \\)) and repeat DFS from the root.\n\n---\n\n### \ud83d\udcca Comparison Table: Uninformed Search Methods\n\n| Feature | Breadth-First Search (BFS) | Depth-First Search (DFS) | Iterative Deepening (IDS) |\n|---|---|---|---|\n| **Traversal Order** | Level-by-level | Branch-by-branch (deep) | Iterative depth limits |\n| **Data Structure** | Queue (FIFO) | Stack (LIFO) | Call Stack (LIFO) |\n| **Shortest Path** | Guaranteed (unweighted) | Not guaranteed | Guaranteed (unweighted) |\n| **Memory Demand** | High | Low | Low |\n\n---",
+      "key_points": [
+        "**Core Characteristic**: It explores alternative paths iteratively based solely on the defined problem parameters.",
+        "**Lecture Example**: Imagine searching for your friend Nikhil's classroom in an unfamiliar school knowing only his name. Without room numbers or clues, you must check every classroom one by one until you find him.",
+        "**Exploration Order**: Visits all nodes at depth \\( d \\) before moving to depth \\( d+1 \\).",
+        "**Data Structure**: Uses a **Queue** operating on a **FIFO (First In, First Out)** basis.",
+        "**Property**: Guarantees finding the **shortest path** in an unweighted graph.",
+        "**Exploration Order**: Traverses as deep as possible along a path until a dead-end is reached, then backtracks to the most recent decision point."
+      ],
+      "diagram": "graph TD\n    A[Uninformed Search] --> B[BFS: Queue / Level-Order]\n    A --> C[DFS: Stack / Depth-Order]\n    A --> D[IDS: Increasing Depth Limit]"
+    },
+    {
+      "id": "topic-3",
+      "title": "\ud83c\udfaf Informed Search Strategies",
+      "content": "## \ud83c\udfaf Informed Search Strategies\n\nInformed search strategies utilize domain-specific hints or problem knowledge via a **Heuristic Function** \\( h(n) \\) to guide the search process efficiently towards the goal.\n\n* **Lecture Example**: Finding a route on a map using a straight-line distance towards the destination as a clue to select roads that move closer to the goal.\n\n---\n\n### \u26a1 Greedy Best-First Search\nGreedy Best-First Search selects the next expansion node that appears closest to the goal based exclusively on its heuristic evaluation.\n\n* **Evaluation Function**: \n  \\[\n  f(n) = h(n)\n  \\]\n  *(where \\( h(n) \\) is the estimated cost from node \\( n \\) to the goal).*\n* **Greedy Nature**: It makes immediate, locally optimal choices using \\( h(n) \\) while ignoring the actual accumulated path cost \\( g(n) \\).\n\n#### \ud83d\udcd0 Lecture Numerical Example\nGiven starting node \\( S \\) and heuristic values: \\( h(S)=10, h(A)=8, h(B)=6, h(F)=3, h(G)=0 \\):\n1. **Start at \\( S \\)**: Neighbors are \\( A \\ (h=8) \\) and \\( B \\ (h=6) \\).\n2. **Select \\( B \\)**: Since \\( h(B) = 6 < h(A) = 8 \\).\n3. **From \\( B \\)**: Neighbors evaluated via \\( h(n) \\); selects \\( F \\ (h=3) \\).\n4. **From \\( F \\)**: Reaches goal node \\( G \\ (h=0) \\).\n5. **Final Selected Path**: \\( S \\rightarrow B \\rightarrow F \\rightarrow G \\).\n\n---\n\n### \u2b50\ufe0f A* Search Algorithm\nA* Search combines path cost already traveled with estimated heuristic cost to determine the globally optimal path.\n\n* **Evaluation Function**:\n  \\[\n  f(n) = g(n) + h(n)\n  \\]\n  * \\( g(n) \\): Actual cost incurred from the start node to current node \\( n \\).\n  * \\( h(n) \\): Estimated heuristic cost from node \\( n \\) to the goal node.\n  * \\( f(n) \\): Total estimated path cost through node \\( n \\).\n\n```mermaid\ngraph LR\n    A[Start Node] --> B[\"Calculate f(n) = g(n) + h(n)\"]\n    B --> C[Select Lowest f(n)]\n    C --> D{Goal Node?}\n    D -- Yes --> E[Optimal Path Found]\n    D -- No --> F[Expand & Update Neighbors]\n    F --> B\n```\n\n#### \ud83d\udd04 Algorithm Steps\n1. Compute \\( f(n) = g(n) + h(n) \\) for the initial root node.\n2. Maintain `OPEN` (unvisited) and `CLOSED` (visited) node lists.\n3. Select the node from `OPEN` with the smallest \\( f(n) \\) value.\n4. Check if the selected node is the goal node:\n   * If **Yes**: Stop and return the optimal path.\n   * If **No**: Expand the node, calculate \\( f(n) \\) for all newly generated neighbors, move current node to `CLOSED`, and repeat.\n\n---",
+      "key_points": [
+        "**Lecture Example**: Finding a route on a map using a straight-line distance towards the destination as a clue to select roads that move closer to the goal.",
+        "**Evaluation Function**:",
+        "**Greedy Nature**: It makes immediate, locally optimal choices using \\( h(n) \\) while ignoring the actual accumulated path cost \\( g(n) \\).",
+        "**Evaluation Function**:",
+        "\\( g(n) \\): Actual cost incurred from the start node to current node \\( n \\).",
+        "\\( h(n) \\): Estimated heuristic cost from node \\( n \\) to the goal node."
+      ],
+      "diagram": "graph LR\n    A[Start Node] --> B[\"Calculate f(n) = g(n) + h(n)\"]\n    B --> C[Select Lowest f(n)]\n    C --> D{Goal Node?}\n    D -- Yes --> E[Optimal Path Found]\n    D -- No --> F[Expand & Update Neighbors]\n    F --> B"
+    },
+    {
+      "id": "topic-4",
+      "title": "\ud83e\udde0 Heuristic Functions & Optimization Techniques",
+      "content": "## \ud83e\udde0 Heuristic Functions & Optimization Techniques\n\n### \ud83d\udcd0 Heuristic Function \\( h(n) \\)\nA **Heuristic Function** \\( h(n) \\) provides an estimated guess of the path cost from node \\( n \\) to the target goal.\n* **Purpose**: Avoids exhaustively searching all paths by prioritizing nodes that appear most promising.\n* **Lecture Example**: Using straight-line distance from Delhi to Lucknow to estimate proximity to the destination.\n\n---\n\n### \ud83d\udcc8 Optimization & Hill Climbing\n**Optimization** refers to the process of finding the best possible solution (yielding maximum benefit or minimum cost/time) among all available choices.\n\n#### \u26f0\ufe0f Hill Climbing Algorithm\nHill Climbing is a local search optimization technique where the algorithm continuously moves in the upward direction (improving state) to reach the highest peak (solution).\n\n* **Metaphor**: Climbing a mountain in dense fog where you can only view neighboring steps. You move upwards step-by-step and stop when no neighboring step is higher.\n* **Local Optimum**: The highest point among immediate neighboring states where search stops, which may not always be the global peak.\n\n#### \ud83d\udccc Types of Hill Climbing\n1. **Simple Hill Climbing**: Evaluates neighbor nodes one by one and immediately moves to the **first** neighbor that offers a higher/better value than the current state.\n2. **Steepest-Ascent Hill Climbing**: Evaluates **all** neighboring states first and selects the single **best** (highest) neighbor to move to.\n3. **Stochastic Hill Climbing**: Selects a higher neighbor state **randomly** to avoid picking a deterministic path.\n\n---\n\n### \ud83e\uddea Simulated Annealing\nSimulated Annealing (SA) is an advanced local search algorithm designed to overcome local optima by allowing occasional \"downhill\" moves.\n\n* **Metallurgical Analogy**: Inspired by the process of annealing metals\u2014heating a metal to a high temperature and cooling it slowly to allow atoms to settle into a strong, optimal structural layout.\n* **High Temperature Phase**: Allows accepting worse/downhill moves to broadly explore the search space and escape local optima traps.\n* **Cooling Phase**: As the temperature gradually decreases, the algorithm restricts downhill moves and converges carefully on the global optimum solution.\n\n---",
+      "key_points": [
+        "**Purpose**: Avoids exhaustively searching all paths by prioritizing nodes that appear most promising.",
+        "**Lecture Example**: Using straight-line distance from Delhi to Lucknow to estimate proximity to the destination.",
+        "**Metaphor**: Climbing a mountain in dense fog where you can only view neighboring steps. You move upwards step-by-step and stop when no neighboring step is higher.",
+        "**Local Optimum**: The highest point among immediate neighboring states where search stops, which may not always be the global peak.",
+        "**Metallurgical Analogy**: Inspired by the process of annealing metals\u2014heating a metal to a high temperature and cooling it slowly to allow atoms to settle into a strong, optimal structural layout.",
+        "**High Temperature Phase**: Allows accepting worse/downhill moves to broadly explore the search space and escape local optima traps."
+      ],
+      "diagram": null
+    },
+    {
+      "id": "topic-5",
+      "title": "\ud83e\udde9 Constraint Satisfaction Problems (CSP)",
+      "content": "## \ud83e\udde9 Constraint Satisfaction Problems (CSP)\n\nA **Constraint Satisfaction Problem (CSP)** involves finding valid variable assignments such that all specified conditions (**constraints**) are satisfied without violation.\n\n### \ud83d\udccc Lecture Example: Student Seating\n* **Problem**: Seat 3 students (\\( A, B, C \\)) across 3 available chairs (\\( 1, 2, 3 \\)).\n* **Constraint**: Student \\( A \\) and Student \\( B \\) cannot sit adjacent to each other.\n* **Solution Assignment**: Place Student \\( C \\) in Chair 2 (middle), Student \\( A \\) in Chair 1, and Student \\( B \\) in Chair 3.\n\n```mermaid\ngraph LR\n    A[CSP Components] --> B[\"Variables (X): A, B, C\"]\n    A --> C[\"Domains (D): Chairs 1, 2, 3\"]\n    A --> D[\"Constraints (C): A and B not adjacent\"]\n```\n\n### \ud83e\udde9 Core Components of CSP\n1. **Variables (\\( X \\))**: The elements requiring value assignments (e.g., \\( A, B, C \\)).\n2. **Domain (\\( D \\))**: The set of permissible values available for each variable (e.g., Chairs 1, 2, 3).\n3. **Constraints (\\( C \\))**: Explicit mathematical or logical rules restricting specific variable assignments (e.g., \\( A \\neq \\text{adjacent to } B \\)).\n\n---",
+      "key_points": [
+        "**Problem**: Seat 3 students (\\( A, B, C \\)) across 3 available chairs (\\( 1, 2, 3 \\)).",
+        "**Constraint**: Student \\( A \\) and Student \\( B \\) cannot sit adjacent to each other.",
+        "**Solution Assignment**: Place Student \\( C \\) in Chair 2 (middle), Student \\( A \\) in Chair 1, and Student \\( B \\) in Chair 3."
+      ],
+      "diagram": "graph LR\n    A[CSP Components] --> B[\"Variables (X): A, B, C\"]\n    A --> C[\"Domains (D): Chairs 1, 2, 3\"]\n    A --> D[\"Constraints (C): A and B not adjacent\"]"
+    },
+    {
+      "id": "topic-6",
+      "title": "\ud83c\udfae Game Playing Algorithms",
+      "content": "## \ud83c\udfae Game Playing Algorithms\n\nGame playing algorithms address adversarial decision-making environments where AI agents must select optimal strategies against opponents.\n\n* **Game Categories**: Single-player, Two-player (Adversarial), and Multi-player games.\n\n---\n\n### \u265f\ufe0f Minimax Algorithm\nMinimax is a decision-making algorithm designed for two-player, zero-sum, perfect-information games (e.g., Chess, Tic-Tac-Toe).\n\n* **Players**:\n  * **MAX (AI)**: Attempts to **maximize** its score.\n  * **MIN (Opponent)**: Attempts to **minimize** MAX's score/benefit.\n* **Execution**: Evaluates game tree states bottom-up. Alternating layers select minimum values at MIN nodes and maximum values at MAX nodes.\n\n#### \ud83d\udcd0 Minimax Evaluation Example\n* Given leaf layer values: \\( [3, 5] \\) under left MIN node; \\( [2, 9] \\) under right MIN node.\n* **Left MIN Choice**: \\( \\min(3, 5) = 3 \\).\n* **Right MIN Choice**: \\( \\min(2, 9) = 2 \\).\n* **Root MAX Choice**: \\( \\max(3, 2) = 3 \\).\n\n---\n\n### \u2702\ufe0f Alpha-Beta Pruning\nAlpha-Beta Pruning is an optimized variant of the Minimax algorithm that reduces the number of evaluated nodes in the game tree by pruning unpromising branches.\n\n* **Alpha (\\( \\alpha \\))**: The best (highest) value that **MAX** can guarantee so far.\n* **Beta (\\( \\beta \\))**: The best (lowest) value that **MIN** can guarantee so far.\n* **Pruning Condition**: Prune (cut off) a branch whenever:\n  \\[\n  \\alpha \\ge \\beta\n  \\]\n\n```mermaid\ngraph TD\n    A[Max Node: alpha] --> B[Min Node: beta]\n    B --> C[Evaluate Children]\n    C --> D{\"Is alpha >= beta?\"}\n    D -- Yes --> E[Pruning Triggered: Cut Branch]\n    D -- No --> F[Continue Search]\n```\n\n---\n\n### \ud83c\udfb2 Stochastic & Partially Observable Games\n\n#### \ud83c\udfb2 Stochastic Games\nGames that combine deterministic player choices with elements of randomness or luck.\n* **Key Factor**: Game outcomes depend on player actions combined with random chance (e.g., dice rolls, card shuffling).\n* **Examples**: Ludo, Snakes & Ladders, Poker, Monopoly.\n\n#### \ud83d\ude48 Partially Observable Games\nGames where players lack complete information regarding the current game state.\n* **Key Factor**: Players make moves with incomplete visibility, forcing them to reason under uncertainty.\n* **Examples**: Poker, Rummy, Bridge (players see their own cards but cannot see opponent cards).",
+      "key_points": [
+        "**Game Categories**: Single-player, Two-player (Adversarial), and Multi-player games.",
+        "**Players**:",
+        "**MAX (AI)**: Attempts to **maximize** its score.",
+        "**MIN (Opponent)**: Attempts to **minimize** MAX's score/benefit.",
+        "**Execution**: Evaluates game tree states bottom-up. Alternating layers select minimum values at MIN nodes and maximum values at MAX nodes.",
+        "Given leaf layer values: \\( [3, 5] \\) under left MIN node; \\( [2, 9] \\) under right MIN node."
+      ],
+      "diagram": "graph TD\n    A[Max Node: alpha] --> B[Min Node: beta]\n    B --> C[Evaluate Children]\n    C --> D{\"Is alpha >= beta?\"}\n    D -- Yes --> E[Pruning Triggered: Cut Branch]\n    D -- No --> F[Continue Search]"
+    }
+  ],
+  "quiz": [
+    {
+      "id": "q-1",
+      "topic": "\ud83d\udd0d Uninformed Search Strategies",
+      "question": "Which statement regarding \ud83d\udd0d Uninformed Search Strategies is strictly correct based on the lecture?",
+      "options": [
+        "It contradicts the core principle of \ud83d\udd0d Uninformed Search Strategies.",
+        "Core Characteristic: It explores alternative paths iteratively based solely on the defined problem parameters.",
+        "It is completely handled outside OS memory space.",
+        "It eliminates all resource requirements."
+      ],
+      "correct_index": 1,
+      "explanation": "As covered in the lecture: Core Characteristic: It explores alternative paths iteratively based solely on the defined problem parameters."
+    },
+    {
+      "id": "q-2",
+      "topic": "\ud83d\udd0d Uninformed Search Strategies",
+      "question": "In the context of \ud83d\udd0d Uninformed Search Strategies, what key property was emphasized by the lecturer?",
+      "options": [
+        "It is restricted to single-threaded CPU architectures.",
+        "It operates without any data structures.",
+        "Lecture Example: Imagine searching for your friend Nikhil's classroom in an unfamiliar school knowing only his name. Without room numbers or clues, you must check every classroom one by one until you find him.",
+        "It requires manual memory deallocation per thread."
+      ],
+      "correct_index": 2,
+      "explanation": "Lecture note detail: Lecture Example: Imagine searching for your friend Nikhil's classroom in an unfamiliar school knowing only his name. Without room numbers or clues, you must check every classroom one by one until you find him."
+    },
+    {
+      "id": "q-3",
+      "topic": "\ud83c\udfaf Informed Search Strategies",
+      "question": "Which statement regarding \ud83c\udfaf Informed Search Strategies is strictly correct based on the lecture?",
+      "options": [
+        "Lecture Example: Finding a route on a map using a straight-line distance towards the destination as a clue to select roads that move closer to the goal.",
+        "It eliminates all resource requirements.",
+        "It contradicts the core principle of \ud83c\udfaf Informed Search Strategies.",
+        "It is completely handled outside OS memory space."
+      ],
+      "correct_index": 0,
+      "explanation": "As covered in the lecture: Lecture Example: Finding a route on a map using a straight-line distance towards the destination as a clue to select roads that move closer to the goal."
+    },
+    {
+      "id": "q-4",
+      "topic": "\ud83c\udfaf Informed Search Strategies",
+      "question": "In the context of \ud83c\udfaf Informed Search Strategies, what key property was emphasized by the lecturer?",
+      "options": [
+        "Evaluation Function:",
+        "It is restricted to single-threaded CPU architectures.",
+        "It requires manual memory deallocation per thread.",
+        "It operates without any data structures."
+      ],
+      "correct_index": 0,
+      "explanation": "Lecture note detail: Evaluation Function:"
+    },
+    {
+      "id": "q-5",
+      "topic": "\ud83e\udde0 Heuristic Functions & Optimization Techniques",
+      "question": "Which statement regarding \ud83e\udde0 Heuristic Functions & Optimization Techniques is strictly correct based on the lecture?",
+      "options": [
+        "It eliminates all resource requirements.",
+        "It contradicts the core principle of \ud83e\udde0 Heuristic Functions & Optimization Techniques.",
+        "Purpose: Avoids exhaustively searching all paths by prioritizing nodes that appear most promising.",
+        "It is completely handled outside OS memory space."
+      ],
+      "correct_index": 2,
+      "explanation": "As covered in the lecture: Purpose: Avoids exhaustively searching all paths by prioritizing nodes that appear most promising."
+    },
+    {
+      "id": "q-6",
+      "topic": "\ud83e\udde0 Heuristic Functions & Optimization Techniques",
+      "question": "In the context of \ud83e\udde0 Heuristic Functions & Optimization Techniques, what key property was emphasized by the lecturer?",
+      "options": [
+        "Lecture Example: Using straight-line distance from Delhi to Lucknow to estimate proximity to the destination.",
+        "It operates without any data structures.",
+        "It is restricted to single-threaded CPU architectures.",
+        "It requires manual memory deallocation per thread."
+      ],
+      "correct_index": 0,
+      "explanation": "Lecture note detail: Lecture Example: Using straight-line distance from Delhi to Lucknow to estimate proximity to the destination."
+    },
+    {
+      "id": "q-7",
+      "topic": "\ud83e\udde9 Constraint Satisfaction Problems (CSP)",
+      "question": "Which statement regarding \ud83e\udde9 Constraint Satisfaction Problems (CSP) is strictly correct based on the lecture?",
+      "options": [
+        "It is completely handled outside OS memory space.",
+        "Problem: Seat 3 students (\\( A, B, C \\)) across 3 available chairs (\\( 1, 2, 3 \\)).",
+        "It eliminates all resource requirements.",
+        "It contradicts the core principle of \ud83e\udde9 Constraint Satisfaction Problems (CSP)."
+      ],
+      "correct_index": 1,
+      "explanation": "As covered in the lecture: Problem: Seat 3 students (\\( A, B, C \\)) across 3 available chairs (\\( 1, 2, 3 \\))."
+    },
+    {
+      "id": "q-8",
+      "topic": "\ud83e\udde9 Constraint Satisfaction Problems (CSP)",
+      "question": "In the context of \ud83e\udde9 Constraint Satisfaction Problems (CSP), what key property was emphasized by the lecturer?",
+      "options": [
+        "It operates without any data structures.",
+        "It requires manual memory deallocation per thread.",
+        "It is restricted to single-threaded CPU architectures.",
+        "Constraint: Student \\( A \\) and Student \\( B \\) cannot sit adjacent to each other."
+      ],
+      "correct_index": 3,
+      "explanation": "Lecture note detail: Constraint: Student \\( A \\) and Student \\( B \\) cannot sit adjacent to each other."
+    },
+    {
+      "id": "q-9",
+      "topic": "\ud83c\udfae Game Playing Algorithms",
+      "question": "Which statement regarding \ud83c\udfae Game Playing Algorithms is strictly correct based on the lecture?",
+      "options": [
+        "It is completely handled outside OS memory space.",
+        "Game Categories: Single-player, Two-player (Adversarial), and Multi-player games.",
+        "It contradicts the core principle of \ud83c\udfae Game Playing Algorithms.",
+        "It eliminates all resource requirements."
+      ],
+      "correct_index": 1,
+      "explanation": "As covered in the lecture: Game Categories: Single-player, Two-player (Adversarial), and Multi-player games."
+    },
+    {
+      "id": "q-10",
+      "topic": "\ud83c\udfae Game Playing Algorithms",
+      "question": "In the context of \ud83c\udfae Game Playing Algorithms, what key property was emphasized by the lecturer?",
+      "options": [
+        "It operates without any data structures.",
+        "It is restricted to single-threaded CPU architectures.",
+        "It requires manual memory deallocation per thread.",
+        "Players:"
+      ],
+      "correct_index": 3,
+      "explanation": "Lecture note detail: Players:"
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-1",
+      "front": "What is Uninformed Search Strategies?",
+      "back": "This lecture covers core problem-solving methodologies in Artificial Intelligence, spanning **Uninformed Search Strategies** (blind search), **Informed Search Strategies** (heuristic search), **Heuristic Functions & Optimization Techniques** (Hill Climbing, Simulated Annealing), **Constraint Satisfaction Problems (CSP)**, and adversarial **Game Playing Algorithms** (Minimax, Alpha-Beta Pruning, Stochastic/Partially Observable Games)."
+    },
+    {
+      "id": "fc-2",
+      "front": "What is Informed Search Strategies?",
+      "back": "This lecture covers core problem-solving methodologies in Artificial Intelligence, spanning **Uninformed Search Strategies** (blind search), **Informed Search Strategies** (heuristic search), **Heuristic Functions & Optimization Techniques** (Hill Climbing, Simulated Annealing), **Constraint Satisfaction Problems (CSP)**, and adversarial **Game Playing Algorithms** (Minimax, Alpha-Beta Pruning, Stochastic/Partially Observable Games)."
+    },
+    {
+      "id": "fc-3",
+      "front": "What is Constraint Satisfaction Problems (CSP)?",
+      "back": "This lecture covers core problem-solving methodologies in Artificial Intelligence, spanning **Uninformed Search Strategies** (blind search), **Informed Search Strategies** (heuristic search), **Heuristic Functions & Optimization Techniques** (Hill Climbing, Simulated Annealing), **Constraint Satisfaction Problems (CSP)**, and adversarial **Game Playing Algorithms** (Minimax, Alpha-Beta Pruning, Stochastic/Partially Observable Games)."
+    },
+    {
+      "id": "fc-4",
+      "front": "What is Game Playing Algorithms?",
+      "back": "This lecture covers core problem-solving methodologies in Artificial Intelligence, spanning **Uninformed Search Strategies** (blind search), **Informed Search Strategies** (heuristic search), **Heuristic Functions & Optimization Techniques** (Hill Climbing, Simulated Annealing), **Constraint Satisfaction Problems (CSP)**, and adversarial **Game Playing Algorithms** (Minimax, Alpha-Beta Pruning, Stochastic/Partially Observable Games)."
+    },
+    {
+      "id": "fc-5",
+      "front": "What is Core Characteristic?",
+      "back": "* **Core Characteristic**: It explores alternative paths iteratively based solely on the defined problem parameters."
+    },
+    {
+      "id": "fc-6",
+      "front": "What is Lecture Example?",
+      "back": "* **Lecture Example**: Imagine searching for your friend Nikhil's classroom in an unfamiliar school knowing only his name."
+    },
+    {
+      "id": "fc-7",
+      "front": "What is Exploration Order?",
+      "back": "* **Exploration Order**: Visits all nodes at depth \\( d \\) before moving to depth \\( d+1 \\)."
+    },
+    {
+      "id": "fc-8",
+      "front": "What is Data Structure?",
+      "back": "* **Data Structure**: Uses a **Queue** operating on a **FIFO (First In, First Out)** basis."
+    },
+    {
+      "id": "fc-9",
+      "front": "What is Queue?",
+      "back": "* **Data Structure**: Uses a **Queue** operating on a **FIFO (First In, First Out)** basis."
+    },
+    {
+      "id": "fc-10",
+      "front": "What is FIFO (First In, First Out)?",
+      "back": "* **Data Structure**: Uses a **Queue** operating on a **FIFO (First In, First Out)** basis."
+    }
+  ],
+  "revision_plan": [
+    {
+      "stage": "24 Hours (Immediate Recall)",
+      "interval": "Day 1",
+      "priority": "High",
+      "goal": "Review core definitions and key facts to consolidate short-term memory.",
+      "topics": [
+        "\ud83d\udd0d Uninformed Search Strategies",
+        "\ud83c\udfaf Informed Search Strategies"
+      ]
+    },
+    {
+      "stage": "3 Days (Reinforcement)",
+      "interval": "Day 3",
+      "priority": "High",
+      "goal": "Re-examine comparison tables and diagram relationships.",
+      "topics": [
+        "\ud83c\udfaf Informed Search Strategies",
+        "\ud83e\udde0 Heuristic Functions & Optimization Techniques"
+      ]
+    },
+    {
+      "stage": "7 Days (Weekly Review)",
+      "interval": "Day 7",
+      "priority": "Medium",
+      "goal": "Solve interactive quiz questions and test recall via flashcards.",
+      "topics": [
+        "\ud83e\udde0 Heuristic Functions & Optimization Techniques",
+        "\ud83e\udde9 Constraint Satisfaction Problems (CSP)"
+      ]
+    },
+    {
+      "stage": "14 Days (Pre-Exam Polish)",
+      "interval": "Day 14",
+      "priority": "Medium",
+      "goal": "Attempt basic and intermediate interview prep questions.",
+      "topics": [
+        "\ud83d\udd0d Uninformed Search Strategies",
+        "\ud83c\udfaf Informed Search Strategies",
+        "\ud83e\udde0 Heuristic Functions & Optimization Techniques",
+        "\ud83e\udde9 Constraint Satisfaction Problems (CSP)",
+        "\ud83c\udfae Game Playing Algorithms"
+      ]
+    },
+    {
+      "stage": "30 Days (Mastery Verification)",
+      "interval": "Day 30",
+      "priority": "Low",
+      "goal": "Final quick scan of exam focus callouts and master summary.",
+      "topics": [
+        "\ud83d\udd0d Uninformed Search Strategies",
+        "\ud83c\udfaf Informed Search Strategies",
+        "\ud83e\udde0 Heuristic Functions & Optimization Techniques",
+        "\ud83e\udde9 Constraint Satisfaction Problems (CSP)",
+        "\ud83c\udfae Game Playing Algorithms"
+      ]
+    }
+  ],
+  "interview_questions": {
+    "basic": [
+      {
+        "id": "ib-1",
+        "question": "Define \ud83d\udd0d Uninformed Search Strategies in simple terms. What is its fundamental role?",
+        "answer": "**Core Characteristic**: It explores alternative paths iteratively based solely on the defined problem parameters."
+      },
+      {
+        "id": "ib-4",
+        "question": "Define \ud83e\udde9 Constraint Satisfaction Problems (CSP) in simple terms. What is its fundamental role?",
+        "answer": "**Problem**: Seat 3 students (\\( A, B, C \\)) across 3 available chairs (\\( 1, 2, 3 \\))."
+      }
+    ],
+    "intermediate": [
+      {
+        "id": "ii-2",
+        "question": "How does \ud83c\udfaf Informed Search Strategies handle resource allocation or execution compared to alternative approaches?",
+        "answer": "**Lecture Example**: Finding a route on a map using a straight-line distance towards the destination as a clue to select roads that move closer to the goal. **Evaluation Function**:"
+      },
+      {
+        "id": "ii-5",
+        "question": "How does \ud83c\udfae Game Playing Algorithms handle resource allocation or execution compared to alternative approaches?",
+        "answer": "**Game Categories**: Single-player, Two-player (Adversarial), and Multi-player games. **Players**:"
+      }
+    ],
+    "advanced": [
+      {
+        "id": "ia-3",
+        "question": "What are the architectural trade-offs and common performance pitfalls associated with \ud83e\udde0 Heuristic Functions & Optimization Techniques?",
+        "answer": "**Purpose**: Avoids exhaustively searching all paths by prioritizing nodes that appear most promising. **High Temperature Phase**: Allows accepting worse/downhill moves to broadly explore the search space and escape local optima traps."
+      }
+    ]
+  }
+}

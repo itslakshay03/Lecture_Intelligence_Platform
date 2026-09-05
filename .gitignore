@@ -1,0 +1,54 @@
+# ================================================================
+# LectraAI — root .gitignore
+# Sub-directories keep their own .gitignore (backend/, frontend/,
+# research/); this file covers cross-cutting and belt-and-suspenders
+# rules so nothing sensitive or machine-specific can slip in.
+# ================================================================
+
+# ---- Dependencies / virtual environments ----
+node_modules/
+venv/
+.venv/
+env/
+
+# ---- Python caches / coverage ----
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+
+# ---- Frontend build output (regenerable via `npm run build`) ----
+frontend/dist/
+dist/
+dist-ssr/
+*.local
+
+# ---- Logs ----
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# ---- SECRETS (never commit) ----
+.env
+backend/.env
+cookies.txt
+backend/cookies.txt
+
+# ---- Runtime SQLite DB (research-relevant subset already extracted
+#      to research/results/raw/phase5/expD_latency_real_regen_batch.json) ----
+backend/data/
+
+# ---- Generated PDFs + transient PDF-render scratch (research uses the
+#      .json study packs, not the .pdf) ----
+backend/output/*.pdf
+backend/output/temp/
+
+# ---- Editor / OS metadata ----
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.suo
+*.sw?

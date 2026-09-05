@@ -1,0 +1,73 @@
+{
+  "metric": "lectraai_vs_naive_divergence_sec (NOT an accuracy metric -- no human ground truth exists; this only measures how much LectraAI real method output differs from the naive baseline real output, both real, on the same 7 real lectures)",
+  "per_lecture": [
+    {
+      "video_id": "3MqyDWDpZoI",
+      "n_topics": 5,
+      "n_topics_with_lectraai_timestamp": 3,
+      "duration_sec": 393.0,
+      "mean_abs_diff_vs_naive_sec": 150.2
+    },
+    {
+      "video_id": "1msEo8PIcbw",
+      "n_topics": 3,
+      "n_topics_with_lectraai_timestamp": 0,
+      "duration_sec": 714.2900000000001,
+      "mean_abs_diff_vs_naive_sec": null
+    },
+    {
+      "video_id": "T4lGm7MjA6Y",
+      "n_topics": 5,
+      "n_topics_with_lectraai_timestamp": 0,
+      "duration_sec": 3702.3190000000004,
+      "mean_abs_diff_vs_naive_sec": null
+    },
+    {
+      "video_id": "uDulBxDb7GM",
+      "n_topics": 3,
+      "n_topics_with_lectraai_timestamp": 2,
+      "duration_sec": 642.0,
+      "mean_abs_diff_vs_naive_sec": 168.5
+    },
+    {
+      "video_id": "VyvTabQHevw",
+      "n_topics": 2,
+      "n_topics_with_lectraai_timestamp": 2,
+      "duration_sec": 777.0,
+      "mean_abs_diff_vs_naive_sec": 101.25
+    },
+    {
+      "video_id": "WJ-UaAaumNA",
+      "n_topics": 5,
+      "n_topics_with_lectraai_timestamp": 5,
+      "duration_sec": 1139.0,
+      "mean_abs_diff_vs_naive_sec": 143.51999999999998
+    },
+    {
+      "video_id": "ZtVw2iuFI2w",
+      "n_topics": 2,
+      "n_topics_with_lectraai_timestamp": 2,
+      "duration_sec": 780.0,
+      "mean_abs_diff_vs_naive_sec": 177.0
+    }
+  ],
+  "overall": {
+    "n_topic_comparisons": 14,
+    "mean_abs_diff_sec": 147.2642857142857,
+    "median_abs_diff_sec": 124.0,
+    "sd_abs_diff_sec": 92.99349528238609
+  },
+  "ground_truth_status": "DATA_REQUIRED -- no human timestamp annotation exists (see Phase 5 report Section 9)",
+  "topic_timestamp_coverage": {
+    "definition": "Fraction of all real topics (across all 7 real lectures) to which LectraAI real method (_extract_grounded_timestamps) actually assigned a timestamp -- vs. topics that got NO timestamp at all (only the fixed 00:00 intro entry exists in timestamps[], decoupled from that topic)",
+    "total_topics_across_dataset": 25,
+    "total_topics_with_lectraai_timestamp": 14,
+    "coverage_pct": 56.0,
+    "lectures_with_zero_topic_coverage": [
+      "1msEo8PIcbw",
+      "T4lGm7MjA6Y"
+    ],
+    "n_lectures_with_zero_topic_coverage": 2,
+    "n_lectures_total": 7
+  }
+}

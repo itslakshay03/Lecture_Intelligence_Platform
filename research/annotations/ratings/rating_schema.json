@@ -1,0 +1,43 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "LectraAI Research — Artifact Rating Record",
+  "description": "One record per (lecture, artifact_type, condition, item) rated by one reviewer. Used for Experiment B (artifact quality) and Experiment C (notes/prompt ablation). Reviewers see only the blinded condition_label ('System A'/'System B'), never the true condition, at rating time — see annotations/ratings/blinding_protocol.md.",
+  "type": "object",
+  "required": ["lecture_id", "artifact_type", "condition_label", "reviewer_id", "rated_at", "scores"],
+  "properties": {
+    "lecture_id": { "type": "string" },
+    "artifact_type": { "type": "string", "enum": ["notes", "quiz_item", "flashcard", "interview_item"] },
+    "item_id": { "type": "string", "description": "e.g. a specific quiz question id — omit/null for a whole-document 'notes' rating." },
+    "condition_label": { "type": "string", "enum": ["System A", "System B"], "description": "Blinded label. The true condition (e.g. 'deterministic' vs 'direct_llm', or 'constrained_prompt' vs 'unconstrained_prompt') is looked up ONLY after all ratings are collected, from a separate, reviewer-inaccessible mapping file." },
+    "reviewer_id": { "type": "string" },
+    "rated_at": { "type": "string", "format": "date-time" },
+    "scores": {
+      "type": "object",
+      "description": "Only the dimensions relevant to artifact_type are populated (see rubric .md files in this directory) — do not force every dimension for every artifact type (Phase 4 §8).",
+      "properties": {
+        "factual_correctness": { "$ref": "#/definitions/likert5" },
+        "groundedness": { "$ref": "#/definitions/likert5" },
+        "completeness_coverage": { "$ref": "#/definitions/likert5" },
+        "relevance": { "$ref": "#/definitions/likert5" },
+        "clarity_usefulness": { "$ref": "#/definitions/likert5" },
+        "answer_correctness_binary": { "type": "boolean", "description": "Quiz/flashcard/interview only: is the marked/given answer actually correct per the source notes?" },
+        "distractor_plausibility": { "$ref": "#/definitions/likert5", "description": "Quiz only." },
+        "perceived_difficulty": { "type": "string", "enum": ["Easy", "Medium", "Hard"], "description": "Quiz/interview only." }
+      }
+    },
+    "unsupported_claims": {
+      "type": "array",
+      "description": "Notes/prompt-ablation only (Experiment C): each unsupported/ungrounded claim the reviewer identified, as a short quote from the generated text.",
+      "items": { "type": "string" }
+    },
+    "reviewer_notes": { "type": "string" }
+  },
+  "definitions": {
+    "likert5": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5,
+      "description": "1 = very poor, 2 = poor, 3 = acceptable, 4 = good, 5 = excellent (Phase 4 §8 fixed scale)."
+    }
+  }
+}

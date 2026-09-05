@@ -1,0 +1,36 @@
+{
+  "n_lectures": 7,
+  "duration_sec": {
+    "mean": 1163.9441428571429,
+    "median": 777.0,
+    "min": 393.0,
+    "max": 3702.319,
+    "sd": 1140.9117266482433
+  },
+  "transcript_chars": {
+    "mean": 17109.285714285714,
+    "median": 10590.0,
+    "min": 5326,
+    "max": 59821,
+    "sd": 19006.247040681876
+  },
+  "subject_domain_counts": {
+    "Operating Systems": 2,
+    "Computer Networks": 2,
+    "Artificial Intelligence": 1,
+    "DBMS": 2
+  },
+  "topic_category_counts": {
+    "COMPARISON": 3,
+    "ARCHITECTURE": 2,
+    "ALGORITHM": 1,
+    "THEORY": 1
+  },
+  "duration_band_counts": {
+    "Short": 5,
+    "Long": 1,
+    "Medium": 1
+  },
+  "transcript_source_known_count": 0,
+  "note": "This is the CURRENT (Phase 5) dataset, N=7, short of the Phase 3-recommended N=18-20. See PHASE_5 report Data Still Required section."
+}

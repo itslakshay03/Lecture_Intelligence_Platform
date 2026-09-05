@@ -1,0 +1,15 @@
+{
+  "metric": "flashcard_back_verbatim_overlap_with_notes (OBJECTIVE/MECHANICAL -- exact substring match; measures literal text reuse, NOT correctness/relevance/quality)",
+  "lecture_id": "3MqyDWDpZoI",
+  "deterministic_condition": {
+    "n_cards": 10,
+    "n_verbatim_in_notes": 10,
+    "verbatim_pct": 100.0
+  },
+  "direct_llm_condition": {
+    "n_cards": 9,
+    "n_verbatim_in_notes": 1,
+    "verbatim_pct": 11.1
+  },
+  "interpretation_caveat": "A HIGH verbatim rate is expected-by-construction for the deterministic condition (Phase 1: _build_flashcards extracts the actual sentence containing a bold term). A LOW verbatim rate for the LLM condition does not imply lower quality -- paraphrasing is not a defect. This metric measures extraction-vs-paraphrase behavior, not quality; it is NOT a substitute for the human correctness/relevance rubric (HUMAN_DATA_REQUIRED)."
+}

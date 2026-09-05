@@ -1,0 +1,63 @@
+{
+  "metric": "distractor_uniqueness_rate (OBJECTIVE/AUTOMATED -- NOT a human-judged quality rating)",
+  "lecture_id": "3MqyDWDpZoI",
+  "deterministic_condition": {
+    "n_distractors": 18,
+    "n_unique": 8,
+    "uniqueness_pct": 44.4,
+    "all_distractors": [
+      "It contradicts the core principle of Multi-Programmed Operating System.",
+      "It eliminates all resource requirements.",
+      "It is completely handled outside OS memory space.",
+      "It is restricted to single-threaded CPU architectures.",
+      "It requires manual memory deallocation per thread.",
+      "It operates without any data structures.",
+      "It eliminates all resource requirements.",
+      "It is completely handled outside OS memory space.",
+      "It contradicts the core principle of ⏱️ Multi-Tasking (Time-Sharing) Operating System.",
+      "It is restricted to single-threaded CPU architectures.",
+      "It requires manual memory deallocation per thread.",
+      "It operates without any data structures.",
+      "It eliminates all resource requirements.",
+      "It contradicts the core principle of 🏫 Classroom Example (Lecture Illustration).",
+      "It is completely handled outside OS memory space.",
+      "It requires manual memory deallocation per thread.",
+      "It operates without any data structures.",
+      "It is restricted to single-threaded CPU architectures."
+    ]
+  },
+  "direct_llm_condition": {
+    "n_distractors": 27,
+    "n_unique": 27,
+    "uniqueness_pct": 100.0,
+    "all_distractors": [
+      "Preemptive",
+      "Time-sliced",
+      "Round-robin",
+      "Minimizing RAM usage",
+      "Minimizing CPU idleness",
+      "Eliminating I/O interrupts",
+      "At predetermined, fixed time intervals",
+      "Whenever a new process enters RAM",
+      "When the system forces a Round Robin preemption",
+      "It terminates the process permanently.",
+      "It allows the process to run until completion without interruption.",
+      "It pauses the CPU completely until the process makes an I/O request.",
+      "Both use time slicing to switch between processes rapidly.",
+      "Both prioritize response time over CPU utilization.",
+      "Both rely on non-preemptive execution control.",
+      "First-Come, First-Served",
+      "Shortest Job Next",
+      "Priority Non-Preemptive",
+      "Main Memory (RAM)",
+      "An Input/Output Device",
+      "A Process",
+      "Improving process response time",
+      "Enabling rapid time slicing",
+      "Maximizing preemptive switching",
+      "Multi-programmed OS offers fast response times for all tasks, while multi-tasking is slower.",
+      "Both system types provide identical response times for later tasks.",
+      "Multi-tasking systems yield slower response times because processes are terminated frequently."
+    ]
+  }
+}

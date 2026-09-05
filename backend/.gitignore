@@ -1,0 +1,39 @@
+
+
+# Virtual Environment
+venv/
+.venv/
+env/
+
+# Python caching
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment variables & secrets
+.env
+cookies.txt
+
+# Database and SQLite runtime WAL/SHM files
+data/
+*.db
+*.db-wal
+*.db-shm
+
+# Generated files / build artifacts
+*.pdf
+*.zip
+# output/ study-pack JSONs ARE tracked (research source data, cited by
+# research/results/RESULT_TRACEABILITY.md); only PDFs (*.pdf above) and
+# the transient render scratch dir are excluded.
+output/temp/
+
+# Testing / Coverage cache
+.pytest_cache/
+.coverage
+
+# Editor and OS metadata
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

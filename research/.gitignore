@@ -1,0 +1,11 @@
+# Python caches only.
+#
+# IMPORTANT: real experimental result files under results/raw/ and
+# results/processed/ (including the 5 figures under
+# results/processed/phase5_5/figures/) ARE tracked — they are
+# non-regenerable research evidence produced in Phases 5, 5.5, and 6
+# (non-deterministic LLM outputs, one-time real latency measurements,
+# transcripts fetched at a fixed point in time). Do not re-add
+# results/raw/* or results/processed/* ignore rules here.
+__pycache__/
+*.pyc

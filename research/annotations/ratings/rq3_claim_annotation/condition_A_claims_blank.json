@@ -1,0 +1,250 @@
+[
+  {
+    "lecture_id": "CAND01",
+    "claim_id": "condition_A-1",
+    "condition": "constrained_SMART_PROMPT_v1",
+    "claim": "Operating systems manage process execution using different scheduling approaches.",
+    "evidence_location": "FILL_IN (quote or timestamp from transcript)",
+    "classification": "FILL_IN (supported | partially_supported | unsupported | factually_incorrect)"
+  },
+  {
+    "lecture_id": "CAND01",
+    "claim_id": "condition_A-2",
+    "condition": "constrained_SMART_PROMPT_v1",
+    "claim": "**Multi-programming** was introduced first to maximize CPU utilization by keeping the CPU busy at all times.",
+    "evidence_location": "FILL_IN (quote or timestamp from transcript)",
+    "classification": "FILL_IN (supported | partially_supported | unsupported | factually_incorrect)"
+  },
+  {
+    "lecture_id": "CAND01",
+    "claim_id": "condition_A-3",
+    "condition": "constrained_SMART_PROMPT_v1",
+    "claim": "**Multi-tasking (Time-Sharing)** evolved to improve system responsiveness by sharing CPU time among multiple processes using preemption.",
+    "evidence_location": "FILL_IN (quote or timestamp from transcript)",
+    "classification": "FILL_IN (supported | partially_supported | unsupported | factually_incorrect)"
+  },
+  {
+    "lecture_id": "CAND01",
+    "claim_id": "condition_A-4",
+    "condition": "constrained_SMART_PROMPT_v1",
+    "claim": "In a **Multi-Programmed Operating System**, as many processes as possible are loaded into the main memory (**RAM**).",
+    "evidence_location": "FILL_IN (quote or timestamp from transcript)",
+    "classification": "FILL_IN (supported | partially_supported | unsupported | factually_incorrect)"
+  },
+  {
+    "lecture_id": "CAND01",
+    "claim_id": "condition_A-5",
+    "condition": "constrained_SMART_PROMPT_v1",
+    "claim": "**Non-Preemptive Scheduling:** Execution is generally non-preemptive. Once the CPU starts executing a process (e.g., $P_1$), it executes it completely before moving to the next processes ($P_2, P_3, P_4$).",
+    "evidence_location": "FILL_IN (quote or timestamp from transcript)",
+    "classification": "FILL_IN (supported | partially_supported | unsupported | factually_incorrect)"
+  },
+  {
+    "lecture_id": "CAND01",
+    "claim_id": "condition_A-6",
+    "condition": "constrained_SMART_PROMPT_v1",
+    "claim": "**I/O Switching:** If a running process voluntarily pauses to perform an **Input/Output (I/O) operation** (such as accessing a file or device), the CPU stops executing that process and switches to another process available in RAM.",
+    "evidence_location": "FILL_IN (quote or timestamp from transcript)",
+    "classification": "FILL_IN (supported | partially_supported | unsupported | factually_incorrect)"
+  },
+  {
+    "lecture_id": "CAND01",
+    "claim_id": "condition_A-7",
+    "condition": "constrained_SMART_PROMPT_v1",
+    "claim": "**Primary Objective:** Minimizing **CPU idle time**. The primary goal is to ensure the CPU remains active as long as processes are available.",
+    "evidence_location": "FILL_IN (quote or timestamp from transcript)",
+    "classification": "FILL_IN (supported | partially_supported | unsupported | factually_incorrect)"
+  },
+  {
+    "lecture_id": "CAND01",
+    "claim_id": "condition_A-8",
+    "condition": "constrained_SMART_PROMPT_v1",
+    "claim": "Imagine 10 students in a classroom, each with 5 questions to solve, and 1 teacher acting as the CPU.",
+    "evidence_location": "FILL_IN (quote or timestamp from transcript)",
+    "classification": "FILL_IN (supported | partially_supported | unsupported | factually_incorrect)"
+  },
+  {
+    "lecture_id": "CAND01",
+    "claim_id": "condition_A-9",
+    "condition": "constrained_SMART_PROMPT_v1",
+    "claim": "The teacher starts with Student 1 and solves all 5 questions sequentially.",
+    "evidence_location": "FILL_IN (quote or timestamp from transcript)",
+    "classification": "FILL_IN (supported | partially_supported | unsupported | factually_incorrect)"
+  },
+  {
+    "lecture_id": "CAND01",
+    "claim_id": "condition_A-10",
+    "condition": "constrained_SMART_PROMPT_v1",
+    "claim": "The teacher moves to Student 2 only after completing Student 1's questions (or if Student 1 voluntarily pauses to leave for another task).",
+    "evidence_location": "FILL_IN (quote or timestamp from transcript)",
+    "classification": "FILL_IN (supported | partially_supported | unsupported | factually_incorrect)"
+  },
+  {
+    "lecture_id": "CAND01",
+    "claim_id": "condition_A-11",
+    "condition": "constrained_SMART_PROMPT_v1",
+    "claim": "In a **Multi-Tasking (Time-Sharing) Operating System**, the CPU divides its time among multiple processes loaded in RAM using pre-allocated time intervals.",
+    "evidence_location": "FILL_IN (quote or timestamp from transcript)",
+    "classification": "FILL_IN (supported | partially_supported | unsupported | factually_incorrect)"
+  },
+  {
+    "lecture_id": "CAND01",
+    "claim_id": "condition_A-12",
+    "condition": "constrained_SMART_PROMPT_v1",
+    "claim": "**Preemptive Scheduling:** Execution is strictly preemptive. The system decides in advance how long a process will run.",
+    "evidence_location": "FILL_IN (quote or timestamp from transcript)",
+    "classification": "FILL_IN (supported | partially_supported | unsupported | factually_incorrect)"
+  },
+  {
+    "lecture_id": "CAND01",
+    "claim_id": "condition_A-13",
+    "condition": "constrained_SMART_PROMPT_v1",
+    "claim": "**Time Slicing:** The CPU executes a process for a fixed time interval. If the process is not finished when the time expires, it is preempted (temporarily paused), scheduled for future completion, and the CPU switches to the next process.",
+    "evidence_location": "FILL_IN (quote or timestamp from transcript)",
+    "classification": "FILL_IN (supported | partially_supported | unsupported | factually_incorrect)"
+  },
+  {
+    "lecture_id": "CAND01",
+    "claim_id": "condition_A-14",
+    "condition": "constrained_SMART_PROMPT_v1",
+    "claim": "**Primary Objective:** Optimizing **response time**. Because the CPU switches rapidly between processes, every process receives CPU time faster, giving quicker responses to the user.",
+    "evidence_location": "FILL_IN (quote or timestamp from transcript)",
+    "classification": "FILL_IN (supported | partially_supported | unsupported | factually_incorrect)"
+  },
+  {
+    "lecture_id": "CAND01",
+    "claim_id": "condition_A-15",
+    "condition": "constrained_SMART_PROMPT_v1",
+    "claim": "**CPU Utilization:** Idleness remains extremely low because processes are continually available in RAM.",
+    "evidence_location": "FILL_IN (quote or timestamp from transcript)",
+    "classification": "FILL_IN (supported | partially_supported | unsupported | factually_incorrect)"
+  },
+  {
+    "lecture_id": "CAND01",
+    "claim_id": "condition_A-16",
+    "condition": "constrained_SMART_PROMPT_v1",
+    "claim": "**Real-World Application:** Used in modern systems like personal laptops using time-sharing algorithms such as **Round Robin**.",
+    "evidence_location": "FILL_IN (quote or timestamp from transcript)",
+    "classification": "FILL_IN (supported | partially_supported | unsupported | factually_incorrect)"
+  },
+  {
+    "lecture_id": "CAND01",
+    "claim_id": "condition_A-17",
+    "condition": "constrained_SMART_PROMPT_v1",
+    "claim": "The teacher decides in advance to solve only 2 questions per student at a time.",
+    "evidence_location": "FILL_IN (quote or timestamp from transcript)",
+    "classification": "FILL_IN (supported | partially_supported | unsupported | factually_incorrect)"
+  },
+  {
+    "lecture_id": "CAND01",
+    "claim_id": "condition_A-18",
+    "condition": "constrained_SMART_PROMPT_v1",
+    "claim": "The teacher solves Questions 1 and 2 for Student 1, preempts to Student 2 to solve Questions 1 and 2, and continues through all 10 students.",
+    "evidence_location": "FILL_IN (quote or timestamp from transcript)",
+    "classification": "FILL_IN (supported | partially_supported | unsupported | factually_incorrect)"
+  },
+  {
+    "lecture_id": "CAND01",
+    "claim_id": "condition_A-19",
+    "condition": "constrained_SMART_PROMPT_v1",
+    "claim": "After reaching the 10th student, the teacher cycles back to Student 1 to solve Questions 3 and 4, and eventually completes Question 5 for everyone.",
+    "evidence_location": "FILL_IN (quote or timestamp from transcript)",
+    "classification": "FILL_IN (supported | partially_supported | unsupported | factually_incorrect)"
+  },
+  {
+    "lecture_id": "CAND01",
+    "claim_id": "condition_A-20",
+    "condition": "constrained_SMART_PROMPT_v1",
+    "claim": "Result: The 10th student gets an initial response much faster than under multi-programming.",
+    "evidence_location": "FILL_IN (quote or timestamp from transcript)",
+    "classification": "FILL_IN (supported | partially_supported | unsupported | factually_incorrect)"
+  },
+  {
+    "lecture_id": "CAND01",
+    "claim_id": "condition_A-21",
+    "condition": "constrained_SMART_PROMPT_v1",
+    "claim": "A[Processes in RAM] --> B{Scheduling Strategy}",
+    "evidence_location": "FILL_IN (quote or timestamp from transcript)",
+    "classification": "FILL_IN (supported | partially_supported | unsupported | factually_incorrect)"
+  },
+  {
+    "lecture_id": "CAND01",
+    "claim_id": "condition_A-22",
+    "condition": "constrained_SMART_PROMPT_v1",
+    "claim": "B -->|Non-Preemptive| C[Multi-Programming: Focus Idle Time]",
+    "evidence_location": "FILL_IN (quote or timestamp from transcript)",
+    "classification": "FILL_IN (supported | partially_supported | unsupported | factually_incorrect)"
+  },
+  {
+    "lecture_id": "CAND01",
+    "claim_id": "condition_A-23",
+    "condition": "constrained_SMART_PROMPT_v1",
+    "claim": "B -->|Preemptive| D[Multi-Tasking: Focus Response Time]",
+    "evidence_location": "FILL_IN (quote or timestamp from transcript)",
+    "classification": "FILL_IN (supported | partially_supported | unsupported | factually_incorrect)"
+  },
+  {
+    "lecture_id": "CAND01",
+    "claim_id": "condition_A-24",
+    "condition": "constrained_SMART_PROMPT_v1",
+    "claim": "| Feature | Multi-Programming | Multi-Tasking / Time-Sharing |",
+    "evidence_location": "FILL_IN (quote or timestamp from transcript)",
+    "classification": "FILL_IN (supported | partially_supported | unsupported | factually_incorrect)"
+  },
+  {
+    "lecture_id": "CAND01",
+    "claim_id": "condition_A-25",
+    "condition": "constrained_SMART_PROMPT_v1",
+    "claim": "| :--- | :--- | :--- |",
+    "evidence_location": "FILL_IN (quote or timestamp from transcript)",
+    "classification": "FILL_IN (supported | partially_supported | unsupported | factually_incorrect)"
+  },
+  {
+    "lecture_id": "CAND01",
+    "claim_id": "condition_A-26",
+    "condition": "constrained_SMART_PROMPT_v1",
+    "claim": "| **Primary Focus** | Minimize CPU idleness | Maximize response time |",
+    "evidence_location": "FILL_IN (quote or timestamp from transcript)",
+    "classification": "FILL_IN (supported | partially_supported | unsupported | factually_incorrect)"
+  },
+  {
+    "lecture_id": "CAND01",
+    "claim_id": "condition_A-27",
+    "condition": "constrained_SMART_PROMPT_v1",
+    "claim": "| **Nature** | Generally non-preemptive | Preemptive |",
+    "evidence_location": "FILL_IN (quote or timestamp from transcript)",
+    "classification": "FILL_IN (supported | partially_supported | unsupported | factually_incorrect)"
+  },
+  {
+    "lecture_id": "CAND01",
+    "claim_id": "condition_A-28",
+    "condition": "constrained_SMART_PROMPT_v1",
+    "claim": "| **Execution Style** | Complete execution sequentially | Time-slice interval execution |",
+    "evidence_location": "FILL_IN (quote or timestamp from transcript)",
+    "classification": "FILL_IN (supported | partially_supported | unsupported | factually_incorrect)"
+  },
+  {
+    "lecture_id": "CAND01",
+    "claim_id": "condition_A-29",
+    "condition": "constrained_SMART_PROMPT_v1",
+    "claim": "| **Switch Trigger** | Voluntary I/O operation | Time interval expiration |",
+    "evidence_location": "FILL_IN (quote or timestamp from transcript)",
+    "classification": "FILL_IN (supported | partially_supported | unsupported | factually_incorrect)"
+  },
+  {
+    "lecture_id": "CAND01",
+    "claim_id": "condition_A-30",
+    "condition": "constrained_SMART_PROMPT_v1",
+    "claim": "| **Response Time** | Slower response | Faster response |",
+    "evidence_location": "FILL_IN (quote or timestamp from transcript)",
+    "classification": "FILL_IN (supported | partially_supported | unsupported | factually_incorrect)"
+  },
+  {
+    "lecture_id": "CAND01",
+    "claim_id": "condition_A-31",
+    "condition": "constrained_SMART_PROMPT_v1",
+    "claim": "| **Real-World System** | Early systems | Modern laptops (e.g., Round Robin) |",
+    "evidence_location": "FILL_IN (quote or timestamp from transcript)",
+    "classification": "FILL_IN (supported | partially_supported | unsupported | factually_incorrect)"
+  }
+]

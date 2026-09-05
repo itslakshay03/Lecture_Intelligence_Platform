@@ -1,0 +1,114 @@
+[
+  {
+    "video_id": "ZtVw2iuFI2w",
+    "task_id": "a52593fd-7163-4ef2-a019-f77436c5f875",
+    "status": "completed",
+    "generation_method": "gemini",
+    "model_name_used": "gemini-3.6-flash",
+    "prompt_version": "SMART_PROMPT_v1",
+    "transcript_char_count": 10424,
+    "stage_durations_sec": {
+      "transcript_fetch": 5.082654,
+      "ai_generation": 19.023483,
+      "transformation": 0.109,
+      "pdf_render": 7.918796
+    },
+    "total_latency_sec": 32.408158
+  },
+  {
+    "video_id": "3MqyDWDpZoI",
+    "task_id": "e4d9ca00-1a4c-4152-8e54-7f7a64780541",
+    "status": "completed",
+    "generation_method": "gemini",
+    "model_name_used": "gemini-3.6-flash",
+    "prompt_version": "SMART_PROMPT_v1",
+    "transcript_char_count": 5326,
+    "stage_durations_sec": {
+      "transcript_fetch": 9.990861,
+      "ai_generation": 19.059846,
+      "transformation": 0.038174,
+      "pdf_render": 4.777626
+    },
+    "total_latency_sec": 34.249027
+  },
+  {
+    "video_id": "1msEo8PIcbw",
+    "task_id": "17f8b563-587e-4488-b97d-c07e71b6416b",
+    "status": "completed",
+    "generation_method": "gemini",
+    "model_name_used": "gemini-3.6-flash",
+    "prompt_version": "SMART_PROMPT_v1",
+    "transcript_char_count": 10590,
+    "stage_durations_sec": {
+      "transcript_fetch": 13.280445,
+      "ai_generation": 19.890491,
+      "transformation": 0.027968,
+      "pdf_render": 4.85801
+    },
+    "total_latency_sec": 38.207742
+  },
+  {
+    "video_id": "T4lGm7MjA6Y",
+    "task_id": "bc04e4a3-6aa8-4ee0-a915-6a0ade74e3b0",
+    "status": "completed",
+    "generation_method": "gemini",
+    "model_name_used": "gemini-3.6-flash",
+    "prompt_version": "SMART_PROMPT_v1",
+    "transcript_char_count": 59821,
+    "stage_durations_sec": {
+      "transcript_fetch": 14.903835,
+      "ai_generation": 45.727983,
+      "transformation": 0.086403,
+      "pdf_render": 5.455858
+    },
+    "total_latency_sec": 66.343903
+  },
+  {
+    "video_id": "uDulBxDb7GM",
+    "task_id": "d41f82bf-a4ee-4fdb-a4a2-c241f16378a7",
+    "status": "completed",
+    "generation_method": "gemini",
+    "model_name_used": "gemini-3.6-flash",
+    "prompt_version": "SMART_PROMPT_v1",
+    "transcript_char_count": 8556,
+    "stage_durations_sec": {
+      "transcript_fetch": 9.393507,
+      "ai_generation": 17.125792,
+      "transformation": 0.032267,
+      "pdf_render": 5.042387
+    },
+    "total_latency_sec": 31.98028
+  },
+  {
+    "video_id": "VyvTabQHevw",
+    "task_id": "b26cab9a-f14e-4a79-b701-43bb630a8eeb",
+    "status": "completed",
+    "generation_method": "gemini",
+    "model_name_used": "gemini-3.6-flash",
+    "prompt_version": "SMART_PROMPT_v1",
+    "transcript_char_count": 11553,
+    "stage_durations_sec": {
+      "transcript_fetch": 9.147616,
+      "ai_generation": 19.36544,
+      "transformation": 0.036916,
+      "pdf_render": 4.522292
+    },
+    "total_latency_sec": 33.266607
+  },
+  {
+    "video_id": "WJ-UaAaumNA",
+    "task_id": "499d4e1b-0186-465d-9b73-c527981fa1f8",
+    "status": "completed",
+    "generation_method": "gemini",
+    "model_name_used": "gemini-3.6-flash",
+    "prompt_version": "SMART_PROMPT_v1",
+    "transcript_char_count": 13495,
+    "stage_durations_sec": {
+      "transcript_fetch": 9.011469,
+      "ai_generation": 24.249921,
+      "transformation": 0.043697,
+      "pdf_render": 4.522874
+    },
+    "total_latency_sec": 38.005236
+  }
+]

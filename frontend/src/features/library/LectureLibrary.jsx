@@ -1,0 +1,130 @@
+import React, { useCallback, useMemo, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { BookOpen, SearchX, Sparkles } from 'lucide-react';
+import Button from '@/components/ui/Button';
+import EmptyState from '@/components/ui/EmptyState';
+import ErrorState from '@/components/ui/ErrorState';
+import { LoadingPanel } from '@/components/ui/Spinner';
+import LectureWorkspace from '@/components/LectureWorkspace';
+import { fetchTaskContent } from '@/api/client';
+import { readRecentLectures } from '@/features/dashboard/lib/recentLectures';
+import LibraryHeader from './LibraryHeader';
+import LibrarySearch from './LibrarySearch';
+import LibrarySort from './LibrarySort';
+import LibraryGrid from './LibraryGrid';
+import { filterAndSortLectures } from './lib/library';
+
+/**
+ * Lecture Library — browses the real `lectra_recent_lectures` history (the
+ * same source of truth Dashboard's "Recent lectures" reads) and reopens a
+ * lecture's real, already-generated study pack by its real taskId via
+ * fetchTaskContent. No new processing task is ever created here.
+ */
+export default function LectureLibrary() {
+  const navigate = useNavigate();
+  const [lectures] = useState(readRecentLectures);
+  const [query, setQuery] = useState('');
+  const [sort, setSort] = useState('newest');
+
+  // null = grid view. Otherwise { taskId, phase: 'loading'|'ready'|'error', studyPack?, error? }
+  const [opened, setOpened] = useState(null);
+
+  const filtered = useMemo(
+    () => filterAndSortLectures(lectures, { query, sort }),
+    [lectures, query, sort],
+  );
+
+  const openLecture = useCallback(async (item) => {
+    setOpened({ taskId: item.taskId, phase: 'loading' });
+    try {
+      const studyPack = await fetchTaskContent(item.taskId);
+      setOpened({ taskId: item.taskId, phase: 'ready', studyPack });
+    } catch (err) {
+      setOpened({ taskId: item.taskId, phase: 'error', error: err.message });
+    }
+  }, []);
+
+  const closeLecture = useCallback(() => setOpened(null), []);
+  const goProcessNew = useCallback(() => navigate('/dashboard'), [navigate]);
+
+  if (opened?.phase === 'loading') {
+    return <LoadingPanel label="Opening study pack…" minHeight="60vh" />;
+  }
+
+  if (opened?.phase === 'error') {
+    return (
+      <div style={{ maxWidth: 620, margin: '0 auto', padding: '3rem 1.25rem' }}>
+        <ErrorState
+          title="Couldn't open this study pack"
+          description={opened.error || 'The task may no longer exist on the backend.'}
+          onRetry={() => openLecture({ taskId: opened.taskId })}
+        />
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '1rem' }}>
+          <Button variant="ghost" size="sm" onClick={closeLecture}>
+            Back to Library
+          </Button>
+        </div>
+      </div>
+    );
+  }
+
+  if (opened?.phase === 'ready') {
+    return (
+      <LectureWorkspace
+        studyPack={opened.studyPack}
+        taskId={opened.taskId}
+        onBack={closeLecture}
+        activeTabOverride={null}
+        backLabel="Back to Library"
+      />
+    );
+  }
+
+  return (
+    <div className="lib-root">
+      <LibraryHeader total={lectures.length} onProcessNew={goProcessNew} />
+
+      {lectures.length === 0 ? (
+        <EmptyState
+          icon={BookOpen}
+          title="Your learning history will appear here"
+          description="Every lecture you process gets a real study pack — notes, quiz, flashcards, revision plan and interview questions — that stays available here so you can reopen it any time."
+          action={
+            <Button variant="primary" size="sm" icon={Sparkles} onClick={goProcessNew}>
+              Process a lecture
+            </Button>
+          }
+        />
+      ) : (
+        <>
+          <div className="lib-toolbar">
+            <LibrarySearch value={query} onChange={setQuery} />
+            <LibrarySort value={sort} onChange={setSort} />
+          </div>
+
+          <p className="lib-result-count" aria-live="polite">
+            {query
+              ? `${filtered.length} of ${lectures.length} lecture${lectures.length === 1 ? '' : 's'}`
+              : `${lectures.length} lecture${lectures.length === 1 ? '' : 's'}`}
+          </p>
+
+          {filtered.length === 0 ? (
+            <EmptyState
+              icon={SearchX}
+              compact
+              title="No lectures found"
+              description={`Nothing matches "${query}". Try a different title or video ID.`}
+              action={
+                <Button variant="outline" size="sm" onClick={() => setQuery('')}>
+                  Clear search
+                </Button>
+              }
+            />
+          ) : (
+            <LibraryGrid items={filtered} onOpen={openLecture} />
+          )}
+        </>
+      )}
+    </div>
+  );
+}

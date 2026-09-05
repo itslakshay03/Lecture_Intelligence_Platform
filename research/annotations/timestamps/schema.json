@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "LectraAI Research — Timestamp Annotation Record",
+  "description": "One file per lecture per annotator, per Phase 4 §7 / Phase 3 §8. Machine-readable, not hand-typed into results tables.",
+  "type": "object",
+  "required": ["lecture_id", "annotator_id", "annotated_at", "topics"],
+  "properties": {
+    "lecture_id": { "type": "string", "description": "Matches dataset/manifest.csv lecture_id (never the raw YouTube ID directly, to keep annotators blind to source where practical)." },
+    "annotator_id": { "type": "string", "description": "Pseudonymous annotator identifier, e.g. 'A1', 'A2'." },
+    "annotated_at": { "type": "string", "format": "date-time" },
+    "annotation_pass": {
+      "type": "string",
+      "enum": ["independent_reference", "adjudication"],
+      "description": "Phase 3/4 protocol: annotators must complete an independent_reference pass BEFORE seeing LectraAI's own output, to avoid anchoring bias. 'adjudication' records the reconciled final version after a disagreement (§ Human Annotation Protocol)."
+    },
+    "topics": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["topic_label", "start_sec", "end_sec", "description", "evidence"],
+        "properties": {
+          "topic_label": { "type": "string", "description": "Annotator's own short label for the topic (independent of LectraAI's topic titles)." },
+          "start_sec": { "type": "number", "minimum": 0 },
+          "end_sec": { "type": "number", "minimum": 0, "description": "Must be >= start_sec. Represents the tolerance window during which the topic is first substantively introduced (Phase 3 §8), not every mention." },
+          "description": { "type": "string", "description": "1-2 sentence description of the concept, in the annotator's own words." },
+          "evidence": { "type": "string", "description": "A short transcript quote or paraphrase justifying why this window was chosen." },
+          "is_primary_occurrence": { "type": "boolean", "default": true, "description": "false marks a secondary/later occurrence of a topic already annotated once (used only for the 'lenient' scoring variant, Phase 3 §8)." },
+          "notes": { "type": "string", "description": "Free-text: ambiguity, uncertainty, anything unusual about this topic's timing." }
+        }
+      }
+    }
+  }
+}

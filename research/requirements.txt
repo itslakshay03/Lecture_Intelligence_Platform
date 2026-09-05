@@ -1,0 +1,10 @@
+# Research-only Python dependencies. NEVER installed into or referenced by
+# backend/requirements.txt — this keeps the shipped product's dependency
+# footprint completely unaffected by the research/experiment tooling.
+#
+# Not yet installed in this environment as of Phase 4 (verified: importing
+# scipy/numpy failed during research/evaluation/statistics/paired_analysis.py's
+# smoke test). Install before Phase 5 runs any real inferential statistics.
+numpy
+scipy
+matplotlib  # added Phase 5.5, for generating real figures from real result data

@@ -1,0 +1,308 @@
+{
+  "video_id": "3MqyDWDpZoI",
+  "title": "Multi-Programmed vs. Multi-Tasking (Time-Sharing) Operating Systems",
+  "overview": "Multi-programmed and multi-tasking (time-sharing) operating systems are two fundamental OS execution models designed to keep the CPU active by maintaining multiple processes in memory (RAM). While both reduce CPU downtime, they differ critically in their execution control (**non-preemptive vs. preemptive**) and their main optimization target (**CPU idleness vs. response time**).",
+  "notes_markdown": "# \ud83d\udcd8 Multi-Programmed vs. Multi-Tasking (Time-Sharing) Operating Systems\n\n### \ud83d\udccc Overview\nMulti-programmed and multi-tasking (time-sharing) operating systems are two fundamental OS execution models designed to keep the CPU active by maintaining multiple processes in memory (RAM). While both reduce CPU downtime, they differ critically in their execution control (**non-preemptive vs. preemptive**) and their main optimization target (**CPU idleness vs. response time**).\n\n---\n\n## \ud83d\udcbb Multi-Programmed Operating System\n\nIn a multi-programmed system, the primary objective is to load as many processes as possible into RAM (given limited memory size) so that the CPU always has work available.\n\n* **Execution Style**: Generally **non-preemptive**. When a process (e.g., **P1**) is allocated to the CPU, the CPU executes it completely before moving on to **P2**, **P3**, or **P4**.\n* **I/O Interrupt Handling**: If a process explicitly requires an **Input/Output (I/O) operation** (such as accessing a device or reading a file), it voluntarily leaves the CPU. The OS then immediately assigns another ready process from RAM to the CPU.\n* **Primary Focus**: **Minimizing CPU Idleness**. The system ensures the CPU does not stay idle when a process is waiting on I/O operations.\n\n---\n\n## \u23f1\ufe0f Multi-Tasking (Time-Sharing) Operating System\n\nMulti-tasking, also known as time-sharing, introduces time slicing to execute multiple processes concurrently by switching between them rapidly.\n\n* **Execution Style**: **Preemptive**. The OS sets a predetermined time interval for process execution. \n* **Time Slicing Logic**: The CPU runs a process for the designated time interval. If the process finishes within that time, it exits; otherwise, the OS **preempts** (interrupts) it, reschedules it for future execution, and switches to the next process (**P1 \u2192 P2 \u2192 P3 \u2192 P4**).\n* **Primary Focus**: **Improving Response Time**. By switching quickly between processes, every task gets CPU attention faster.\n* **Real-World Application**: Used in modern consumer devices like laptops using scheduling algorithms such as **Round Robin**.\n\n---\n\n## \ud83c\udfeb Classroom Example (Lecture Illustration)\n\nTo illustrate the difference, consider **10 students** in a class, where each student has **5 questions** to be solved by the teacher (**CPU**):\n\n```\nMulti-Programmed Approach (Non-Preemptive):\nTeacher \u2500\u2500> Student 1 (Solves all 5 questions) \u2500\u2500> Student 2 (Solves all 5 questions) \u2500\u2500> ...\n* Result: Student 10 receives a response after a very long wait time.\n\nMulti-Tasking Approach (Preemptive / Time-Sharing):\nTeacher \u2500\u2500> Student 1 (Solves 2 questions) \u2500\u2500> Student 2 (Solves 2 questions) \u2500\u2500> ... \u2500\u2500> Student 10\n* Result: Teacher reaches Student 10 much faster, then cycles back to solve remaining questions.\n```\n\n---\n\n## \ud83d\udcca Comparison Table\n\n| Feature | Multi-Programmed OS | Multi-Tasking (Time-Sharing) OS |\n| :--- | :--- | :--- |\n| **Execution Control** | Non-preemptive | Preemptive |\n| **Primary Goal** | Minimize CPU idleness | Optimize response time |\n| **CPU Switching** | On completion or I/O | On time interval |\n| **Response Time** | Slower for later tasks | Fast for all tasks |\n| **Modern Application** | Early OS concept | Modern OS (laptops) |\n\n---\n\n## \ud83d\uddbc\ufe0f Visual Workflow\n\n```mermaid\nflowchart TD\n    RAM[RAM: Multiple Processes] --> MP[Multi-Programmed: Non-Preemptive]\n    RAM --> MT[Multi-Tasking: Preemptive Time-Sharing]\n    MP --> Goal1[Goal: Low CPU Idleness]\n    MT --> Goal2[Goal: Fast Response Time]\n```",
+  "video_duration": 393.0,
+  "video_duration_formatted": "06:33",
+  "timestamps": [
+    {
+      "time": "00:00",
+      "sec": 0,
+      "label": "Lecture Introduction & Overview"
+    },
+    {
+      "time": "02:07",
+      "sec": 127,
+      "label": "\ud83c\udfeb Classroom Example (Lecture Illustration)"
+    },
+    {
+      "time": "03:08",
+      "sec": 188,
+      "label": "Multi-Tasking (Time-Sharing) Operating System"
+    },
+    {
+      "time": "05:11",
+      "sec": 311,
+      "label": "Multi-Programmed Operating System"
+    }
+  ],
+  "topics": [
+    {
+      "id": "topic-2",
+      "title": "Multi-Programmed Operating System",
+      "content": "## \ud83d\udcbb Multi-Programmed Operating System\n\nIn a multi-programmed system, the primary objective is to load as many processes as possible into RAM (given limited memory size) so that the CPU always has work available.\n\n* **Execution Style**: Generally **non-preemptive**. When a process (e.g., **P1**) is allocated to the CPU, the CPU executes it completely before moving on to **P2**, **P3**, or **P4**.\n* **I/O Interrupt Handling**: If a process explicitly requires an **Input/Output (I/O) operation** (such as accessing a device or reading a file), it voluntarily leaves the CPU. The OS then immediately assigns another ready process from RAM to the CPU.\n* **Primary Focus**: **Minimizing CPU Idleness**. The system ensures the CPU does not stay idle when a process is waiting on I/O operations.\n\n---",
+      "key_points": [
+        "**Execution Style**: Generally **non-preemptive**. When a process (e.g., **P1**) is allocated to the CPU, the CPU executes it completely before moving on to **P2**, **P3**, or **P4**.",
+        "**I/O Interrupt Handling**: If a process explicitly requires an **Input/Output (I/O) operation** (such as accessing a device or reading a file), it voluntarily leaves the CPU. The OS then immediately assigns another ready process from RAM to the CPU.",
+        "**Primary Focus**: **Minimizing CPU Idleness**. The system ensures the CPU does not stay idle when a process is waiting on I/O operations."
+      ],
+      "diagram": null,
+      "seconds": 311,
+      "timestamp": "05:11"
+    },
+    {
+      "id": "topic-3",
+      "title": "\u23f1\ufe0f Multi-Tasking (Time-Sharing) Operating System",
+      "content": "## \u23f1\ufe0f Multi-Tasking (Time-Sharing) Operating System\n\nMulti-tasking, also known as time-sharing, introduces time slicing to execute multiple processes concurrently by switching between them rapidly.\n\n* **Execution Style**: **Preemptive**. The OS sets a predetermined time interval for process execution. \n* **Time Slicing Logic**: The CPU runs a process for the designated time interval. If the process finishes within that time, it exits; otherwise, the OS **preempts** (interrupts) it, reschedules it for future execution, and switches to the next process (**P1 \u2192 P2 \u2192 P3 \u2192 P4**).\n* **Primary Focus**: **Improving Response Time**. By switching quickly between processes, every task gets CPU attention faster.\n* **Real-World Application**: Used in modern consumer devices like laptops using scheduling algorithms such as **Round Robin**.\n\n---",
+      "key_points": [
+        "**Execution Style**: **Preemptive**. The OS sets a predetermined time interval for process execution.",
+        "**Time Slicing Logic**: The CPU runs a process for the designated time interval. If the process finishes within that time, it exits; otherwise, the OS **preempts** (interrupts) it, reschedules it for future execution, and switches to the next process (**P1 \u2192 P2 \u2192 P3 \u2192 P4**).",
+        "**Primary Focus**: **Improving Response Time**. By switching quickly between processes, every task gets CPU attention faster.",
+        "**Real-World Application**: Used in modern consumer devices like laptops using scheduling algorithms such as **Round Robin**."
+      ],
+      "diagram": null,
+      "seconds": 188,
+      "timestamp": "03:08"
+    },
+    {
+      "id": "topic-4",
+      "title": "\ud83c\udfeb Classroom Example (Lecture Illustration)",
+      "content": "## \ud83c\udfeb Classroom Example (Lecture Illustration)\n\nTo illustrate the difference, consider **10 students** in a class, where each student has **5 questions** to be solved by the teacher (**CPU**):\n\n```\nMulti-Programmed Approach (Non-Preemptive):\nTeacher \u2500\u2500> Student 1 (Solves all 5 questions) \u2500\u2500> Student 2 (Solves all 5 questions) \u2500\u2500> ...\n* Result: Student 10 receives a response after a very long wait time.\n\nMulti-Tasking Approach (Preemptive / Time-Sharing):\nTeacher \u2500\u2500> Student 1 (Solves 2 questions) \u2500\u2500> Student 2 (Solves 2 questions) \u2500\u2500> ... \u2500\u2500> Student 10\n* Result: Teacher reaches Student 10 much faster, then cycles back to solve remaining questions.\n```\n\n---",
+      "key_points": [
+        "Result: Student 10 receives a response after a very long wait time.",
+        "Result: Teacher reaches Student 10 much faster, then cycles back to solve remaining questions."
+      ],
+      "diagram": null,
+      "seconds": 127,
+      "timestamp": "02:07"
+    },
+    {
+      "id": "topic-5",
+      "title": "Comparison Table",
+      "content": "## \ud83d\udcca Comparison Table\n\n| Feature | Multi-Programmed OS | Multi-Tasking (Time-Sharing) OS |\n| :--- | :--- | :--- |\n| **Execution Control** | Non-preemptive | Preemptive |\n| **Primary Goal** | Minimize CPU idleness | Optimize response time |\n| **CPU Switching** | On completion or I/O | On time interval |\n| **Response Time** | Slower for later tasks | Fast for all tasks |\n| **Modern Application** | Early OS concept | Modern OS (laptops) |\n\n---",
+      "key_points": [],
+      "diagram": null
+    },
+    {
+      "id": "topic-6",
+      "title": "\ud83d\uddbc\ufe0f Visual Workflow",
+      "content": "## \ud83d\uddbc\ufe0f Visual Workflow\n\n```mermaid\nflowchart TD\n    RAM[RAM: Multiple Processes] --> MP[Multi-Programmed: Non-Preemptive]\n    RAM --> MT[Multi-Tasking: Preemptive Time-Sharing]\n    MP --> Goal1[Goal: Low CPU Idleness]\n    MT --> Goal2[Goal: Fast Response Time]\n```",
+      "key_points": [],
+      "diagram": "flowchart TD\n    RAM[RAM: Multiple Processes] --> MP[Multi-Programmed: Non-Preemptive]\n    RAM --> MT[Multi-Tasking: Preemptive Time-Sharing]\n    MP --> Goal1[Goal: Low CPU Idleness]\n    MT --> Goal2[Goal: Fast Response Time]"
+    }
+  ],
+  "quiz": [
+    {
+      "id": "q-1",
+      "topic": "Multi-Programmed Operating System",
+      "question": "Which statement regarding Multi-Programmed Operating System is strictly correct based on the lecture?",
+      "options": [
+        "It contradicts the core principle of Multi-Programmed Operating System.",
+        "It eliminates all resource requirements.",
+        "Execution Style: Generally non-preemptive. When a process (e.g., P1) is allocated to the CPU, the CPU executes it completely before moving on to P2, P3, or P4.",
+        "It is completely handled outside OS memory space."
+      ],
+      "correct_index": 2,
+      "explanation": "As covered in the lecture: Execution Style: Generally non-preemptive. When a process (e.g., P1) is allocated to the CPU, the CPU executes it completely before moving on to P2, P3, or P4."
+    },
+    {
+      "id": "q-2",
+      "topic": "Multi-Programmed Operating System",
+      "question": "In the context of Multi-Programmed Operating System, what key property was emphasized by the lecturer?",
+      "options": [
+        "It is restricted to single-threaded CPU architectures.",
+        "I/O Interrupt Handling: If a process explicitly requires an Input/Output (I/O) operation (such as accessing a device or reading a file), it voluntarily leaves the CPU. The OS then immediately assigns another ready process from RAM to the CPU.",
+        "It requires manual memory deallocation per thread.",
+        "It operates without any data structures."
+      ],
+      "correct_index": 1,
+      "explanation": "Lecture note detail: I/O Interrupt Handling: If a process explicitly requires an Input/Output (I/O) operation (such as accessing a device or reading a file), it voluntarily leaves the CPU. The OS then immediately assigns another ready process from RAM to the CPU."
+    },
+    {
+      "id": "q-3",
+      "topic": "\u23f1\ufe0f Multi-Tasking (Time-Sharing) Operating System",
+      "question": "Which statement regarding \u23f1\ufe0f Multi-Tasking (Time-Sharing) Operating System is strictly correct based on the lecture?",
+      "options": [
+        "Execution Style: Preemptive. The OS sets a predetermined time interval for process execution.",
+        "It eliminates all resource requirements.",
+        "It is completely handled outside OS memory space.",
+        "It contradicts the core principle of \u23f1\ufe0f Multi-Tasking (Time-Sharing) Operating System."
+      ],
+      "correct_index": 0,
+      "explanation": "As covered in the lecture: Execution Style: Preemptive. The OS sets a predetermined time interval for process execution."
+    },
+    {
+      "id": "q-4",
+      "topic": "\u23f1\ufe0f Multi-Tasking (Time-Sharing) Operating System",
+      "question": "In the context of \u23f1\ufe0f Multi-Tasking (Time-Sharing) Operating System, what key property was emphasized by the lecturer?",
+      "options": [
+        "Time Slicing Logic: The CPU runs a process for the designated time interval. If the process finishes within that time, it exits; otherwise, the OS preempts (interrupts) it, reschedules it for future execution, and switches to the next process (P1 \u2192 P2 \u2192 P3 \u2192 P4).",
+        "It is restricted to single-threaded CPU architectures.",
+        "It requires manual memory deallocation per thread.",
+        "It operates without any data structures."
+      ],
+      "correct_index": 0,
+      "explanation": "Lecture note detail: Time Slicing Logic: The CPU runs a process for the designated time interval. If the process finishes within that time, it exits; otherwise, the OS preempts (interrupts) it, reschedules it for future execution, and switches to the next process (P1 \u2192 P2 \u2192 P3 \u2192 P4)."
+    },
+    {
+      "id": "q-5",
+      "topic": "\ud83c\udfeb Classroom Example (Lecture Illustration)",
+      "question": "Which statement regarding \ud83c\udfeb Classroom Example (Lecture Illustration) is strictly correct based on the lecture?",
+      "options": [
+        "It eliminates all resource requirements.",
+        "It contradicts the core principle of \ud83c\udfeb Classroom Example (Lecture Illustration).",
+        "It is completely handled outside OS memory space.",
+        "Result: Student 10 receives a response after a very long wait time."
+      ],
+      "correct_index": 3,
+      "explanation": "As covered in the lecture: Result: Student 10 receives a response after a very long wait time."
+    },
+    {
+      "id": "q-6",
+      "topic": "\ud83c\udfeb Classroom Example (Lecture Illustration)",
+      "question": "In the context of \ud83c\udfeb Classroom Example (Lecture Illustration), what key property was emphasized by the lecturer?",
+      "options": [
+        "It requires manual memory deallocation per thread.",
+        "Result: Teacher reaches Student 10 much faster, then cycles back to solve remaining questions.",
+        "It operates without any data structures.",
+        "It is restricted to single-threaded CPU architectures."
+      ],
+      "correct_index": 1,
+      "explanation": "Lecture note detail: Result: Teacher reaches Student 10 much faster, then cycles back to solve remaining questions."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-1",
+      "front": "What is non-preemptive vs. preemptive?",
+      "back": "While both reduce CPU downtime, they differ critically in their execution control (**non-preemptive vs. preemptive**) and their main optimization target (**CPU idleness vs."
+    },
+    {
+      "id": "fc-2",
+      "front": "What is CPU idleness vs. response time?",
+      "back": "preemptive**) and their main optimization target (**CPU idleness vs. response time**)."
+    },
+    {
+      "id": "fc-3",
+      "front": "What is Execution Style?",
+      "back": "* **Execution Style**: Generally **non-preemptive**."
+    },
+    {
+      "id": "fc-4",
+      "front": "What is non-preemptive?",
+      "back": "* **Execution Style**: Generally **non-preemptive**."
+    },
+    {
+      "id": "fc-5",
+      "front": "What is I/O Interrupt Handling?",
+      "back": "* **I/O Interrupt Handling**: If a process explicitly requires an **Input/Output (I/O) operation** (such as accessing a device or reading a file), it voluntarily leaves the CPU."
+    },
+    {
+      "id": "fc-6",
+      "front": "What is Input/Output (I/O) operation?",
+      "back": "* **I/O Interrupt Handling**: If a process explicitly requires an **Input/Output (I/O) operation** (such as accessing a device or reading a file), it voluntarily leaves the CPU."
+    },
+    {
+      "id": "fc-7",
+      "front": "What is Primary Focus?",
+      "back": "* **Primary Focus**: **Minimizing CPU Idleness**."
+    },
+    {
+      "id": "fc-8",
+      "front": "What is Minimizing CPU Idleness?",
+      "back": "* **Primary Focus**: **Minimizing CPU Idleness**."
+    },
+    {
+      "id": "fc-9",
+      "front": "What is Preemptive?",
+      "back": "* **Execution Style**: **Preemptive**."
+    },
+    {
+      "id": "fc-10",
+      "front": "What is Time Slicing Logic?",
+      "back": "* **Time Slicing Logic**: The CPU runs a process for the designated time interval."
+    }
+  ],
+  "revision_plan": [
+    {
+      "stage": "24 Hours (Immediate Recall)",
+      "interval": "Day 1",
+      "priority": "High",
+      "goal": "Review core definitions and key facts to consolidate short-term memory.",
+      "topics": [
+        "Multi-Programmed Operating System",
+        "\u23f1\ufe0f Multi-Tasking (Time-Sharing) Operating System"
+      ]
+    },
+    {
+      "stage": "3 Days (Reinforcement)",
+      "interval": "Day 3",
+      "priority": "High",
+      "goal": "Re-examine comparison tables and diagram relationships.",
+      "topics": [
+        "\u23f1\ufe0f Multi-Tasking (Time-Sharing) Operating System",
+        "\ud83c\udfeb Classroom Example (Lecture Illustration)"
+      ]
+    },
+    {
+      "stage": "7 Days (Weekly Review)",
+      "interval": "Day 7",
+      "priority": "Medium",
+      "goal": "Solve interactive quiz questions and test recall via flashcards.",
+      "topics": [
+        "\ud83c\udfeb Classroom Example (Lecture Illustration)",
+        "Comparison Table"
+      ]
+    },
+    {
+      "stage": "14 Days (Pre-Exam Polish)",
+      "interval": "Day 14",
+      "priority": "Medium",
+      "goal": "Attempt basic and intermediate interview prep questions.",
+      "topics": [
+        "Multi-Programmed Operating System",
+        "\u23f1\ufe0f Multi-Tasking (Time-Sharing) Operating System",
+        "\ud83c\udfeb Classroom Example (Lecture Illustration)",
+        "Comparison Table",
+        "\ud83d\uddbc\ufe0f Visual Workflow"
+      ]
+    },
+    {
+      "stage": "30 Days (Mastery Verification)",
+      "interval": "Day 30",
+      "priority": "Low",
+      "goal": "Final quick scan of exam focus callouts and master summary.",
+      "topics": [
+        "Multi-Programmed Operating System",
+        "\u23f1\ufe0f Multi-Tasking (Time-Sharing) Operating System",
+        "\ud83c\udfeb Classroom Example (Lecture Illustration)",
+        "Comparison Table",
+        "\ud83d\uddbc\ufe0f Visual Workflow"
+      ]
+    }
+  ],
+  "interview_questions": {
+    "basic": [
+      {
+        "id": "ib-1",
+        "question": "Define Multi-Programmed Operating System in simple terms. What is its fundamental role?",
+        "answer": "**Execution Style**: Generally **non-preemptive**. When a process (e.g., **P1**) is allocated to the CPU, the CPU executes it completely before moving on to **P2**, **P3**, or **P4**."
+      },
+      {
+        "id": "ib-4",
+        "question": "Define Comparison Table in simple terms. What is its fundamental role?",
+        "answer": "Explained in Comparison Table."
+      }
+    ],
+    "intermediate": [
+      {
+        "id": "ii-2",
+        "question": "How does \u23f1\ufe0f Multi-Tasking (Time-Sharing) Operating System handle resource allocation or execution compared to alternative approaches?",
+        "answer": "**Execution Style**: **Preemptive**. The OS sets a predetermined time interval for process execution. **Time Slicing Logic**: The CPU runs a process for the designated time interval. If the process finishes within that time, it exits; otherwise, the OS **preempts** (interrupts) it, reschedules it for future execution, and switches to the next process (**P1 \u2192 P2 \u2192 P3 \u2192 P4**)."
+      },
+      {
+        "id": "ii-5",
+        "question": "How does \ud83d\uddbc\ufe0f Visual Workflow handle resource allocation or execution compared to alternative approaches?",
+        "answer": "Explained in \ud83d\uddbc\ufe0f Visual Workflow. "
+      }
+    ],
+    "advanced": [
+      {
+        "id": "ia-3",
+        "question": "What are the architectural trade-offs and common performance pitfalls associated with \ud83c\udfeb Classroom Example (Lecture Illustration)?",
+        "answer": "Result: Student 10 receives a response after a very long wait time. Result: Teacher reaches Student 10 much faster, then cycles back to solve remaining questions."
+      }
+    ]
+  }
+}

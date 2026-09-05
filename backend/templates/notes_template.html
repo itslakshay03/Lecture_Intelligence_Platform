@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Study Notes & Revision Guide</title>
+
+    <!-- MathJax for rendering LaTeX formulas -->
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['\\(', '\\)'], ['$', '$']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          processEscapes: true,
+          packages: {'[+]': ['ams']}
+        },
+        chtml: { scale: 1.0, matchFontHeight: true },
+        options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] },
+        startup: { typeset: true }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script" async></script>
+
+    <!-- Mermaid.js for rendering graphical diagrams -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", async function() {
+            try {
+                mermaid.initialize({
+                    startOnLoad: false,
+                    theme: 'neutral',
+                    securityLevel: 'loose',
+                    suppressErrorRendering: true,
+                    flowchart: { useMaxWidth: true, htmlLabels: true, curve: 'basis' }
+                });
+                mermaid.parseError = function(err, hash) {
+                    console.warn("Mermaid error suppressed:", err);
+                };
+
+                const nodes = document.querySelectorAll('.mermaid');
+                for (let i = 0; i < nodes.length; i++) {
+                    const el = nodes[i];
+                    const container = el.closest('.mermaid-container');
+                    const code = el.textContent.trim();
+                    if (!code) {
+                        if (container) container.style.display = 'none';
+                        continue;
+                    }
+                    try {
+                        const id = 'mermaid-node-' + i;
+                        const { svg } = await mermaid.render(id, code);
+                        el.innerHTML = svg;
+                    } catch (err) {
+                        console.warn("Mermaid diagram rendering failed gracefully:", err);
+                        if (container) {
+                            container.style.display = 'none';
+                        } else {
+                            el.style.display = 'none';
+                        }
+                    }
+                }
+            } catch (globalErr) {
+                console.warn("Global Mermaid initialization error suppressed:", globalErr);
+            }
+        });
+    </script>
+
+    <style>
+        @page {
+            size: A4;
+            margin: 12mm 12mm 12mm 12mm;
+        }
+
+        body {
+            font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 0;
+            line-height: 1.5;
+            color: #1e293b;
+            font-size: 13.5px;
+            background: #ffffff;
+        }
+
+        /* Top Header & Titles */
+        h1 {
+            color: #0f172a;
+            font-size: 24px;
+            font-weight: 800;
+            border-bottom: 3px solid #2563eb;
+            padding-bottom: 8px;
+            margin-bottom: 16px;
+            letter-spacing: -0.4px;
+        }
+
+        h1, h2, h3, h4 {
+            page-break-after: avoid !important;
+            break-after: avoid !important;
+        }
+
+        h2 + *, h3 + * {
+            page-break-before: avoid !important;
+            break-before: avoid !important;
+        }
+
+        h2 {
+            color: #1e40af;
+            background: #f0f9ff;
+            padding: 7px 12px;
+            border-left: 5px solid #2563eb;
+            border-radius: 6px;
+            margin-top: 14px;
+            margin-bottom: 8px;
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        h3 {
+            color: #334155;
+            font-size: 14px;
+            font-weight: 700;
+            margin-top: 10px;
+            margin-bottom: 4px;
+        }
+
+        p {
+            margin-bottom: 6px;
+        }
+
+        ul, ol {
+            padding-left: 18px;
+            margin-bottom: 8px;
+        }
+
+        li {
+            margin-bottom: 3px;
+        }
+
+        strong {
+            color: #0f172a;
+            font-weight: 700;
+        }
+
+        hr {
+            border: none;
+            border-top: 1.5px solid #e2e8f0;
+            margin: 12px 0;
+        }
+
+        /* Callout Component Boxes */
+        .callout-box {
+            padding: 8px 12px;
+            border-radius: 8px;
+            margin: 8px 0;
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+
+        .definition-box {
+            border-left: 4px solid #3b82f6;
+            background: #eff6ff;
+        }
+
+        .why-needed-box {
+            border-left: 4px solid #8b5cf6;
+            background: #f5f3ff;
+        }
+
+        .analogy-box {
+            border-left: 4px solid #f59e0b;
+            background: #fffbeb;
+        }
+
+        .warning-box {
+            border-left: 4px solid #ef4444;
+            background: #fef2f2;
+        }
+
+        .exam-focus-box {
+            border-left: 4px solid #10b981;
+            background: #ecfdf5;
+            border: 1px solid #a7f3d0;
+            border-left-width: 4px;
+        }
+
+        .exam-questions-box {
+            border-left: 4px solid #6366f1;
+            background: #e0e7ff;
+            border: 1px solid #c7d2fe;
+            border-left-width: 4px;
+        }
+
+        .revision-box {
+            border-left: 4px solid #14b8a6;
+            background: #ccfbf1;
+        }
+
+        .memory-box {
+            border-left: 4px solid #ec4899;
+            background: #fce7f3;
+        }
+
+        /* Failsafe suppression of any raw Mermaid error elements */
+        #dmermaid-error-svg,
+        .error-icon,
+        .error-text,
+        svg[id^="mermaid-"] text.error-icon,
+        .mermaid-container:has(.error) {
+            display: none !important;
+        }
+
+        /* Diagram Containers - Compact Footprint (20-30% Page Height, 70% Content Width) */
+        .mermaid-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #f8fafc;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            padding: 8px 12px;
+            margin: 10px auto;
+            max-width: 70%;
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+
+        .mermaid {
+            text-align: center;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .mermaid svg {
+            width: 100% !important;
+            max-width: 460px !important;
+            max-height: 200px !important;
+            font-size: 12.5px !important;
+        }
+
+        /* ASCII Code Blocks */
+        pre {
+            background: #0f172a;
+            color: #38bdf8;
+            padding: 10px 14px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 12px;
+            font-family: "Cascadia Code", "Consolas", "Courier New", monospace;
+            border-left: 4px solid #38bdf8;
+            margin: 12px 0;
+            line-height: 1.35;
+            page-break-inside: avoid;
+        }
+
+        code {
+            font-family: "Cascadia Code", "Consolas", "Courier New", monospace;
+            background: #f1f5f9;
+            color: #0f172a;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 90%;
+        }
+
+        pre code {
+            background: transparent;
+            color: inherit;
+            padding: 0;
+        }
+
+        /* Comparison & Data Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 12.5px;
+            page-break-inside: auto;
+            table-layout: fixed;
+            word-break: normal;
+            overflow-wrap: break-word;
+        }
+
+        th {
+            background: #1e40af;
+            color: #ffffff;
+            padding: 8px 10px;
+            text-align: left;
+            font-weight: 700;
+            font-size: 12px;
+            border: 1px solid #1e40af;
+            word-break: normal;
+            white-space: normal;
+        }
+
+        td {
+            border: 1px solid #cbd5e1;
+            padding: 7px 10px;
+            vertical-align: top;
+            word-break: normal;
+            white-space: normal;
+        }
+
+        tr:nth-child(even) {
+            background: #f8fafc;
+        }
+
+        tr {
+            page-break-inside: avoid;
+        }
+
+        /* Wide comparison tables — used for multi-column topology/feature tables */
+        .wide-table table {
+            font-size: 11px;
+        }
+
+        .wide-table th,
+        .wide-table td {
+            padding: 6px 8px;
+        }
+
+        /* Inline code in tables */
+        td code, th code {
+            font-size: 10.5px;
+            padding: 1px 3px;
+        }
+
+        blockquote {
+            background: #f1f5f9;
+            border-left: 4px solid #64748b;
+            padding: 10px 14px;
+            margin: 14px 0;
+            border-radius: 6px;
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+    {{content}}
+</body>
+
+</html>

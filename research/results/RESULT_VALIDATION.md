@@ -1,0 +1,22 @@
+# Result Validation — Phase 5.5
+
+Every quantitative result from `PHASE_5_EXPERIMENTAL_RESULTS.md` was recalculated in this phase, independently, directly from the raw files listed below (fresh script, not a copy of the Phase 5 computation). This document records the original reported value, the recalculated value, the difference, the source file, and the resolution for each.
+
+| # | Result | Originally reported (Phase 5) | Recalculated (Phase 5.5) | Difference | Source file(s) | Resolution |
+|---|---|---|---|---|---|---|
+| 1 | Experiment D — total latency mean/median/SD (n=7) | mean=39.21, median=34.25, SD=12.23 | mean=39.2087, median=34.2490, SD=12.2282 | None beyond display rounding | `results/raw/phase5/expD_latency_real_regen_batch.json` | **VALIDATED** |
+| 2 | Experiment D — Pearson r (transcript chars vs. total latency) | r=0.9815, p=0.0001 | r=0.981456, p=0.000089 | None beyond display rounding | same | **VALIDATED** |
+| 3 | Experiment D — AI-generation stage as % of total latency | 58.7% | 58.7008% (using the SAME aggregation method as Phase 5: mean of each lecture's own `ai_generation/total` ratio, i.e. a per-lecture-equal-weighted "macro-average") | None — confirms Phase 5's own number | same | **VALIDATED**, with a clarification (not a correction): an alternative, equally legitimate aggregation — the ratio of the two means ("micro-average", weighting lectures by their absolute duration) — gives **59.9149%** instead. Phase 5's report did not label which convention it used. Both are real, correctly-computed numbers from the same real data; they differ because they answer subtly different questions ("on an average single run, what share of time is AI generation?" [macro, =58.7%] vs. "across total time spent processing this batch, what share was AI generation?" [micro, =59.9%]). **Resolution:** retain 58.7% (macro-average) as the primary reported figure going forward, since it treats each of the 7 real lectures as an equally-weighted observation regardless of its absolute duration — but both figures are now recorded so Phase 6 can choose deliberately rather than inherit an unlabeled convention. |
+| 4 | Experiment A — topic-timestamp coverage (25 topics, 7 lectures) | 14/25 = 56.0%, 2 lectures at 0% (`1msEo8PIcbw`, `T4lGm7MjA6Y`) | 14/25 = 56.0000%, same 2 lectures at 0% | None | `backend/output/{video_id}.json` (all 7, real, unmodified since Phase 5) | **VALIDATED** |
+| 5 | Experiment A — divergence from naive baseline (n=14 topic-level comparisons) | mean=147.26s, median=124.00s, SD=92.99s | mean=147.2643s, median=124.0000s, SD=92.9935s | None beyond display rounding | same + `research/baselines/naive_timestamp/naive_timestamp.py` (unmodified) | **VALIDATED** |
+| 6 | Experiment B — distractor uniqueness (LectraAI deterministic) | 18 distractors, 8 unique, 44.4% | 18 distractors, 8 unique, 44.44% | None beyond display rounding | `results/raw/phase5/expB_3MqyDWDpZoI.json` | **VALIDATED** |
+| 7 | Experiment B — distractor uniqueness (direct-LLM) | 27 distractors, 27 unique, 100.0% | 27 distractors, 27 unique, 100.00% | None | same | **VALIDATED** |
+| 8 | Dataset summary — duration (mean/median/SD, n=7) | mean=1163.9, median=777.0, SD=1140.9 | mean=1163.9441, median=777.0000, SD=1140.9117 | None beyond display rounding | `research/dataset/manifest.csv` | **VALIDATED** |
+| 9 | Dataset summary — transcript chars (mean/median/SD, n=7) | mean=17109, median=10590, SD=19006 | mean=17109.2857, median=10590.0000, SD=19006.2470 | None beyond display rounding | same | **VALIDATED** |
+
+## Summary
+**9 of 9 recalculated results are VALIDATED** (identical to Phase 5's reported values, within display-rounding precision). **One item (#3) carries a disclosed aggregation-method ambiguity**, not a numerical error — resolved by explicitly labeling both conventions rather than silently picking one.
+
+## Not recalculable (no fabrication attempted)
+- RQ3's automated groundedness proxy result (Phase 5 §8) was **not** re-validated numerically here, because Phase 5.5's own instructions (and Phase 5's own finding) is that this proxy is unreliable and should not be revived — re-validating its arithmetic would not make its *construct validity* problem (counting markdown headers as claims, missing orthographic variants) go away. Its exclusion is reaffirmed, not its numbers re-certified.
+- Any RQ1/RQ2/RQ3 human-judgment metric — none exist to validate (Phase 5 §5, unchanged in Phase 5.5, see the main report).

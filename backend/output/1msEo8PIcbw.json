@@ -1,0 +1,231 @@
+{
+  "video_id": "1msEo8PIcbw",
+  "title": "OSI Model in Computer Networking",
+  "overview": "The **OSI (Open Systems Interconnection) Model** is a foundational framework in computer networking developed by the **ISO (International Organization for Standardization)** in **1984**. It divides network communication into seven distinct layers, enabling diverse computer systems globally to interconnect and exchange data.",
+  "notes_markdown": "# \ud83d\udcd8 OSI Model in Computer Networking\n\n### \ud83d\udccc Overview\nThe **OSI (Open Systems Interconnection) Model** is a foundational framework in computer networking developed by the **ISO (International Organization for Standardization)** in **1984**. It divides network communication into seven distinct layers, enabling diverse computer systems globally to interconnect and exchange data.\n\n---\n\n## \ud83c\udf10 Fundamentals of OSI Model\n\nThe model structures network communication through two core principles:\n1. **7-Layer Architecture**: Every layer performs a distinct, dedicated functionality.\n2. **Collaborative Functionality**: All seven layers work together sequentially to transmit data across networks worldwide.\n\n```mermaid\ngraph TD\n    A[Software Layers] --> B[Transport Layer]\n    B --> C[Hardware Layers]\n    C --> D[Physical Medium]\n```\n\n### Layer Classification\n\n* **Software Layers (Upper Layers)**: Application, Presentation, and Session layers.\n* **Heart of OSI**: Transport Layer (acts as the interface between software and hardware layers).\n* **Hardware Layers (Lower Layers)**: Network, Data Link, and Physical layers.\n\n---\n\n## \ud83c\udfd7\ufe0f Detailed Breakdown of the 7 Layers\n\n### 1. Application Layer (Layer 7)\n* **Function**: Serves as the direct interface between the user/application and the network.\n* **Protocols & Usage**: Protocols operate here to handle user actions (e.g., **HTTP** for browsing via Google Chrome, messaging apps like WhatsApp, or file transfer protocols).\n\n### 2. Presentation Layer (Layer 6)\n* **Data Translation**: Converts data into a format readable by the receiver (e.g., translating English data to French if required).\n* **Security**: Handles **Encryption** (sender side) and **Decryption** (receiver side).\n* **Data Compression**: Reduces data size to facilitate faster transmission.\n\n### 3. Session Layer (Layer 5)\n* **Session Management**: Establishes, maintains, and terminates connections between sender and receiver.\n* **Interruption Handling**: If data transfer stops midway, it resumes from the point of interruption rather than restarting from the beginning.\n\n### 4. Transport Layer (Layer 4)\n* **Data Unit**: **Segment** (splits incoming data into smaller segments).\n* **Core Protocols**:\n  * **TCP (Transmission Control Protocol)**: Connection-oriented, highly reliable, and provides receipt acknowledgments.\n  * **UDP (User Datagram Protocol)**: Connectionless, fast transmission, without receipt acknowledgments.\n\n### 5. Network Layer (Layer 3)\n* **Data Unit**: **Packet** (divides segments into packets).\n* **Addressing**: Stores both sender and receiver **IP Addresses**.\n* **Routing**: Determines the fastest and optimal path for data packets using **Routers**.\n\n### 6. Data Link Layer (Layer 2)\n* **Data Unit**: **Frame** (organizes packets into frames).\n* **Key Functions**:\n  * **Error Control**: Checks and removes errors to ensure error-free data.\n  * **Flow Control**: Matches transmission speeds between sender and receiver (e.g., 10 Mbps) to prevent congestion and data loss.\n  * **Physical Addressing**: Retrieves and manages physical MAC addresses for targeted device delivery.\n\n### 7. Physical Layer (Layer 1)\n* **Data Unit**: **Bit** (converts frames into binary `0`s and `1`s).\n* **Hardware Devices**: Operates networking hardware such as **Hubs** and **Switches**.\n* **Transmission Mode**: Decides whether data travels via wired (cable) or wireless physical media.\n\n---\n\n## \ud83d\udcca Summary of Layer Data Units\n\n| Layer Name | Layer Type | Data Unit |\n| :--- | :--- | :--- |\n| **Application** | Software | Data |\n| **Presentation** | Software | Data |\n| **Session** | Software | Data |\n| **Transport** | Heart of OSI | **Segment** |\n| **Network** | Hardware | **Packet** |\n| **Data Link** | Hardware | **Frame** |\n| **Physical** | Hardware | **Bit (0/1)** |",
+  "video_duration": 714.2900000000001,
+  "video_duration_formatted": "11:54",
+  "timestamps": [
+    {
+      "time": "00:00",
+      "sec": 0,
+      "label": "Lecture Introduction & Overview"
+    }
+  ],
+  "topics": [
+    {
+      "id": "topic-2",
+      "title": "\ud83c\udf10 Fundamentals of OSI Model",
+      "content": "## \ud83c\udf10 Fundamentals of OSI Model\n\nThe model structures network communication through two core principles:\n1. **7-Layer Architecture**: Every layer performs a distinct, dedicated functionality.\n2. **Collaborative Functionality**: All seven layers work together sequentially to transmit data across networks worldwide.\n\n```mermaid\ngraph TD\n    A[Software Layers] --> B[Transport Layer]\n    B --> C[Hardware Layers]\n    C --> D[Physical Medium]\n```\n\n### Layer Classification\n\n* **Software Layers (Upper Layers)**: Application, Presentation, and Session layers.\n* **Heart of OSI**: Transport Layer (acts as the interface between software and hardware layers).\n* **Hardware Layers (Lower Layers)**: Network, Data Link, and Physical layers.\n\n---",
+      "key_points": [
+        "**Software Layers (Upper Layers)**: Application, Presentation, and Session layers.",
+        "**Heart of OSI**: Transport Layer (acts as the interface between software and hardware layers).",
+        "**Hardware Layers (Lower Layers)**: Network, Data Link, and Physical layers."
+      ],
+      "diagram": "graph TD\n    A[Software Layers] --> B[Transport Layer]\n    B --> C[Hardware Layers]\n    C --> D[Physical Medium]"
+    },
+    {
+      "id": "topic-3",
+      "title": "\ufe0f Detailed Breakdown of the 7 Layers",
+      "content": "## \ud83c\udfd7\ufe0f Detailed Breakdown of the 7 Layers\n\n### 1. Application Layer (Layer 7)\n* **Function**: Serves as the direct interface between the user/application and the network.\n* **Protocols & Usage**: Protocols operate here to handle user actions (e.g., **HTTP** for browsing via Google Chrome, messaging apps like WhatsApp, or file transfer protocols).\n\n### 2. Presentation Layer (Layer 6)\n* **Data Translation**: Converts data into a format readable by the receiver (e.g., translating English data to French if required).\n* **Security**: Handles **Encryption** (sender side) and **Decryption** (receiver side).\n* **Data Compression**: Reduces data size to facilitate faster transmission.\n\n### 3. Session Layer (Layer 5)\n* **Session Management**: Establishes, maintains, and terminates connections between sender and receiver.\n* **Interruption Handling**: If data transfer stops midway, it resumes from the point of interruption rather than restarting from the beginning.\n\n### 4. Transport Layer (Layer 4)\n* **Data Unit**: **Segment** (splits incoming data into smaller segments).\n* **Core Protocols**:\n  * **TCP (Transmission Control Protocol)**: Connection-oriented, highly reliable, and provides receipt acknowledgments.\n  * **UDP (User Datagram Protocol)**: Connectionless, fast transmission, without receipt acknowledgments.\n\n### 5. Network Layer (Layer 3)\n* **Data Unit**: **Packet** (divides segments into packets).\n* **Addressing**: Stores both sender and receiver **IP Addresses**.\n* **Routing**: Determines the fastest and optimal path for data packets using **Routers**.\n\n### 6. Data Link Layer (Layer 2)\n* **Data Unit**: **Frame** (organizes packets into frames).\n* **Key Functions**:\n  * **Error Control**: Checks and removes errors to ensure error-free data.\n  * **Flow Control**: Matches transmission speeds between sender and receiver (e.g., 10 Mbps) to prevent congestion and data loss.\n  * **Physical Addressing**: Retrieves and manages physical MAC addresses for targeted device delivery.\n\n### 7. Physical Layer (Layer 1)\n* **Data Unit**: **Bit** (converts frames into binary `0`s and `1`s).\n* **Hardware Devices**: Operates networking hardware such as **Hubs** and **Switches**.\n* **Transmission Mode**: Decides whether data travels via wired (cable) or wireless physical media.\n\n---",
+      "key_points": [
+        "**Function**: Serves as the direct interface between the user/application and the network.",
+        "**Protocols & Usage**: Protocols operate here to handle user actions (e.g., **HTTP** for browsing via Google Chrome, messaging apps like WhatsApp, or file transfer protocols).",
+        "**Data Translation**: Converts data into a format readable by the receiver (e.g., translating English data to French if required).",
+        "**Security**: Handles **Encryption** (sender side) and **Decryption** (receiver side).",
+        "**Data Compression**: Reduces data size to facilitate faster transmission.",
+        "**Session Management**: Establishes, maintains, and terminates connections between sender and receiver."
+      ],
+      "diagram": null
+    },
+    {
+      "id": "topic-4",
+      "title": "Summary of Layer Data Units",
+      "content": "## \ud83d\udcca Summary of Layer Data Units\n\n| Layer Name | Layer Type | Data Unit |\n| :--- | :--- | :--- |\n| **Application** | Software | Data |\n| **Presentation** | Software | Data |\n| **Session** | Software | Data |\n| **Transport** | Heart of OSI | **Segment** |\n| **Network** | Hardware | **Packet** |\n| **Data Link** | Hardware | **Frame** |\n| **Physical** | Hardware | **Bit (0/1)** |",
+      "key_points": [],
+      "diagram": null
+    }
+  ],
+  "quiz": [
+    {
+      "id": "q-1",
+      "topic": "\ud83c\udf10 Fundamentals of OSI Model",
+      "question": "Which statement regarding \ud83c\udf10 Fundamentals of OSI Model is strictly correct based on the lecture?",
+      "options": [
+        "It contradicts the core principle of \ud83c\udf10 Fundamentals of OSI Model.",
+        "Software Layers (Upper Layers): Application, Presentation, and Session layers.",
+        "It eliminates all resource requirements.",
+        "It is completely handled outside OS memory space."
+      ],
+      "correct_index": 1,
+      "explanation": "As covered in the lecture: Software Layers (Upper Layers): Application, Presentation, and Session layers."
+    },
+    {
+      "id": "q-2",
+      "topic": "\ud83c\udf10 Fundamentals of OSI Model",
+      "question": "In the context of \ud83c\udf10 Fundamentals of OSI Model, what key property was emphasized by the lecturer?",
+      "options": [
+        "Heart of OSI: Transport Layer (acts as the interface between software and hardware layers).",
+        "It operates without any data structures.",
+        "It requires manual memory deallocation per thread.",
+        "It is restricted to single-threaded CPU architectures."
+      ],
+      "correct_index": 0,
+      "explanation": "Lecture note detail: Heart of OSI: Transport Layer (acts as the interface between software and hardware layers)."
+    },
+    {
+      "id": "q-3",
+      "topic": "\ufe0f Detailed Breakdown of the 7 Layers",
+      "question": "Which statement regarding \ufe0f Detailed Breakdown of the 7 Layers is strictly correct based on the lecture?",
+      "options": [
+        "It contradicts the core principle of \ufe0f Detailed Breakdown of the 7 Layers.",
+        "It eliminates all resource requirements.",
+        "Function: Serves as the direct interface between the user/application and the network.",
+        "It is completely handled outside OS memory space."
+      ],
+      "correct_index": 2,
+      "explanation": "As covered in the lecture: Function: Serves as the direct interface between the user/application and the network."
+    },
+    {
+      "id": "q-4",
+      "topic": "\ufe0f Detailed Breakdown of the 7 Layers",
+      "question": "In the context of \ufe0f Detailed Breakdown of the 7 Layers, what key property was emphasized by the lecturer?",
+      "options": [
+        "It is restricted to single-threaded CPU architectures.",
+        "It operates without any data structures.",
+        "It requires manual memory deallocation per thread.",
+        "Protocols & Usage: Protocols operate here to handle user actions (e.g., HTTP for browsing via Google Chrome, messaging apps like WhatsApp, or file transfer protocols)."
+      ],
+      "correct_index": 3,
+      "explanation": "Lecture note detail: Protocols & Usage: Protocols operate here to handle user actions (e.g., HTTP for browsing via Google Chrome, messaging apps like WhatsApp, or file transfer protocols)."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-1",
+      "front": "What is 1984?",
+      "back": "The **OSI (Open Systems Interconnection) Model** is a foundational framework in computer networking developed by the **ISO (International Organization for Standardization)** in **1984**."
+    },
+    {
+      "id": "fc-2",
+      "front": "What is 7-Layer Architecture?",
+      "back": "**7-Layer Architecture**: Every layer performs a distinct, dedicated functionality."
+    },
+    {
+      "id": "fc-3",
+      "front": "What is Collaborative Functionality?",
+      "back": "**Collaborative Functionality**: All seven layers work together sequentially to transmit data across networks worldwide."
+    },
+    {
+      "id": "fc-4",
+      "front": "What is Software Layers (Upper Layers)?",
+      "back": "* **Software Layers (Upper Layers)**: Application, Presentation, and Session layers."
+    },
+    {
+      "id": "fc-5",
+      "front": "What is Heart of OSI?",
+      "back": "* **Heart of OSI**: Transport Layer (acts as the interface between software and hardware layers)."
+    },
+    {
+      "id": "fc-6",
+      "front": "What is Hardware Layers (Lower Layers)?",
+      "back": "* **Hardware Layers (Lower Layers)**: Network, Data Link, and Physical layers."
+    },
+    {
+      "id": "fc-7",
+      "front": "What is Function?",
+      "back": "* **Function**: Serves as the direct interface between the user/application and the network."
+    },
+    {
+      "id": "fc-8",
+      "front": "What is Protocols & Usage?",
+      "back": "* **Protocols & Usage**: Protocols operate here to handle user actions (e."
+    },
+    {
+      "id": "fc-9",
+      "front": "What is HTTP?",
+      "back": ", **HTTP** for browsing via Google Chrome, messaging apps like WhatsApp, or file transfer protocols)."
+    },
+    {
+      "id": "fc-10",
+      "front": "What is Data Translation?",
+      "back": "* **Data Translation**: Converts data into a format readable by the receiver (e."
+    }
+  ],
+  "revision_plan": [
+    {
+      "stage": "24 Hours (Immediate Recall)",
+      "interval": "Day 1",
+      "priority": "High",
+      "goal": "Review core definitions and key facts to consolidate short-term memory.",
+      "topics": [
+        "\ud83c\udf10 Fundamentals of OSI Model",
+        "\ufe0f Detailed Breakdown of the 7 Layers"
+      ]
+    },
+    {
+      "stage": "3 Days (Reinforcement)",
+      "interval": "Day 3",
+      "priority": "High",
+      "goal": "Re-examine comparison tables and diagram relationships.",
+      "topics": [
+        "\ufe0f Detailed Breakdown of the 7 Layers",
+        "Summary of Layer Data Units"
+      ]
+    },
+    {
+      "stage": "7 Days (Weekly Review)",
+      "interval": "Day 7",
+      "priority": "Medium",
+      "goal": "Solve interactive quiz questions and test recall via flashcards.",
+      "topics": [
+        "Summary of Layer Data Units"
+      ]
+    },
+    {
+      "stage": "14 Days (Pre-Exam Polish)",
+      "interval": "Day 14",
+      "priority": "Medium",
+      "goal": "Attempt basic and intermediate interview prep questions.",
+      "topics": [
+        "\ud83c\udf10 Fundamentals of OSI Model",
+        "\ufe0f Detailed Breakdown of the 7 Layers",
+        "Summary of Layer Data Units"
+      ]
+    },
+    {
+      "stage": "30 Days (Mastery Verification)",
+      "interval": "Day 30",
+      "priority": "Low",
+      "goal": "Final quick scan of exam focus callouts and master summary.",
+      "topics": [
+        "\ud83c\udf10 Fundamentals of OSI Model",
+        "\ufe0f Detailed Breakdown of the 7 Layers",
+        "Summary of Layer Data Units"
+      ]
+    }
+  ],
+  "interview_questions": {
+    "basic": [
+      {
+        "id": "ib-1",
+        "question": "Define \ud83c\udf10 Fundamentals of OSI Model in simple terms. What is its fundamental role?",
+        "answer": "**Software Layers (Upper Layers)**: Application, Presentation, and Session layers."
+      }
+    ],
+    "intermediate": [
+      {
+        "id": "ii-2",
+        "question": "How does \ufe0f Detailed Breakdown of the 7 Layers handle resource allocation or execution compared to alternative approaches?",
+        "answer": "**Function**: Serves as the direct interface between the user/application and the network. **Protocols & Usage**: Protocols operate here to handle user actions (e.g., **HTTP** for browsing via Google Chrome, messaging apps like WhatsApp, or file transfer protocols)."
+      }
+    ],
+    "advanced": [
+      {
+        "id": "ia-3",
+        "question": "What are the architectural trade-offs and common performance pitfalls associated with Summary of Layer Data Units?",
+        "answer": "Explained in Summary of Layer Data Units. "
+      }
+    ]
+  }
+}

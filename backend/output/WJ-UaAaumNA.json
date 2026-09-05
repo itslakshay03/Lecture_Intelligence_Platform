@@ -1,0 +1,387 @@
+{
+  "video_id": "WJ-UaAaumNA",
+  "title": "Introduction to Operating System and Its Functionalities",
+  "overview": "An **Operating System (OS)** is system software that acts as an interface between the user and computer hardware. It simplifies hardware interaction, allocates system resources, handles process execution, manages memory and storage, and provides system security.",
+  "notes_markdown": "# \ud83d\udcd8 Introduction to Operating System and Its Functionalities\n\n### \ud83d\udccc Overview\nAn **Operating System (OS)** is system software that acts as an interface between the user and computer hardware. It simplifies hardware interaction, allocates system resources, handles process execution, manages memory and storage, and provides system security.\n\n```mermaid\ngraph TD\n    A[User] --> B[Application / Shell]\n    B --> C[Operating System]\n    C --> D[Hardware CPU, RAM, Disk]\n```\n\n---\n\n## \ud83d\udda5\ufe0f What is an Operating System?\n\n*   **Core Definition**: An OS is system software that serves as an intermediary or interface between a user and the physical hardware components.\n*   **Hardware Managed by OS**:\n    *   **CPU**: The central processing unit (brain of the system).\n    *   **Input/Output Devices**: Keyboard, mouse, printer, scanner.\n    *   **Main Memory (RAM)**: Volatile memory used during active execution.\n    *   **Secondary Storage**: Hard Disk for permanent file storage.\n\n---\n\n## \u2753 Why Do We Need an Operating System?\n\nWithout an operating system, direct interaction with hardware creates extreme complexity:\n\n*   **Custom Code Requirement**: A user would have to write custom driver/access code for every device operation (e.g., writing specific code just to send a print command).\n*   **Complex Instruction Flow**: Executing a program would require writing manual instruction routines to communicate directly with the CPU.\n*   **Resource Hoarding**: Without a central authority to manage and revoke access, one user or process could hold hardware indefinitely without releasing it to others.\n\n---\n\n## \ud83c\udfaf Primary Goals: Convenience vs. Throughput\n\nAn OS balances two primary operational goals:\n\n1.  **Convenience**: Providing an intuitive and simple interface for user hardware access.\n    *   *Example*: **Windows** focused heavily on convenience, historically capturing up to 95% of the market (and around 82% in recent years).\n2.  **Throughput**: Maximizing the number of tasks executed per unit time.\n    *   *Example*:\n **Linux** focuses heavily on performance and throughput, growing significantly in multi-user and server environments.\n    *   *Note*: **Mac (Macintosh)** is another major desktop operating system operating in the market.\n\n### \ud83d\udcca OS Goal Focus Comparison\n\n| Attribute | Convenience Focus | Throughput Focus |\n| :--- | :--- | :--- |\n| **Primary Objective** | User ease of use | High execution speed |\n| **Key Metric** | User interface simplicity | Tasks per unit time |\n| **OS Example** | Windows | Linux |\n\n---\n\n## \u2699\ufe0f Core Functionalities of an Operating System\n\n### 1. \ud83c\udf9b\ufe0f Resource Governor / Manager\n*   Manages resource distribution (CPU, RAM, devices), especially during **parallel access** in multi-user or server environments.\n*   Prevents system overloading and balances resource load (monitored via utilities like Task Manager).\n\n### 2. \ud83d\udd04 Process Management\n*   Handles concurrent execution of multiple applications (e.g., MS Word, media players, games).\n*   Converts stored program files (e.g., a saved `.c` file) into active **processes** ready for CPU execution.\n*   Uses **CPU Scheduling Algorithms** to assign processes to the CPU efficiently.\n\n### 3. \ud83d\udcbe Storage Management\n*   Manages permanent data retention on secondary devices (Hard Disk tracks and sectors).\n*   Uses file systems such as **NFS** (Network File System) and **CIFS** (Common Internet File System) to manage files in Windows and Linux.\n\n### 4. \ud83e\udde0 Memory Management\n*   Controls access to limited **RAM** during **multitasking / multiprogramming**.\n*   Loads processes into main memory before sending them to the CPU.\n*   Handles **Allocation & Deallocation** as well as **Swapping** (removing completed processes from RAM to free up space for incoming tasks).\n\n### 5. \ud83d\udd12 Security and Privacy\n*   **User Authentication**: Requires passwords to restrict access. Windows utilizes protocols like **Kerberos** for authentication security.\n*   **Process Isolation**: Assigns isolated memory segments to running processes.\n    *   *Example*: If Process $P_1$ occupies memory $0-100$ and Process $P_2$ occupies $101-200$, any attempt by $P_2$ to read or modify $P_1$'s memory segment triggers an instant process block.\n\n---\n\n## \ud83d\udd0c User Interaction & System Calls\n\nUsers communicate with the operating system and underlying hardware through two primary entry points:\n\n1.  **Application Software**: Graphical utilities where hardware access is abstract (e.g., pressing `Ctrl + P` in MS Office invokes printing seamlessly).\n2.  **Shell / Command Interface**: Command Prompt in Windows or Terminal in Linux for issuing direct text commands.\n\n### System Calls\nWhenever an application or shell command accesses hardware, it invokes a **System Call**.\n*   **Common Examples**: `open`, `read`, `write`.\n*   *Workflow*: Double-clicking a stored file uses an `open` system call behind the scenes to retrieve data from storage.",
+  "video_duration": 1139.0,
+  "video_duration_formatted": "18:59",
+  "timestamps": [
+    {
+      "time": "00:00",
+      "sec": 0,
+      "label": "Lecture Introduction & Overview"
+    },
+    {
+      "time": "01:03",
+      "sec": 63,
+      "label": "\ud83d\udda5\ufe0f What is an Operating System?"
+    },
+    {
+      "time": "03:06",
+      "sec": 186,
+      "label": "\u2753 Why Do We Need an Operating System?"
+    },
+    {
+      "time": "04:06",
+      "sec": 246,
+      "label": "Primary Goals: Convenience vs. Throughput"
+    },
+    {
+      "time": "07:18",
+      "sec": 438,
+      "label": "Core Functionalities of an Operating System"
+    },
+    {
+      "time": "17:49",
+      "sec": 1069,
+      "label": "\ud83d\udd0c User Interaction & System Calls"
+    }
+  ],
+  "topics": [
+    {
+      "id": "topic-2",
+      "title": "\ud83d\udda5\ufe0f What is an Operating System?",
+      "content": "## \ud83d\udda5\ufe0f What is an Operating System?\n\n*   **Core Definition**: An OS is system software that serves as an intermediary or interface between a user and the physical hardware components.\n*   **Hardware Managed by OS**:\n    *   **CPU**: The central processing unit (brain of the system).\n    *   **Input/Output Devices**: Keyboard, mouse, printer, scanner.\n    *   **Main Memory (RAM)**: Volatile memory used during active execution.\n    *   **Secondary Storage**: Hard Disk for permanent file storage.\n\n---",
+      "key_points": [
+        "**Core Definition**: An OS is system software that serves as an intermediary or interface between a user and the physical hardware components.",
+        "**Hardware Managed by OS**:",
+        "**CPU**: The central processing unit (brain of the system).",
+        "**Input/Output Devices**: Keyboard, mouse, printer, scanner.",
+        "**Main Memory (RAM)**: Volatile memory used during active execution.",
+        "**Secondary Storage**: Hard Disk for permanent file storage."
+      ],
+      "diagram": null,
+      "seconds": 63,
+      "timestamp": "01:03"
+    },
+    {
+      "id": "topic-3",
+      "title": "\u2753 Why Do We Need an Operating System?",
+      "content": "## \u2753 Why Do We Need an Operating System?\n\nWithout an operating system, direct interaction with hardware creates extreme complexity:\n\n*   **Custom Code Requirement**: A user would have to write custom driver/access code for every device operation (e.g., writing specific code just to send a print command).\n*   **Complex Instruction Flow**: Executing a program would require writing manual instruction routines to communicate directly with the CPU.\n*   **Resource Hoarding**: Without a central authority to manage and revoke access, one user or process could hold hardware indefinitely without releasing it to others.\n\n---",
+      "key_points": [
+        "**Custom Code Requirement**: A user would have to write custom driver/access code for every device operation (e.g., writing specific code just to send a print command).",
+        "**Complex Instruction Flow**: Executing a program would require writing manual instruction routines to communicate directly with the CPU.",
+        "**Resource Hoarding**: Without a central authority to manage and revoke access, one user or process could hold hardware indefinitely without releasing it to others."
+      ],
+      "diagram": null,
+      "seconds": 186,
+      "timestamp": "03:06"
+    },
+    {
+      "id": "topic-4",
+      "title": "\ud83c\udfaf Primary Goals: Convenience vs. Throughput",
+      "content": "## \ud83c\udfaf Primary Goals: Convenience vs. Throughput\n\nAn OS balances two primary operational goals:\n\n1.  **Convenience**: Providing an intuitive and simple interface for user hardware access.\n    *   *Example*: **Windows** focused heavily on convenience, historically capturing up to 95% of the market (and around 82% in recent years).\n2.  **Throughput**: Maximizing the number of tasks executed per unit time.\n    *   *Example*:\n **Linux** focuses heavily on performance and throughput, growing significantly in multi-user and server environments.\n    *   *Note*: **Mac (Macintosh)** is another major desktop operating system operating in the market.\n\n### \ud83d\udcca OS Goal Focus Comparison\n\n| Attribute | Convenience Focus | Throughput Focus |\n| :--- | :--- | :--- |\n| **Primary Objective** | User ease of use | High execution speed |\n| **Key Metric** | User interface simplicity | Tasks per unit time |\n| **OS Example** | Windows | Linux |\n\n---",
+      "key_points": [
+        "*Example*: **Windows** focused heavily on convenience, historically capturing up to 95% of the market (and around 82% in recent years).",
+        "*Example*:",
+        "*Note*: **Mac (Macintosh)** is another major desktop operating system operating in the market."
+      ],
+      "diagram": null,
+      "seconds": 246,
+      "timestamp": "04:06"
+    },
+    {
+      "id": "topic-5",
+      "title": "\ufe0f Core Functionalities of an Operating System",
+      "content": "## \u2699\ufe0f Core Functionalities of an Operating System\n\n### 1. \ud83c\udf9b\ufe0f Resource Governor / Manager\n*   Manages resource distribution (CPU, RAM, devices), especially during **parallel access** in multi-user or server environments.\n*   Prevents system overloading and balances resource load (monitored via utilities like Task Manager).\n\n### 2. \ud83d\udd04 Process Management\n*   Handles concurrent execution of multiple applications (e.g., MS Word, media players, games).\n*   Converts stored program files (e.g., a saved `.c` file) into active **processes** ready for CPU execution.\n*   Uses **CPU Scheduling Algorithms** to assign processes to the CPU efficiently.\n\n### 3. \ud83d\udcbe Storage Management\n*   Manages permanent data retention on secondary devices (Hard Disk tracks and sectors).\n*   Uses file systems such as **NFS** (Network File System) and **CIFS** (Common Internet File System) to manage files in Windows and Linux.\n\n### 4. \ud83e\udde0 Memory Management\n*   Controls access to limited **RAM** during **multitasking / multiprogramming**.\n*   Loads processes into main memory before sending them to the CPU.\n*   Handles **Allocation & Deallocation** as well as **Swapping** (removing completed processes from RAM to free up space for incoming tasks).\n\n### 5. \ud83d\udd12 Security and Privacy\n*   **User Authentication**: Requires passwords to restrict access. Windows utilizes protocols like **Kerberos** for authentication security.\n*   **Process Isolation**: Assigns isolated memory segments to running processes.\n    *   *Example*: If Process $P_1$ occupies memory $0-100$ and Process $P_2$ occupies $101-200$, any attempt by $P_2$ to read or modify $P_1$'s memory segment triggers an instant process block.\n\n---",
+      "key_points": [
+        "Manages resource distribution (CPU, RAM, devices), especially during **parallel access** in multi-user or server environments.",
+        "Prevents system overloading and balances resource load (monitored via utilities like Task Manager).",
+        "Handles concurrent execution of multiple applications (e.g., MS Word, media players, games).",
+        "Converts stored program files (e.g., a saved `.c` file) into active **processes** ready for CPU execution.",
+        "Uses **CPU Scheduling Algorithms** to assign processes to the CPU efficiently.",
+        "Manages permanent data retention on secondary devices (Hard Disk tracks and sectors)."
+      ],
+      "diagram": null,
+      "seconds": 438,
+      "timestamp": "07:18"
+    },
+    {
+      "id": "topic-6",
+      "title": "\ud83d\udd0c User Interaction & System Calls",
+      "content": "## \ud83d\udd0c User Interaction & System Calls\n\nUsers communicate with the operating system and underlying hardware through two primary entry points:\n\n1.  **Application Software**: Graphical utilities where hardware access is abstract (e.g., pressing `Ctrl + P` in MS Office invokes printing seamlessly).\n2.  **Shell / Command Interface**: Command Prompt in Windows or Terminal in Linux for issuing direct text commands.\n\n### System Calls\nWhenever an application or shell command accesses hardware, it invokes a **System Call**.\n*   **Common Examples**: `open`, `read`, `write`.\n*   *Workflow*: Double-clicking a stored file uses an `open` system call behind the scenes to retrieve data from storage.",
+      "key_points": [
+        "**Common Examples**: `open`, `read`, `write`.",
+        "*Workflow*: Double-clicking a stored file uses an `open` system call behind the scenes to retrieve data from storage."
+      ],
+      "diagram": null,
+      "seconds": 1069,
+      "timestamp": "17:49"
+    }
+  ],
+  "quiz": [
+    {
+      "id": "q-1",
+      "topic": "\ud83d\udda5\ufe0f What is an Operating System?",
+      "question": "Which statement regarding \ud83d\udda5\ufe0f What is an Operating System? is strictly correct based on the lecture?",
+      "options": [
+        "Core Definition: An OS is system software that serves as an intermediary or interface between a user and the physical hardware components.",
+        "It is completely handled outside OS memory space.",
+        "It eliminates all resource requirements.",
+        "It contradicts the core principle of \ud83d\udda5\ufe0f What is an Operating System?."
+      ],
+      "correct_index": 0,
+      "explanation": "As covered in the lecture: Core Definition: An OS is system software that serves as an intermediary or interface between a user and the physical hardware components."
+    },
+    {
+      "id": "q-2",
+      "topic": "\ud83d\udda5\ufe0f What is an Operating System?",
+      "question": "In the context of \ud83d\udda5\ufe0f What is an Operating System?, what key property was emphasized by the lecturer?",
+      "options": [
+        "It requires manual memory deallocation per thread.",
+        "It is restricted to single-threaded CPU architectures.",
+        "Hardware Managed by OS:",
+        "It operates without any data structures."
+      ],
+      "correct_index": 2,
+      "explanation": "Lecture note detail: Hardware Managed by OS:"
+    },
+    {
+      "id": "q-3",
+      "topic": "\u2753 Why Do We Need an Operating System?",
+      "question": "Which statement regarding \u2753 Why Do We Need an Operating System? is strictly correct based on the lecture?",
+      "options": [
+        "Custom Code Requirement: A user would have to write custom driver/access code for every device operation (e.g., writing specific code just to send a print command).",
+        "It contradicts the core principle of \u2753 Why Do We Need an Operating System?.",
+        "It is completely handled outside OS memory space.",
+        "It eliminates all resource requirements."
+      ],
+      "correct_index": 0,
+      "explanation": "As covered in the lecture: Custom Code Requirement: A user would have to write custom driver/access code for every device operation (e.g., writing specific code just to send a print command)."
+    },
+    {
+      "id": "q-4",
+      "topic": "\u2753 Why Do We Need an Operating System?",
+      "question": "In the context of \u2753 Why Do We Need an Operating System?, what key property was emphasized by the lecturer?",
+      "options": [
+        "It operates without any data structures.",
+        "It requires manual memory deallocation per thread.",
+        "It is restricted to single-threaded CPU architectures.",
+        "Complex Instruction Flow: Executing a program would require writing manual instruction routines to communicate directly with the CPU."
+      ],
+      "correct_index": 3,
+      "explanation": "Lecture note detail: Complex Instruction Flow: Executing a program would require writing manual instruction routines to communicate directly with the CPU."
+    },
+    {
+      "id": "q-5",
+      "topic": "\ud83c\udfaf Primary Goals: Convenience vs. Throughput",
+      "question": "Which statement regarding \ud83c\udfaf Primary Goals: Convenience vs. Throughput is strictly correct based on the lecture?",
+      "options": [
+        "It is completely handled outside OS memory space.",
+        "Example: Windows focused heavily on convenience, historically capturing up to 95% of the market (and around 82% in recent years).",
+        "It contradicts the core principle of \ud83c\udfaf Primary Goals: Convenience vs. Throughput.",
+        "It eliminates all resource requirements."
+      ],
+      "correct_index": 1,
+      "explanation": "As covered in the lecture: Example: Windows focused heavily on convenience, historically capturing up to 95% of the market (and around 82% in recent years)."
+    },
+    {
+      "id": "q-6",
+      "topic": "\ud83c\udfaf Primary Goals: Convenience vs. Throughput",
+      "question": "In the context of \ud83c\udfaf Primary Goals: Convenience vs. Throughput, what key property was emphasized by the lecturer?",
+      "options": [
+        "It operates without any data structures.",
+        "It is restricted to single-threaded CPU architectures.",
+        "It requires manual memory deallocation per thread.",
+        "Example:"
+      ],
+      "correct_index": 3,
+      "explanation": "Lecture note detail: Example:"
+    },
+    {
+      "id": "q-7",
+      "topic": "\ufe0f Core Functionalities of an Operating System",
+      "question": "Which statement regarding \ufe0f Core Functionalities of an Operating System is strictly correct based on the lecture?",
+      "options": [
+        "It is completely handled outside OS memory space.",
+        "Manages resource distribution (CPU, RAM, devices), especially during parallel access in multi-user or server environments.",
+        "It contradicts the core principle of \ufe0f Core Functionalities of an Operating System.",
+        "It eliminates all resource requirements."
+      ],
+      "correct_index": 1,
+      "explanation": "As covered in the lecture: Manages resource distribution (CPU, RAM, devices), especially during parallel access in multi-user or server environments."
+    },
+    {
+      "id": "q-8",
+      "topic": "\ufe0f Core Functionalities of an Operating System",
+      "question": "In the context of \ufe0f Core Functionalities of an Operating System, what key property was emphasized by the lecturer?",
+      "options": [
+        "Prevents system overloading and balances resource load (monitored via utilities like Task Manager).",
+        "It operates without any data structures.",
+        "It requires manual memory deallocation per thread.",
+        "It is restricted to single-threaded CPU architectures."
+      ],
+      "correct_index": 0,
+      "explanation": "Lecture note detail: Prevents system overloading and balances resource load (monitored via utilities like Task Manager)."
+    },
+    {
+      "id": "q-9",
+      "topic": "\ud83d\udd0c User Interaction & System Calls",
+      "question": "Which statement regarding \ud83d\udd0c User Interaction & System Calls is strictly correct based on the lecture?",
+      "options": [
+        "It eliminates all resource requirements.",
+        "Common Examples: open, read, write.",
+        "It contradicts the core principle of \ud83d\udd0c User Interaction & System Calls.",
+        "It is completely handled outside OS memory space."
+      ],
+      "correct_index": 1,
+      "explanation": "As covered in the lecture: Common Examples: open, read, write."
+    },
+    {
+      "id": "q-10",
+      "topic": "\ud83d\udd0c User Interaction & System Calls",
+      "question": "In the context of \ud83d\udd0c User Interaction & System Calls, what key property was emphasized by the lecturer?",
+      "options": [
+        "It requires manual memory deallocation per thread.",
+        "It operates without any data structures.",
+        "Workflow: Double-clicking a stored file uses an open system call behind the scenes to retrieve data from storage.",
+        "It is restricted to single-threaded CPU architectures."
+      ],
+      "correct_index": 2,
+      "explanation": "Lecture note detail: Workflow: Double-clicking a stored file uses an open system call behind the scenes to retrieve data from storage."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-1",
+      "front": "What is Operating System (OS)?",
+      "back": "An **Operating System (OS)** is system software that acts as an interface between the user and computer hardware."
+    },
+    {
+      "id": "fc-2",
+      "front": "What is Core Definition?",
+      "back": "*   **Core Definition**: An OS is system software that serves as an intermediary or interface between a user and the physical hardware components."
+    },
+    {
+      "id": "fc-3",
+      "front": "What is Hardware Managed by OS?",
+      "back": "Key technical term explained in \ud83d\udda5\ufe0f What is an Operating System?."
+    },
+    {
+      "id": "fc-4",
+      "front": "What is Input/Output Devices?",
+      "back": "*   **Input/Output Devices**: Keyboard, mouse, printer, scanner."
+    },
+    {
+      "id": "fc-5",
+      "front": "What is Main Memory (RAM)?",
+      "back": "*   **Main Memory (RAM)**: Volatile memory used during active execution."
+    },
+    {
+      "id": "fc-6",
+      "front": "What is Secondary Storage?",
+      "back": "*   **Secondary Storage**: Hard Disk for permanent file storage."
+    },
+    {
+      "id": "fc-7",
+      "front": "What is Custom Code Requirement?",
+      "back": "*   **Custom Code Requirement**: A user would have to write custom driver/access code for every device operation (e."
+    },
+    {
+      "id": "fc-8",
+      "front": "What is Complex Instruction Flow?",
+      "back": "*   **Complex Instruction Flow**: Executing a program would require writing manual instruction routines to communicate directly with the CPU."
+    },
+    {
+      "id": "fc-9",
+      "front": "What is Resource Hoarding?",
+      "back": "*   **Resource Hoarding**: Without a central authority to manage and revoke access, one user or process could hold hardware indefinitely without releasing it to others."
+    },
+    {
+      "id": "fc-10",
+      "front": "What is Convenience?",
+      "back": "**Convenience**: Providing an intuitive and simple interface for user hardware access."
+    }
+  ],
+  "revision_plan": [
+    {
+      "stage": "24 Hours (Immediate Recall)",
+      "interval": "Day 1",
+      "priority": "High",
+      "goal": "Review core definitions and key facts to consolidate short-term memory.",
+      "topics": [
+        "\ud83d\udda5\ufe0f What is an Operating System?",
+        "\u2753 Why Do We Need an Operating System?"
+      ]
+    },
+    {
+      "stage": "3 Days (Reinforcement)",
+      "interval": "Day 3",
+      "priority": "High",
+      "goal": "Re-examine comparison tables and diagram relationships.",
+      "topics": [
+        "\u2753 Why Do We Need an Operating System?",
+        "\ud83c\udfaf Primary Goals: Convenience vs. Throughput"
+      ]
+    },
+    {
+      "stage": "7 Days (Weekly Review)",
+      "interval": "Day 7",
+      "priority": "Medium",
+      "goal": "Solve interactive quiz questions and test recall via flashcards.",
+      "topics": [
+        "\ud83c\udfaf Primary Goals: Convenience vs. Throughput",
+        "\ufe0f Core Functionalities of an Operating System"
+      ]
+    },
+    {
+      "stage": "14 Days (Pre-Exam Polish)",
+      "interval": "Day 14",
+      "priority": "Medium",
+      "goal": "Attempt basic and intermediate interview prep questions.",
+      "topics": [
+        "\ud83d\udda5\ufe0f What is an Operating System?",
+        "\u2753 Why Do We Need an Operating System?",
+        "\ud83c\udfaf Primary Goals: Convenience vs. Throughput",
+        "\ufe0f Core Functionalities of an Operating System",
+        "\ud83d\udd0c User Interaction & System Calls"
+      ]
+    },
+    {
+      "stage": "30 Days (Mastery Verification)",
+      "interval": "Day 30",
+      "priority": "Low",
+      "goal": "Final quick scan of exam focus callouts and master summary.",
+      "topics": [
+        "\ud83d\udda5\ufe0f What is an Operating System?",
+        "\u2753 Why Do We Need an Operating System?",
+        "\ud83c\udfaf Primary Goals: Convenience vs. Throughput",
+        "\ufe0f Core Functionalities of an Operating System",
+        "\ud83d\udd0c User Interaction & System Calls"
+      ]
+    }
+  ],
+  "interview_questions": {
+    "basic": [
+      {
+        "id": "ib-1",
+        "question": "Define \ud83d\udda5\ufe0f What is an Operating System? in simple terms. What is its fundamental role?",
+        "answer": "**Core Definition**: An OS is system software that serves as an intermediary or interface between a user and the physical hardware components."
+      },
+      {
+        "id": "ib-4",
+        "question": "Define \ufe0f Core Functionalities of an Operating System in simple terms. What is its fundamental role?",
+        "answer": "Manages resource distribution (CPU, RAM, devices), especially during **parallel access** in multi-user or server environments."
+      }
+    ],
+    "intermediate": [
+      {
+        "id": "ii-2",
+        "question": "How does \u2753 Why Do We Need an Operating System? handle resource allocation or execution compared to alternative approaches?",
+        "answer": "**Custom Code Requirement**: A user would have to write custom driver/access code for every device operation (e.g., writing specific code just to send a print command). **Complex Instruction Flow**: Executing a program would require writing manual instruction routines to communicate directly with the CPU."
+      },
+      {
+        "id": "ii-5",
+        "question": "How does \ud83d\udd0c User Interaction & System Calls handle resource allocation or execution compared to alternative approaches?",
+        "answer": "**Common Examples**: `open`, `read`, `write`. *Workflow*: Double-clicking a stored file uses an `open` system call behind the scenes to retrieve data from storage."
+      }
+    ],
+    "advanced": [
+      {
+        "id": "ia-3",
+        "question": "What are the architectural trade-offs and common performance pitfalls associated with \ud83c\udfaf Primary Goals: Convenience vs. Throughput?",
+        "answer": "*Example*: **Windows** focused heavily on convenience, historically capturing up to 95% of the market (and around 82% in recent years). *Note*: **Mac (Macintosh)** is another major desktop operating system operating in the market."
+      }
+    ]
+  }
+}

@@ -1,0 +1,218 @@
+[
+  {
+    "lecture_id": "CAND01",
+    "claim_id": "condition_B-1",
+    "condition": "unconstrained_SMART_PROMPT_UNCONSTRAINED_v1",
+    "claim": "In operating systems, **multiprogramming** and **multitasking** (also known as **time-sharing**) are two fundamental execution models.",
+    "evidence_location": "FILL_IN (quote or timestamp from transcript)",
+    "classification": "FILL_IN (supported | partially_supported | unsupported | factually_incorrect)"
+  },
+  {
+    "lecture_id": "CAND01",
+    "claim_id": "condition_B-2",
+    "condition": "unconstrained_SMART_PROMPT_UNCONSTRAINED_v1",
+    "claim": "While both keep multiple processes in **RAM** to execute them efficiently, they differ critically in how the **CPU** is scheduled, whether execution can be interrupted (**preemptive** vs.",
+    "evidence_location": "FILL_IN (quote or timestamp from transcript)",
+    "classification": "FILL_IN (supported | partially_supported | unsupported | factually_incorrect)"
+  },
+  {
+    "lecture_id": "CAND01",
+    "claim_id": "condition_B-3",
+    "condition": "unconstrained_SMART_PROMPT_UNCONSTRAINED_v1",
+    "claim": "**non-preemptive**), and their overall design goal (**minimizing CPU idle time** vs.",
+    "evidence_location": "FILL_IN (quote or timestamp from transcript)",
+    "classification": "FILL_IN (supported | partially_supported | unsupported | factually_incorrect)"
+  },
+  {
+    "lecture_id": "CAND01",
+    "claim_id": "condition_B-4",
+    "condition": "unconstrained_SMART_PROMPT_UNCONSTRAINED_v1",
+    "claim": "**maximizing responsiveness**).",
+    "evidence_location": "FILL_IN (quote or timestamp from transcript)",
+    "classification": "FILL_IN (supported | partially_supported | unsupported | factually_incorrect)"
+  },
+  {
+    "lecture_id": "CAND01",
+    "claim_id": "condition_B-5",
+    "condition": "unconstrained_SMART_PROMPT_UNCONSTRAINED_v1",
+    "claim": "A **multiprogramming operating system** loads as many processes as possible into main memory (**RAM**) so that the **CPU** always has a process to run.",
+    "evidence_location": "FILL_IN (quote or timestamp from transcript)",
+    "classification": "FILL_IN (supported | partially_supported | unsupported | factually_incorrect)"
+  },
+  {
+    "lecture_id": "CAND01",
+    "claim_id": "condition_B-6",
+    "condition": "unconstrained_SMART_PROMPT_UNCONSTRAINED_v1",
+    "claim": "**Execution Model**: Generally **non-preemptive**. Once process \\( P_1 \\) is assigned to the **CPU**, the **CPU** executes it continuously until completion.",
+    "evidence_location": "FILL_IN (quote or timestamp from transcript)",
+    "classification": "FILL_IN (supported | partially_supported | unsupported | factually_incorrect)"
+  },
+  {
+    "lecture_id": "CAND01",
+    "claim_id": "condition_B-7",
+    "condition": "unconstrained_SMART_PROMPT_UNCONSTRAINED_v1",
+    "claim": "**I/O Interruptions**: A process relinquishes the **CPU** voluntarily only if it needs to perform an **Input/Output (I/O)** operation (e.g., requesting a file or device access). While \\( P_1 \\) is waiting on **I/O**, the OS switches the **CPU** to process \\( P_2 \\).",
+    "evidence_location": "FILL_IN (quote or timestamp from transcript)",
+    "classification": "FILL_IN (supported | partially_supported | unsupported | factually_incorrect)"
+  },
+  {
+    "lecture_id": "CAND01",
+    "claim_id": "condition_B-8",
+    "condition": "unconstrained_SMART_PROMPT_UNCONSTRAINED_v1",
+    "claim": "**Primary Objective**: Reduce **CPU idle time** (maximize **CPU utilization**).",
+    "evidence_location": "FILL_IN (quote or timestamp from transcript)",
+    "classification": "FILL_IN (supported | partially_supported | unsupported | factually_incorrect)"
+  },
+  {
+    "lecture_id": "CAND01",
+    "claim_id": "condition_B-9",
+    "condition": "unconstrained_SMART_PROMPT_UNCONSTRAINED_v1",
+    "claim": "**Classroom Analogy**: Imagine a teacher (CPU) with 10 students (processes), each having 5 questions. The teacher solves all 5 questions for Student 1 before moving to Student 2, unless Student 1 voluntarily steps away for a break (I/O operation).",
+    "evidence_location": "FILL_IN (quote or timestamp from transcript)",
+    "classification": "FILL_IN (supported | partially_supported | unsupported | factually_incorrect)"
+  },
+  {
+    "lecture_id": "CAND01",
+    "claim_id": "condition_B-10",
+    "condition": "unconstrained_SMART_PROMPT_UNCONSTRAINED_v1",
+    "claim": "A **multitasking operating system** (or **time-sharing system**) executes multiple tasks concurrently by rapidly switching the **CPU** between processes after a predetermined time interval.",
+    "evidence_location": "FILL_IN (quote or timestamp from transcript)",
+    "classification": "FILL_IN (supported | partially_supported | unsupported | factually_incorrect)"
+  },
+  {
+    "lecture_id": "CAND01",
+    "claim_id": "condition_B-11",
+    "condition": "unconstrained_SMART_PROMPT_UNCONSTRAINED_v1",
+    "claim": "**Execution Model**: **Preemptive**. The OS forcibly interrupts the currently running process once its allocated time slice expires, even if the process has not completed or requested an **I/O** operation.",
+    "evidence_location": "FILL_IN (quote or timestamp from transcript)",
+    "classification": "FILL_IN (supported | partially_supported | unsupported | factually_incorrect)"
+  },
+  {
+    "lecture_id": "CAND01",
+    "claim_id": "condition_B-12",
+    "condition": "unconstrained_SMART_PROMPT_UNCONSTRAINED_v1",
+    "claim": "**Primary Objective**: Maximize **responsiveness** (minimize **response time** for all active processes).",
+    "evidence_location": "FILL_IN (quote or timestamp from transcript)",
+    "classification": "FILL_IN (supported | partially_supported | unsupported | factually_incorrect)"
+  },
+  {
+    "lecture_id": "CAND01",
+    "claim_id": "condition_B-13",
+    "condition": "unconstrained_SMART_PROMPT_UNCONSTRAINED_v1",
+    "claim": "**Real-World Context**: Modern operating systems (such as desktop and laptop OS) rely on multitasking through algorithms like **Round Robin** scheduling.",
+    "evidence_location": "FILL_IN (quote or timestamp from transcript)",
+    "classification": "FILL_IN (supported | partially_supported | unsupported | factually_incorrect)"
+  },
+  {
+    "lecture_id": "CAND01",
+    "claim_id": "condition_B-14",
+    "condition": "unconstrained_SMART_PROMPT_UNCONSTRAINED_v1",
+    "claim": "**Classroom Analogy**: The teacher decides in advance to solve only 2 questions per student. The teacher solves 2 questions for Student 1, preempts to Student 2 to solve 2 questions, reaches Student 10 quickly, and then cycles back to Student 1 to finish the remaining questions.",
+    "evidence_location": "FILL_IN (quote or timestamp from transcript)",
+    "classification": "FILL_IN (supported | partially_supported | unsupported | factually_incorrect)"
+  },
+  {
+    "lecture_id": "CAND01",
+    "claim_id": "condition_B-15",
+    "condition": "unconstrained_SMART_PROMPT_UNCONSTRAINED_v1",
+    "claim": "| Feature | Multiprogramming OS | Multitasking (Time-Sharing) OS |",
+    "evidence_location": "FILL_IN (quote or timestamp from transcript)",
+    "classification": "FILL_IN (supported | partially_supported | unsupported | factually_incorrect)"
+  },
+  {
+    "lecture_id": "CAND01",
+    "claim_id": "condition_B-16",
+    "condition": "unconstrained_SMART_PROMPT_UNCONSTRAINED_v1",
+    "claim": "| :--- | :--- | :--- |",
+    "evidence_location": "FILL_IN (quote or timestamp from transcript)",
+    "classification": "FILL_IN (supported | partially_supported | unsupported | factually_incorrect)"
+  },
+  {
+    "lecture_id": "CAND01",
+    "claim_id": "condition_B-17",
+    "condition": "unconstrained_SMART_PROMPT_UNCONSTRAINED_v1",
+    "claim": "| **Execution Nature** | **Non-preemptive** (in general) | **Preemptive** |",
+    "evidence_location": "FILL_IN (quote or timestamp from transcript)",
+    "classification": "FILL_IN (supported | partially_supported | unsupported | factually_incorrect)"
+  },
+  {
+    "lecture_id": "CAND01",
+    "claim_id": "condition_B-18",
+    "condition": "unconstrained_SMART_PROMPT_UNCONSTRAINED_v1",
+    "claim": "| **Primary Goal** | Minimize **CPU idle time** | Maximize **responsiveness** (reduce **response time**) |",
+    "evidence_location": "FILL_IN (quote or timestamp from transcript)",
+    "classification": "FILL_IN (supported | partially_supported | unsupported | factually_incorrect)"
+  },
+  {
+    "lecture_id": "CAND01",
+    "claim_id": "condition_B-19",
+    "condition": "unconstrained_SMART_PROMPT_UNCONSTRAINED_v1",
+    "claim": "| **CPU Context Switching Trigger** | Process completion or voluntary **I/O request** | Expiration of time slice or **I/O request** |",
+    "evidence_location": "FILL_IN (quote or timestamp from transcript)",
+    "classification": "FILL_IN (supported | partially_supported | unsupported | factually_incorrect)"
+  },
+  {
+    "lecture_id": "CAND01",
+    "claim_id": "condition_B-20",
+    "condition": "unconstrained_SMART_PROMPT_UNCONSTRAINED_v1",
+    "claim": "| **Response Time** | Slower for later processes in queue | Faster initial response time for all processes |",
+    "evidence_location": "FILL_IN (quote or timestamp from transcript)",
+    "classification": "FILL_IN (supported | partially_supported | unsupported | factually_incorrect)"
+  },
+  {
+    "lecture_id": "CAND01",
+    "claim_id": "condition_B-21",
+    "condition": "unconstrained_SMART_PROMPT_UNCONSTRAINED_v1",
+    "claim": "| **Typical Environment** | Systems focused on throughput | Modern personal computers, laptops, and interactive OS |",
+    "evidence_location": "FILL_IN (quote or timestamp from transcript)",
+    "classification": "FILL_IN (supported | partially_supported | unsupported | factually_incorrect)"
+  },
+  {
+    "lecture_id": "CAND01",
+    "claim_id": "condition_B-22",
+    "condition": "unconstrained_SMART_PROMPT_UNCONSTRAINED_v1",
+    "claim": "| **Scheduling Algorithm Example** | Non-preemptive scheduling | **Round Robin** scheduling |",
+    "evidence_location": "FILL_IN (quote or timestamp from transcript)",
+    "classification": "FILL_IN (supported | partially_supported | unsupported | factually_incorrect)"
+  },
+  {
+    "lecture_id": "CAND01",
+    "claim_id": "condition_B-23",
+    "condition": "unconstrained_SMART_PROMPT_UNCONSTRAINED_v1",
+    "claim": "RAM: [ P1 | P2 | P3 | P4 ]",
+    "evidence_location": "FILL_IN (quote or timestamp from transcript)",
+    "classification": "FILL_IN (supported | partially_supported | unsupported | factually_incorrect)"
+  },
+  {
+    "lecture_id": "CAND01",
+    "claim_id": "condition_B-24",
+    "condition": "unconstrained_SMART_PROMPT_UNCONSTRAINED_v1",
+    "claim": "[ P1 Executing completely...",
+    "evidence_location": "FILL_IN (quote or timestamp from transcript)",
+    "classification": "FILL_IN (supported | partially_supported | unsupported | factually_incorrect)"
+  },
+  {
+    "lecture_id": "CAND01",
+    "claim_id": "condition_B-25",
+    "condition": "unconstrained_SMART_PROMPT_UNCONSTRAINED_v1",
+    "claim": "] ──(I/O Request or Finish)──► [ P2 Executing completely...",
+    "evidence_location": "FILL_IN (quote or timestamp from transcript)",
+    "classification": "FILL_IN (supported | partially_supported | unsupported | factually_incorrect)"
+  },
+  {
+    "lecture_id": "CAND01",
+    "claim_id": "condition_B-26",
+    "condition": "unconstrained_SMART_PROMPT_UNCONSTRAINED_v1",
+    "claim": "RAM: [ P1 | P2 | P3 | P4 ]",
+    "evidence_location": "FILL_IN (quote or timestamp from transcript)",
+    "classification": "FILL_IN (supported | partially_supported | unsupported | factually_incorrect)"
+  },
+  {
+    "lecture_id": "CAND01",
+    "claim_id": "condition_B-27",
+    "condition": "unconstrained_SMART_PROMPT_UNCONSTRAINED_v1",
+    "claim": "[ P1 (Time Slice) ] ──(Preempt)──► [ P2 (Time Slice) ] ──(Preempt)──► [ P3 (Time Slice) ] ──► Loop back to P1",
+    "evidence_location": "FILL_IN (quote or timestamp from transcript)",
+    "classification": "FILL_IN (supported | partially_supported | unsupported | factually_incorrect)"
+  }
+]

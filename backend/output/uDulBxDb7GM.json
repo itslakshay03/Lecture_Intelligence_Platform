@@ -1,0 +1,248 @@
+{
+  "video_id": "uDulBxDb7GM",
+  "title": "Network Topologies: Mesh and Star Topologies",
+  "overview": "**Topology** defines the physical or logical arrangement of devices connected within a network. This note covers two foundational network topologies: **Mesh Topology** and **Star Topology**.",
+  "notes_markdown": "# \ud83d\udcd8 Network Topologies: Mesh and Star Topologies\n\n### \ud83d\udccc Overview\n**Topology** defines the physical or logical arrangement of devices connected within a network. This note covers two foundational network topologies: **Mesh Topology** and **Star Topology**.\n\n---\n\n## \ud83d\udd78\ufe0f Mesh Topology\n\nIn a **Mesh Topology**, every device is directly connected to every other device in the network via dedicated links.\n\n```mermaid\nflowchart TD\n    A[Device A] --- B[Device B]\n    A --- C[Device C]\n    B --- C\n```\n\n### \ud83d\udcd0 Cable and Port Formulas\n* **Number of Cables**: For \\( n \\) connected devices (nodes), the number of required cables is given by:\n  \\[ \\text{Cables} = \\frac{n(n - 1)}{2} \\]\n  *(This is equivalent to finding the total edges in a complete graph, or \\( C(n, 2) \\).)*\n  * **Example**: Connecting \\( 10 \\) devices requires \\( \\frac{10 \\times 9}{2} = 45 \\) cables.\n* **Number of Ports**:\n  * **Per Device**: \\( n - 1 \\) ports.\n  * **Total Across All Devices**: \\( n(n - 1) \\) ports.\n\n### \ud83d\udd11 Characteristics & Evaluation\n* **Reliability**: **Highest**. If a single cable fails, traffic can be rerouted through alternative nodes (e.g., sending data from node A to D via node B or C).\n* **Cost**: **High**. Cable requirements grow exponentially as nodes increase, driving up implementation costs.\n* **Security**: **High**. Dedicated links ensure that data sent between two nodes (e.g., A and D) is inaccessible to other nodes (e.g., B and C).\n* **Maintenance**: **High**. Managing and maintaining a large volume of wires becomes difficult in large networks.\n* **Communication Type**: Supports **dedicated Point-to-Point communication**. It does not support multipoint sharing or multicasting on a single shared cable.\n\n---\n\n## \u2b50\ufe0f Star Topology (Hub Topology)\n\nIn a **Star Topology**, devices are not directly connected to one another. Instead, all devices connect to a central controller known as a **Hub**.\n\n```mermaid\nflowchart TD\n    Hub[Central Hub]\n    A[Device A] --- Hub\n    B[Device B] --- Hub\n    C[Device C] --- Hub\n```\n\n### \ud83d\udcd0 Cable and Port Requirements\n* **Number of Cables**: \\( n \\) cables for \\( n \\) devices.\n* **Number of Ports**:\n  * **Per Device**: \\( 1 \\) port per device.\n  * **Total Device Ports**: \\( n \\) ports (plus ports on the central hub).\n\n### \ud83d\udd11 Characteristics & Evaluation\n* **Reliability**: **Very Low**. The central hub creates a **single point of failure**. If the hub fails, the entire network stops functioning.\n* **Cost**: **Moderate / Lower than Mesh**. Requires far fewer cables than mesh topology, though the central hardware hub incurs its own cost.\n* **Security**: **Low**. By default, the hub operates as pure hardware that **broadcasts** incoming messages to all connected devices rather than selectively routing them.\n* **Communication Type**: Supports **Point-to-Point communication** on each individual link between a device and the hub (no single cable is shared across all devices like in a bus topology).\n\n---\n\n## \ud83d\udcca Comparison Table\n\n| Feature | Mesh Topology | Star Topology |\n| :--- | :--- | :--- |\n| **Central Device** | None | Central Hub |\n| **Cable Count** | \\( \\frac{n(n-1)}{2} \\) | \\( n \\) |\n| **Ports per Device** | \\( n - 1 \\) | \\( 1 \\) |\n| **Reliability** | Highest | Low (Single failure point) |\n| **Cost** | High | Moderate |\n| **Security** | High | Low (Hub broadcasts) |\n| **Link Type** | Dedicated Point-to-Point | Point-to-Point to Hub |",
+  "video_duration": 642.0,
+  "video_duration_formatted": "10:42",
+  "timestamps": [
+    {
+      "time": "00:00",
+      "sec": 0,
+      "label": "Lecture Introduction & Overview"
+    },
+    {
+      "time": "02:03",
+      "sec": 123,
+      "label": "\ud83d\udd78\ufe0f Mesh Topology"
+    },
+    {
+      "time": "07:08",
+      "sec": 428,
+      "label": "Star Topology (Hub Topology)"
+    }
+  ],
+  "topics": [
+    {
+      "id": "topic-2",
+      "title": "\ud83d\udd78\ufe0f Mesh Topology",
+      "content": "## \ud83d\udd78\ufe0f Mesh Topology\n\nIn a **Mesh Topology**, every device is directly connected to every other device in the network via dedicated links.\n\n```mermaid\nflowchart TD\n    A[Device A] --- B[Device B]\n    A --- C[Device C]\n    B --- C\n```\n\n### \ud83d\udcd0 Cable and Port Formulas\n* **Number of Cables**: For \\( n \\) connected devices (nodes), the number of required cables is given by:\n  \\[ \\text{Cables} = \\frac{n(n - 1)}{2} \\]\n  *(This is equivalent to finding the total edges in a complete graph, or \\( C(n, 2) \\).)*\n  * **Example**: Connecting \\( 10 \\) devices requires \\( \\frac{10 \\times 9}{2} = 45 \\) cables.\n* **Number of Ports**:\n  * **Per Device**: \\( n - 1 \\) ports.\n  * **Total Across All Devices**: \\( n(n - 1) \\) ports.\n\n### \ud83d\udd11 Characteristics & Evaluation\n* **Reliability**: **Highest**. If a single cable fails, traffic can be rerouted through alternative nodes (e.g., sending data from node A to D via node B or C).\n* **Cost**: **High**. Cable requirements grow exponentially as nodes increase, driving up implementation costs.\n* **Security**: **High**. Dedicated links ensure that data sent between two nodes (e.g., A and D) is inaccessible to other nodes (e.g., B and C).\n* **Maintenance**: **High**. Managing and maintaining a large volume of wires becomes difficult in large networks.\n* **Communication Type**: Supports **dedicated Point-to-Point communication**. It does not support multipoint sharing or multicasting on a single shared cable.\n\n---",
+      "key_points": [
+        "**Number of Cables**: For \\( n \\) connected devices (nodes), the number of required cables is given by:",
+        "**Example**: Connecting \\( 10 \\) devices requires \\( \\frac{10 \\times 9}{2} = 45 \\) cables.",
+        "**Number of Ports**:",
+        "**Per Device**: \\( n - 1 \\) ports.",
+        "**Total Across All Devices**: \\( n(n - 1) \\) ports.",
+        "**Reliability**: **Highest**. If a single cable fails, traffic can be rerouted through alternative nodes (e.g., sending data from node A to D via node B or C)."
+      ],
+      "diagram": "flowchart TD\n    A[Device A] --- B[Device B]\n    A --- C[Device C]\n    B --- C",
+      "seconds": 123,
+      "timestamp": "02:03"
+    },
+    {
+      "id": "topic-3",
+      "title": "\u2b50\ufe0f Star Topology (Hub Topology)",
+      "content": "## \u2b50\ufe0f Star Topology (Hub Topology)\n\nIn a **Star Topology**, devices are not directly connected to one another. Instead, all devices connect to a central controller known as a **Hub**.\n\n```mermaid\nflowchart TD\n    Hub[Central Hub]\n    A[Device A] --- Hub\n    B[Device B] --- Hub\n    C[Device C] --- Hub\n```\n\n### \ud83d\udcd0 Cable and Port Requirements\n* **Number of Cables**: \\( n \\) cables for \\( n \\) devices.\n* **Number of Ports**:\n  * **Per Device**: \\( 1 \\) port per device.\n  * **Total Device Ports**: \\( n \\) ports (plus ports on the central hub).\n\n### \ud83d\udd11 Characteristics & Evaluation\n* **Reliability**: **Very Low**. The central hub creates a **single point of failure**. If the hub fails, the entire network stops functioning.\n* **Cost**: **Moderate / Lower than Mesh**. Requires far fewer cables than mesh topology, though the central hardware hub incurs its own cost.\n* **Security**: **Low**. By default, the hub operates as pure hardware that **broadcasts** incoming messages to all connected devices rather than selectively routing them.\n* **Communication Type**: Supports **Point-to-Point communication** on each individual link between a device and the hub (no single cable is shared across all devices like in a bus topology).\n\n---",
+      "key_points": [
+        "**Number of Cables**: \\( n \\) cables for \\( n \\) devices.",
+        "**Number of Ports**:",
+        "**Per Device**: \\( 1 \\) port per device.",
+        "**Total Device Ports**: \\( n \\) ports (plus ports on the central hub).",
+        "**Reliability**: **Very Low**. The central hub creates a **single point of failure**. If the hub fails, the entire network stops functioning.",
+        "**Cost**: **Moderate / Lower than Mesh**. Requires far fewer cables than mesh topology, though the central hardware hub incurs its own cost."
+      ],
+      "diagram": "flowchart TD\n    Hub[Central Hub]\n    A[Device A] --- Hub\n    B[Device B] --- Hub\n    C[Device C] --- Hub",
+      "seconds": 428,
+      "timestamp": "07:08"
+    },
+    {
+      "id": "topic-4",
+      "title": "Comparison Table",
+      "content": "## \ud83d\udcca Comparison Table\n\n| Feature | Mesh Topology | Star Topology |\n| :--- | :--- | :--- |\n| **Central Device** | None | Central Hub |\n| **Cable Count** | \\( \\frac{n(n-1)}{2} \\) | \\( n \\) |\n| **Ports per Device** | \\( n - 1 \\) | \\( 1 \\) |\n| **Reliability** | Highest | Low (Single failure point) |\n| **Cost** | High | Moderate |\n| **Security** | High | Low (Hub broadcasts) |\n| **Link Type** | Dedicated Point-to-Point | Point-to-Point to Hub |",
+      "key_points": [],
+      "diagram": null
+    }
+  ],
+  "quiz": [
+    {
+      "id": "q-1",
+      "topic": "\ud83d\udd78\ufe0f Mesh Topology",
+      "question": "Which statement regarding \ud83d\udd78\ufe0f Mesh Topology is strictly correct based on the lecture?",
+      "options": [
+        "It contradicts the core principle of \ud83d\udd78\ufe0f Mesh Topology.",
+        "It eliminates all resource requirements.",
+        "It is completely handled outside OS memory space.",
+        "Number of Cables: For \\( n \\) connected devices (nodes), the number of required cables is given by:"
+      ],
+      "correct_index": 3,
+      "explanation": "As covered in the lecture: Number of Cables: For \\( n \\) connected devices (nodes), the number of required cables is given by:"
+    },
+    {
+      "id": "q-2",
+      "topic": "\ud83d\udd78\ufe0f Mesh Topology",
+      "question": "In the context of \ud83d\udd78\ufe0f Mesh Topology, what key property was emphasized by the lecturer?",
+      "options": [
+        "Example: Connecting \\( 10 \\) devices requires \\( \\frac{10 \\times 9}{2} = 45 \\) cables.",
+        "It is restricted to single-threaded CPU architectures.",
+        "It operates without any data structures.",
+        "It requires manual memory deallocation per thread."
+      ],
+      "correct_index": 0,
+      "explanation": "Lecture note detail: Example: Connecting \\( 10 \\) devices requires \\( \\frac{10 \\times 9}{2} = 45 \\) cables."
+    },
+    {
+      "id": "q-3",
+      "topic": "\u2b50\ufe0f Star Topology (Hub Topology)",
+      "question": "Which statement regarding \u2b50\ufe0f Star Topology (Hub Topology) is strictly correct based on the lecture?",
+      "options": [
+        "It contradicts the core principle of \u2b50\ufe0f Star Topology (Hub Topology).",
+        "Number of Cables: \\( n \\) cables for \\( n \\) devices.",
+        "It is completely handled outside OS memory space.",
+        "It eliminates all resource requirements."
+      ],
+      "correct_index": 1,
+      "explanation": "As covered in the lecture: Number of Cables: \\( n \\) cables for \\( n \\) devices."
+    },
+    {
+      "id": "q-4",
+      "topic": "\u2b50\ufe0f Star Topology (Hub Topology)",
+      "question": "In the context of \u2b50\ufe0f Star Topology (Hub Topology), what key property was emphasized by the lecturer?",
+      "options": [
+        "It operates without any data structures.",
+        "It requires manual memory deallocation per thread.",
+        "Number of Ports:",
+        "It is restricted to single-threaded CPU architectures."
+      ],
+      "correct_index": 2,
+      "explanation": "Lecture note detail: Number of Ports:"
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-1",
+      "front": "What is Topology?",
+      "back": "**Topology** defines the physical or logical arrangement of devices connected within a network."
+    },
+    {
+      "id": "fc-2",
+      "front": "What is Mesh Topology?",
+      "back": "This note covers two foundational network topologies: **Mesh Topology** and **Star Topology**."
+    },
+    {
+      "id": "fc-3",
+      "front": "What is Star Topology?",
+      "back": "This note covers two foundational network topologies: **Mesh Topology** and **Star Topology**."
+    },
+    {
+      "id": "fc-4",
+      "front": "What is Number of Cables?",
+      "back": "* **Number of Cables**: \\( n \\) cables for \\( n \\) devices."
+    },
+    {
+      "id": "fc-5",
+      "front": "What is Example?",
+      "back": "* **Example**: Connecting \\( 10 \\) devices requires \\( \\frac{10 \\times 9}{2} = 45 \\) cables."
+    },
+    {
+      "id": "fc-6",
+      "front": "What is Number of Ports?",
+      "back": "Key technical term explained in \ud83d\udd78\ufe0f Mesh Topology."
+    },
+    {
+      "id": "fc-7",
+      "front": "What is Per Device?",
+      "back": "* **Per Device**: \\( n - 1 \\) ports."
+    },
+    {
+      "id": "fc-8",
+      "front": "What is Total Across All Devices?",
+      "back": "* **Total Across All Devices**: \\( n(n - 1) \\) ports."
+    },
+    {
+      "id": "fc-9",
+      "front": "What is Reliability?",
+      "back": "* **Reliability**: **Highest**."
+    },
+    {
+      "id": "fc-10",
+      "front": "What is Highest?",
+      "back": "* **Reliability**: **Highest**."
+    }
+  ],
+  "revision_plan": [
+    {
+      "stage": "24 Hours (Immediate Recall)",
+      "interval": "Day 1",
+      "priority": "High",
+      "goal": "Review core definitions and key facts to consolidate short-term memory.",
+      "topics": [
+        "\ud83d\udd78\ufe0f Mesh Topology",
+        "\u2b50\ufe0f Star Topology (Hub Topology)"
+      ]
+    },
+    {
+      "stage": "3 Days (Reinforcement)",
+      "interval": "Day 3",
+      "priority": "High",
+      "goal": "Re-examine comparison tables and diagram relationships.",
+      "topics": [
+        "\u2b50\ufe0f Star Topology (Hub Topology)",
+        "Comparison Table"
+      ]
+    },
+    {
+      "stage": "7 Days (Weekly Review)",
+      "interval": "Day 7",
+      "priority": "Medium",
+      "goal": "Solve interactive quiz questions and test recall via flashcards.",
+      "topics": [
+        "Comparison Table"
+      ]
+    },
+    {
+      "stage": "14 Days (Pre-Exam Polish)",
+      "interval": "Day 14",
+      "priority": "Medium",
+      "goal": "Attempt basic and intermediate interview prep questions.",
+      "topics": [
+        "\ud83d\udd78\ufe0f Mesh Topology",
+        "\u2b50\ufe0f Star Topology (Hub Topology)",
+        "Comparison Table"
+      ]
+    },
+    {
+      "stage": "30 Days (Mastery Verification)",
+      "interval": "Day 30",
+      "priority": "Low",
+      "goal": "Final quick scan of exam focus callouts and master summary.",
+      "topics": [
+        "\ud83d\udd78\ufe0f Mesh Topology",
+        "\u2b50\ufe0f Star Topology (Hub Topology)",
+        "Comparison Table"
+      ]
+    }
+  ],
+  "interview_questions": {
+    "basic": [
+      {
+        "id": "ib-1",
+        "question": "Define \ud83d\udd78\ufe0f Mesh Topology in simple terms. What is its fundamental role?",
+        "answer": "**Number of Cables**: For \\( n \\) connected devices (nodes), the number of required cables is given by:"
+      }
+    ],
+    "intermediate": [
+      {
+        "id": "ii-2",
+        "question": "How does \u2b50\ufe0f Star Topology (Hub Topology) handle resource allocation or execution compared to alternative approaches?",
+        "answer": "**Number of Cables**: \\( n \\) cables for \\( n \\) devices. **Number of Ports**:"
+      }
+    ],
+    "advanced": [
+      {
+        "id": "ia-3",
+        "question": "What are the architectural trade-offs and common performance pitfalls associated with Comparison Table?",
+        "answer": "Explained in Comparison Table. "
+      }
+    ]
+  }
+}

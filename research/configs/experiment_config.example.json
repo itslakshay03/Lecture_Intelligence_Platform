@@ -1,0 +1,25 @@
+{
+  "_comment": "Template only — no experiment has been run with this config. Copy to experiment_config.<experiment_id>.json and fill in real values at execution time (Phase 5). Every field here must be populated from a REAL run; never hand-typed as a placeholder for a results table.",
+  "experiment_id": "DATA REQUIRED (e.g. 'expA_timestamp_2026-XX-XX')",
+  "phase": "Phase 5",
+  "research_question": "one of RQ1 | RQ2 | RQ3 | RQ4",
+  "dataset_version": "DATA REQUIRED (git commit hash or manifest.csv version tag at time of run)",
+  "lecture_ids_included": [],
+  "model": {
+    "provider": "google-generativeai",
+    "model_name_used": "DATA REQUIRED -- record the ACTUAL model that responded, from generation_metadata['model_name_used'], not a name chosen in advance",
+    "temperature": "not controllable by current code -- see research/configs/model_configuration.md",
+    "timeout_sec": 45.0,
+    "max_fallback_attempts": 3
+  },
+  "prompt": {
+    "condition": "constrained | unconstrained",
+    "prompt_version": "SMART_PROMPT_v1 | SMART_PROMPT_UNCONSTRAINED_v1"
+  },
+  "baseline_condition": "DATA REQUIRED (e.g. 'naive_equal_interval' | 'direct_llm_artifacts' | 'unconstrained_llm' | null for no baseline)",
+  "random_seed": "N/A unless a specific script uses one (e.g. bootstrap CI resampling) -- record it explicitly if so",
+  "evaluation_version": "DATA REQUIRED (git commit hash of research/evaluation/ at time of scoring)",
+  "execution_timestamp_utc": "DATA REQUIRED (ISO 8601, set at actual run time)",
+  "executed_by": "DATA REQUIRED",
+  "notes": ""
+}
