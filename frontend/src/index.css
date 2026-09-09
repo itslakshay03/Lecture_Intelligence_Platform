@@ -2255,3 +2255,596 @@ mark.sp-hl-current {
   .lib-toolbar { flex-direction: column; align-items: stretch; }
   .lib-sort { justify-content: space-between; }
 }
+
+/* =========================================================================
+   Top Navigation  (Phase 5)  — scoped under .topnav-*
+   Desktop-only (AppShell renders Topbar+drawer on mobile instead). Always
+   dark chrome in both themes — same deliberate choice the old sidebar made
+   (SIDEBAR_BG / var(--bg-sidebar) is itself theme-invariant-ish, near-black
+   in both :root and .dark).
+   ========================================================================= */
+
+.topnav {
+  height: var(--topbar-height);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: clamp(0.45rem, 0.8vw, 0.75rem);
+  padding: 0 clamp(0.75rem, 1.2vw, 1.25rem);
+  background: var(--bg-sidebar);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: var(--z-header);
+}
+.topnav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-shrink: 0;
+}
+.topnav-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, #6366f1, #4338ca);
+  color: #fff;
+  box-shadow: 0 2px 10px rgba(79, 70, 229, 0.45);
+  flex-shrink: 0;
+}
+.topnav-brand-text { font-size: 0.95rem; font-weight: 800; letter-spacing: -0.02em; color: #fff; white-space: nowrap; }
+.topnav-brand-accent { color: #818cf8; }
+.topnav-beta {
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  background: rgba(129, 140, 248, 0.16);
+  color: #a5b4fc;
+  padding: 2px 6px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.topnav-links {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.08rem, 0.2vw, 0.16rem);
+  flex: 1;
+  min-width: 0;
+  overflow-x: auto;
+}
+.topnav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.28rem;
+  flex-shrink: 0;
+  padding: 0.35rem clamp(0.38rem, 0.45vw, 0.52rem);
+  border-radius: var(--radius-full);
+  border: none;
+  background: transparent;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #94a3b8;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color var(--transition-fast), color var(--transition-fast), box-shadow var(--transition-fast);
+}
+.topnav-link:hover { background: rgba(255, 255, 255, 0.07); color: #e2e8f0; }
+.topnav-link.is-active {
+  background: var(--bg-sidebar-active);
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 1px 6px rgba(79, 70, 229, 0.4);
+}
+.topnav-link--ghost {
+  color: #94a3b8;
+  font-weight: 600;
+}
+.topnav-link--ghost:hover {
+  background: rgba(255, 255, 255, 0.07);
+  color: #f1f5f9;
+}
+.topnav-divider {
+  width: 1px;
+  align-self: stretch;
+  margin: 0.55rem 0.25rem;
+  background: rgba(255, 255, 255, 0.12);
+  flex-shrink: 0;
+}
+
+.topnav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-shrink: 0;
+}
+.topnav-icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: transparent;
+  color: #cbd5e1;
+  cursor: pointer;
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
+}
+.topnav-icon-btn:hover { border-color: rgba(255, 255, 255, 0.25); background: rgba(255, 255, 255, 0.06); }
+.topnav-profile {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-shrink: 0;
+  padding: 0.26rem 0.5rem 0.26rem 0.26rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: transparent;
+  color: #e2e8f0;
+  cursor: pointer;
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
+}
+.topnav-profile:hover { border-color: rgba(255, 255, 255, 0.25); background: rgba(255, 255, 255, 0.06); }
+.topnav-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 9999px;
+  background: #312e81;
+  color: #c7d2fe;
+  font-size: 0.68rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.topnav-profile-name { font-size: 0.78rem; font-weight: 600; white-space: nowrap; }
+
+/* Below ~1180px (between mobile drawer breakpoint 1024px and compact desktop),
+   tighten link spacing and shed non-essential chrome so all core navigation items
+   remain accessible and clean without horizontal scrolling. */
+@media (max-width: 1180px) {
+  .topnav-beta { display: none; }
+  .topnav-profile-name { display: none; }
+  .topnav-profile { gap: 0; }
+  .topnav-links { gap: 0.06rem; }
+  .topnav-link { padding: 0.32rem 0.35rem; }
+}
+
+/* =========================================================================
+   Dashboard  (Phase 5)  — scoped under .dash-*
+   Hero -> [Continue Learning | Process Lecture] -> feature shortcut row ->
+   [Progress | Recent Lectures | motivational card]. High density: no
+   section should force a large vertical scroll before the next is visible.
+   ========================================================================= */
+
+.dash-root {
+  /* ~40px margins at a 1600px viewport, scales proportionally below that,
+     caps at 1600px on very wide screens — replaces the old fixed 1200px
+     max-width that left large empty side margins on desktop. */
+  width: min(95%, 1600px);
+  margin-inline: auto;
+  padding: clamp(1.1rem, 2.5vw, 1.75rem) 0 3.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.25rem, 2vw, 2rem);
+}
+
+/* --- Hero --- */
+.dash-hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(220px, 1fr);
+  align-items: center;
+  gap: clamp(1.25rem, 3vw, 2rem);
+  padding: clamp(1.25rem, 3vw, 1.85rem);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  overflow: hidden;
+}
+.dash-hero-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.65rem;
+  min-width: 0;
+}
+.dash-hero-eyebrow { font-size: 0.88rem; font-weight: 700; color: var(--accent-primary); letter-spacing: -0.005em; }
+.dash-hero-title {
+  margin: 0;
+  font-size: clamp(1.5rem, 2.6vw, 1.95rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.18;
+  color: var(--text-main);
+  max-width: 28ch;
+}
+.dash-hero-desc {
+  margin: 0;
+  max-width: 46ch;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+.dash-hero-pills { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.25rem; }
+.dash-hero-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: var(--bg-main);
+  border: 1px solid var(--border-color);
+  padding: 0.26rem 0.58rem;
+  border-radius: var(--radius-full);
+}
+
+.dash-hero-side { display: flex; flex-direction: column; gap: 0.65rem; min-width: 0; }
+
+/* --- Hero decorative visual: "Learn Smarter, Not Harder" (CSS + SVG only) --- */
+.dash-hero-visual {
+  position: relative;
+  height: 140px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--accent-border);
+  background: linear-gradient(135deg, var(--accent-light), var(--bg-main));
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dash-hero-glow {
+  position: absolute;
+  top: -30%;
+  right: -15%;
+  width: 180px;
+  height: 180px;
+  border-radius: 9999px;
+  background: radial-gradient(circle, var(--accent-primary) 0%, transparent 70%);
+  opacity: 0.22;
+  pointer-events: none;
+}
+.dash-hero-arcs { position: absolute; inset: 0; width: 100%; height: 100%; }
+.dash-hero-badge {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background: var(--accent-primary);
+  color: #fff;
+  box-shadow: var(--shadow-md);
+}
+.dash-hero-slogan {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--text-main);
+  text-align: center;
+}
+.dash-hero-slogan-accent {
+  background: linear-gradient(90deg, var(--accent-primary), #a855f7);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* --- Two-column large card row (Continue Learning | Process Lecture) --- */
+.dash-grid-2 {
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(360px, 1fr);
+  gap: clamp(1rem, 2.5vw, 1.5rem);
+  align-items: stretch;
+}
+
+/* --- Three-column bottom row --- */
+.dash-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 2.5vw, 1.5rem);
+  align-items: stretch;
+}
+
+/* --- Generic dashboard card --- */
+.dash-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding: clamp(1.15rem, 2.2vw, 1.5rem);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+}
+.dash-card-head { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap; }
+.dash-card-title { margin: 0; font-size: 1rem; font-weight: 800; letter-spacing: -0.01em; color: var(--text-main); }
+
+/* --- Continue Learning card --- */
+.dash-continue { justify-content: flex-start; }
+.dash-continue-empty {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  border: 1px dashed var(--border-color);
+  border-radius: var(--radius-md);
+}
+.dash-continue-empty p { margin: 0; font-size: 0.82rem; color: var(--text-muted); max-width: 26ch; }
+.dash-continue-body { display: flex; align-items: flex-start; gap: 1.1rem; }
+.dash-continue-thumb {
+  width: 48%;
+  max-width: 400px;
+  aspect-ratio: 16 / 9;
+  flex-shrink: 0;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  background: linear-gradient(135deg, var(--accent-light), var(--bg-main));
+  color: var(--accent-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dash-continue-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.dash-continue-info { display: flex; flex-direction: column; gap: 0.45rem; min-width: 0; flex: 1; padding-top: 0.1rem; }
+.dash-continue-badges { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+.dash-continue-lecture-title { margin: 0.15rem 0 0; font-size: 1.05rem; font-weight: 800; color: var(--text-main); line-height: 1.32; }
+.dash-continue-when { font-size: 0.76rem; color: var(--text-muted); }
+
+/* --- Feature shortcut row --- */
+.dash-features {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+.dash-feature-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 0.8rem 0.85rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  text-align: left;
+  cursor: pointer;
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+.dash-feature-card:hover { transform: translateY(-2px); border-color: var(--accent-border); box-shadow: var(--shadow-sm); }
+.dash-feature-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  border-radius: var(--radius-sm);
+  background: var(--accent-light);
+}
+.dash-feature-label { font-size: 0.82rem; font-weight: 700; color: var(--text-main); }
+.dash-feature-desc { font-size: 0.71rem; line-height: 1.38; color: var(--text-muted); }
+
+/* --- Your progress panel --- */
+.dash-progress-empty {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.6rem;
+  padding: 1.5rem 1rem;
+  border: 1px dashed var(--border-color);
+  border-radius: var(--radius-md);
+}
+.dash-progress-empty p { margin: 0; font-size: 0.82rem; color: var(--text-muted); max-width: 26ch; }
+.dash-progress-list { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 0.7rem; }
+.dash-progress-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 0.85rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  background: var(--bg-main);
+}
+.dash-progress-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  border-radius: var(--radius-sm);
+  background: var(--accent-light);
+  color: var(--accent-primary);
+}
+.dash-progress-meta { display: flex; flex-direction: column; min-width: 0; }
+.dash-progress-value { font-size: 1.15rem; font-weight: 800; color: var(--text-main); line-height: 1.2; }
+.dash-progress-value--sm { font-size: 0.82rem; }
+.dash-progress-label { font-size: 0.72rem; color: var(--text-muted); }
+
+/* --- Recent lectures row list --- */
+.dash-recent-list { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 0.55rem; }
+.dash-recent-row {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.6rem 0.65rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  background: var(--bg-main);
+  transition: border-color var(--transition-fast);
+}
+.dash-recent-row:hover { border-color: var(--accent-border); }
+.dash-recent-thumb {
+  width: 58px;
+  height: 42px;
+  flex-shrink: 0;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  border: 1px solid var(--border-color);
+  display: block;
+}
+.dash-recent-thumb--fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--accent-light), var(--bg-card));
+  color: var(--accent-primary);
+}
+.dash-recent-info { display: flex; flex-direction: column; gap: 0.25rem; min-width: 0; flex: 1; }
+.dash-recent-title { font-size: 0.85rem; font-weight: 700; color: var(--text-main); }
+.dash-recent-meta { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+.dash-recent-when { display: inline-flex; align-items: center; gap: 0.25rem; font-size: 0.71rem; color: var(--text-muted); }
+.dash-recent-row > button { flex-shrink: 0; }
+
+/* --- Supporting tip card (used compact inside the hero) --- */
+.dash-tip {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--accent-border);
+  background: var(--bg-card);
+  overflow: hidden;
+}
+.dash-tip-glow {
+  position: absolute;
+  top: -60%;
+  right: -8%;
+  width: 200px;
+  height: 200px;
+  border-radius: 9999px;
+  background: radial-gradient(circle, var(--accent-primary) 0%, transparent 72%);
+  opacity: 0.14;
+  pointer-events: none;
+}
+.dash-tip-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  border-radius: 9999px;
+  background: var(--accent-light);
+  color: var(--accent-primary);
+}
+.dash-tip-title { position: relative; margin: 0; font-size: 0.85rem; font-weight: 800; color: var(--text-main); line-height: 1.4; }
+.dash-tip-desc { position: relative; margin: 0.15rem 0 0; font-size: 0.8rem; color: var(--text-muted); }
+.dash-tip--compact { padding: 0.75rem 0.9rem; gap: 0.6rem; }
+.dash-tip--compact .dash-tip-icon { width: 30px; height: 30px; }
+.dash-tip--compact .dash-tip-title { font-size: 0.78rem; }
+.dash-tip--compact .dash-tip-desc { font-size: 0.72rem; }
+
+/* --- Mastery card --- */
+.dash-mastery {
+  position: relative;
+  justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(160deg, var(--accent-light), var(--bg-card) 65%);
+}
+.dash-mastery-glow {
+  position: absolute;
+  bottom: -40%;
+  right: -20%;
+  width: 220px;
+  height: 220px;
+  border-radius: 9999px;
+  background: radial-gradient(circle, var(--accent-primary) 0%, transparent 70%);
+  opacity: 0.18;
+  pointer-events: none;
+}
+.dash-mastery-glow--top {
+  bottom: auto;
+  right: auto;
+  top: -35%;
+  left: -15%;
+  width: 160px;
+  height: 160px;
+  opacity: 0.12;
+  background: radial-gradient(circle, #a855f7 0%, transparent 70%);
+}
+/* Abstract mountain/graph silhouette — pure CSS clip-path, no image asset */
+.dash-mastery-shape {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 46%;
+  background: linear-gradient(180deg, transparent, var(--accent-primary) 130%);
+  opacity: 0.1;
+  clip-path: polygon(0% 100%, 0% 55%, 18% 30%, 32% 48%, 48% 12%, 64% 42%, 78% 22%, 100% 50%, 100% 100%);
+  pointer-events: none;
+}
+.dash-mastery-shape--line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 46%;
+  opacity: 0.35;
+  pointer-events: none;
+}
+.dash-mastery-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  background: var(--accent-primary);
+  color: #fff;
+  box-shadow: var(--shadow-md);
+}
+.dash-mastery-title { position: relative; margin: 0; font-size: 1.15rem; font-weight: 800; letter-spacing: -0.01em; line-height: 1.25; color: var(--text-main); }
+.dash-mastery-desc { position: relative; margin: 0; font-size: 0.85rem; color: var(--text-muted); }
+
+/* --- Responsive --- */
+@media (max-width: 1180px) {
+  .dash-features { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 1100px) {
+  .dash-grid-3 { grid-template-columns: 1fr 1fr; }
+  .dash-grid-3 > .dash-mastery { grid-column: span 2; }
+}
+@media (max-width: 900px) {
+  .dash-hero { grid-template-columns: 1fr; }
+  .dash-hero-side { max-width: 420px; }
+  .dash-grid-2 { grid-template-columns: 1fr; }
+}
+@media (max-width: 700px) {
+  .dash-grid-3 { grid-template-columns: 1fr; }
+  .dash-grid-3 > .dash-mastery { grid-column: span 1; }
+  .dash-features { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+  .dash-continue-body { flex-direction: column; }
+  .dash-continue-thumb { width: 100%; max-width: none; }
+  .dash-recent-row { flex-wrap: wrap; }
+  .topnav-brand-text, .topnav-beta { display: none; }
+}
+

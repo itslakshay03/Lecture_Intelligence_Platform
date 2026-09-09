@@ -64,19 +64,24 @@ const LectureInput = forwardRef(function LectureInput({ onSubmit, isLoading }, r
   };
 
   return (
-    <Card style={{ boxShadow: 'var(--shadow-md)' }}>
-      <CardBody style={{ padding: 'clamp(1.25rem, 3vw, 1.9rem)' }}>
-        <form onSubmit={handleSubmit} noValidate style={{ display: 'flex', flexDirection: 'column', gap: '1.1rem' }}>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
-            <label htmlFor={inputId} style={{ fontSize: '0.9rem', fontWeight: 700, color: 'var(--text-main)' }}>
+    <Card
+      style={{
+        boxShadow: '0 0 0 1px var(--accent-border), var(--shadow-lg)',
+        border: '1px solid var(--accent-border)',
+      }}
+    >
+      <CardBody style={{ padding: 'clamp(1.15rem, 2.2vw, 1.5rem)' }}>
+        <form onSubmit={handleSubmit} noValidate style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+            <label htmlFor={inputId} style={{ fontSize: '1rem', fontWeight: 800, color: 'var(--text-main)' }}>
               Process a lecture
             </label>
-            <span style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>
+            <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
               Paste a YouTube lecture URL to generate its full study pack.
             </span>
           </div>
 
-          <div style={{ display: 'flex', gap: '0.7rem', flexWrap: 'wrap', alignItems: 'stretch' }}>
+          <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap', alignItems: 'stretch' }}>
             <div style={{ position: 'relative', flex: '1 1 320px', display: 'flex', alignItems: 'center' }}>
               <Video
                 size={18}
@@ -100,7 +105,7 @@ const LectureInput = forwardRef(function LectureInput({ onSubmit, isLoading }, r
                 aria-describedby={error ? `${inputId}-error` : undefined}
                 style={{
                   width: '100%',
-                  padding: '0.7rem 0.9rem 0.7rem 2.6rem',
+                  padding: '0.6rem 0.9rem 0.6rem 2.6rem',
                   borderRadius: 'var(--radius-md)',
                   border: `1px solid ${error ? 'var(--danger)' : 'var(--border-color)'}`,
                   backgroundColor: 'var(--bg-card)',
@@ -201,7 +206,7 @@ const LectureInput = forwardRef(function LectureInput({ onSubmit, isLoading }, r
               alignItems: 'center',
               justifyContent: 'center',
               gap: '0.6rem',
-              padding: '0.85rem 1rem',
+              padding: '0.6rem 1rem',
               borderRadius: 'var(--radius-md)',
               border: '1px dashed var(--border-color)',
               backgroundColor: 'var(--bg-main)',

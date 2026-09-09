@@ -1,18 +1,12 @@
 import React from 'react';
-import { Sparkles } from 'lucide-react';
-import PlaceholderPage from './PlaceholderPage';
+import LectureFlow from '@/features/lecture/LectureFlow';
 
+/**
+ * Process Lecture route. Reuses the same real "paste URL -> processing ->
+ * study workspace" flow as Dashboard (LectureFlow already owns that entire
+ * lifecycle) — this route shows the actual input form (homeVariant="process"),
+ * while Dashboard shows a lighter overview and links here for processing.
+ */
 export default function LectureProcessingPage() {
-  return (
-    <PlaceholderPage
-      icon={Sparkles}
-      title="Lecture Processing"
-      description="A dedicated, resumable view of a lecture as it moves through transcript extraction, AI note generation and PDF rendering."
-      bullets={[
-        'Live pipeline stages with per-step status from GET /tasks/{id}',
-        'Graceful failure surface with the backend error message',
-        'Resume / retry a task and jump to its study pack when complete',
-      ]}
-    />
-  );
+  return <LectureFlow homeVariant="process" />;
 }

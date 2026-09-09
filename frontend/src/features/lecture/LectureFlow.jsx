@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import DashboardHome from '@/features/dashboard/DashboardHome';
+import ProcessLectureHome from '@/features/dashboard/ProcessLectureHome';
 import ProcessingView from '@/components/ProcessingView';
 import LectureWorkspace from '@/components/LectureWorkspace';
 import { useToast } from '@/components/ui/Toast';
@@ -18,8 +19,14 @@ import {
  * backend contract (POST /youtube, GET /tasks/{id}, GET /tasks/{id}/content).
  * Only the outer chrome (sidebar / theme toggle) was lifted out to AppShell;
  * the request/poll/persist logic is unchanged.
+ *
+ * `homeVariant` picks which presentational component renders during the
+ * idle 'hero' state — Dashboard (overview, with a compact inline Process
+ * Lecture card) vs. the dedicated Process Lecture page. Both now receive
+ * the same real onSubmitUrl/isLoading from this component; submit/poll/
+ * persist logic below is identical and shared, only presentation differs.
  */
-export default function LectureFlow() {
+export default function LectureFlow({ homeVariant = 'dashboard' }) {
   const toast = useToast();
 
   const [view, setView] = useState('hero'); // 'hero' | 'processing' | 'dashboard'
@@ -164,12 +171,16 @@ export default function LectureFlow() {
       {view === 'hero' && isOpeningRecent && <LoadingPanel label="Opening study pack…" minHeight="60vh" />}
 
       {view === 'hero' && !isOpeningRecent && (
-        <DashboardHome
-          onSubmitUrl={handleSubmitUrl}
-          isLoading={isLoading}
-          recentLectures={recentLectures}
-          onOpenLecture={handleOpenRecentLecture}
-        />
+        homeVariant === 'process' ? (
+          <ProcessLectureHome onSubmitUrl={handleSubmitUrl} isLoading={isLoading} />
+        ) : (
+          <DashboardHome
+            recentLectures={recentLectures}
+            onOpenLecture={handleOpenRecentLecture}
+            onSubmitUrl={handleSubmitUrl}
+            isLoading={isLoading}
+          />
+        )
       )}
 
       {view === 'processing' && (

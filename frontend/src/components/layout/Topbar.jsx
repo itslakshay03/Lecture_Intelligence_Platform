@@ -1,12 +1,14 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Menu, Moon, Sun, Plus } from 'lucide-react';
+import { Menu, Plus } from 'lucide-react';
 import Button from '@/components/ui/Button';
-import Tooltip from '@/components/ui/Tooltip';
-import { useTheme } from '@/theme/ThemeProvider';
 
+/**
+ * Mobile-only top bar (<=1024px) — hamburger opens the drawer (Sidebar),
+ * which already carries Search and Profile, so this stays minimal. Desktop
+ * uses TopNav instead (see AppShell).
+ */
 export default function Topbar({ title, subtitle, onOpenNav, showMenuButton = false }) {
-  const { isDark, toggleTheme } = useTheme();
   const navigate = useNavigate();
 
   return (
@@ -75,30 +77,9 @@ export default function Topbar({ title, subtitle, onOpenNav, showMenuButton = fa
         )}
       </div>
 
-      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexShrink: 0 }}>
-        <Tooltip label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}>
-          <button
-            type="button"
-            onClick={toggleTheme}
-            aria-label="Toggle color theme"
-            style={{
-              background: 'transparent',
-              border: '1px solid var(--border-color)',
-              borderRadius: 'var(--radius-sm)',
-              color: 'var(--text-main)',
-              padding: 7,
-              display: 'flex',
-              cursor: 'pointer',
-            }}
-          >
-            {isDark ? <Sun size={16} color="#f59e0b" /> : <Moon size={16} />}
-          </button>
-        </Tooltip>
-
-        <Button size="sm" variant="primary" icon={Plus} onClick={() => navigate('/dashboard')}>
-          New Lecture
-        </Button>
-      </div>
+      <Button size="sm" variant="primary" icon={Plus} onClick={() => navigate('/process')}>
+        New Lecture
+      </Button>
     </header>
   );
 }

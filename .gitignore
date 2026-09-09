@@ -7,16 +7,23 @@
 
 # ---- Dependencies / virtual environments ----
 node_modules/
+**/node_modules/
 venv/
+**/venv/
 .venv/
+**/.venv/
 env/
+**/env/
 
 # ---- Python caches / coverage ----
 __pycache__/
+**/__pycache__/
 *.py[cod]
 *$py.class
 .pytest_cache/
+**/.pytest_cache/
 .coverage
+htmlcov/
 
 # ---- Frontend build output (regenerable via `npm run build`) ----
 frontend/dist/
@@ -32,23 +39,29 @@ pnpm-debug.log*
 
 # ---- SECRETS (never commit) ----
 .env
+.env.*
+!.env.example
 backend/.env
 cookies.txt
 backend/cookies.txt
 
-# ---- Runtime SQLite DB (research-relevant subset already extracted
-#      to research/results/raw/phase5/expD_latency_real_regen_batch.json) ----
-backend/data/
-
-# ---- Generated PDFs + transient PDF-render scratch (research uses the
-#      .json study packs, not the .pdf) ----
-backend/output/*.pdf
-backend/output/temp/
-
-# ---- Editor / OS metadata ----
-.DS_Store
-Thumbs.db
+# ---- IDE / Local Tool Settings ----
+.claude/
 .vscode/
 .idea/
 *.suo
 *.sw?
+.DS_Store
+Thumbs.db
+
+# ---- Scratch & Temporary Renders ----
+scratch/
+research/paper/test_out.pdf
+research/paper/test_builder.py
+
+# ---- Runtime SQLite DB ----
+backend/data/
+
+# ---- Generated PDFs + transient PDF-render scratch ----
+backend/output/*.pdf
+backend/output/temp/

@@ -7,4 +7,7 @@
 # smoke test). Install before Phase 5 runs any real inferential statistics.
 numpy
 scipy
-matplotlib  # added Phase 5.5, for generating real figures from real result data
+matplotlib    # added Phase 5.5, for generating real figures from real result data
+python-docx   # added Phase 7, for building research/paper/LECTRAAI_IEEE_RESEARCH_PAPER.docx
+# Phase 7 also uses Playwright to render the paper PDF; it is already a backend
+# dependency (backend/services/pdf.py) and is intentionally not duplicated here.

@@ -2,9 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import Sidebar from '@/components/layout/Sidebar';
 import Topbar from '@/components/layout/Topbar';
+import TopNav from '@/components/layout/TopNav';
 import { findNavByPath } from '@/components/layout/navConfig';
 import useMediaQuery from '@/hooks/useMediaQuery';
 
+/**
+ * Phase 5: desktop navigation moved from a persistent left sidebar to a top
+ * navigation bar (TopNav) — full-width content, no left column. Mobile is
+ * untouched: same hamburger + drawer (Sidebar) as every earlier phase.
+ */
 export default function AppShell() {
   const isMobile = useMediaQuery('(max-width: 1024px)');
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -27,12 +33,11 @@ export default function AppShell() {
   }, [drawerOpen]);
 
   return (
-    <div style={{ display: 'flex', minHeight: '100vh', backgroundColor: 'var(--bg-main)', color: 'var(--text-main)' }}>
-      {/* Desktop persistent sidebar */}
-      {!isMobile && (
-        <div style={{ position: 'sticky', top: 0, height: '100vh', flexShrink: 0 }}>
-          <Sidebar />
-        </div>
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', backgroundColor: 'var(--bg-main)', color: 'var(--text-main)' }}>
+      {isMobile ? (
+        <Topbar title={title} subtitle={subtitle} showMenuButton onOpenNav={() => setDrawerOpen(true)} />
+      ) : (
+        <TopNav />
       )}
 
       {/* Mobile drawer */}
@@ -59,18 +64,9 @@ export default function AppShell() {
         </div>
       )}
 
-      {/* Content column */}
-      <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column' }}>
-        <Topbar
-          title={title}
-          subtitle={subtitle}
-          showMenuButton={isMobile}
-          onOpenNav={() => setDrawerOpen(true)}
-        />
-        <main style={{ flex: 1, minWidth: 0 }}>
-          <Outlet />
-        </main>
-      </div>
+      <main style={{ flex: 1, minWidth: 0 }}>
+        <Outlet />
+      </main>
     </div>
   );
 }

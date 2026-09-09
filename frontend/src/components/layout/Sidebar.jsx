@@ -1,7 +1,9 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { GraduationCap, X } from 'lucide-react';
-import { NAV_SECTIONS } from './navConfig';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { GraduationCap, X, Sun, Moon } from 'lucide-react';
+import { PRIMARY_NAV, STUDY_TOOL_NAV, UTILITY_NAV } from './navConfig';
+import { useTheme } from '@/theme/ThemeProvider';
+import { openStudyTool } from '@/features/dashboard/lib/openStudyTool';
 
 const SIDEBAR_BG = 'var(--bg-sidebar)';
 
@@ -14,8 +16,8 @@ function NavItem({ item, onNavigate }) {
       style={({ isActive }) => ({
         display: 'flex',
         alignItems: 'center',
-        gap: '0.75rem',
-        padding: '0.6rem 0.85rem',
+        gap: '0.7rem',
+        padding: '0.55rem 0.75rem',
         borderRadius: 'var(--radius-md)',
         fontSize: '0.875rem',
         fontWeight: isActive ? 700 : 500,
@@ -39,7 +41,20 @@ function NavItem({ item, onNavigate }) {
     >
       {({ isActive }) => (
         <>
-          <Icon size={18} style={{ color: isActive ? '#ffffff' : '#94a3b8', flexShrink: 0 }} />
+          <span
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              width: 28,
+              height: 28,
+              flexShrink: 0,
+              borderRadius: 'var(--radius-sm)',
+              backgroundColor: isActive ? 'rgba(255,255,255,0.16)' : 'transparent',
+            }}
+          >
+            <Icon size={16} style={{ color: isActive ? '#ffffff' : '#94a3b8' }} />
+          </span>
           <span style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
             {item.label}
           </span>
@@ -49,6 +64,122 @@ function NavItem({ item, onNavigate }) {
   );
 }
 
+/** Study-tool shortcut row — not a route, see openStudyTool. */
+function StudyToolItem({ item, onNavigate }) {
+  const navigate = useNavigate();
+  const Icon = item.icon;
+  return (
+    <button
+      type="button"
+      onClick={() => {
+        openStudyTool(navigate, item.tab);
+        onNavigate?.();
+      }}
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        gap: '0.7rem',
+        width: '100%',
+        padding: '0.55rem 0.75rem',
+        borderRadius: 'var(--radius-md)',
+        border: 'none',
+        background: 'transparent',
+        fontSize: '0.875rem',
+        fontWeight: 500,
+        color: '#94a3b8',
+        cursor: 'pointer',
+        transition: 'background-color var(--transition-fast), color var(--transition-fast)',
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.backgroundColor = 'var(--bg-sidebar-hover)';
+        e.currentTarget.style.color = '#e2e8f0';
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.backgroundColor = 'transparent';
+        e.currentTarget.style.color = '#94a3b8';
+      }}
+    >
+      <span
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          width: 28,
+          height: 28,
+          flexShrink: 0,
+          borderRadius: 'var(--radius-sm)',
+        }}
+      >
+        <Icon size={16} />
+      </span>
+      <span style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+        {item.label}
+      </span>
+    </button>
+  );
+}
+
+/** Theme toggle rendered as its own primary-nav-style row (not a route). */
+function ThemeToggle() {
+  const { isDark, toggleTheme } = useTheme();
+  return (
+    <button
+      type="button"
+      onClick={toggleTheme}
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        gap: '0.75rem',
+        width: '100%',
+        padding: '0.6rem 0.85rem',
+        borderRadius: 'var(--radius-md)',
+        border: 'none',
+        background: 'transparent',
+        fontSize: '0.875rem',
+        fontWeight: 500,
+        color: '#94a3b8',
+        cursor: 'pointer',
+        transition: 'background-color var(--transition-fast), color var(--transition-fast)',
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.backgroundColor = 'var(--bg-sidebar-hover)';
+        e.currentTarget.style.color = '#e2e8f0';
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.backgroundColor = 'transparent';
+        e.currentTarget.style.color = '#94a3b8';
+      }}
+    >
+      {isDark ? <Sun size={18} style={{ flexShrink: 0 }} /> : <Moon size={18} style={{ flexShrink: 0 }} />}
+      <span style={{ flex: 1, textAlign: 'left' }}>Theme</span>
+      <span style={{ fontSize: '0.72rem', color: '#64748b' }}>{isDark ? 'Dark' : 'Light'}</span>
+    </button>
+  );
+}
+
+function SectionHeading({ children, first = false }) {
+  return (
+    <p
+      style={{
+        margin: first ? '0.25rem 0.85rem 0.35rem' : '0.9rem 0.85rem 0.35rem',
+        fontSize: '0.66rem',
+        fontWeight: 700,
+        letterSpacing: '0.08em',
+        textTransform: 'uppercase',
+        color: '#64748b',
+      }}
+    >
+      {children}
+    </p>
+  );
+}
+
+/**
+ * Mobile drawer navigation (>1024px uses TopNav instead — see AppShell).
+ * Unchanged in mechanics from earlier phases: hamburger opens this as an
+ * overlay drawer; only the nav content/grouping was extended here to match
+ * TopNav's item set (Study Pack shortcuts + Search + Profile).
+ */
 export default function Sidebar({ onNavigate, onClose, showClose = false }) {
   return (
     <aside
@@ -122,28 +253,24 @@ export default function Sidebar({ onNavigate, onClose, showClose = false }) {
       {/* Nav */}
       <nav
         className="lai-no-scrollbar"
-        style={{ flex: 1, overflowY: 'auto', padding: '0.9rem 0.7rem', display: 'flex', flexDirection: 'column', gap: '0.35rem' }}
+        style={{ flex: 1, overflowY: 'auto', padding: '0.9rem 0.7rem', display: 'flex', flexDirection: 'column', gap: '0.2rem' }}
       >
-        {NAV_SECTIONS.map((section, i) => (
-          <div key={i} style={{ display: 'flex', flexDirection: 'column', gap: '0.2rem' }}>
-            {section.heading && (
-              <p
-                style={{
-                  margin: i === 0 ? '0.25rem 0.85rem 0.35rem' : '0.9rem 0.85rem 0.35rem',
-                  fontSize: '0.66rem',
-                  fontWeight: 700,
-                  letterSpacing: '0.08em',
-                  textTransform: 'uppercase',
-                  color: '#64748b',
-                }}
-              >
-                {section.heading}
-              </p>
-            )}
-            {section.items.map((item) => (
-              <NavItem key={item.id} item={item} onNavigate={onNavigate} />
-            ))}
-          </div>
+        {PRIMARY_NAV.map((item) => (
+          <NavItem key={item.id} item={item} onNavigate={onNavigate} />
+        ))}
+
+        <SectionHeading>Study Pack</SectionHeading>
+        {STUDY_TOOL_NAV.map((item) => (
+          <StudyToolItem key={item.id} item={item} onNavigate={onNavigate} />
+        ))}
+
+        <div style={{ marginTop: '0.3rem' }}>
+          <ThemeToggle />
+        </div>
+
+        <SectionHeading>Account</SectionHeading>
+        {UTILITY_NAV.map((item) => (
+          <NavItem key={item.id} item={item} onNavigate={onNavigate} />
         ))}
       </nav>
 

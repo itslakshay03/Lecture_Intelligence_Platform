@@ -1,5 +1,5 @@
-import React, { useCallback, useMemo, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { BookOpen, SearchX, Sparkles } from 'lucide-react';
 import Button from '@/components/ui/Button';
 import EmptyState from '@/components/ui/EmptyState';
@@ -19,22 +19,31 @@ import { filterAndSortLectures } from './lib/library';
  * same source of truth Dashboard's "Recent lectures" reads) and reopens a
  * lecture's real, already-generated study pack by its real taskId via
  * fetchTaskContent. No new processing task is ever created here.
+ *
+ * Also the real landing spot for the global Study Pack / Quiz / Flashcards /
+ * Revision / Interview shortcuts (TopNav + mobile drawer): those navigate
+ * here with `location.state = { openTaskId, tab }` (see
+ * features/dashboard/lib/openStudyTool.js) instead of routing to a
+ * standalone page that doesn't exist.
  */
-export default function LectureLibrary() {
+export default function LectureLibrary({ autoFocusSearch = false }) {
   const navigate = useNavigate();
+  const location = useLocation();
   const [lectures] = useState(readRecentLectures);
   const [query, setQuery] = useState('');
   const [sort, setSort] = useState('newest');
 
   // null = grid view. Otherwise { taskId, phase: 'loading'|'ready'|'error', studyPack?, error? }
   const [opened, setOpened] = useState(null);
+  const [openTab, setOpenTab] = useState(null);
 
   const filtered = useMemo(
     () => filterAndSortLectures(lectures, { query, sort }),
     [lectures, query, sort],
   );
 
-  const openLecture = useCallback(async (item) => {
+  const openLecture = useCallback(async (item, tab = null) => {
+    setOpenTab(tab);
     setOpened({ taskId: item.taskId, phase: 'loading' });
     try {
       const studyPack = await fetchTaskContent(item.taskId);
@@ -44,8 +53,22 @@ export default function LectureLibrary() {
     }
   }, []);
 
-  const closeLecture = useCallback(() => setOpened(null), []);
-  const goProcessNew = useCallback(() => navigate('/dashboard'), [navigate]);
+  // A global Study Pack / Quiz / Flashcards / Revision / Interview shortcut
+  // navigated here with a task + tab to open — consume it once, then clear
+  // the state so back/forward or a later mount can't re-trigger it.
+  useEffect(() => {
+    const openTaskId = location.state?.openTaskId;
+    if (!openTaskId) return;
+    openLecture({ taskId: openTaskId }, location.state?.tab || null);
+    navigate(location.pathname, { replace: true, state: null });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const closeLecture = useCallback(() => {
+    setOpened(null);
+    setOpenTab(null);
+  }, []);
+  const goProcessNew = useCallback(() => navigate('/process'), [navigate]);
 
   if (opened?.phase === 'loading') {
     return <LoadingPanel label="Opening study pack…" minHeight="60vh" />;
@@ -57,7 +80,7 @@ export default function LectureLibrary() {
         <ErrorState
           title="Couldn't open this study pack"
           description={opened.error || 'The task may no longer exist on the backend.'}
-          onRetry={() => openLecture({ taskId: opened.taskId })}
+          onRetry={() => openLecture({ taskId: opened.taskId }, openTab)}
         />
         <div style={{ display: 'flex', justifyContent: 'center', marginTop: '1rem' }}>
           <Button variant="ghost" size="sm" onClick={closeLecture}>
@@ -74,7 +97,7 @@ export default function LectureLibrary() {
         studyPack={opened.studyPack}
         taskId={opened.taskId}
         onBack={closeLecture}
-        activeTabOverride={null}
+        activeTabOverride={openTab}
         backLabel="Back to Library"
       />
     );
@@ -98,7 +121,7 @@ export default function LectureLibrary() {
       ) : (
         <>
           <div className="lib-toolbar">
-            <LibrarySearch value={query} onChange={setQuery} />
+            <LibrarySearch value={query} onChange={setQuery} autoFocus={autoFocusSearch} />
             <LibrarySort value={sort} onChange={setSort} />
           </div>
 

@@ -1,89 +1,60 @@
 import React from 'react';
-import { FileText, HelpCircle, Layers, CalendarClock, Briefcase, Sparkles } from 'lucide-react';
+import { Video, ScrollText, Sparkles } from 'lucide-react';
+import HeroVisual from './HeroVisual';
+import DashboardTip from './DashboardTip';
 
-const OUTPUTS = [
-  { label: 'Structured notes', icon: FileText },
-  { label: 'Quizzes', icon: HelpCircle },
-  { label: 'Flashcards', icon: Layers },
-  { label: 'Revision plans', icon: CalendarClock },
-  { label: 'Interview questions', icon: Briefcase },
+/** Only real, implemented capabilities — no upload/OCR claims. */
+const CAPABILITIES = [
+  { label: 'YouTube', icon: Video },
+  { label: 'Auto transcript', icon: ScrollText },
+  { label: 'AI study pack', icon: Sparkles },
 ];
 
+/**
+ * Real, computed greeting (time-of-day) — not a fake personalized name.
+ * LectraAI has no user/profile-name field anywhere in the app.
+ */
+function getGreeting() {
+  const hour = new Date().getHours();
+  if (hour < 12) return 'Good morning';
+  if (hour < 18) return 'Good afternoon';
+  return 'Good evening';
+}
+
+/**
+ * Hero: greeting + tagline + capability pills on the left; a decorative
+ * "Learn Smarter, Not Harder" panel + a small supporting tip on the right.
+ * No CTA button here — the primary action lives in the Process Lecture
+ * card directly below (see DashboardHome).
+ */
 export default function DashboardHero() {
   return (
-    <header
-      className="lai-animate-fade-in"
-      style={{ display: 'flex', flexDirection: 'column', gap: '0.9rem' }}
-    >
-      <span
-        style={{
-          display: 'inline-flex',
-          alignItems: 'center',
-          gap: '0.4rem',
-          alignSelf: 'flex-start',
-          fontSize: '0.72rem',
-          fontWeight: 700,
-          letterSpacing: '0.06em',
-          textTransform: 'uppercase',
-          color: 'var(--accent-primary)',
-          backgroundColor: 'var(--accent-light)',
-          border: '1px solid var(--accent-border)',
-          padding: '0.28rem 0.6rem',
-          borderRadius: 'var(--radius-full)',
-        }}
-      >
-        <Sparkles size={13} />
-        Lecture Intelligence
-      </span>
+    <header className="dash-hero lai-animate-fade-in">
+      <div className="dash-hero-text">
+        <span className="dash-hero-eyebrow">{getGreeting()} <span aria-hidden="true">👋</span></span>
 
-      <h1
-        style={{
-          margin: 0,
-          fontSize: 'clamp(1.6rem, 2.6vw, 2.15rem)',
-          fontWeight: 800,
-          letterSpacing: '-0.025em',
-          lineHeight: 1.15,
-          color: 'var(--text-main)',
-        }}
-      >
-        Turn lectures into knowledge.
-      </h1>
+        <h1 className="dash-hero-title">
+          Turn any lecture into a complete study pack with the power of AI.
+        </h1>
 
-      <p
-        style={{
-          margin: 0,
-          maxWidth: 640,
-          fontSize: '0.95rem',
-          lineHeight: 1.6,
-          color: 'var(--text-muted)',
-        }}
-      >
-        Paste a lecture video and LectraAI reads the transcript, then generates a complete study
-        pack — grounded notes, quizzes, flashcards, a spaced-repetition revision plan, and interview
-        questions.
-      </p>
+        <p className="dash-hero-desc">
+          Paste a lecture video and LectraAI reads the transcript, then generates grounded notes,
+          a quiz, flashcards, a revision plan and interview questions.
+        </p>
 
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginTop: '0.1rem' }}>
-        {OUTPUTS.map(({ label, icon: Icon }) => (
-          <span
-            key={label}
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.4rem',
-              fontSize: '0.78rem',
-              fontWeight: 600,
-              color: 'var(--text-muted)',
-              backgroundColor: 'var(--bg-card)',
-              border: '1px solid var(--border-color)',
-              padding: '0.35rem 0.7rem',
-              borderRadius: 'var(--radius-full)',
-            }}
-          >
-            <Icon size={13} style={{ color: 'var(--accent-primary)' }} />
-            {label}
-          </span>
-        ))}
+        <div className="dash-hero-pills">
+          {CAPABILITIES.map(({ label, icon: Icon }) => (
+            <span key={label} className="dash-hero-pill">
+              <Icon size={12} />
+              {label}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <div className="dash-hero-side">
+        <HeroVisual />
+        <DashboardTip compact />
       </div>
     </header>
   );

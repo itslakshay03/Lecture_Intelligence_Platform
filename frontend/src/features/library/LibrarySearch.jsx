@@ -2,7 +2,7 @@ import React, { useId } from 'react';
 import { Search, X } from 'lucide-react';
 
 /** Client-side search over title / video id / task id. No backend requests. */
-export default function LibrarySearch({ value, onChange }) {
+export default function LibrarySearch({ value, onChange, autoFocus = false }) {
   const inputId = useId();
 
   return (
@@ -18,6 +18,7 @@ export default function LibrarySearch({ value, onChange }) {
         placeholder="Search by title or video ID…"
         value={value}
         onChange={(e) => onChange(e.target.value)}
+        autoFocus={autoFocus}
       />
       {value && (
         <button
