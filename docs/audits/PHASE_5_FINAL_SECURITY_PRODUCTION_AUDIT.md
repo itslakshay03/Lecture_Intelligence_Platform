@@ -12,7 +12,7 @@
 - **Starting Baseline Commit**: `8c6b0c4743cef10bdc013ea102bc795e398c750b` (`docs(audit): update Phase 4 final commit reference`)
 
 ## 4. Final Commit
-- **Final Commit**: `55261f2` (`chore: harden auth and production readiness`)
+- **Final Commit**: `f499f58` (`chore: harden auth and production readiness`)
 
 ## 5. Files Modified
 - [`backend/services/task_repository.py`](file:///c:/Users/LAKSHAY%20ANAND/OneDrive/Desktop/lecture-intelligence-platform/backend/services/task_repository.py): Added composite database index `idx_tasks_user_created_at ON tasks(user_id, created_at DESC)`.
