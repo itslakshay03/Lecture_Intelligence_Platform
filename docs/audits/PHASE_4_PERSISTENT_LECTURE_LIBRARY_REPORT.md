@@ -12,7 +12,7 @@
 - **Commit**: `a7ec022` (`docs(audit): add Phase 3 verification and audit report`)
 
 ## 4. Final Commit
-- **Commit**: `f87aec7` (`feat(lectures): persist user lecture library`)
+- **Commit**: `17822bd` (`feat(lectures): persist user lecture library`)
 
 ## 5. Files Modified
 - [`frontend/src/main.jsx`](file:///c:/Users/LAKSHAY%20ANAND/OneDrive/Desktop/lecture-intelligence-platform/frontend/src/main.jsx): Mounted `LectureProvider` at application root within `AuthProvider`.
