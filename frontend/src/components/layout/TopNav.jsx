@@ -1,21 +1,50 @@
 import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { GraduationCap, Search, Sun, Moon, ChevronDown } from 'lucide-react';
+import { GraduationCap, Search, Sun, Moon, ChevronDown, Settings as SettingsIcon, LogOut } from 'lucide-react';
 import { PRIMARY_NAV, STUDY_TOOL_NAV } from './navConfig';
 import { useTheme } from '@/theme/ThemeProvider';
+import { useAuth } from '@/features/auth/AuthContext';
+import Dropdown from '@/components/ui/Dropdown';
 import { openStudyTool } from '@/features/dashboard/lib/openStudyTool';
 
 /**
  * Desktop top navigation bar (>1024px) — replaces the persistent left
- * sidebar. Mobile keeps the existing hamburger + drawer (Sidebar.jsx),
- * unchanged, so nothing here affects mobile nav.
+ * sidebar. Mobile keeps the existing hamburger + drawer (Sidebar.jsx).
  *
- * Study Pack / Quiz / Flashcards / Revision Plan / Interview are shortcuts,
- * not routes — see openStudyTool for what they actually do.
+ * Displays authenticated user initials and a menu with Settings & Sign Out.
  */
 export default function TopNav() {
   const navigate = useNavigate();
   const { isDark, toggleTheme } = useTheme();
+  const { user, logout } = useAuth();
+
+  const userName = user?.name || 'Student';
+  const userInitial = (userName[0] || 'S').toUpperCase();
+
+  const handleLogout = async () => {
+    await logout();
+    navigate('/login', { replace: true });
+  };
+
+  const profileMenuItems = [
+    {
+      label: user?.email || 'Logged In',
+      disabled: true,
+    },
+    { type: 'divider' },
+    {
+      label: 'Settings',
+      icon: SettingsIcon,
+      onClick: () => navigate('/settings'),
+    },
+    { type: 'divider' },
+    {
+      label: 'Sign Out',
+      icon: LogOut,
+      danger: true,
+      onClick: handleLogout,
+    },
+  ];
 
   return (
     <header className="topnav">
@@ -75,16 +104,24 @@ export default function TopNav() {
           {isDark ? <Sun size={16} /> : <Moon size={16} />}
         </button>
 
-        <button
-          type="button"
-          className="topnav-profile"
-          onClick={() => navigate('/settings')}
-          aria-label="Profile & settings"
-        >
-          <span className="topnav-avatar">S</span>
-          <span className="topnav-profile-name">Student</span>
-          <ChevronDown size={13} />
-        </button>
+        <Dropdown
+          align="right"
+          width={220}
+          trigger={
+            <div
+              className="topnav-profile"
+              role="button"
+              tabIndex={0}
+              aria-label="Profile & settings"
+              style={{ cursor: 'pointer' }}
+            >
+              <span className="topnav-avatar">{userInitial}</span>
+              <span className="topnav-profile-name">{userName}</span>
+              <ChevronDown size={13} />
+            </div>
+          }
+          items={profileMenuItems}
+        />
       </div>
     </header>
   );

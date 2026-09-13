@@ -1,8 +1,9 @@
 import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { GraduationCap, X, Sun, Moon } from 'lucide-react';
+import { GraduationCap, X, Sun, Moon, LogOut } from 'lucide-react';
 import { PRIMARY_NAV, STUDY_TOOL_NAV, UTILITY_NAV } from './navConfig';
 import { useTheme } from '@/theme/ThemeProvider';
+import { useAuth } from '@/features/auth/AuthContext';
 import { openStudyTool } from '@/features/dashboard/lib/openStudyTool';
 
 const SIDEBAR_BG = 'var(--bg-sidebar)';
@@ -176,11 +177,22 @@ function SectionHeading({ children, first = false }) {
 
 /**
  * Mobile drawer navigation (>1024px uses TopNav instead — see AppShell).
- * Unchanged in mechanics from earlier phases: hamburger opens this as an
- * overlay drawer; only the nav content/grouping was extended here to match
- * TopNav's item set (Study Pack shortcuts + Search + Profile).
+ * Displays user identity and provides a Sign Out button.
  */
 export default function Sidebar({ onNavigate, onClose, showClose = false }) {
+  const navigate = useNavigate();
+  const { user, logout } = useAuth();
+
+  const userName = user?.name || 'Student Account';
+  const userInitial = (userName[0] || 'S').toUpperCase();
+  const userEmail = user?.email || 'Authenticated';
+
+  const handleLogout = async () => {
+    onClose?.();
+    await logout();
+    navigate('/login', { replace: true });
+  };
+
   return (
     <aside
       style={{
@@ -275,7 +287,15 @@ export default function Sidebar({ onNavigate, onClose, showClose = false }) {
       </nav>
 
       {/* Footer / account */}
-      <div style={{ padding: '0.85rem 0.7rem', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
+      <div
+        style={{
+          padding: '0.85rem 0.7rem',
+          borderTop: '1px solid rgba(255,255,255,0.08)',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '0.5rem',
+        }}
+      >
         <div
           style={{
             display: 'flex',
@@ -301,15 +321,66 @@ export default function Sidebar({ onNavigate, onClose, showClose = false }) {
               flexShrink: 0,
             }}
           >
-            S
+            {userInitial}
           </div>
           <div style={{ flex: 1, minWidth: 0 }}>
-            <p style={{ margin: 0, fontSize: '0.82rem', fontWeight: 600, color: '#f8fafc', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-              Student Account
+            <p
+              style={{
+                margin: 0,
+                fontSize: '0.82rem',
+                fontWeight: 600,
+                color: '#f8fafc',
+                whiteSpace: 'nowrap',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+              }}
+            >
+              {userName}
             </p>
-            <p style={{ margin: 0, fontSize: '0.7rem', color: '#64748b' }}>Local workspace</p>
+            <p
+              style={{
+                margin: 0,
+                fontSize: '0.7rem',
+                color: '#94a3b8',
+                whiteSpace: 'nowrap',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+              }}
+            >
+              {userEmail}
+            </p>
           </div>
         </div>
+
+        <button
+          type="button"
+          onClick={handleLogout}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.55rem',
+            width: '100%',
+            padding: '0.5rem 0.7rem',
+            background: 'transparent',
+            border: 'none',
+            borderRadius: 'var(--radius-md)',
+            color: '#f87171',
+            fontSize: '0.82rem',
+            fontWeight: 600,
+            cursor: 'pointer',
+            textAlign: 'left',
+            transition: 'background-color var(--transition-fast)',
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.backgroundColor = 'rgba(239,68,68,0.12)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundColor = 'transparent';
+          }}
+        >
+          <LogOut size={15} />
+          <span>Sign Out</span>
+        </button>
       </div>
     </aside>
   );

@@ -7,25 +7,52 @@ import LibraryPage from '@/pages/LibraryPage';
 import SearchPage from '@/pages/SearchPage';
 import SettingsPage from '@/pages/SettingsPage';
 import NotFoundPage from '@/pages/NotFoundPage';
+import LoginPage from '@/pages/LoginPage';
+import RegisterPage from '@/pages/RegisterPage';
+import ProtectedRoute from '@/features/auth/ProtectedRoute';
+import PublicOnlyRoute from '@/features/auth/PublicOnlyRoute';
 
 /**
- * Route table for the LectraAI shell.
+ * Route table for LectraAI.
  *
- * Primary navigation: Dashboard, Process Lecture, Library, Search, Settings
- * (Theme lives in the sidebar as a control, not a route). Study tools
- * (Notes, Topics, Quiz, Flashcards, Revision, Interview, Transcript) are not
- * routed here at all — they only render inside a lecture's Study Pack
- * (LectureWorkspace), reached from Dashboard, Process Lecture or Library.
+ * Public routes:
+ * - /login: Authentication entry point
+ * - /register: User account creation
  *
- * /notes, /quiz, /flashcards, /revision and /interview used to render
- * standalone placeholder stubs explaining that; they're kept here as plain
- * redirects to /dashboard so any old bookmark/link still lands somewhere
- * useful instead of 404ing. See research/reports/PHASE_UI_REDESIGN_1_AUDIT.md.
+ * Protected workspace routes (AppShell):
+ * - /dashboard, /process, /library, /search, /settings
+ *
+ * Legacy deep links (/notes, /quiz, etc.) safely redirect to /dashboard.
  */
 export default function AppRoutes() {
   return (
     <Routes>
-      <Route element={<AppShell />}>
+      {/* Public Auth Routes */}
+      <Route
+        path="login"
+        element={
+          <PublicOnlyRoute>
+            <LoginPage />
+          </PublicOnlyRoute>
+        }
+      />
+      <Route
+        path="register"
+        element={
+          <PublicOnlyRoute>
+            <RegisterPage />
+          </PublicOnlyRoute>
+        }
+      />
+
+      {/* Protected App Workspace */}
+      <Route
+        element={
+          <ProtectedRoute>
+            <AppShell />
+          </ProtectedRoute>
+        }
+      >
         <Route index element={<Navigate to="/dashboard" replace />} />
         <Route path="dashboard" element={<DashboardPage />} />
         <Route path="process" element={<LectureProcessingPage />} />
