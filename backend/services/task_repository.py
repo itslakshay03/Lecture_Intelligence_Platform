@@ -91,6 +91,7 @@ def initialize_database() -> None:
             _ensure_columns(conn, "tasks", _RESEARCH_COLUMNS)
             _ensure_columns(conn, "tasks", _AUTH_COLUMNS)
             conn.execute("CREATE INDEX IF NOT EXISTS idx_tasks_user_id ON tasks(user_id);")
+            conn.execute("CREATE INDEX IF NOT EXISTS idx_tasks_user_created_at ON tasks(user_id, created_at DESC);")
 
             # Phase 4 research instrumentation: stage-level start/end
             # timestamps for latency analysis (RQ4). Kept as a separate

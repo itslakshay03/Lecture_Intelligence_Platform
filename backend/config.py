@@ -27,10 +27,27 @@ DB_DIR = DB_PATH.parent
 # API Keys
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
+# Environment & Deployment Mode
+ENVIRONMENT = os.getenv("ENVIRONMENT", "development").lower()
+IS_PRODUCTION = ENVIRONMENT == "production"
+
 # Authentication Configuration
-JWT_SECRET_KEY = os.getenv("JWT_SECRET_KEY", "lectraai-dev-secret-key-change-in-production-min-32-chars")
+DEFAULT_DEV_JWT_SECRET = "lectraai-dev-secret-key-change-in-production-min-32-chars"
+JWT_SECRET_KEY = os.getenv("JWT_SECRET_KEY", DEFAULT_DEV_JWT_SECRET)
 JWT_ALGORITHM = os.getenv("JWT_ALGORITHM", "HS256")
 ACCESS_TOKEN_EXPIRE_DAYS = int(os.getenv("ACCESS_TOKEN_EXPIRE_DAYS", "7"))
+
+if IS_PRODUCTION:
+    if JWT_SECRET_KEY == DEFAULT_DEV_JWT_SECRET or len(JWT_SECRET_KEY) < 32:
+        import logging
+        logging.getLogger("lectraai.config").critical(
+            "CRITICAL SECURITY WARNING: Production environment detected with default or weak JWT_SECRET_KEY! "
+            "Set a strong random 32+ character key in environment variables immediately."
+        )
+
+# CORS Configuration
+raw_cors = os.getenv("CORS_ORIGINS", "*")
+CORS_ORIGINS = [o.strip() for o in raw_cors.split(",") if o.strip()]
 
 # Legacy / Demo User Configuration
 DEMO_USER_EMAIL = os.getenv("DEMO_USER_EMAIL", "demo@lectra.ai").strip().lower()

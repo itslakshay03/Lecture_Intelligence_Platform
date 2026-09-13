@@ -1,11 +1,12 @@
 import React, { useCallback, useState } from 'react';
-import { Palette, SlidersHorizontal, Database, Info, Minus, Plus } from 'lucide-react';
+import { User, Palette, SlidersHorizontal, Database, Info, Minus, Plus } from 'lucide-react';
 import PageHeader from '@/components/ui/PageHeader';
 import SettingsSection from './components/SettingsSection';
 import PreferenceRow from './components/PreferenceRow';
 import ThemeSelector from './components/ThemeSelector';
 import LocalDataCard from './components/LocalDataCard';
 import AboutCard from './components/AboutCard';
+import UserProfileCard from './components/UserProfileCard';
 import {
   NOTES_FONT_SIZE_MIN,
   NOTES_FONT_SIZE_MAX,
@@ -14,11 +15,8 @@ import {
 } from '@/features/studypack/lib/fontSizePref';
 
 /**
- * Settings — appearance, the one real app preference (Notes text size),
- * local data, and an about section. Everything here reads/writes the
- * app's existing, real storage: `lectra_theme` (via ThemeProvider),
- * `lectra_notes_fontsize`, and `lectra_recent_lectures`. No fake account,
- * subscription, or backend preferences.
+ * Settings — appearance, account profile, real app preferences (Notes text size),
+ * local data cache, and about information.
  */
 export default function SettingsWorkspace() {
   const [fontSize, setFontSize] = useState(readNotesFontSize);
@@ -31,9 +29,17 @@ export default function SettingsWorkspace() {
 
   return (
     <div style={{ maxWidth: 820, margin: '0 auto', padding: '2rem 1.5rem 4rem' }}>
-      <PageHeader title="Settings" description="Appearance and local data. Everything here is stored on this device." />
+      <PageHeader title="Settings" description="Manage your student account, appearance, and local preferences." />
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+        <SettingsSection
+          icon={User}
+          title="Account & Profile"
+          description="Your authenticated student account and security profile."
+        >
+          <UserProfileCard />
+        </SettingsSection>
+
         <SettingsSection
           icon={Palette}
           title="Appearance"

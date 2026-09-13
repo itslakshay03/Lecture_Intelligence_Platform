@@ -18,7 +18,7 @@ logging.basicConfig(
 logger = logging.getLogger("main")
 
 # Central config variables
-from config import OUTPUT_DIR, BASE_DIR
+from config import OUTPUT_DIR, BASE_DIR, CORS_ORIGINS
 from services.transcript import get_transcript
 from services.ai import generate_notes
 from services.pdf import generate_pdf
@@ -91,7 +91,7 @@ app = FastAPI(
 # an explicit origin allow-list and set allow_credentials=True.
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=CORS_ORIGINS,
     allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
