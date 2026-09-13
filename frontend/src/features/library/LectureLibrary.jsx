@@ -7,7 +7,7 @@ import ErrorState from '@/components/ui/ErrorState';
 import { LoadingPanel } from '@/components/ui/Spinner';
 import LectureWorkspace from '@/components/LectureWorkspace';
 import { fetchTaskContent } from '@/api/client';
-import { readRecentLectures } from '@/features/dashboard/lib/recentLectures';
+import { useLectures } from '@/features/lecture/LectureContext';
 import LibraryHeader from './LibraryHeader';
 import LibrarySearch from './LibrarySearch';
 import LibrarySort from './LibrarySort';
@@ -15,21 +15,19 @@ import LibraryGrid from './LibraryGrid';
 import { filterAndSortLectures } from './lib/library';
 
 /**
- * Lecture Library — browses the real `lectra_recent_lectures` history (the
- * same source of truth Dashboard's "Recent lectures" reads) and reopens a
- * lecture's real, already-generated study pack by its real taskId via
- * fetchTaskContent. No new processing task is ever created here.
+ * Lecture Library — browses the persistent database-backed lecture history
+ * provided by LectureContext (GET /lectures). Reopens a lecture's real,
+ * already-generated study pack by its real taskId via fetchTaskContent.
  *
  * Also the real landing spot for the global Study Pack / Quiz / Flashcards /
  * Revision / Interview shortcuts (TopNav + mobile drawer): those navigate
  * here with `location.state = { openTaskId, tab }` (see
- * features/dashboard/lib/openStudyTool.js) instead of routing to a
- * standalone page that doesn't exist.
+ * features/dashboard/lib/openStudyTool.js).
  */
 export default function LectureLibrary({ autoFocusSearch = false }) {
   const navigate = useNavigate();
   const location = useLocation();
-  const [lectures] = useState(readRecentLectures);
+  const { lectures, isLoading, error: fetchError, refreshLectures } = useLectures();
   const [query, setQuery] = useState('');
   const [sort, setSort] = useState('newest');
 
@@ -100,6 +98,26 @@ export default function LectureLibrary({ autoFocusSearch = false }) {
         activeTabOverride={openTab}
         backLabel="Back to Library"
       />
+    );
+  }
+
+  if (isLoading && lectures.length === 0) {
+    return (
+      <div className="lib-root">
+        <LoadingPanel label="Loading your lecture library…" minHeight="50vh" />
+      </div>
+    );
+  }
+
+  if (fetchError && lectures.length === 0) {
+    return (
+      <div className="lib-root" style={{ maxWidth: 620, margin: '0 auto', padding: '3rem 1.25rem' }}>
+        <ErrorState
+          title="Could not load your library"
+          description={fetchError}
+          onRetry={refreshLectures}
+        />
+      </div>
     );
   }
 

@@ -6,10 +6,10 @@ import LectureWorkspace from '@/components/LectureWorkspace';
 import { useToast } from '@/components/ui/Toast';
 import { LoadingPanel } from '@/components/ui/Spinner';
 import { submitYoutubeUrl, fetchTaskStatus, fetchTaskContent } from '@/api/client';
+import { useLectures } from '@/features/lecture/LectureContext';
 import {
   RECENTS_STORAGE_KEY,
   MAX_STORED_LECTURES,
-  readRecentLectures,
 } from '@/features/dashboard/lib/recentLectures';
 
 /**
@@ -18,7 +18,7 @@ import {
  * This is the original App.jsx experience preserved intact against the tested
  * backend contract (POST /youtube, GET /tasks/{id}, GET /tasks/{id}/content).
  * Only the outer chrome (sidebar / theme toggle) was lifted out to AppShell;
- * the request/poll/persist logic is unchanged.
+ * the request/poll/persist logic is backed by SQLite via LectureContext.
  *
  * `homeVariant` picks which presentational component renders during the
  * idle 'hero' state — Dashboard (overview, with a compact inline Process
@@ -28,6 +28,7 @@ import {
  */
 export default function LectureFlow({ homeVariant = 'dashboard' }) {
   const toast = useToast();
+  const { lectures: cloudLectures, refreshLectures, addOrUpdateLecture } = useLectures();
 
   const [view, setView] = useState('hero'); // 'hero' | 'processing' | 'dashboard'
   const [currentTaskId, setCurrentTaskId] = useState(null);
@@ -35,7 +36,6 @@ export default function LectureFlow({ homeVariant = 'dashboard' }) {
   const [studyPack, setStudyPack] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  const [recentLectures, setRecentLectures] = useState(readRecentLectures);
   // True only while reopening an already-completed lecture from Dashboard
   // (Continue Learning / Recent Lectures) — a lightweight loading state,
   // distinct from the full multi-stage ProcessingView used for a fresh
@@ -50,47 +50,31 @@ export default function LectureFlow({ homeVariant = 'dashboard' }) {
         setStudyPack(pack);
         setView('dashboard');
 
-        setRecentLectures((prev) => {
-          const existingIdx = prev.findIndex(
-            (item) => item.taskId === taskId || item.videoId === pack.video_id,
-          );
-          const now = new Date();
-          const newItem = {
-            taskId,
-            videoId: pack.video_id,
-            title: pack.title || 'Lecture Study Guide',
-            createdAt: now.toLocaleDateString('en-US', {
-              month: 'short',
-              day: 'numeric',
-              hour: '2-digit',
-              minute: '2-digit',
-            }),
-            createdAtISO: now.toISOString(),
-            resources: ['notes', 'quiz', 'flashcards', 'revision', 'interview'],
-          };
+        const now = new Date();
+        const newItem = {
+          taskId,
+          videoId: pack.video_id,
+          title: pack.title || 'Lecture Study Guide',
+          createdAt: now.toLocaleDateString('en-US', {
+            month: 'short',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+          }),
+          createdAtISO: now.toISOString(),
+          resources: ['notes', 'quiz', 'flashcards', 'revision', 'interview'],
+        };
 
-          let updated;
-          if (existingIdx >= 0) {
-            updated = [...prev];
-            updated[existingIdx] = newItem;
-          } else {
-            updated = [newItem, ...prev].slice(0, MAX_STORED_LECTURES);
-          }
-
-          try {
-            localStorage.setItem(RECENTS_STORAGE_KEY, JSON.stringify(updated));
-          } catch (e) {
-            console.warn('Failed saving recent lectures to localStorage:', e);
-          }
-          return updated;
-        });
+        // Update centralized cloud lecture state
+        addOrUpdateLecture(newItem);
+        refreshLectures();
       } catch (err) {
         console.error('Failed loading task content:', err);
         setTaskStatus({ status: 'failed', error: 'Failed to retrieve generated Study Pack data.' });
         toast.error('Could not load study pack', err.message);
       }
     },
-    [toast],
+    [toast, addOrUpdateLecture, refreshLectures],
   );
 
   const handleSubmitUrl = useCallback(
@@ -175,7 +159,7 @@ export default function LectureFlow({ homeVariant = 'dashboard' }) {
           <ProcessLectureHome onSubmitUrl={handleSubmitUrl} isLoading={isLoading} />
         ) : (
           <DashboardHome
-            recentLectures={recentLectures}
+            recentLectures={cloudLectures}
             onOpenLecture={handleOpenRecentLecture}
             onSubmitUrl={handleSubmitUrl}
             isLoading={isLoading}
