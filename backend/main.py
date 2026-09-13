@@ -46,6 +46,11 @@ async def lifespan(app: FastAPI):
     logger.info("Starting up FastAPI application...")
     initialize_database()
     try:
+        from services.auth_service import ensure_demo_user
+        ensure_demo_user()
+    except Exception as e:
+        logger.warning(f"Failed ensuring demo user on startup: {e}")
+    try:
         from services.task_repository import _get_connection
         with _get_connection() as conn:
             cursor = conn.execute("UPDATE tasks SET status='failed', error='Server restarted while task was processing' WHERE status='processing'")

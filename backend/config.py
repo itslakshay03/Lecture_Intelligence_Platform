@@ -26,3 +26,15 @@ DB_DIR = DB_PATH.parent
 
 # API Keys
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+
+# Authentication Configuration
+JWT_SECRET_KEY = os.getenv("JWT_SECRET_KEY", "lectraai-dev-secret-key-change-in-production-min-32-chars")
+JWT_ALGORITHM = os.getenv("JWT_ALGORITHM", "HS256")
+ACCESS_TOKEN_EXPIRE_DAYS = int(os.getenv("ACCESS_TOKEN_EXPIRE_DAYS", "7"))
+
+# Legacy / Demo User Configuration
+DEMO_USER_EMAIL = os.getenv("DEMO_USER_EMAIL", "demo@lectra.ai").strip().lower()
+DEMO_USER_NAME = os.getenv("DEMO_USER_NAME", "Demo Student")
+DEMO_USER_PASSWORD = os.getenv("DEMO_USER_PASSWORD", "DemoPass123!")
+DEMO_USER_ID = os.getenv("DEMO_USER_ID", "00000000-0000-4000-8000-000000000001")
+AUTO_MIGRATE_LEGACY_TASKS = os.getenv("AUTO_MIGRATE_LEGACY_TASKS", "true").lower() in ("true", "1", "yes")
