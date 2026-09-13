@@ -535,12 +535,18 @@ def get_task_for_user(task_id: str, user_id: str) -> Optional[Dict[str, Any]]:
     """
     Retrieves task properties by ID ensuring it belongs to the given user.
     Returns None if not found or if the task belongs to a different user.
+    If the requesting user is the demo user, also allows access to unowned legacy tasks (user_id IS NULL).
     """
+    from config import DEMO_USER_ID
     try:
         with _get_connection() as conn:
             cursor = conn.execute(
-                "SELECT * FROM tasks WHERE task_id = ? AND user_id = ?",
-                (task_id, user_id)
+                """
+                SELECT * FROM tasks
+                WHERE task_id = ?
+                  AND (user_id = ? OR (user_id IS NULL AND ? = ?))
+                """,
+                (task_id, user_id, user_id, DEMO_USER_ID)
             )
             row = cursor.fetchone()
             if row:
@@ -549,4 +555,40 @@ def get_task_for_user(task_id: str, user_id: str) -> Optional[Dict[str, Any]]:
     except sqlite3.Error as e:
         logger.error(f"Error fetching task {task_id} for user {user_id}: {e}")
         raise
+
+
+def claim_unowned_tasks(task_ids: List[str], user_id: str) -> List[str]:
+    """
+    Associates unowned tasks (user_id IS NULL) with the authenticated user.
+    Never overwrites or steals tasks already owned by another user.
+    Returns list of task IDs successfully claimed or already owned by user_id.
+    """
+    if not task_ids:
+        return []
+
+    claimed_ids: List[str] = []
+    now = datetime.now(timezone.utc).isoformat()
+    try:
+        with _get_connection() as conn:
+            for tid in task_ids:
+                cursor = conn.execute("SELECT user_id FROM tasks WHERE task_id = ?", (tid,))
+                row = cursor.fetchone()
+                if not row:
+                    continue
+                current_owner = row["user_id"]
+                if current_owner == user_id:
+                    claimed_ids.append(tid)
+                elif current_owner is None:
+                    conn.execute(
+                        "UPDATE tasks SET user_id = ?, updated_at = ? WHERE task_id = ? AND user_id IS NULL",
+                        (user_id, now, tid)
+                    )
+                    claimed_ids.append(tid)
+                # Else: owned by another user -> strictly preserved and cannot be claimed
+            conn.commit()
+            return claimed_ids
+    except sqlite3.Error as e:
+        logger.error(f"Error claiming unowned tasks for user {user_id}: {e}")
+        raise
+
 

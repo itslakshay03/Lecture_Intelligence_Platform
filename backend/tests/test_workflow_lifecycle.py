@@ -25,8 +25,12 @@ import main
 from services.task_repository import (
     initialize_database, create_task, update_task, get_task, delete_task,
 )
+from services.auth_service import ensure_demo_user, create_access_token
 
-client = TestClient(main.app)
+initialize_database()
+_demo = ensure_demo_user()
+_demo_token = create_access_token(_demo["id"], _demo["email"], _demo["name"])
+client = TestClient(main.app, headers={"Authorization": f"Bearer {_demo_token}"})
 
 FAKE_MD = """# 📘 Fake Lecture Title
 

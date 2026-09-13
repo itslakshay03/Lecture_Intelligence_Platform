@@ -12,8 +12,12 @@ from services.task_repository import (
     delete_task,
     DB_PATH
 )
+from services.auth_service import ensure_demo_user, create_access_token
 
-client = TestClient(app)
+initialize_database()
+_demo = ensure_demo_user()
+_demo_token = create_access_token(_demo["id"], _demo["email"], _demo["name"])
+client = TestClient(app, headers={"Authorization": f"Bearer {_demo_token}"})
 
 @pytest.fixture(autouse=True)
 def setup_test_db():
