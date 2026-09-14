@@ -1,0 +1,106 @@
+{
+  "video_id": "JzihOwFW3gI",
+  "title": "Lecture Study Guide (JzihOwFW3gI)",
+  "overview": "Study notes generated for video JzihOwFW3gI.",
+  "notes_markdown": "# \ud83d\udcd8 Lecture Study Guide (JzihOwFW3gI)\n\n### \ud83d\udccc Overview\nStudy notes generated for video JzihOwFW3gI.\n\n## \u2699\ufe0f Core Concepts\n- **Key Fact**: Complete study guide notes ready.",
+  "video_duration": 0.0,
+  "video_duration_formatted": "00:00",
+  "timestamps": [
+    {
+      "time": "00:00",
+      "sec": 0,
+      "label": "Lecture Introduction & Overview"
+    }
+  ],
+  "topics": [
+    {
+      "id": "topic-2",
+      "title": "\ufe0f Core Concepts",
+      "content": "## \u2699\ufe0f Core Concepts\n- **Key Fact**: Complete study guide notes ready.",
+      "key_points": [
+        "**Key Fact**: Complete study guide notes ready."
+      ],
+      "diagram": null
+    }
+  ],
+  "quiz": [
+    {
+      "id": "q-1",
+      "topic": "General Concept",
+      "question": "What is the primary goal of this lecture material?",
+      "options": [
+        "To explain technical computer science concepts with clear grounding.",
+        "To generate raw transcript quotes.",
+        "To list unrelated textbook formulas.",
+        "To avoid defining key terminology."
+      ],
+      "correct_index": 0,
+      "explanation": "LectraAI converts lectures into clear, student-friendly college study guides."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-1",
+      "front": "What is the primary lecture focus?",
+      "back": "\ufe0f Core Concepts"
+    }
+  ],
+  "revision_plan": [
+    {
+      "stage": "24 Hours (Immediate Recall)",
+      "interval": "Day 1",
+      "priority": "High",
+      "goal": "Review core definitions and key facts to consolidate short-term memory.",
+      "topics": [
+        "\ufe0f Core Concepts"
+      ]
+    },
+    {
+      "stage": "3 Days (Reinforcement)",
+      "interval": "Day 3",
+      "priority": "High",
+      "goal": "Re-examine comparison tables and diagram relationships.",
+      "topics": [
+        "\ufe0f Core Concepts"
+      ]
+    },
+    {
+      "stage": "7 Days (Weekly Review)",
+      "interval": "Day 7",
+      "priority": "Medium",
+      "goal": "Solve interactive quiz questions and test recall via flashcards.",
+      "topics": [
+        "\ufe0f Core Concepts"
+      ]
+    },
+    {
+      "stage": "14 Days (Pre-Exam Polish)",
+      "interval": "Day 14",
+      "priority": "Medium",
+      "goal": "Attempt basic and intermediate interview prep questions.",
+      "topics": [
+        "\ufe0f Core Concepts"
+      ]
+    },
+    {
+      "stage": "30 Days (Mastery Verification)",
+      "interval": "Day 30",
+      "priority": "Low",
+      "goal": "Final quick scan of exam focus callouts and master summary.",
+      "topics": [
+        "\ufe0f Core Concepts"
+      ]
+    }
+  ],
+  "interview_questions": {
+    "basic": [
+      {
+        "id": "ib-1",
+        "question": "Define \ufe0f Core Concepts in simple terms. What is its fundamental role?",
+        "answer": "**Key Fact**: Complete study guide notes ready."
+      }
+    ],
+    "intermediate": [],
+    "advanced": []
+  }
+}

@@ -1,0 +1,262 @@
+{
+  "video_id": "kj5ZVLXQyYk",
+  "title": "Trigonometry Quick Revision",
+  "overview": "This lecture provides a comprehensive, high-yield recap of trigonometry. It breaks down the entire topic into three fundamental pillars: Trigonometric Ratios, Trigonometric Angles, and Trigonometric Identities, followed by step-by-step solutions to essential exam problems.",
+  "notes_markdown": "# \ud83d\udcd8 Trigonometry Quick Revision\n\n### \ud83d\udccc Overview\nThis lecture provides a comprehensive, high-yield recap of trigonometry. It breaks down the entire topic into three fundamental pillars: Trigonometric Ratios, Trigonometric Angles, and Trigonometric Identities, followed by step-by-step solutions to essential exam problems.\n\n```mermaid\ngraph TD\n    A[Trigonometry] --> B[Trigonometric Ratios]\n    A --> C[Trigonometric Angles]\n    A --> D[Trigonometric Identities]\n```\n\n---\n\n## \ud83d\udcd0 Core Trigonometric Foundations\n\nTrigonometry is primarily studied within the context of a **Right-Angled Triangle**.\n\n### \ud83d\udd3a Identifying Sides Based on Angle\nThe naming of the sides depends entirely on the reference angle chosen:\n* **Hypotenuse (\\(H\\))**: The longest side, opposite to the right angle (\\(90^\\circ\\)).\n* **Perpendicular (\\(P\\))**: The side directly opposite to the reference angle (\\(\\theta\\)).\n* **Base (\\(B\\))**: The side adjacent to the reference angle (\\(\\theta\\)).\n\n> \u26a0\ufe0f **Crucial Rule:** If you switch the reference angle from angle \\(P\\) to angle \\(R\\), the perpendicular and base swap places.\n\n---\n\n### \ud83d\udcca The Six Trigonometric Ratios\n\nThere are six ratios defined as:\n\n| Ratio | Abbreviation | Formula | Reciprocal Of |\n| :--- | :--- | :--- | :--- |\n| Sine | \\(\\sin \\theta\\) | \\(\\frac{P}{H}\\) | \\(\\csc \\theta\\) |\n| Cosine | \\(\\cos \\theta\\) | \\(\\frac{B}{H}\\) | \\(\\sec \\theta\\) |\n| Tangent | \\(\\tan \\theta\\) | \\(\\frac{P}{B}\\) | \\(\\cot \\theta\\) |\n| Cosecant | \\(\\csc \\theta\\) | \\(\\frac{H}{P}\\) | \\(\\sin \\theta\\) |\n| Secant | \\(\\sec \\theta\\) | \\(\\frac{H}{B}\\) | \\(\\cos \\theta\\) |\n| Cotangent | \\(\\cot \\theta\\) | \\(\\frac{B}{P}\\) | \\(\\tan \\theta\\) |\n\n#### \ud83d\udca1 Mnemonic Devices for Memorization\n* **Mnemonic 1:** *Pandit Badri Prasad Har Har Bole (Sona Chandi Tole)*\n  $$\\frac{P}{H} \\rightarrow \\text{Sine (S)}, \\quad \\frac{B}{H} \\rightarrow \\text{Cosine (C)}, \\quad \\frac{P}{B} \\rightarrow \\text{Tangent (T)}$$\n* **Mnemonic 2:** *Pakistan Bhuka Pyasa, Hindustan Hara Bhara*\n\n---\n\n## \ud83d\udd04 Standard Trigonometric Angles & Identities\n\n### \ud83d\udd22 Values at Key Angles\n\nThe standard reference angles are \\(0^\\circ, 30^\\circ, 45^\\circ, 60^\\circ,\\) and \\(90^\\circ\\). Below is the foundational value sequence for \\(\\sin \\theta\\):\n\n| Angle (\\(\\theta\\)) | \\(0^\\circ\\) | \\(30^\\circ\\) | \\(45^\\circ\\) | \\(60^\\circ\\) | \\(90^\\circ\\) |\n| :--- | :---: | :---: | :---: | :---: | :---: |\n| **\\(\\sin \\theta\\)** | \\(0\\) | \\(\\frac{1}{2}\\) | \\(\\frac{1}{\\sqrt{2}}\\) | \\(\\frac{\\sqrt{3}}{2}\\) | \\(1\\) |\n\n---\n\n### \ud83d\udd11 Fundamental Trigonometric Identities\nThese algebraic relationships are crucial for solving and proving complex expressions:\n\n1. **Primary Pythagorean Identity:**\n   \\[\n   \\sin^2 \\theta + \\cos^2 \\theta = 1\n   \\]\n   * *Derived form 1:* \\(\\sin^2 \\theta = 1 - \\cos^2 \\theta\\)\n   * *Derived form 2:* \\(\\cos^2 \\theta = 1 - \\sin^2 \\theta\\)\n2. **Reciprocal Identity:**\n   \\[\n   \\tan \\theta = \\frac{1}{\\cot \\theta} \\implies \\tan \\theta \\cdot \\cot \\theta = 1\n   \\]\n\n---\n\n## \ud83d\udcdd Step-by-Step Problem Solving\n\n### \ud83e\udde0 Type 1: Angle-Dependent Ratios\n**Problem:** In a given right triangle \\(PQR\\), evaluate \\(\\tan P - \\cot R\\).\n1. Identify the perpendicular and base for angle \\(P\\):\n   * For angle \\(P\\): Opposing side is \\(QR\\) (Perpendicular), adjacent side is \\(PQ\\) (Base). \n   * Thus, \\(\\tan P = \\frac{QR}{PQ}\\).\n2. Identify the perpendicular and base for angle \\(R\\):\n   * For angle \\(R\\): Opposing side is \\(PQ\\) (Perpendicular), adjacent side is \\(QR\\) (Base).\n   * Thus, \\(\\cot R = \\frac{\\text{Base}}{\\text{Perpendicular}} = \\frac{QR}{PQ}\\).\n3. Compute the final value:\n   \\[\n   \\tan P - \\cot R = \\frac{QR}{PQ} - \\frac{QR}{PQ} = 0\n   \\]\n\n---\n\n### \ud83e\udde0 Type 2: Algebraic Identities Manipulation\n**Problem:** If \\(\\tan \\theta + \\cot \\theta = 5\\), find the value of \\(\\tan^2 \\theta + \\cot^2 \\theta\\).\n* *Common Pitfall:* Writing \\(5^2 = 25\\) directly.\n* *Correct Method:* Square both sides of the equation:\n  \\[\n  (\\tan \\theta + \\cot \\theta)^2 = 5^2\n  \\]\n  \\[\n  \\tan^2 \\theta + \\cot^2 \\theta + 2(\\tan \\theta \\cdot \\cot \\theta) = 25\n  \\]\n* Since \\(\\tan \\theta \\cdot \\cot \\theta = 1\\):\n  \\[\n  \\tan^2 \\theta + \\cot^2 \\theta + 2(1) = 25\n  \\]\n  \\[\n  \\tan^2 \\theta + \\cot^2 \\theta = 23\n  \\]\n\n---\n\n### \ud83e\udde0 Type 3: Solving for Unknown Angles\n**Problem:** If \\(\\sin(A+B) = 1\\) and \\(\\cos(A-B) = \\frac{\\sqrt{3}}{2}\\), find the acute angles \\(A\\) and \\(B\\).\n1. Convert the constant values to standard trigonometric functions matching the left-hand side:\n   * \\(\\sin(A+B) = \\sin 90^\\circ \\implies A + B = 90\\) *(Equation 1)*\n   * \\(\\cos(A-B) = \\cos 30^\\circ \\implies A - B = 30\\) *(Equation 2)*\n2. Solve the linear equations simultaneously using elimination:\n   \\[\n   (A+B) + (A-B) = 90 + 30 \\implies 2A = 120 \\implies A = 60^\\circ\n   \\]\n3. Substitute \\(A = 60^\\circ\\) back into Equation 1:\n   \\[\n   60 + B = 90 \\implies B = 30^\\circ\n   \\]\n\n---\n\n### \ud83e\udde0 Type 4: Value Evaluation\n**Problem:** Evaluate \\(\\frac{5\\cos^2 60^\\circ + 4\\sec^2 30^\\circ - \\tan^2 45^\\circ}{\\sin^2 \\theta + \\cos^2 \\theta}\\).\n1. Substitute the standard value identities and constants:\n   * \\(\\sin^2 \\theta + \\cos^2 \\theta = 1\\) (Denominator simplifies to \\(1\\))\n   * \\(\\cos 60^\\circ = \\frac{1}{2}\\)\n   * \\(\\sec 30^\\circ = \\frac{2}{\\sqrt{3}}\\)\n   * \\(\\tan 45^\\circ = 1\\)\n2. Compute the numerator:\n   \\[\n   5\\left(\\frac{1}{2}\\right)^2 + 4\\left(\\frac{2}{\\sqrt{3}}\\right)^2 - (1)^2 \n   = 5\\left(\\frac{1}{4}\\right) + 4\\left(\\frac{4}{3}\\right) - 1\n   \\]\n   \\[\n   = \\frac{5}{4} + \\frac{16}{3} - 1\n   \\]\n3. Find a common denominator (\\(12\\)):\n   \\[\n   = \\frac{15 + 64 - 12}{12} = \\frac{67}{12}\n   \\]\n\n---\n\n### \ud83e\udde0 Type 5: Proving Identities via LCM & Expanding\n**Problem 1:** Prove that \\(\\frac{\\sin A + \\cos A}{\\sin A - \\cos A} + \\frac{\\sin A - \\cos A}{\\sin A + \\cos A} = \\frac{2}{\\sin^2 A - \\cos^2 A}\\).\n1. Take the LCM and cross-multiply:\n   \\[\n   \\text{LHS} = \\frac{(\\sin A + \\cos A)^2 + (\\sin A - \\cos A)^2}{(\\sin A - \\cos A)(\\sin A + \\cos A)}\n   \\]\n2. Expand numerator terms using \\((a \\pm b)^2 = a^2 + b^2 \\pm 2ab\\):\n   \\[\n   = \\frac{(\\sin^2 A + \\cos^2 A + 2\\sin A\\cos A) + (\\sin^2 A + \\cos^2 A - 2\\sin A\\cos A)}{\\sin^2 A - \\cos^2 A}\n   \\]\n3. Simplify by canceling matching positive and negative terms, and using \\(\\sin^2 A + \\cos^2 A = 1\\):\n   \\[\n   = \\frac{1 + 1}{\\sin^2 A - \\cos^2 A} = \\frac{2}{\\sin^2 A - \\cos^2 A} \\quad \\text{(Proved)}\n   \\]\n\n**Problem 2:** Given \\(\\cot \\theta = \\frac{7}{8}\\), evaluate \\(\\frac{(1+\\sin \\theta)(1-\\sin \\theta)}{(1+\\cos \\theta)(1-\\cos \\theta)}\\).\n1. Simplify the expression using the difference of squares identity \\((a+b)(a-b) = a^2 - b^2\\):\n   \\[\n   = \\frac{1 - \\sin^2 \\theta}{1 - \\cos^2 \\theta}\n   \\]\n2. Replace terms using Pythagorean identities:\n   \\[\n   = \\frac{\\cos^2 \\theta}{\\sin^2 \\theta} = \\cot^2 \\theta\n   \\]\n3. Substitute the given value:\n   \\[\n   \\cot^2 \\theta = \\left(\\frac{7}{8}\\right)^2 = \\frac{49}{64}\n   \\]\n\n**Problem 3:** Prove that \\(\\frac{\\sin A}{1 + \\cos A} + \\frac{1 + \\cos A}{\\sin A} = 2\\csc A\\).\n1. Cross-multiply to combine fractions:\n   \\[\n   \\text{LHS} = \\frac{\\sin^2 A + (1 + \\cos A)^2}{\\sin A(1 + \\cos A)}\n   \\]\n2. Expand the numerator:\n   \\[\n   = \\frac{\\sin^2 A + 1 + \\cos^2 A + 2\\cos A}{\\sin A(1 + \\cos A)}\n   \\]\n3. Use \\(\\sin^2 A + \\cos^2 A = 1\\):\n   \\[\n   = \\frac{1 + 1 + 2\\cos A}{\\sin A(1 + \\cos A)} = \\frac{2 + 2\\cos A}{\\sin A(1 + \\cos A)}\n   \\]\n4. Factor out the \\(2\\) and cancel common terms:\n   \\[\n   = \\frac{2(1 + \\cos A)}{\\sin A(1 + \\cos A)} = \\frac{2}{\\sin A} = 2\\csc A \\quad \\text{(Proved)}\n   \\]\n\n---\n\n### \ud83e\udde0 Type 6: Proving Identities by Converting to Tangent\n**Problem:** Prove that \\(\\frac{\\tan\\theta}{1-\\cot\\theta} + \\frac{\\cot\\theta}{1-\\tan\\theta} = 1 + \\tan\\theta + \\cot\\theta\\).\n1. Substitute \\(\\cot \\theta = \\frac{1}{\\tan \\theta}\\) to keep all variables uniform:\n   \\[\n   \\text{LHS} = \\frac{\\tan \\theta}{1 - \\frac{1}{\\tan \\theta}} + \\frac{\\frac{1}{\\tan \\theta}}{1 - \\tan \\theta}\n   \\]\n   \\[\n   = \\frac{\\tan^2 \\theta}{\\tan \\theta - 1} + \\frac{1}{\\tan \\theta(1 - \\tan \\theta)}\n   \\]\n2. Make denominators identical by factoring out a negative sign:\n   \\[\n   = \\frac{\\tan^2 \\theta}{\\tan \\theta - 1} - \\frac{1}{\\tan \\theta(\\tan \\theta - 1)}\n   \\]\n3. Combine terms into a single fraction:\n   \\[\n   = \\frac{\\tan^3 \\theta - 1}{\\tan \\theta(\\tan \\theta - 1)}\n   \\]\n4. Factor the numerator using \\(a^3 - b^3 = (a-b)(a^2 + ab + b^2)\\):\n   \\[\n   = \\frac{(\\tan \\theta - 1)(\\tan^2 \\theta + \\tan \\theta + 1)}{\\tan \\theta(\\tan \\theta - 1)}\n   \\]\n5. Cancel out \\(\\tan \\theta - 1\\) and divide term-by-term:\n   \\[\n   = \\frac{\\tan^2 \\theta + \\tan \\theta + 1}{\\tan \\theta} = \\tan \\theta + 1 + \\cot \\theta \\quad \\text{(Proved)}\n   \\]\n\n---\n\n### \ud83e\udde0 Type 7: Verifying and Solving Equations\n**Problem:** If \\(7\\sin^2\\theta + 3\\cos^2\\theta = 4\\), solve for \\(\\theta\\) and verify that \\(\\tan\\theta = \\frac{1}{\\sqrt{3}}\\).\n1. Express \\(\\cos^2\\theta\\) in terms of \\(\\sin^2\\theta\\):\n   \\[\n   7\\sin^2\\theta + 3(1 - \\sin^2\\theta) = 4\n   \\]\n2. Expand and solve for \\(\\sin\\theta\\):\n   \\[\n   7\\sin^2\\theta + 3 - 3\\sin^2\\theta = 4\n   \\]\n   \\[\n   4\\sin^2\\theta = 1 \\implies \\sin^2\\theta = \\frac{1}{4}\n   \\]\n   \\[\n   \\sin\\theta = \\frac{1}{2}\n   \\]\n3. Determine \\(\\theta\\):\n   * Since \\(\\sin 30^\\circ = \\frac{1}{2}\\), then \\(\\theta = 30^\\circ\\).\n4. Verify \\(\\tan\\theta\\):\n   * \\(\\tan 30^\\circ = \\frac{1}{\\sqrt{3}}\\) *(Verified)*",
+  "video_duration": 611.0,
+  "video_duration_formatted": "10:11",
+  "timestamps": [
+    {
+      "time": "00:00",
+      "sec": 0,
+      "label": "Lecture Introduction & Overview"
+    }
+  ],
+  "topics": [
+    {
+      "id": "topic-2",
+      "title": "Core Trigonometric Foundations",
+      "content": "## \ud83d\udcd0 Core Trigonometric Foundations\n\nTrigonometry is primarily studied within the context of a **Right-Angled Triangle**.\n\n### \ud83d\udd3a Identifying Sides Based on Angle\nThe naming of the sides depends entirely on the reference angle chosen:\n* **Hypotenuse (\\(H\\))**: The longest side, opposite to the right angle (\\(90^\\circ\\)).\n* **Perpendicular (\\(P\\))**: The side directly opposite to the reference angle (\\(\\theta\\)).\n* **Base (\\(B\\))**: The side adjacent to the reference angle (\\(\\theta\\)).\n\n> \u26a0\ufe0f **Crucial Rule:** If you switch the reference angle from angle \\(P\\) to angle \\(R\\), the perpendicular and base swap places.\n\n---\n\n### \ud83d\udcca The Six Trigonometric Ratios\n\nThere are six ratios defined as:\n\n| Ratio | Abbreviation | Formula | Reciprocal Of |\n| :--- | :--- | :--- | :--- |\n| Sine | \\(\\sin \\theta\\) | \\(\\frac{P}{H}\\) | \\(\\csc \\theta\\) |\n| Cosine | \\(\\cos \\theta\\) | \\(\\frac{B}{H}\\) | \\(\\sec \\theta\\) |\n| Tangent | \\(\\tan \\theta\\) | \\(\\frac{P}{B}\\) | \\(\\cot \\theta\\) |\n| Cosecant | \\(\\csc \\theta\\) | \\(\\frac{H}{P}\\) | \\(\\sin \\theta\\) |\n| Secant | \\(\\sec \\theta\\) | \\(\\frac{H}{B}\\) | \\(\\cos \\theta\\) |\n| Cotangent | \\(\\cot \\theta\\) | \\(\\frac{B}{P}\\) | \\(\\tan \\theta\\) |\n\n#### \ud83d\udca1 Mnemonic Devices for Memorization\n* **Mnemonic 1:** *Pandit Badri Prasad Har Har Bole (Sona Chandi Tole)*\n  $$\\frac{P}{H} \\rightarrow \\text{Sine (S)}, \\quad \\frac{B}{H} \\rightarrow \\text{Cosine (C)}, \\quad \\frac{P}{B} \\rightarrow \\text{Tangent (T)}$$\n* **Mnemonic 2:** *Pakistan Bhuka Pyasa, Hindustan Hara Bhara*\n\n---",
+      "key_points": [
+        "**Hypotenuse (\\(H\\))**: The longest side, opposite to the right angle (\\(90^\\circ\\)).",
+        "**Perpendicular (\\(P\\))**: The side directly opposite to the reference angle (\\(\\theta\\)).",
+        "**Base (\\(B\\))**: The side adjacent to the reference angle (\\(\\theta\\)).",
+        "**Mnemonic 1:** *Pandit Badri Prasad Har Har Bole (Sona Chandi Tole)*",
+        "**Mnemonic 2:** *Pakistan Bhuka Pyasa, Hindustan Hara Bhara*"
+      ],
+      "diagram": null
+    },
+    {
+      "id": "topic-3",
+      "title": "Standard Trigonometric Angles & Identities",
+      "content": "## \ud83d\udd04 Standard Trigonometric Angles & Identities\n\n### \ud83d\udd22 Values at Key Angles\n\nThe standard reference angles are \\(0^\\circ, 30^\\circ, 45^\\circ, 60^\\circ,\\) and \\(90^\\circ\\). Below is the foundational value sequence for \\(\\sin \\theta\\):\n\n| Angle (\\(\\theta\\)) | \\(0^\\circ\\) | \\(30^\\circ\\) | \\(45^\\circ\\) | \\(60^\\circ\\) | \\(90^\\circ\\) |\n| :--- | :---: | :---: | :---: | :---: | :---: |\n| **\\(\\sin \\theta\\)** | \\(0\\) | \\(\\frac{1}{2}\\) | \\(\\frac{1}{\\sqrt{2}}\\) | \\(\\frac{\\sqrt{3}}{2}\\) | \\(1\\) |\n\n---\n\n### \ud83d\udd11 Fundamental Trigonometric Identities\nThese algebraic relationships are crucial for solving and proving complex expressions:\n\n1. **Primary Pythagorean Identity:**\n   \\[\n   \\sin^2 \\theta + \\cos^2 \\theta = 1\n   \\]\n   * *Derived form 1:* \\(\\sin^2 \\theta = 1 - \\cos^2 \\theta\\)\n   * *Derived form 2:* \\(\\cos^2 \\theta = 1 - \\sin^2 \\theta\\)\n2. **Reciprocal Identity:**\n   \\[\n   \\tan \\theta = \\frac{1}{\\cot \\theta} \\implies \\tan \\theta \\cdot \\cot \\theta = 1\n   \\]\n\n---",
+      "key_points": [
+        "*Derived form 1:* \\(\\sin^2 \\theta = 1 - \\cos^2 \\theta\\)",
+        "*Derived form 2:* \\(\\cos^2 \\theta = 1 - \\sin^2 \\theta\\)"
+      ],
+      "diagram": null
+    },
+    {
+      "id": "topic-4",
+      "title": "\ud83d\udcdd Step-by-Step Problem Solving",
+      "content": "## \ud83d\udcdd Step-by-Step Problem Solving\n\n### \ud83e\udde0 Type 1: Angle-Dependent Ratios\n**Problem:** In a given right triangle \\(PQR\\), evaluate \\(\\tan P - \\cot R\\).\n1. Identify the perpendicular and base for angle \\(P\\):\n   * For angle \\(P\\): Opposing side is \\(QR\\) (Perpendicular), adjacent side is \\(PQ\\) (Base). \n   * Thus, \\(\\tan P = \\frac{QR}{PQ}\\).\n2. Identify the perpendicular and base for angle \\(R\\):\n   * For angle \\(R\\): Opposing side is \\(PQ\\) (Perpendicular), adjacent side is \\(QR\\) (Base).\n   * Thus, \\(\\cot R = \\frac{\\text{Base}}{\\text{Perpendicular}} = \\frac{QR}{PQ}\\).\n3. Compute the final value:\n   \\[\n   \\tan P - \\cot R = \\frac{QR}{PQ} - \\frac{QR}{PQ} = 0\n   \\]\n\n---\n\n### \ud83e\udde0 Type 2: Algebraic Identities Manipulation\n**Problem:** If \\(\\tan \\theta + \\cot \\theta = 5\\), find the value of \\(\\tan^2 \\theta + \\cot^2 \\theta\\).\n* *Common Pitfall:* Writing \\(5^2 = 25\\) directly.\n* *Correct Method:* Square both sides of the equation:\n  \\[\n  (\\tan \\theta + \\cot \\theta)^2 = 5^2\n  \\]\n  \\[\n  \\tan^2 \\theta + \\cot^2 \\theta + 2(\\tan \\theta \\cdot \\cot \\theta) = 25\n  \\]\n* Since \\(\\tan \\theta \\cdot \\cot \\theta = 1\\):\n  \\[\n  \\tan^2 \\theta + \\cot^2 \\theta + 2(1) = 25\n  \\]\n  \\[\n  \\tan^2 \\theta + \\cot^2 \\theta = 23\n  \\]\n\n---\n\n### \ud83e\udde0 Type 3: Solving for Unknown Angles\n**Problem:** If \\(\\sin(A+B) = 1\\) and \\(\\cos(A-B) = \\frac{\\sqrt{3}}{2}\\), find the acute angles \\(A\\) and \\(B\\).\n1. Convert the constant values to standard trigonometric functions matching the left-hand side:\n   * \\(\\sin(A+B) = \\sin 90^\\circ \\implies A + B = 90\\) *(Equation 1)*\n   * \\(\\cos(A-B) = \\cos 30^\\circ \\implies A - B = 30\\) *(Equation 2)*\n2. Solve the linear equations simultaneously using elimination:\n   \\[\n   (A+B) + (A-B) = 90 + 30 \\implies 2A = 120 \\implies A = 60^\\circ\n   \\]\n3. Substitute \\(A = 60^\\circ\\) back into Equation 1:\n   \\[\n   60 + B = 90 \\implies B = 30^\\circ\n   \\]\n\n---\n\n### \ud83e\udde0 Type 4: Value Evaluation\n**Problem:** Evaluate \\(\\frac{5\\cos^2 60^\\circ + 4\\sec^2 30^\\circ - \\tan^2 45^\\circ}{\\sin^2 \\theta + \\cos^2 \\theta}\\).\n1. Substitute the standard value identities and constants:\n   * \\(\\sin^2 \\theta + \\cos^2 \\theta = 1\\) (Denominator simplifies to \\(1\\))\n   * \\(\\cos 60^\\circ = \\frac{1}{2}\\)\n   * \\(\\sec 30^\\circ = \\frac{2}{\\sqrt{3}}\\)\n   * \\(\\tan 45^\\circ = 1\\)\n2. Compute the numerator:\n   \\[\n   5\\left(\\frac{1}{2}\\right)^2 + 4\\left(\\frac{2}{\\sqrt{3}}\\right)^2 - (1)^2 \n   = 5\\left(\\frac{1}{4}\\right) + 4\\left(\\frac{4}{3}\\right) - 1\n   \\]\n   \\[\n   = \\frac{5}{4} + \\frac{16}{3} - 1\n   \\]\n3. Find a common denominator (\\(12\\)):\n   \\[\n   = \\frac{15 + 64 - 12}{12} = \\frac{67}{12}\n   \\]\n\n---\n\n### \ud83e\udde0 Type 5: Proving Identities via LCM & Expanding\n**Problem 1:** Prove that \\(\\frac{\\sin A + \\cos A}{\\sin A - \\cos A} + \\frac{\\sin A - \\cos A}{\\sin A + \\cos A} = \\frac{2}{\\sin^2 A - \\cos^2 A}\\).\n1. Take the LCM and cross-multiply:\n   \\[\n   \\text{LHS} = \\frac{(\\sin A + \\cos A)^2 + (\\sin A - \\cos A)^2}{(\\sin A - \\cos A)(\\sin A + \\cos A)}\n   \\]\n2. Expand numerator terms using \\((a \\pm b)^2 = a^2 + b^2 \\pm 2ab\\):\n   \\[\n   = \\frac{(\\sin^2 A + \\cos^2 A + 2\\sin A\\cos A) + (\\sin^2 A + \\cos^2 A - 2\\sin A\\cos A)}{\\sin^2 A - \\cos^2 A}\n   \\]\n3. Simplify by canceling matching positive and negative terms, and using \\(\\sin^2 A + \\cos^2 A = 1\\):\n   \\[\n   = \\frac{1 + 1}{\\sin^2 A - \\cos^2 A} = \\frac{2}{\\sin^2 A - \\cos^2 A} \\quad \\text{(Proved)}\n   \\]\n\n**Problem 2:** Given \\(\\cot \\theta = \\frac{7}{8}\\), evaluate \\(\\frac{(1+\\sin \\theta)(1-\\sin \\theta)}{(1+\\cos \\theta)(1-\\cos \\theta)}\\).\n1. Simplify the expression using the difference of squares identity \\((a+b)(a-b) = a^2 - b^2\\):\n   \\[\n   = \\frac{1 - \\sin^2 \\theta}{1 - \\cos^2 \\theta}\n   \\]\n2. Replace terms using Pythagorean identities:\n   \\[\n   = \\frac{\\cos^2 \\theta}{\\sin^2 \\theta} = \\cot^2 \\theta\n   \\]\n3. Substitute the given value:\n   \\[\n   \\cot^2 \\theta = \\left(\\frac{7}{8}\\right)^2 = \\frac{49}{64}\n   \\]\n\n**Problem 3:** Prove that \\(\\frac{\\sin A}{1 + \\cos A} + \\frac{1 + \\cos A}{\\sin A} = 2\\csc A\\).\n1. Cross-multiply to combine fractions:\n   \\[\n   \\text{LHS} = \\frac{\\sin^2 A + (1 + \\cos A)^2}{\\sin A(1 + \\cos A)}\n   \\]\n2. Expand the numerator:\n   \\[\n   = \\frac{\\sin^2 A + 1 + \\cos^2 A + 2\\cos A}{\\sin A(1 + \\cos A)}\n   \\]\n3. Use \\(\\sin^2 A + \\cos^2 A = 1\\):\n   \\[\n   = \\frac{1 + 1 + 2\\cos A}{\\sin A(1 + \\cos A)} = \\frac{2 + 2\\cos A}{\\sin A(1 + \\cos A)}\n   \\]\n4. Factor out the \\(2\\) and cancel common terms:\n   \\[\n   = \\frac{2(1 + \\cos A)}{\\sin A(1 + \\cos A)} = \\frac{2}{\\sin A} = 2\\csc A \\quad \\text{(Proved)}\n   \\]\n\n---\n\n### \ud83e\udde0 Type 6: Proving Identities by Converting to Tangent\n**Problem:** Prove that \\(\\frac{\\tan\\theta}{1-\\cot\\theta} + \\frac{\\cot\\theta}{1-\\tan\\theta} = 1 + \\tan\\theta + \\cot\\theta\\).\n1. Substitute \\(\\cot \\theta = \\frac{1}{\\tan \\theta}\\) to keep all variables uniform:\n   \\[\n   \\text{LHS} = \\frac{\\tan \\theta}{1 - \\frac{1}{\\tan \\theta}} + \\frac{\\frac{1}{\\tan \\theta}}{1 - \\tan \\theta}\n   \\]\n   \\[\n   = \\frac{\\tan^2 \\theta}{\\tan \\theta - 1} + \\frac{1}{\\tan \\theta(1 - \\tan \\theta)}\n   \\]\n2. Make denominators identical by factoring out a negative sign:\n   \\[\n   = \\frac{\\tan^2 \\theta}{\\tan \\theta - 1} - \\frac{1}{\\tan \\theta(\\tan \\theta - 1)}\n   \\]\n3. Combine terms into a single fraction:\n   \\[\n   = \\frac{\\tan^3 \\theta - 1}{\\tan \\theta(\\tan \\theta - 1)}\n   \\]\n4. Factor the numerator using \\(a^3 - b^3 = (a-b)(a^2 + ab + b^2)\\):\n   \\[\n   = \\frac{(\\tan \\theta - 1)(\\tan^2 \\theta + \\tan \\theta + 1)}{\\tan \\theta(\\tan \\theta - 1)}\n   \\]\n5. Cancel out \\(\\tan \\theta - 1\\) and divide term-by-term:\n   \\[\n   = \\frac{\\tan^2 \\theta + \\tan \\theta + 1}{\\tan \\theta} = \\tan \\theta + 1 + \\cot \\theta \\quad \\text{(Proved)}\n   \\]\n\n---\n\n### \ud83e\udde0 Type 7: Verifying and Solving Equations\n**Problem:** If \\(7\\sin^2\\theta + 3\\cos^2\\theta = 4\\), solve for \\(\\theta\\) and verify that \\(\\tan\\theta = \\frac{1}{\\sqrt{3}}\\).\n1. Express \\(\\cos^2\\theta\\) in terms of \\(\\sin^2\\theta\\):\n   \\[\n   7\\sin^2\\theta + 3(1 - \\sin^2\\theta) = 4\n   \\]\n2. Expand and solve for \\(\\sin\\theta\\):\n   \\[\n   7\\sin^2\\theta + 3 - 3\\sin^2\\theta = 4\n   \\]\n   \\[\n   4\\sin^2\\theta = 1 \\implies \\sin^2\\theta = \\frac{1}{4}\n   \\]\n   \\[\n   \\sin\\theta = \\frac{1}{2}\n   \\]\n3. Determine \\(\\theta\\):\n   * Since \\(\\sin 30^\\circ = \\frac{1}{2}\\), then \\(\\theta = 30^\\circ\\).\n4. Verify \\(\\tan\\theta\\):\n   * \\(\\tan 30^\\circ = \\frac{1}{\\sqrt{3}}\\) *(Verified)*",
+      "key_points": [
+        "For angle \\(P\\): Opposing side is \\(QR\\) (Perpendicular), adjacent side is \\(PQ\\) (Base).",
+        "Thus, \\(\\tan P = \\frac{QR}{PQ}\\).",
+        "For angle \\(R\\): Opposing side is \\(PQ\\) (Perpendicular), adjacent side is \\(QR\\) (Base).",
+        "Thus, \\(\\cot R = \\frac{\\text{Base}}{\\text{Perpendicular}} = \\frac{QR}{PQ}\\).",
+        "*Common Pitfall:* Writing \\(5^2 = 25\\) directly.",
+        "*Correct Method:* Square both sides of the equation:"
+      ],
+      "diagram": null
+    }
+  ],
+  "quiz": [
+    {
+      "id": "q-1",
+      "topic": "Core Trigonometric Foundations",
+      "question": "Which statement regarding Core Trigonometric Foundations is strictly correct based on the lecture?",
+      "options": [
+        "It eliminates all resource requirements.",
+        "Hypotenuse (\\(H\\)): The longest side, opposite to the right angle (\\(90^\\circ\\)).",
+        "It is completely handled outside OS memory space.",
+        "It contradicts the core principle of Core Trigonometric Foundations."
+      ],
+      "correct_index": 1,
+      "explanation": "As covered in the lecture: Hypotenuse (\\(H\\)): The longest side, opposite to the right angle (\\(90^\\circ\\))."
+    },
+    {
+      "id": "q-2",
+      "topic": "Core Trigonometric Foundations",
+      "question": "In the context of Core Trigonometric Foundations, what key property was emphasized by the lecturer?",
+      "options": [
+        "Perpendicular (\\(P\\)): The side directly opposite to the reference angle (\\(\\theta\\)).",
+        "It requires manual memory deallocation per thread.",
+        "It operates without any data structures.",
+        "It is restricted to single-threaded CPU architectures."
+      ],
+      "correct_index": 0,
+      "explanation": "Lecture note detail: Perpendicular (\\(P\\)): The side directly opposite to the reference angle (\\(\\theta\\))."
+    },
+    {
+      "id": "q-3",
+      "topic": "Standard Trigonometric Angles & Identities",
+      "question": "Which statement regarding Standard Trigonometric Angles & Identities is strictly correct based on the lecture?",
+      "options": [
+        "It is completely handled outside OS memory space.",
+        "Derived form 1: \\(\\sin^2 \\theta = 1 - \\cos^2 \\theta\\)",
+        "It contradicts the core principle of Standard Trigonometric Angles & Identities.",
+        "It eliminates all resource requirements."
+      ],
+      "correct_index": 1,
+      "explanation": "As covered in the lecture: Derived form 1: \\(\\sin^2 \\theta = 1 - \\cos^2 \\theta\\)"
+    },
+    {
+      "id": "q-4",
+      "topic": "Standard Trigonometric Angles & Identities",
+      "question": "In the context of Standard Trigonometric Angles & Identities, what key property was emphasized by the lecturer?",
+      "options": [
+        "It requires manual memory deallocation per thread.",
+        "It is restricted to single-threaded CPU architectures.",
+        "It operates without any data structures.",
+        "Derived form 2: \\(\\cos^2 \\theta = 1 - \\sin^2 \\theta\\)"
+      ],
+      "correct_index": 3,
+      "explanation": "Lecture note detail: Derived form 2: \\(\\cos^2 \\theta = 1 - \\sin^2 \\theta\\)"
+    },
+    {
+      "id": "q-5",
+      "topic": "\ud83d\udcdd Step-by-Step Problem Solving",
+      "question": "Which statement regarding \ud83d\udcdd Step-by-Step Problem Solving is strictly correct based on the lecture?",
+      "options": [
+        "For angle \\(P\\): Opposing side is \\(QR\\) (Perpendicular), adjacent side is \\(PQ\\) (Base).",
+        "It eliminates all resource requirements.",
+        "It is completely handled outside OS memory space.",
+        "It contradicts the core principle of \ud83d\udcdd Step-by-Step Problem Solving."
+      ],
+      "correct_index": 0,
+      "explanation": "As covered in the lecture: For angle \\(P\\): Opposing side is \\(QR\\) (Perpendicular), adjacent side is \\(PQ\\) (Base)."
+    },
+    {
+      "id": "q-6",
+      "topic": "\ud83d\udcdd Step-by-Step Problem Solving",
+      "question": "In the context of \ud83d\udcdd Step-by-Step Problem Solving, what key property was emphasized by the lecturer?",
+      "options": [
+        "It operates without any data structures.",
+        "It requires manual memory deallocation per thread.",
+        "Thus, \\(\\tan P = \\frac{QR}{PQ}\\).",
+        "It is restricted to single-threaded CPU architectures."
+      ],
+      "correct_index": 2,
+      "explanation": "Lecture note detail: Thus, \\(\\tan P = \\frac{QR}{PQ}\\)."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-1",
+      "front": "What is Right-Angled Triangle?",
+      "back": "Trigonometry is primarily studied within the context of a **Right-Angled Triangle**."
+    },
+    {
+      "id": "fc-2",
+      "front": "What is Hypotenuse (\\(H\\))?",
+      "back": "* **Hypotenuse (\\(H\\))**: The longest side, opposite to the right angle (\\(90^\\circ\\))."
+    },
+    {
+      "id": "fc-3",
+      "front": "What is Perpendicular (\\(P\\))?",
+      "back": "* **Perpendicular (\\(P\\))**: The side directly opposite to the reference angle (\\(\\theta\\))."
+    },
+    {
+      "id": "fc-4",
+      "front": "What is Base (\\(B\\))?",
+      "back": "* **Base (\\(B\\))**: The side adjacent to the reference angle (\\(\\theta\\))."
+    },
+    {
+      "id": "fc-5",
+      "front": "What is Crucial Rule:?",
+      "back": "> \u26a0\ufe0f **Crucial Rule:** If you switch the reference angle from angle \\(P\\) to angle \\(R\\), the perpendicular and base swap places."
+    },
+    {
+      "id": "fc-6",
+      "front": "What is Mnemonic 1:?",
+      "back": "Key technical term explained in Core Trigonometric Foundations."
+    },
+    {
+      "id": "fc-7",
+      "front": "What is Mnemonic 2:?",
+      "back": "Key technical term explained in Core Trigonometric Foundations."
+    },
+    {
+      "id": "fc-8",
+      "front": "What is \\(\\sin \\theta\\)?",
+      "back": "Key technical term explained in Core Trigonometric Foundations."
+    },
+    {
+      "id": "fc-9",
+      "front": "What is Primary Pythagorean Identity:?",
+      "back": "Key technical term explained in Core Trigonometric Foundations."
+    },
+    {
+      "id": "fc-10",
+      "front": "What is Reciprocal Identity:?",
+      "back": "Key technical term explained in Core Trigonometric Foundations."
+    }
+  ],
+  "revision_plan": [
+    {
+      "stage": "24 Hours (Immediate Recall)",
+      "interval": "Day 1",
+      "priority": "High",
+      "goal": "Review core definitions and key facts to consolidate short-term memory.",
+      "topics": [
+        "Core Trigonometric Foundations",
+        "Standard Trigonometric Angles & Identities"
+      ]
+    },
+    {
+      "stage": "3 Days (Reinforcement)",
+      "interval": "Day 3",
+      "priority": "High",
+      "goal": "Re-examine comparison tables and diagram relationships.",
+      "topics": [
+        "Standard Trigonometric Angles & Identities",
+        "\ud83d\udcdd Step-by-Step Problem Solving"
+      ]
+    },
+    {
+      "stage": "7 Days (Weekly Review)",
+      "interval": "Day 7",
+      "priority": "Medium",
+      "goal": "Solve interactive quiz questions and test recall via flashcards.",
+      "topics": [
+        "\ud83d\udcdd Step-by-Step Problem Solving"
+      ]
+    },
+    {
+      "stage": "14 Days (Pre-Exam Polish)",
+      "interval": "Day 14",
+      "priority": "Medium",
+      "goal": "Attempt basic and intermediate interview prep questions.",
+      "topics": [
+        "Core Trigonometric Foundations",
+        "Standard Trigonometric Angles & Identities",
+        "\ud83d\udcdd Step-by-Step Problem Solving"
+      ]
+    },
+    {
+      "stage": "30 Days (Mastery Verification)",
+      "interval": "Day 30",
+      "priority": "Low",
+      "goal": "Final quick scan of exam focus callouts and master summary.",
+      "topics": [
+        "Core Trigonometric Foundations",
+        "Standard Trigonometric Angles & Identities",
+        "\ud83d\udcdd Step-by-Step Problem Solving"
+      ]
+    }
+  ],
+  "interview_questions": {
+    "basic": [
+      {
+        "id": "ib-1",
+        "question": "Define Core Trigonometric Foundations in simple terms. What is its fundamental role?",
+        "answer": "**Hypotenuse (\\(H\\))**: The longest side, opposite to the right angle (\\(90^\\circ\\))."
+      }
+    ],
+    "intermediate": [
+      {
+        "id": "ii-2",
+        "question": "How does Standard Trigonometric Angles & Identities handle resource allocation or execution compared to alternative approaches?",
+        "answer": "*Derived form 1:* \\(\\sin^2 \\theta = 1 - \\cos^2 \\theta\\) *Derived form 2:* \\(\\cos^2 \\theta = 1 - \\sin^2 \\theta\\)"
+      }
+    ],
+    "advanced": [
+      {
+        "id": "ia-3",
+        "question": "What are the architectural trade-offs and common performance pitfalls associated with \ud83d\udcdd Step-by-Step Problem Solving?",
+        "answer": "For angle \\(P\\): Opposing side is \\(QR\\) (Perpendicular), adjacent side is \\(PQ\\) (Base). *Correct Method:* Square both sides of the equation:"
+      }
+    ]
+  }
+}

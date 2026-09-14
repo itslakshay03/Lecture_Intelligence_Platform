@@ -1,0 +1,243 @@
+{
+  "video_id": "SlSA9vEXCm4",
+  "title": "Formal Definition of Context-Free Grammar (CFG)",
+  "overview": "A **Context-Free Grammar (CFG)** is a set of formal production rules used to construct strings in a **Context-Free Language (CFL)**. It defines how non-terminal variables are systematically substituted with terminal symbols to generate valid language strings.",
+  "notes_markdown": "# \ud83d\udcd8 Formal Definition of Context-Free Grammar (CFG)\n\n### \ud83d\udccc Overview\nA **Context-Free Grammar (CFG)** is a set of formal production rules used to construct strings in a **Context-Free Language (CFL)**. It defines how non-terminal variables are systematically substituted with terminal symbols to generate valid language strings.\n\n---\n\n## \ud83e\udde9 Formal Definition of CFG\n\nA Context-Free Grammar is formally defined as a **4-tuple**:\n\n\\[ G = (V, T, P, S) \\]\n\n| Component | Description | Notation / Properties |\n| :--- | :--- | :--- |\n| **\\( V \\)** | Set of **Variables** (Non-terminals) | Denoted by **capital letters** (e.g., \\( S, A, B \\)). Used to construct rules. |\n| **\\( T \\)** | Set of **Terminals** | Denoted by **lowercase letters or digits** (e.g., \\( a, b, 0, 1 \\)). Form final strings. |\n| **\\( P \\)** | Set of **Production Rules** | Defines transformation from variables to terminals/variables. |\n| **\\( S \\)** | **Start Symbol** | \\( S \\in V \\). The initial variable from which derivations begin. |\n\n> **Key Property**: \\( V \\cap T = \\emptyset \\) (Variables and Terminals are strictly disjoint sets with no common elements).\n\n---\n\n## \ud83d\udcdc Production Rule Structure\n\nProduction rules in a CFG follow the general form:\n\n\\[ \\alpha \\to \\beta \\]\n\n* **Left-Hand Side (\\( \\alpha \\))**: Must contain **exactly one variable** (\\( \\alpha \\in V \\)). It cannot contain terminals or multiple variables.\n* **Right-Hand Side (\\( \\beta \\))**: Can contain any combination of variables and terminals (\\( \\beta \\in (V \\cup T)^* \\)).\n\n---\n\n## \u2699\ufe0f How Derivation and Termination Work\n\n1. **Substitution**: Variables on the right-hand side can be recursively replaced using defined production rules to expand the string.\n2. **Termination**: Variable substitution continues until **only terminal symbols** remain. Replacing variables with terminals terminates the derivation process.\n\n---\n\n## \ud83d\udca1 Example: Grammar & String Derivation\n\nGiven a grammar defined as:\n* **Production Rules (\\( P \\))**:\n  1. \\( S \\to 0A1 \\)\n  2. \\( A \\to 0A1 \\mid 01 \\)\n* **Variables (\\( V \\))**: \\( \\{S, A\\} \\)\n* **Terminals (\\( T \\))**: \\( \\{0, 1\\} \\)\n* **Start Symbol (\\( S \\))**: \\( S \\)\n\n### Derivation Steps for String `000111`:\n1. Start with initial rule:  \n   \\( S \\Rightarrow 0A1 \\)\n2. Substitute \\( A \\to 0A1 \\):  \n   \\( 0A1 \\Rightarrow 0(0A1)1 = 00A11 \\)\n3. Substitute \\( A \\to 01 \\) to terminate all variables:  \n   \\( 00A11 \\Rightarrow 00(01)11 = 000111 \\)\n\n**Resulting Language**: \\( L = \\{0^n 1^n \\mid n \\ge 1\\} \\)\n\n---\n\n### \ud83d\uddbc\ufe0f Visual Derivation Flow\n\n```mermaid\nflowchart TD\n    S[\"S\"] --> Step1[\"0A1\"]\n    Step1 --> Step2[\"00A11\"]\n    Step2 --> Final[\"000111\"]\n```",
+  "video_duration": 476.08000000000004,
+  "video_duration_formatted": "07:56",
+  "timestamps": [
+    {
+      "time": "00:00",
+      "sec": 0,
+      "label": "Lecture Introduction & Overview"
+    }
+  ],
+  "topics": [
+    {
+      "id": "topic-2",
+      "title": "\ud83e\udde9 Formal Definition of CFG",
+      "content": "## \ud83e\udde9 Formal Definition of CFG\n\nA Context-Free Grammar is formally defined as a **4-tuple**:\n\n\\[ G = (V, T, P, S) \\]\n\n| Component | Description | Notation / Properties |\n| :--- | :--- | :--- |\n| **\\( V \\)** | Set of **Variables** (Non-terminals) | Denoted by **capital letters** (e.g., \\( S, A, B \\)). Used to construct rules. |\n| **\\( T \\)** | Set of **Terminals** | Denoted by **lowercase letters or digits** (e.g., \\( a, b, 0, 1 \\)). Form final strings. |\n| **\\( P \\)** | Set of **Production Rules** | Defines transformation from variables to terminals/variables. |\n| **\\( S \\)** | **Start Symbol** | \\( S \\in V \\). The initial variable from which derivations begin. |\n\n> **Key Property**: \\( V \\cap T = \\emptyset \\) (Variables and Terminals are strictly disjoint sets with no common elements).\n\n---",
+      "key_points": [],
+      "diagram": null
+    },
+    {
+      "id": "topic-3",
+      "title": "\ud83d\udcdc Production Rule Structure",
+      "content": "## \ud83d\udcdc Production Rule Structure\n\nProduction rules in a CFG follow the general form:\n\n\\[ \\alpha \\to \\beta \\]\n\n* **Left-Hand Side (\\( \\alpha \\))**: Must contain **exactly one variable** (\\( \\alpha \\in V \\)). It cannot contain terminals or multiple variables.\n* **Right-Hand Side (\\( \\beta \\))**: Can contain any combination of variables and terminals (\\( \\beta \\in (V \\cup T)^* \\)).\n\n---",
+      "key_points": [
+        "**Left-Hand Side (\\( \\alpha \\))**: Must contain **exactly one variable** (\\( \\alpha \\in V \\)). It cannot contain terminals or multiple variables.",
+        "**Right-Hand Side (\\( \\beta \\))**: Can contain any combination of variables and terminals (\\( \\beta \\in (V \\cup T)^* \\))."
+      ],
+      "diagram": null
+    },
+    {
+      "id": "topic-4",
+      "title": "\ufe0f How Derivation and Termination Work",
+      "content": "## \u2699\ufe0f How Derivation and Termination Work\n\n1. **Substitution**: Variables on the right-hand side can be recursively replaced using defined production rules to expand the string.\n2. **Termination**: Variable substitution continues until **only terminal symbols** remain. Replacing variables with terminals terminates the derivation process.\n\n---",
+      "key_points": [],
+      "diagram": null
+    },
+    {
+      "id": "topic-5",
+      "title": "\ud83d\udca1 Example: Grammar & String Derivation",
+      "content": "## \ud83d\udca1 Example: Grammar & String Derivation\n\nGiven a grammar defined as:\n* **Production Rules (\\( P \\))**:\n  1. \\( S \\to 0A1 \\)\n  2. \\( A \\to 0A1 \\mid 01 \\)\n* **Variables (\\( V \\))**: \\( \\{S, A\\} \\)\n* **Terminals (\\( T \\))**: \\( \\{0, 1\\} \\)\n* **Start Symbol (\\( S \\))**: \\( S \\)\n\n### Derivation Steps for String `000111`:\n1. Start with initial rule:  \n   \\( S \\Rightarrow 0A1 \\)\n2. Substitute \\( A \\to 0A1 \\):  \n   \\( 0A1 \\Rightarrow 0(0A1)1 = 00A11 \\)\n3. Substitute \\( A \\to 01 \\) to terminate all variables:  \n   \\( 00A11 \\Rightarrow 00(01)11 = 000111 \\)\n\n**Resulting Language**: \\( L = \\{0^n 1^n \\mid n \\ge 1\\} \\)\n\n---\n\n### \ud83d\uddbc\ufe0f Visual Derivation Flow\n\n```mermaid\nflowchart TD\n    S[\"S\"] --> Step1[\"0A1\"]\n    Step1 --> Step2[\"00A11\"]\n    Step2 --> Final[\"000111\"]\n```",
+      "key_points": [
+        "**Production Rules (\\( P \\))**:",
+        "**Variables (\\( V \\))**: \\( \\{S, A\\} \\)",
+        "**Terminals (\\( T \\))**: \\( \\{0, 1\\} \\)",
+        "**Start Symbol (\\( S \\))**: \\( S \\)"
+      ],
+      "diagram": "flowchart TD\n    S[\"S\"] --> Step1[\"0A1\"]\n    Step1 --> Step2[\"00A11\"]\n    Step2 --> Final[\"000111\"]"
+    }
+  ],
+  "quiz": [
+    {
+      "id": "q-1",
+      "topic": "\ud83d\udcdc Production Rule Structure",
+      "question": "Which statement regarding \ud83d\udcdc Production Rule Structure is strictly correct based on the lecture?",
+      "options": [
+        "It eliminates all resource requirements.",
+        "It is completely handled outside OS memory space.",
+        "Left-Hand Side (\\( \\alpha \\)): Must contain exactly one variable (\\( \\alpha \\in V \\)). It cannot contain terminals or multiple variables.",
+        "It contradicts the core principle of \ud83d\udcdc Production Rule Structure."
+      ],
+      "correct_index": 2,
+      "explanation": "As covered in the lecture: Left-Hand Side (\\( \\alpha \\)): Must contain exactly one variable (\\( \\alpha \\in V \\)). It cannot contain terminals or multiple variables."
+    },
+    {
+      "id": "q-2",
+      "topic": "\ud83d\udcdc Production Rule Structure",
+      "question": "In the context of \ud83d\udcdc Production Rule Structure, what key property was emphasized by the lecturer?",
+      "options": [
+        "It requires manual memory deallocation per thread.",
+        "It is restricted to single-threaded CPU architectures.",
+        "It operates without any data structures.",
+        "Right-Hand Side (\\( \\beta \\)): Can contain any combination of variables and terminals (\\( \\beta \\in (V \\cup T)^* \\))."
+      ],
+      "correct_index": 3,
+      "explanation": "Lecture note detail: Right-Hand Side (\\( \\beta \\)): Can contain any combination of variables and terminals (\\( \\beta \\in (V \\cup T)^* \\))."
+    },
+    {
+      "id": "q-3",
+      "topic": "\ud83d\udca1 Example: Grammar & String Derivation",
+      "question": "Which statement regarding \ud83d\udca1 Example: Grammar & String Derivation is strictly correct based on the lecture?",
+      "options": [
+        "It is completely handled outside OS memory space.",
+        "Production Rules (\\( P \\)):",
+        "It contradicts the core principle of \ud83d\udca1 Example: Grammar & String Derivation.",
+        "It eliminates all resource requirements."
+      ],
+      "correct_index": 1,
+      "explanation": "As covered in the lecture: Production Rules (\\( P \\)):"
+    },
+    {
+      "id": "q-4",
+      "topic": "\ud83d\udca1 Example: Grammar & String Derivation",
+      "question": "In the context of \ud83d\udca1 Example: Grammar & String Derivation, what key property was emphasized by the lecturer?",
+      "options": [
+        "Variables (\\( V \\)): \\( \\{S, A\\} \\)",
+        "It is restricted to single-threaded CPU architectures.",
+        "It requires manual memory deallocation per thread.",
+        "It operates without any data structures."
+      ],
+      "correct_index": 0,
+      "explanation": "Lecture note detail: Variables (\\( V \\)): \\( \\{S, A\\} \\)"
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-1",
+      "front": "What is Context-Free Grammar (CFG)?",
+      "back": "A **Context-Free Grammar (CFG)** is a set of formal production rules used to construct strings in a **Context-Free Language (CFL)**."
+    },
+    {
+      "id": "fc-2",
+      "front": "What is Context-Free Language (CFL)?",
+      "back": "A **Context-Free Grammar (CFG)** is a set of formal production rules used to construct strings in a **Context-Free Language (CFL)**."
+    },
+    {
+      "id": "fc-3",
+      "front": "What is 4-tuple?",
+      "back": "Key technical term explained in \ud83e\udde9 Formal Definition of CFG."
+    },
+    {
+      "id": "fc-4",
+      "front": "What is \\( V \\)?",
+      "back": "| **\\( V \\)** | Set of **Variables** (Non-terminals) | Denoted by **capital letters** (e."
+    },
+    {
+      "id": "fc-5",
+      "front": "What is Variables?",
+      "back": "| **\\( V \\)** | Set of **Variables** (Non-terminals) | Denoted by **capital letters** (e."
+    },
+    {
+      "id": "fc-6",
+      "front": "What is capital letters?",
+      "back": "| **\\( V \\)** | Set of **Variables** (Non-terminals) | Denoted by **capital letters** (e."
+    },
+    {
+      "id": "fc-7",
+      "front": "What is \\( T \\)?",
+      "back": "| **\\( T \\)** | Set of **Terminals** | Denoted by **lowercase letters or digits** (e."
+    },
+    {
+      "id": "fc-8",
+      "front": "What is Terminals?",
+      "back": "| **\\( T \\)** | Set of **Terminals** | Denoted by **lowercase letters or digits** (e."
+    },
+    {
+      "id": "fc-9",
+      "front": "What is lowercase letters or digits?",
+      "back": "| **\\( T \\)** | Set of **Terminals** | Denoted by **lowercase letters or digits** (e."
+    },
+    {
+      "id": "fc-10",
+      "front": "What is \\( P \\)?",
+      "back": "| **\\( P \\)** | Set of **Production Rules** | Defines transformation from variables to terminals/variables."
+    }
+  ],
+  "revision_plan": [
+    {
+      "stage": "24 Hours (Immediate Recall)",
+      "interval": "Day 1",
+      "priority": "High",
+      "goal": "Review core definitions and key facts to consolidate short-term memory.",
+      "topics": [
+        "\ud83e\udde9 Formal Definition of CFG",
+        "\ud83d\udcdc Production Rule Structure"
+      ]
+    },
+    {
+      "stage": "3 Days (Reinforcement)",
+      "interval": "Day 3",
+      "priority": "High",
+      "goal": "Re-examine comparison tables and diagram relationships.",
+      "topics": [
+        "\ud83d\udcdc Production Rule Structure",
+        "\ufe0f How Derivation and Termination Work"
+      ]
+    },
+    {
+      "stage": "7 Days (Weekly Review)",
+      "interval": "Day 7",
+      "priority": "Medium",
+      "goal": "Solve interactive quiz questions and test recall via flashcards.",
+      "topics": [
+        "\ufe0f How Derivation and Termination Work",
+        "\ud83d\udca1 Example: Grammar & String Derivation"
+      ]
+    },
+    {
+      "stage": "14 Days (Pre-Exam Polish)",
+      "interval": "Day 14",
+      "priority": "Medium",
+      "goal": "Attempt basic and intermediate interview prep questions.",
+      "topics": [
+        "\ud83e\udde9 Formal Definition of CFG",
+        "\ud83d\udcdc Production Rule Structure",
+        "\ufe0f How Derivation and Termination Work",
+        "\ud83d\udca1 Example: Grammar & String Derivation"
+      ]
+    },
+    {
+      "stage": "30 Days (Mastery Verification)",
+      "interval": "Day 30",
+      "priority": "Low",
+      "goal": "Final quick scan of exam focus callouts and master summary.",
+      "topics": [
+        "\ud83e\udde9 Formal Definition of CFG",
+        "\ud83d\udcdc Production Rule Structure",
+        "\ufe0f How Derivation and Termination Work",
+        "\ud83d\udca1 Example: Grammar & String Derivation"
+      ]
+    }
+  ],
+  "interview_questions": {
+    "basic": [
+      {
+        "id": "ib-1",
+        "question": "Define \ud83e\udde9 Formal Definition of CFG in simple terms. What is its fundamental role?",
+        "answer": "Explained in \ud83e\udde9 Formal Definition of CFG."
+      },
+      {
+        "id": "ib-4",
+        "question": "Define \ud83d\udca1 Example: Grammar & String Derivation in simple terms. What is its fundamental role?",
+        "answer": "**Production Rules (\\( P \\))**:"
+      }
+    ],
+    "intermediate": [
+      {
+        "id": "ii-2",
+        "question": "How does \ud83d\udcdc Production Rule Structure handle resource allocation or execution compared to alternative approaches?",
+        "answer": "**Left-Hand Side (\\( \\alpha \\))**: Must contain **exactly one variable** (\\( \\alpha \\in V \\)). It cannot contain terminals or multiple variables. **Right-Hand Side (\\( \\beta \\))**: Can contain any combination of variables and terminals (\\( \\beta \\in (V \\cup T)^* \\))."
+      }
+    ],
+    "advanced": [
+      {
+        "id": "ia-3",
+        "question": "What are the architectural trade-offs and common performance pitfalls associated with \ufe0f How Derivation and Termination Work?",
+        "answer": "Explained in \ufe0f How Derivation and Termination Work. "
+      }
+    ]
+  }
+}

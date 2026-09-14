@@ -1,0 +1,118 @@
+{
+  "video_id": "vv4y_uOneC0",
+  "title": "Subnet Mask Correction",
+  "overview": "This lecture note provides a specific correction regarding the network subnet mask value mentioned in the lecture presentation.",
+  "notes_markdown": "# \ud83d\udcd8 Subnet Mask Correction\n\n### \ud83d\udccc Overview\nThis lecture note provides a specific correction regarding the network subnet mask value mentioned in the lecture presentation.\n\n## \ud83c\udf10 Subnet Mask Detail\n\n* **Corrected Subnet Mask**: The mask value specified for this segment is **255.255.0** (noted at timestamp 10:28).",
+  "video_duration": 999.0,
+  "video_duration_formatted": "16:39",
+  "timestamps": [
+    {
+      "time": "00:00",
+      "sec": 0,
+      "label": "Lecture Introduction & Overview"
+    },
+    {
+      "time": "10:28",
+      "sec": 628,
+      "label": "\ud83c\udf10 Subnet Mask Detail"
+    }
+  ],
+  "topics": [
+    {
+      "id": "topic-2",
+      "title": "\ud83c\udf10 Subnet Mask Detail",
+      "content": "## \ud83c\udf10 Subnet Mask Detail\n\n* **Corrected Subnet Mask**: The mask value specified for this segment is **255.255.0** (noted at timestamp 10:28).",
+      "key_points": [
+        "**Corrected Subnet Mask**: The mask value specified for this segment is **255.255.0** (noted at timestamp 10:28)."
+      ],
+      "diagram": null,
+      "seconds": 628,
+      "timestamp": "10:28"
+    }
+  ],
+  "quiz": [
+    {
+      "id": "q-1",
+      "topic": "General Concept",
+      "question": "What is the primary goal of this lecture material?",
+      "options": [
+        "To explain technical computer science concepts with clear grounding.",
+        "To generate raw transcript quotes.",
+        "To list unrelated textbook formulas.",
+        "To avoid defining key terminology."
+      ],
+      "correct_index": 0,
+      "explanation": "LectraAI converts lectures into clear, student-friendly college study guides."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-1",
+      "front": "What is Corrected Subnet Mask?",
+      "back": "* **Corrected Subnet Mask**: The mask value specified for this segment is **255."
+    },
+    {
+      "id": "fc-2",
+      "front": "What is 255.255.0?",
+      "back": "* **Corrected Subnet Mask**: The mask value specified for this segment is **255.255.0** (noted at timestamp 10:28)."
+    }
+  ],
+  "revision_plan": [
+    {
+      "stage": "24 Hours (Immediate Recall)",
+      "interval": "Day 1",
+      "priority": "High",
+      "goal": "Review core definitions and key facts to consolidate short-term memory.",
+      "topics": [
+        "\ud83c\udf10 Subnet Mask Detail"
+      ]
+    },
+    {
+      "stage": "3 Days (Reinforcement)",
+      "interval": "Day 3",
+      "priority": "High",
+      "goal": "Re-examine comparison tables and diagram relationships.",
+      "topics": [
+        "\ud83c\udf10 Subnet Mask Detail"
+      ]
+    },
+    {
+      "stage": "7 Days (Weekly Review)",
+      "interval": "Day 7",
+      "priority": "Medium",
+      "goal": "Solve interactive quiz questions and test recall via flashcards.",
+      "topics": [
+        "\ud83c\udf10 Subnet Mask Detail"
+      ]
+    },
+    {
+      "stage": "14 Days (Pre-Exam Polish)",
+      "interval": "Day 14",
+      "priority": "Medium",
+      "goal": "Attempt basic and intermediate interview prep questions.",
+      "topics": [
+        "\ud83c\udf10 Subnet Mask Detail"
+      ]
+    },
+    {
+      "stage": "30 Days (Mastery Verification)",
+      "interval": "Day 30",
+      "priority": "Low",
+      "goal": "Final quick scan of exam focus callouts and master summary.",
+      "topics": [
+        "\ud83c\udf10 Subnet Mask Detail"
+      ]
+    }
+  ],
+  "interview_questions": {
+    "basic": [
+      {
+        "id": "ib-1",
+        "question": "Define \ud83c\udf10 Subnet Mask Detail in simple terms. What is its fundamental role?",
+        "answer": "**Corrected Subnet Mask**: The mask value specified for this segment is **255.255.0** (noted at timestamp 10:28)."
+      }
+    ],
+    "intermediate": [],
+    "advanced": []
+  }
+}

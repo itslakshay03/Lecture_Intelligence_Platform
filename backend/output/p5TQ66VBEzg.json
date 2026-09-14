@@ -1,0 +1,404 @@
+{
+  "video_id": "p5TQ66VBEzg",
+  "title": "Vectors: Complete One-Shot Study Notes",
+  "overview": "These notes cover the foundational and advanced concepts of vectors. You will learn about physical quantities, vector representation, algebraic and geometric addition laws, vector resolution, and vector multiplication (dot and cross products).",
+  "notes_markdown": "# \ud83d\udcd8 Vectors: Complete One-Shot Study Notes\n\n### \ud83d\udccc Overview\nThese notes cover the foundational and advanced concepts of vectors. You will learn about physical quantities, vector representation, algebraic and geometric addition laws, vector resolution, and vector multiplication (dot and cross products).\n\n---\n\n## \ud83d\udccc Physical Quantities: Scalars vs. Vectors\n\nA **physical quantity** is any property that can be measured (e.g., mass, length, time, temperature, power, force, and velocity). These quantities are broadly categorized into **scalars** and **vectors**.\n\n```mermaid\ngraph TD\n    A[Physical Quantity] --> B[Scalar]\n    A --> C[Vector]\n    B --> D[Magnitude Only]\n    C --> E[Magnitude & Direction]\n```\n\n### \ud83d\udcca Comparison Table\n\n| Feature | Scalar Quantity | Vector Quantity |\n| :--- | :--- | :--- |\n| **Magnitude** | Present | Present |\n| **Direction** | Absent | Present (Has physical meaning) |\n| **Algebra** | Basic arithmetic | Vector algebra rules |\n| **Examples** | Mass, Temperature, Time | Force, Velocity, Torque |\n\n### \ud83d\udd0d Real-World Example of Direction Impact\nConsider a block on a table with two forces of \\(10\\text{ N}\\) applied to it:\n* **Same direction:** The net force is \\(10\\text{ N} + 10\\text{ N} = 20\\text{ N}\\). The body moves.\n* **Opposite directions:** The net force is \\(10\\text{ N} - 10\\text{ N} = 0\\text{ N}\\). The body remains stationary.\n* **At an angle:** The net result changes dynamically based on the angle.\n\n---\n\n## \ud83d\udcd0 Vector Representation & Angle Between Vectors\n\n### \ud83d\uddbc\ufe0f Graphic Representation\nA vector is represented geometrically by an arrow:\n* **Tail:** The starting point of the arrow.\n* **Head:** The pointed end indicating the direction.\n* **Length:** The length of the arrow represents the **magnitude**.\n* Written notation: \\(\\vec{A}\\) (a letter with an arrow above it).\n\n```\n   Tail \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u25ba Head\n```\n\n### \ud83d\udd04 Parallel Shifting of Vectors\nYou can shift any vector parallel to itself anywhere in space. As long as you do not change its **magnitude** (length) or **direction** (orientation), the vector remains mathematically identical.\n\n### \ud83d\udcd0 Finding the Angle Between Vectors\nThe true angle \\(\\theta\\) between two vectors is always the **shortest angle** measured when the vectors are joined **tail-to-tail**.\n* If a vector's head meets another vector's tail, use **parallel shifting** to slide the first vector forward until their tails align.\n\n---\n\n## \ud83d\udd04 Vector Addition Laws\n\nUnlike scalar quantities, vectors cannot always be added using simple school arithmetic. \n\n### \ud83d\udcd0 The Resultant Formula\nIf two vectors \\(\\vec{A}\\) and \\(\\vec{B}\\) are inclined at an angle \\(\\theta\\), their resultant \\(R\\) is given by:\n\n\\[\nR = \\sqrt{A^2 + B^2 + 2AB\\cos\\theta}\n\\]\n\n* **Maximum Resultant (\\(\\theta = 0^\\circ\\)):** \\(R_{\\text{max}} = A + B\\)\n* **Minimum Resultant (\\(\\theta = 180^\\circ\\)):** \\(R_{\\text{min}} = |A - B|\\)\n* The resultant always lies within the range: \\([|A-B|, A+B]\\).\n\n#### \ud83e\uddee Numerical Example\nFind the resultant of two \\(10\\text{ N}\\) forces acting at an angle of \\(60^\\circ\\).\nGiven: \\(A = 10\\), \\(B = 10\\), \\(\\theta = 60^\\circ\\) (\\(\\cos 60^\\circ = 0.5\\))\n\n\\[\nR = \\sqrt{10^2 + 10^2 + 2(10)(10)\\cos(60^\\circ)}\n\\]\n\\[\nR = \\sqrt{100 + 100 + 200(0.5)} = \\sqrt{300} = 10\\sqrt{3}\\text{ N}\n\\]\n\n---\n\n### \ud83e\udde9 Geometric Addition Methods\n\n#### 1. Triangle Law of Vector Addition (for 2 Vectors)\n* Connect the **tail** of the second vector to the **head** of the first vector.\n* The resultant vector is represented by the closing third side of the triangle, drawn from the **tail of the first** to the **head of the second** (in the opposite order).\n\n#### 2. Parallelogram Law of Vector Addition (for 2 Vectors)\n* Connect the two vectors **tail-to-tail**.\n* Complete the parallelogram. The resultant vector is the diagonal starting from their common tail junction.\n\n#### 3. Polygon Law of Vector Addition (for Multiple Vectors)\n* Connect all vectors sequentially from **tail-to-head**.\n* The resultant is the final closing side of the polygon, drawn from the tail of the first vector to the head of the last vector.\n\n---\n\n## \ud83e\udde9 Types of Vectors\n\n* **Equal Vectors:** Vectors that share both the same magnitude and the same direction.\n* **Negative Vector:** A vector with the same magnitude but acting in the exact opposite direction.\n* **Position Vector (\\(\\vec{r}\\)):** Locates a particle relative to a chosen origin (e.g., \\(\\vec{r}_1\\), \\(\\vec{r}_2\\)).\n* **Displacement Vector (\\(\\vec{r}_{12}\\)):** Describes the change in position of a particle.\n  \\[\n  \\vec{r}_{12} = \\vec{r}_2 - \\vec{r}_1 = \\text{Final Position} - \\text{Initial Position}\n  \\]\n\n---\n\n## \ud83c\udfaf Unit Vectors & Directional Representation\n\nA **unit vector** is a vector designed solely to specify direction. Its magnitude is always exactly **one (1)**.\n\n* **Notation:** Represented with a cap symbol (\\(\\hat{A}\\)).\n* **Formula:**\n  \\[\n  \\hat{A} = \\frac{\\vec{A}}{|\\vec{A}|}\n  \\]\n\n### \ud83d\udce6 Standard 3D Coordinate Unit Vectors\n* **\\(\\hat{i}\\):** Direction along the positive x-axis.\n* **\\(\\hat{j}\\):** Direction along the positive y-axis.\n* **\\(\\hat{k}\\):** Direction along the positive z-axis.\n\n### \ud83d\udcd0 Magnitude of a 3D Vector\nFor any vector \\(\\vec{A} = x\\hat{i} + y\\hat{j} + z\\hat{k}\\), its magnitude is calculated as:\n\\[\n|\\vec{A}| = \\sqrt{x^2 + y^2 + z^2}\n\\]\n*(Note: Because the terms are squared, vector magnitude is never negative).*\n\n#### \ud83e\uddee Numerical Example\nCalculate the unit vector along the sum of two vectors where the resultant is \\(\\vec{C} = 3\\hat{i} - \\hat{j} + 5\\hat{k}\\).\n\n1. **Calculate the magnitude \\(|\\vec{C}|\\):**\n   \\[\n   |\\vec{C}| = \\sqrt{3^2 + (-1)^2 + 5^2} = \\sqrt{9 + 1 + 25} = \\sqrt{35} \\approx 5.9\n   \\]\n2. **Compute unit vector \\(\\hat{C}\\):**\n   \\[\n   \\hat{C} = \\frac{3}{5.9}\\hat{i} - \\frac{1}{5.9}\\hat{j} + \\frac{5}{5.9}\\hat{k}\n   \\]\n\n---\n\n## \u2702\ufe0f Resolution of Vectors\n\nResolution is the process of breaking a single vector down into mutually perpendicular components (usually horizontal and vertical components).\n\n* **Component along the angle (\\(\\theta\\)):** Uses the **cosine** function.\n* **Component perpendicular to the angle:** Uses the **sine** function.\n\n```\n                  \u25b2 Vertical Component\n                  \u2502     /|\n                  \u2502    / | \n                  \u2502   /  |  Vector A\n                  \u2502  /   |\n                  \u2502 / \u03b8  |\n                  \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2534\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u25ba Horizontal Component\n```\n\n* **Horizontal (with \\(\\theta\\)):** \\(A_x = A \\cos\\theta\\)\n* **Vertical (without \\(\\theta\\)):** \\(A_y = A \\sin\\theta\\)\n\n### \ud83e\uddee Resolution Examples\n\n#### Example 1: Velocity Resolution\nResolve a velocity of \\(10\\text{ m/s}\\) directed at \\(30^\\circ\\) to the horizontal.\n* **Horizontal Component:** \\(10 \\cos 30^\\circ = 10 \\times \\frac{\\sqrt{3}}{2} \\approx 8.5\\text{ m/s}\\)\n* **Vertical Component:** \\(10 \\sin 30^\\circ = 10 \\times \\frac{1}{2} = 5\\text{ m/s}\\)\n\n#### Example 2: Force Resolution\nResolve a downward force of \\(100\\text{ N}\\) pulling at an angle of \\(45^\\circ\\) to the vertical axis.\n* **Vertical Component:** \\(100 \\cos 45^\\circ = \\frac{100}{\\sqrt{2}}\\text{ N}\\)\n* **Horizontal Component:** \\(100 \\sin 45^\\circ = \\frac{100}{\\sqrt{2}}\\text{ N}\\)\n\n---\n\n## \u2716\ufe0f Multiplication of Vectors\n\nMultiplying a vector by another vector can yield either a scalar or a new vector.\n\n### \ud83d\udd34 1. Scalar (Dot) Product\nThe dot product multiplies parallel components and results in a **scalar value**.\n\n\\[\n\\vec{A} \\cdot \\vec{B} = AB \\cos\\theta\n\\]\n\n* **Commutative Law:** \\(\\vec{A} \\cdot \\vec{B} = \\vec{B} \\cdot \\vec{A}\\).\n* **Real-World Examples:**\n  * Work done: \\(W = \\vec{F} \\cdot \\vec{d}\\) (Force \\(\\cdot\\) Displacement)\n  * Power: \\(P = \\vec{F} \\cdot \\vec{v}\\) (Force \\(\\cdot\\) Velocity)\n\n#### \u26a1 Dot Products of Unit Vectors\n* **Identical vectors:** \\(\\hat{i} \\cdot \\hat{i} = \\hat{j} \\cdot \\hat{j} = \\hat{k} \\cdot \\hat{k} = 1\\) (since \\(\\cos 0^\\circ = 1\\))\n* **Perpendicular vectors:** \\(\\hat{i} \\cdot \\hat{j} = \\hat{j} \\cdot \\hat{k} = \\hat{k} \\cdot \\hat{i} = 0\\) (since \\(\\cos 90^\\circ = 0\\))\n\n#### \ud83e\uddee Numerical Example\nCalculate the dot product of \\(\\vec{A} = 2\\hat{i} - 3\\hat{j} + 5\\hat{k}\\) and \\(\\vec{B} = 5\\hat{i} + 3\\hat{j} - 2\\hat{k}\\).\n\\[\n\\vec{A} \\cdot \\vec{B} = (2)(5) + (-3)(3) + (5)(-2)\n\\]\n\\[\n\\vec{A} \\cdot \\vec{B} = 10 - 9 - 10 = -9\n\\]\n\n---\n\n### \ud83d\udd35 2. Vector (Cross) Product\nThe cross product multiplies perpendicular components and results in a **new vector** perpendicular to the plane containing the original vectors.\n\n\\[\n\\vec{A} \\times \\vec{B} = AB \\sin\\theta \\hat{n}\n\\]\n\n* **Anti-commutative Law:** \\(\\vec{A} \\times \\vec{B} = -(\\vec{B} \\times \\vec{A})\\)\n* **Real-World Examples:**\n  * Torque: \\(\\vec{\\tau} = \\vec{r} \\times \\vec{F}\\)\n  * Angular Momentum: \\(\\vec{L} = \\vec{r} \\times \\vec{p}\\)\n\n#### \u26a1 Cross Products of Unit Vectors\n* **Identical vectors:** \\(\\hat{i} \\times \\hat{i} = \\hat{j} \\times \\hat{j} = \\hat{k} \\times \\hat{k} = 0\\) (since \\(\\sin 0^\\circ = 0\\))\n* **Cross-product direction wheel:**\n\n```\n          [ + Clockwise ] \n               \u250c\u2500\u2500\u2500\u2510\n               \u2502 1 \u2502\n               \u2514\u2500\u2500\u2500\u2518\n             i \u2500\u2500\u25ba j\n             \u25b2     \u2502\n             \u2502     \u25bc\n             \u2514\u2500\u2500\u2500 k\n```\n\n* **Clockwise (Positive):**\n  * \\(\\hat{i} \\times \\hat{j} = \\hat{k}\\)\n  * \\(\\hat{j} \\times \\hat{k} = \\hat{i}\\)\n  * \\(\\hat{k} \\times \\hat{i} = \\hat{j}\\)\n* **Counter-Clockwise (Negative):**\n  * \\(\\hat{j} \\times \\hat{i} = -\\hat{k}\\)\n  * \\(\\hat{k} \\times \\hat{j} = -\\hat{i}\\)\n  * \\(\\hat{i} \\times \\hat{k} = -\\hat{j}\\)\n\n---\n\n### \ud83e\uddee Vector Product via Determinant Method\nTo calculate \\(\\vec{A} \\times \\vec{B}\\), use a matrix determinant:\n\n\\[\n\\vec{A} \\times \\vec{B} = \\det \\begin{bmatrix}\n\\hat{i} & \\hat{j} & \\hat{k} \\\\\nA_x & A_y & A_z \\\\\nB_x & B_y & B_z\n\\end{bmatrix}\n\\]\n\n#### Step-by-Step Calculation Example\nLet's resolve the components step-by-step:\n* **\\(\\hat{i}\\) component:** \\((6 - 24) = -18\\)\n* **\\(\\hat{j}\\) component:** \\(-(-4 - 12) = 16\\)\n* **\\(\\hat{k}\\) component:** \\((12 - (-9)) = 21\\)\n\nCombining the terms gives:\n\\[\n\\vec{A} \\times \\vec{B} = -18\\hat{i} + 16\\hat{j} + 21\\hat{k}\n\\]",
+  "video_duration": 2630.85,
+  "video_duration_formatted": "43:50",
+  "timestamps": [
+    {
+      "time": "00:00",
+      "sec": 0,
+      "label": "Lecture Introduction & Overview"
+    },
+    {
+      "time": "25:40",
+      "sec": 1540,
+      "label": "\u2702\ufe0f Resolution of Vectors"
+    }
+  ],
+  "topics": [
+    {
+      "id": "topic-2",
+      "title": "Physical Quantities: Scalars vs. Vectors",
+      "content": "## \ud83d\udccc Physical Quantities: Scalars vs. Vectors\n\nA **physical quantity** is any property that can be measured (e.g., mass, length, time, temperature, power, force, and velocity). These quantities are broadly categorized into **scalars** and **vectors**.\n\n```mermaid\ngraph TD\n    A[Physical Quantity] --> B[Scalar]\n    A --> C[Vector]\n    B --> D[Magnitude Only]\n    C --> E[Magnitude & Direction]\n```\n\n### \ud83d\udcca Comparison Table\n\n| Feature | Scalar Quantity | Vector Quantity |\n| :--- | :--- | :--- |\n| **Magnitude** | Present | Present |\n| **Direction** | Absent | Present (Has physical meaning) |\n| **Algebra** | Basic arithmetic | Vector algebra rules |\n| **Examples** | Mass, Temperature, Time | Force, Velocity, Torque |\n\n### \ud83d\udd0d Real-World Example of Direction Impact\nConsider a block on a table with two forces of \\(10\\text{ N}\\) applied to it:\n* **Same direction:** The net force is \\(10\\text{ N} + 10\\text{ N} = 20\\text{ N}\\). The body moves.\n* **Opposite directions:** The net force is \\(10\\text{ N} - 10\\text{ N} = 0\\text{ N}\\). The body remains stationary.\n* **At an angle:** The net result changes dynamically based on the angle.\n\n---",
+      "key_points": [
+        "**Same direction:** The net force is \\(10\\text{ N} + 10\\text{ N} = 20\\text{ N}\\). The body moves.",
+        "**Opposite directions:** The net force is \\(10\\text{ N} - 10\\text{ N} = 0\\text{ N}\\). The body remains stationary.",
+        "**At an angle:** The net result changes dynamically based on the angle."
+      ],
+      "diagram": "graph TD\n    A[Physical Quantity] --> B[Scalar]\n    A --> C[Vector]\n    B --> D[Magnitude Only]\n    C --> E[Magnitude & Direction]"
+    },
+    {
+      "id": "topic-3",
+      "title": "Vector Representation & Angle Between Vectors",
+      "content": "## \ud83d\udcd0 Vector Representation & Angle Between Vectors\n\n### \ud83d\uddbc\ufe0f Graphic Representation\nA vector is represented geometrically by an arrow:\n* **Tail:** The starting point of the arrow.\n* **Head:** The pointed end indicating the direction.\n* **Length:** The length of the arrow represents the **magnitude**.\n* Written notation: \\(\\vec{A}\\) (a letter with an arrow above it).\n\n```\n   Tail \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u25ba Head\n```\n\n### \ud83d\udd04 Parallel Shifting of Vectors\nYou can shift any vector parallel to itself anywhere in space. As long as you do not change its **magnitude** (length) or **direction** (orientation), the vector remains mathematically identical.\n\n### \ud83d\udcd0 Finding the Angle Between Vectors\nThe true angle \\(\\theta\\) between two vectors is always the **shortest angle** measured when the vectors are joined **tail-to-tail**.\n* If a vector's head meets another vector's tail, use **parallel shifting** to slide the first vector forward until their tails align.\n\n---",
+      "key_points": [
+        "**Tail:** The starting point of the arrow.",
+        "**Head:** The pointed end indicating the direction.",
+        "**Length:** The length of the arrow represents the **magnitude**.",
+        "Written notation: \\(\\vec{A}\\) (a letter with an arrow above it).",
+        "If a vector's head meets another vector's tail, use **parallel shifting** to slide the first vector forward until their tails align."
+      ],
+      "diagram": null
+    },
+    {
+      "id": "topic-4",
+      "title": "Vector Addition Laws",
+      "content": "## \ud83d\udd04 Vector Addition Laws\n\nUnlike scalar quantities, vectors cannot always be added using simple school arithmetic. \n\n### \ud83d\udcd0 The Resultant Formula\nIf two vectors \\(\\vec{A}\\) and \\(\\vec{B}\\) are inclined at an angle \\(\\theta\\), their resultant \\(R\\) is given by:\n\n\\[\nR = \\sqrt{A^2 + B^2 + 2AB\\cos\\theta}\n\\]\n\n* **Maximum Resultant (\\(\\theta = 0^\\circ\\)):** \\(R_{\\text{max}} = A + B\\)\n* **Minimum Resultant (\\(\\theta = 180^\\circ\\)):** \\(R_{\\text{min}} = |A - B|\\)\n* The resultant always lies within the range: \\([|A-B|, A+B]\\).\n\n#### \ud83e\uddee Numerical Example\nFind the resultant of two \\(10\\text{ N}\\) forces acting at an angle of \\(60^\\circ\\).\nGiven: \\(A = 10\\), \\(B = 10\\), \\(\\theta = 60^\\circ\\) (\\(\\cos 60^\\circ = 0.5\\))\n\n\\[\nR = \\sqrt{10^2 + 10^2 + 2(10)(10)\\cos(60^\\circ)}\n\\]\n\\[\nR = \\sqrt{100 + 100 + 200(0.5)} = \\sqrt{300} = 10\\sqrt{3}\\text{ N}\n\\]\n\n---\n\n### \ud83e\udde9 Geometric Addition Methods\n\n#### 1. Triangle Law of Vector Addition (for 2 Vectors)\n* Connect the **tail** of the second vector to the **head** of the first vector.\n* The resultant vector is represented by the closing third side of the triangle, drawn from the **tail of the first** to the **head of the second** (in the opposite order).\n\n#### 2. Parallelogram Law of Vector Addition (for 2 Vectors)\n* Connect the two vectors **tail-to-tail**.\n* Complete the parallelogram. The resultant vector is the diagonal starting from their common tail junction.\n\n#### 3. Polygon Law of Vector Addition (for Multiple Vectors)\n* Connect all vectors sequentially from **tail-to-head**.\n* The resultant is the final closing side of the polygon, drawn from the tail of the first vector to the head of the last vector.\n\n---",
+      "key_points": [
+        "**Maximum Resultant (\\(\\theta = 0^\\circ\\)):** \\(R_{\\text{max}} = A + B\\)",
+        "**Minimum Resultant (\\(\\theta = 180^\\circ\\)):** \\(R_{\\text{min}} = |A - B|\\)",
+        "The resultant always lies within the range: \\([|A-B|, A+B]\\).",
+        "Connect the **tail** of the second vector to the **head** of the first vector.",
+        "The resultant vector is represented by the closing third side of the triangle, drawn from the **tail of the first** to the **head of the second** (in the opposite order).",
+        "Connect the two vectors **tail-to-tail**."
+      ],
+      "diagram": null
+    },
+    {
+      "id": "topic-5",
+      "title": "\ud83e\udde9 Types of Vectors",
+      "content": "## \ud83e\udde9 Types of Vectors\n\n* **Equal Vectors:** Vectors that share both the same magnitude and the same direction.\n* **Negative Vector:** A vector with the same magnitude but acting in the exact opposite direction.\n* **Position Vector (\\(\\vec{r}\\)):** Locates a particle relative to a chosen origin (e.g., \\(\\vec{r}_1\\), \\(\\vec{r}_2\\)).\n* **Displacement Vector (\\(\\vec{r}_{12}\\)):** Describes the change in position of a particle.\n  \\[\n  \\vec{r}_{12} = \\vec{r}_2 - \\vec{r}_1 = \\text{Final Position} - \\text{Initial Position}\n  \\]\n\n---",
+      "key_points": [
+        "**Equal Vectors:** Vectors that share both the same magnitude and the same direction.",
+        "**Negative Vector:** A vector with the same magnitude but acting in the exact opposite direction.",
+        "**Position Vector (\\(\\vec{r}\\)):** Locates a particle relative to a chosen origin (e.g., \\(\\vec{r}_1\\), \\(\\vec{r}_2\\)).",
+        "**Displacement Vector (\\(\\vec{r}_{12}\\)):** Describes the change in position of a particle."
+      ],
+      "diagram": null
+    },
+    {
+      "id": "topic-6",
+      "title": "\ud83c\udfaf Unit Vectors & Directional Representation",
+      "content": "## \ud83c\udfaf Unit Vectors & Directional Representation\n\nA **unit vector** is a vector designed solely to specify direction. Its magnitude is always exactly **one (1)**.\n\n* **Notation:** Represented with a cap symbol (\\(\\hat{A}\\)).\n* **Formula:**\n  \\[\n  \\hat{A} = \\frac{\\vec{A}}{|\\vec{A}|}\n  \\]\n\n### \ud83d\udce6 Standard 3D Coordinate Unit Vectors\n* **\\(\\hat{i}\\):** Direction along the positive x-axis.\n* **\\(\\hat{j}\\):** Direction along the positive y-axis.\n* **\\(\\hat{k}\\):** Direction along the positive z-axis.\n\n### \ud83d\udcd0 Magnitude of a 3D Vector\nFor any vector \\(\\vec{A} = x\\hat{i} + y\\hat{j} + z\\hat{k}\\), its magnitude is calculated as:\n\\[\n|\\vec{A}| = \\sqrt{x^2 + y^2 + z^2}\n\\]\n*(Note: Because the terms are squared, vector magnitude is never negative).*\n\n#### \ud83e\uddee Numerical Example\nCalculate the unit vector along the sum of two vectors where the resultant is \\(\\vec{C} = 3\\hat{i} - \\hat{j} + 5\\hat{k}\\).\n\n1. **Calculate the magnitude \\(|\\vec{C}|\\):**\n   \\[\n   |\\vec{C}| = \\sqrt{3^2 + (-1)^2 + 5^2} = \\sqrt{9 + 1 + 25} = \\sqrt{35} \\approx 5.9\n   \\]\n2. **Compute unit vector \\(\\hat{C}\\):**\n   \\[\n   \\hat{C} = \\frac{3}{5.9}\\hat{i} - \\frac{1}{5.9}\\hat{j} + \\frac{5}{5.9}\\hat{k}\n   \\]\n\n---",
+      "key_points": [
+        "**Notation:** Represented with a cap symbol (\\(\\hat{A}\\)).",
+        "**Formula:**",
+        "**\\(\\hat{i}\\):** Direction along the positive x-axis.",
+        "**\\(\\hat{j}\\):** Direction along the positive y-axis.",
+        "**\\(\\hat{k}\\):** Direction along the positive z-axis."
+      ],
+      "diagram": null
+    },
+    {
+      "id": "topic-7",
+      "title": "\u2702\ufe0f Resolution of Vectors",
+      "content": "## \u2702\ufe0f Resolution of Vectors\n\nResolution is the process of breaking a single vector down into mutually perpendicular components (usually horizontal and vertical components).\n\n* **Component along the angle (\\(\\theta\\)):** Uses the **cosine** function.\n* **Component perpendicular to the angle:** Uses the **sine** function.\n\n```\n                  \u25b2 Vertical Component\n                  \u2502     /|\n                  \u2502    / | \n                  \u2502   /  |  Vector A\n                  \u2502  /   |\n                  \u2502 / \u03b8  |\n                  \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2534\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u25ba Horizontal Component\n```\n\n* **Horizontal (with \\(\\theta\\)):** \\(A_x = A \\cos\\theta\\)\n* **Vertical (without \\(\\theta\\)):** \\(A_y = A \\sin\\theta\\)\n\n### \ud83e\uddee Resolution Examples\n\n#### Example 1: Velocity Resolution\nResolve a velocity of \\(10\\text{ m/s}\\) directed at \\(30^\\circ\\) to the horizontal.\n* **Horizontal Component:** \\(10 \\cos 30^\\circ = 10 \\times \\frac{\\sqrt{3}}{2} \\approx 8.5\\text{ m/s}\\)\n* **Vertical Component:** \\(10 \\sin 30^\\circ = 10 \\times \\frac{1}{2} = 5\\text{ m/s}\\)\n\n#### Example 2: Force Resolution\nResolve a downward force of \\(100\\text{ N}\\) pulling at an angle of \\(45^\\circ\\) to the vertical axis.\n* **Vertical Component:** \\(100 \\cos 45^\\circ = \\frac{100}{\\sqrt{2}}\\text{ N}\\)\n* **Horizontal Component:** \\(100 \\sin 45^\\circ = \\frac{100}{\\sqrt{2}}\\text{ N}\\)\n\n---",
+      "key_points": [
+        "**Component along the angle (\\(\\theta\\)):** Uses the **cosine** function.",
+        "**Component perpendicular to the angle:** Uses the **sine** function.",
+        "**Horizontal (with \\(\\theta\\)):** \\(A_x = A \\cos\\theta\\)",
+        "**Vertical (without \\(\\theta\\)):** \\(A_y = A \\sin\\theta\\)",
+        "**Horizontal Component:** \\(10 \\cos 30^\\circ = 10 \\times \\frac{\\sqrt{3}}{2} \\approx 8.5\\text{ m/s}\\)",
+        "**Vertical Component:** \\(10 \\sin 30^\\circ = 10 \\times \\frac{1}{2} = 5\\text{ m/s}\\)"
+      ],
+      "diagram": null,
+      "seconds": 1540,
+      "timestamp": "25:40"
+    },
+    {
+      "id": "topic-8",
+      "title": "\u2716\ufe0f Multiplication of Vectors",
+      "content": "## \u2716\ufe0f Multiplication of Vectors\n\nMultiplying a vector by another vector can yield either a scalar or a new vector.\n\n### \ud83d\udd34 1. Scalar (Dot) Product\nThe dot product multiplies parallel components and results in a **scalar value**.\n\n\\[\n\\vec{A} \\cdot \\vec{B} = AB \\cos\\theta\n\\]\n\n* **Commutative Law:** \\(\\vec{A} \\cdot \\vec{B} = \\vec{B} \\cdot \\vec{A}\\).\n* **Real-World Examples:**\n  * Work done: \\(W = \\vec{F} \\cdot \\vec{d}\\) (Force \\(\\cdot\\) Displacement)\n  * Power: \\(P = \\vec{F} \\cdot \\vec{v}\\) (Force \\(\\cdot\\) Velocity)\n\n#### \u26a1 Dot Products of Unit Vectors\n* **Identical vectors:** \\(\\hat{i} \\cdot \\hat{i} = \\hat{j} \\cdot \\hat{j} = \\hat{k} \\cdot \\hat{k} = 1\\) (since \\(\\cos 0^\\circ = 1\\))\n* **Perpendicular vectors:** \\(\\hat{i} \\cdot \\hat{j} = \\hat{j} \\cdot \\hat{k} = \\hat{k} \\cdot \\hat{i} = 0\\) (since \\(\\cos 90^\\circ = 0\\))\n\n#### \ud83e\uddee Numerical Example\nCalculate the dot product of \\(\\vec{A} = 2\\hat{i} - 3\\hat{j} + 5\\hat{k}\\) and \\(\\vec{B} = 5\\hat{i} + 3\\hat{j} - 2\\hat{k}\\).\n\\[\n\\vec{A} \\cdot \\vec{B} = (2)(5) + (-3)(3) + (5)(-2)\n\\]\n\\[\n\\vec{A} \\cdot \\vec{B} = 10 - 9 - 10 = -9\n\\]\n\n---\n\n### \ud83d\udd35 2. Vector (Cross) Product\nThe cross product multiplies perpendicular components and results in a **new vector** perpendicular to the plane containing the original vectors.\n\n\\[\n\\vec{A} \\times \\vec{B} = AB \\sin\\theta \\hat{n}\n\\]\n\n* **Anti-commutative Law:** \\(\\vec{A} \\times \\vec{B} = -(\\vec{B} \\times \\vec{A})\\)\n* **Real-World Examples:**\n  * Torque: \\(\\vec{\\tau} = \\vec{r} \\times \\vec{F}\\)\n  * Angular Momentum: \\(\\vec{L} = \\vec{r} \\times \\vec{p}\\)\n\n#### \u26a1 Cross Products of Unit Vectors\n* **Identical vectors:** \\(\\hat{i} \\times \\hat{i} = \\hat{j} \\times \\hat{j} = \\hat{k} \\times \\hat{k} = 0\\) (since \\(\\sin 0^\\circ = 0\\))\n* **Cross-product direction wheel:**\n\n```\n          [ + Clockwise ] \n               \u250c\u2500\u2500\u2500\u2510\n               \u2502 1 \u2502\n               \u2514\u2500\u2500\u2500\u2518\n             i \u2500\u2500\u25ba j\n             \u25b2     \u2502\n             \u2502     \u25bc\n             \u2514\u2500\u2500\u2500 k\n```\n\n* **Clockwise (Positive):**\n  * \\(\\hat{i} \\times \\hat{j} = \\hat{k}\\)\n  * \\(\\hat{j} \\times \\hat{k} = \\hat{i}\\)\n  * \\(\\hat{k} \\times \\hat{i} = \\hat{j}\\)\n* **Counter-Clockwise (Negative):**\n  * \\(\\hat{j} \\times \\hat{i} = -\\hat{k}\\)\n  * \\(\\hat{k} \\times \\hat{j} = -\\hat{i}\\)\n  * \\(\\hat{i} \\times \\hat{k} = -\\hat{j}\\)\n\n---\n\n### \ud83e\uddee Vector Product via Determinant Method\nTo calculate \\(\\vec{A} \\times \\vec{B}\\), use a matrix determinant:\n\n\\[\n\\vec{A} \\times \\vec{B} = \\det \\begin{bmatrix}\n\\hat{i} & \\hat{j} & \\hat{k} \\\\\nA_x & A_y & A_z \\\\\nB_x & B_y & B_z\n\\end{bmatrix}\n\\]\n\n#### Step-by-Step Calculation Example\nLet's resolve the components step-by-step:\n* **\\(\\hat{i}\\) component:** \\((6 - 24) = -18\\)\n* **\\(\\hat{j}\\) component:** \\(-(-4 - 12) = 16\\)\n* **\\(\\hat{k}\\) component:** \\((12 - (-9)) = 21\\)\n\nCombining the terms gives:\n\\[\n\\vec{A} \\times \\vec{B} = -18\\hat{i} + 16\\hat{j} + 21\\hat{k}\n\\]",
+      "key_points": [
+        "**Commutative Law:** \\(\\vec{A} \\cdot \\vec{B} = \\vec{B} \\cdot \\vec{A}\\).",
+        "**Real-World Examples:**",
+        "Work done: \\(W = \\vec{F} \\cdot \\vec{d}\\) (Force \\(\\cdot\\) Displacement)",
+        "Power: \\(P = \\vec{F} \\cdot \\vec{v}\\) (Force \\(\\cdot\\) Velocity)",
+        "**Identical vectors:** \\(\\hat{i} \\cdot \\hat{i} = \\hat{j} \\cdot \\hat{j} = \\hat{k} \\cdot \\hat{k} = 1\\) (since \\(\\cos 0^\\circ = 1\\))",
+        "**Perpendicular vectors:** \\(\\hat{i} \\cdot \\hat{j} = \\hat{j} \\cdot \\hat{k} = \\hat{k} \\cdot \\hat{i} = 0\\) (since \\(\\cos 90^\\circ = 0\\))"
+      ],
+      "diagram": null
+    }
+  ],
+  "quiz": [
+    {
+      "id": "q-1",
+      "topic": "Physical Quantities: Scalars vs. Vectors",
+      "question": "Which statement regarding Physical Quantities: Scalars vs. Vectors is strictly correct based on the lecture?",
+      "options": [
+        "It eliminates all resource requirements.",
+        "It contradicts the core principle of Physical Quantities: Scalars vs. Vectors.",
+        "It is completely handled outside OS memory space.",
+        "Same direction: The net force is \\(10\\text{ N} + 10\\text{ N} = 20\\text{ N}\\). The body moves."
+      ],
+      "correct_index": 3,
+      "explanation": "As covered in the lecture: Same direction: The net force is \\(10\\text{ N} + 10\\text{ N} = 20\\text{ N}\\). The body moves."
+    },
+    {
+      "id": "q-2",
+      "topic": "Physical Quantities: Scalars vs. Vectors",
+      "question": "In the context of Physical Quantities: Scalars vs. Vectors, what key property was emphasized by the lecturer?",
+      "options": [
+        "It requires manual memory deallocation per thread.",
+        "It operates without any data structures.",
+        "Opposite directions: The net force is \\(10\\text{ N} - 10\\text{ N} = 0\\text{ N}\\). The body remains stationary.",
+        "It is restricted to single-threaded CPU architectures."
+      ],
+      "correct_index": 2,
+      "explanation": "Lecture note detail: Opposite directions: The net force is \\(10\\text{ N} - 10\\text{ N} = 0\\text{ N}\\). The body remains stationary."
+    },
+    {
+      "id": "q-3",
+      "topic": "Vector Representation & Angle Between Vectors",
+      "question": "Which statement regarding Vector Representation & Angle Between Vectors is strictly correct based on the lecture?",
+      "options": [
+        "It is completely handled outside OS memory space.",
+        "It eliminates all resource requirements.",
+        "Tail: The starting point of the arrow.",
+        "It contradicts the core principle of Vector Representation & Angle Between Vectors."
+      ],
+      "correct_index": 2,
+      "explanation": "As covered in the lecture: Tail: The starting point of the arrow."
+    },
+    {
+      "id": "q-4",
+      "topic": "Vector Representation & Angle Between Vectors",
+      "question": "In the context of Vector Representation & Angle Between Vectors, what key property was emphasized by the lecturer?",
+      "options": [
+        "Head: The pointed end indicating the direction.",
+        "It requires manual memory deallocation per thread.",
+        "It operates without any data structures.",
+        "It is restricted to single-threaded CPU architectures."
+      ],
+      "correct_index": 0,
+      "explanation": "Lecture note detail: Head: The pointed end indicating the direction."
+    },
+    {
+      "id": "q-5",
+      "topic": "Vector Addition Laws",
+      "question": "Which statement regarding Vector Addition Laws is strictly correct based on the lecture?",
+      "options": [
+        "Maximum Resultant (\\(\\theta = 0^\\circ\\)): \\(R_{\\text{max}} = A + B\\)",
+        "It eliminates all resource requirements.",
+        "It contradicts the core principle of Vector Addition Laws.",
+        "It is completely handled outside OS memory space."
+      ],
+      "correct_index": 0,
+      "explanation": "As covered in the lecture: Maximum Resultant (\\(\\theta = 0^\\circ\\)): \\(R_{\\text{max}} = A + B\\)"
+    },
+    {
+      "id": "q-6",
+      "topic": "Vector Addition Laws",
+      "question": "In the context of Vector Addition Laws, what key property was emphasized by the lecturer?",
+      "options": [
+        "It operates without any data structures.",
+        "Minimum Resultant (\\(\\theta = 180^\\circ\\)): \\(R_{\\text{min}} = |A - B|\\)",
+        "It is restricted to single-threaded CPU architectures.",
+        "It requires manual memory deallocation per thread."
+      ],
+      "correct_index": 1,
+      "explanation": "Lecture note detail: Minimum Resultant (\\(\\theta = 180^\\circ\\)): \\(R_{\\text{min}} = |A - B|\\)"
+    },
+    {
+      "id": "q-7",
+      "topic": "\ud83e\udde9 Types of Vectors",
+      "question": "Which statement regarding \ud83e\udde9 Types of Vectors is strictly correct based on the lecture?",
+      "options": [
+        "Equal Vectors: Vectors that share both the same magnitude and the same direction.",
+        "It contradicts the core principle of \ud83e\udde9 Types of Vectors.",
+        "It is completely handled outside OS memory space.",
+        "It eliminates all resource requirements."
+      ],
+      "correct_index": 0,
+      "explanation": "As covered in the lecture: Equal Vectors: Vectors that share both the same magnitude and the same direction."
+    },
+    {
+      "id": "q-8",
+      "topic": "\ud83e\udde9 Types of Vectors",
+      "question": "In the context of \ud83e\udde9 Types of Vectors, what key property was emphasized by the lecturer?",
+      "options": [
+        "It is restricted to single-threaded CPU architectures.",
+        "Negative Vector: A vector with the same magnitude but acting in the exact opposite direction.",
+        "It operates without any data structures.",
+        "It requires manual memory deallocation per thread."
+      ],
+      "correct_index": 1,
+      "explanation": "Lecture note detail: Negative Vector: A vector with the same magnitude but acting in the exact opposite direction."
+    },
+    {
+      "id": "q-9",
+      "topic": "\ud83c\udfaf Unit Vectors & Directional Representation",
+      "question": "Which statement regarding \ud83c\udfaf Unit Vectors & Directional Representation is strictly correct based on the lecture?",
+      "options": [
+        "It eliminates all resource requirements.",
+        "It contradicts the core principle of \ud83c\udfaf Unit Vectors & Directional Representation.",
+        "It is completely handled outside OS memory space.",
+        "Notation: Represented with a cap symbol (\\(\\hat{A}\\))."
+      ],
+      "correct_index": 3,
+      "explanation": "As covered in the lecture: Notation: Represented with a cap symbol (\\(\\hat{A}\\))."
+    },
+    {
+      "id": "q-10",
+      "topic": "\ud83c\udfaf Unit Vectors & Directional Representation",
+      "question": "In the context of \ud83c\udfaf Unit Vectors & Directional Representation, what key property was emphasized by the lecturer?",
+      "options": [
+        "It is restricted to single-threaded CPU architectures.",
+        "Formula:",
+        "It operates without any data structures.",
+        "It requires manual memory deallocation per thread."
+      ],
+      "correct_index": 1,
+      "explanation": "Lecture note detail: Formula:"
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-1",
+      "front": "What is physical quantity?",
+      "back": "A **physical quantity** is any property that can be measured (e."
+    },
+    {
+      "id": "fc-2",
+      "front": "What is scalars?",
+      "back": "These quantities are broadly categorized into **scalars** and **vectors**."
+    },
+    {
+      "id": "fc-3",
+      "front": "What is vectors?",
+      "back": "These quantities are broadly categorized into **scalars** and **vectors**."
+    },
+    {
+      "id": "fc-4",
+      "front": "What is Magnitude?",
+      "back": "Key technical term explained in Physical Quantities: Scalars vs. Vectors."
+    },
+    {
+      "id": "fc-5",
+      "front": "What is Direction?",
+      "back": "Key technical term explained in Physical Quantities: Scalars vs. Vectors."
+    },
+    {
+      "id": "fc-6",
+      "front": "What is Algebra?",
+      "back": "Key technical term explained in Physical Quantities: Scalars vs. Vectors."
+    },
+    {
+      "id": "fc-7",
+      "front": "What is Examples?",
+      "back": "Key technical term explained in Physical Quantities: Scalars vs. Vectors."
+    },
+    {
+      "id": "fc-8",
+      "front": "What is Same direction:?",
+      "back": "* **Same direction:** The net force is \\(10\\text{ N} + 10\\text{ N} = 20\\text{ N}\\)."
+    },
+    {
+      "id": "fc-9",
+      "front": "What is Opposite directions:?",
+      "back": "* **Opposite directions:** The net force is \\(10\\text{ N} - 10\\text{ N} = 0\\text{ N}\\)."
+    },
+    {
+      "id": "fc-10",
+      "front": "What is At an angle:?",
+      "back": "* **At an angle:** The net result changes dynamically based on the angle."
+    }
+  ],
+  "revision_plan": [
+    {
+      "stage": "24 Hours (Immediate Recall)",
+      "interval": "Day 1",
+      "priority": "High",
+      "goal": "Review core definitions and key facts to consolidate short-term memory.",
+      "topics": [
+        "Physical Quantities: Scalars vs. Vectors",
+        "Vector Representation & Angle Between Vectors"
+      ]
+    },
+    {
+      "stage": "3 Days (Reinforcement)",
+      "interval": "Day 3",
+      "priority": "High",
+      "goal": "Re-examine comparison tables and diagram relationships.",
+      "topics": [
+        "Vector Representation & Angle Between Vectors",
+        "Vector Addition Laws"
+      ]
+    },
+    {
+      "stage": "7 Days (Weekly Review)",
+      "interval": "Day 7",
+      "priority": "Medium",
+      "goal": "Solve interactive quiz questions and test recall via flashcards.",
+      "topics": [
+        "Vector Addition Laws",
+        "\ud83e\udde9 Types of Vectors"
+      ]
+    },
+    {
+      "stage": "14 Days (Pre-Exam Polish)",
+      "interval": "Day 14",
+      "priority": "Medium",
+      "goal": "Attempt basic and intermediate interview prep questions.",
+      "topics": [
+        "Physical Quantities: Scalars vs. Vectors",
+        "Vector Representation & Angle Between Vectors",
+        "Vector Addition Laws",
+        "\ud83e\udde9 Types of Vectors",
+        "\ud83c\udfaf Unit Vectors & Directional Representation",
+        "\u2702\ufe0f Resolution of Vectors",
+        "\u2716\ufe0f Multiplication of Vectors"
+      ]
+    },
+    {
+      "stage": "30 Days (Mastery Verification)",
+      "interval": "Day 30",
+      "priority": "Low",
+      "goal": "Final quick scan of exam focus callouts and master summary.",
+      "topics": [
+        "Physical Quantities: Scalars vs. Vectors",
+        "Vector Representation & Angle Between Vectors",
+        "Vector Addition Laws",
+        "\ud83e\udde9 Types of Vectors",
+        "\ud83c\udfaf Unit Vectors & Directional Representation",
+        "\u2702\ufe0f Resolution of Vectors",
+        "\u2716\ufe0f Multiplication of Vectors"
+      ]
+    }
+  ],
+  "interview_questions": {
+    "basic": [
+      {
+        "id": "ib-1",
+        "question": "Define Physical Quantities: Scalars vs. Vectors in simple terms. What is its fundamental role?",
+        "answer": "**Same direction:** The net force is \\(10\\text{ N} + 10\\text{ N} = 20\\text{ N}\\). The body moves."
+      },
+      {
+        "id": "ib-4",
+        "question": "Define \ud83e\udde9 Types of Vectors in simple terms. What is its fundamental role?",
+        "answer": "**Equal Vectors:** Vectors that share both the same magnitude and the same direction."
+      },
+      {
+        "id": "ib-7",
+        "question": "Define \u2716\ufe0f Multiplication of Vectors in simple terms. What is its fundamental role?",
+        "answer": "**Commutative Law:** \\(\\vec{A} \\cdot \\vec{B} = \\vec{B} \\cdot \\vec{A}\\)."
+      }
+    ],
+    "intermediate": [
+      {
+        "id": "ii-2",
+        "question": "How does Vector Representation & Angle Between Vectors handle resource allocation or execution compared to alternative approaches?",
+        "answer": "**Tail:** The starting point of the arrow. **Head:** The pointed end indicating the direction."
+      },
+      {
+        "id": "ii-5",
+        "question": "How does \ud83c\udfaf Unit Vectors & Directional Representation handle resource allocation or execution compared to alternative approaches?",
+        "answer": "**Notation:** Represented with a cap symbol (\\(\\hat{A}\\)). **Formula:**"
+      }
+    ],
+    "advanced": [
+      {
+        "id": "ia-3",
+        "question": "What are the architectural trade-offs and common performance pitfalls associated with Vector Addition Laws?",
+        "answer": "**Maximum Resultant (\\(\\theta = 0^\\circ\\)):** \\(R_{\\text{max}} = A + B\\) Connect the two vectors **tail-to-tail**."
+      },
+      {
+        "id": "ia-6",
+        "question": "What are the architectural trade-offs and common performance pitfalls associated with \u2702\ufe0f Resolution of Vectors?",
+        "answer": "**Component along the angle (\\(\\theta\\)):** Uses the **cosine** function. **Vertical Component:** \\(10 \\sin 30^\\circ = 10 \\times \\frac{1}{2} = 5\\text{ m/s}\\)"
+      }
+    ]
+  }
+}

@@ -1,0 +1,252 @@
+{
+  "video_id": "5fs1ldO6B5c",
+  "title": "Three Schema Architecture in DBMS",
+  "overview": "The **Three Schema Architecture** (also known as the **Three Levels of Abstraction**) was introduced in 1970 to separate user applications from the physical database. Its primary objective is to achieve **Data Abstraction** and **Data Independence**, ensuring users can access data without needing to know where or how it is physically stored.",
+  "notes_markdown": "# \ud83d\udcd8 Three Schema Architecture in DBMS\n\n### \ud83d\udccc Overview\nThe **Three Schema Architecture** (also known as the **Three Levels of Abstraction**) was introduced in 1970 to separate user applications from the physical database. Its primary objective is to achieve **Data Abstraction** and **Data Independence**, ensuring users can access data without needing to know where or how it is physically stored.\n\n---\n\n## \u2699\ufe0f Schema and Data Abstraction\n\n* **Schema**: The structure or layout used to store data (e.g., defining tables, columns, rows, and data types such as 2-byte or 4-byte integers).\n* **Data Abstraction**: Hiding complex physical storage details from users while still providing seamless access to their data.\n  * *Example*: In **Gmail**, users access photos and emails without knowing the exact physical storage location (e.g., Delhi, Mumbai, USA, UK) or underlying file formats.\n\n---\n\n## \ud83c\udfd7\ufe0f The Three Levels of Architecture\n\n```mermaid\nflowchart TD\n    A[External Level: User Views] --> B[Conceptual Level: Logical Blueprint]\n    B --> C[Physical Level: Internal File Storage]\n```\n\n### 1. \ud83d\udc41\ufe0f External Level (View Schema)\n* **Definition**: Represents how individual users view and interact with the data through front-end applications.\n* **Function**: Provides customized views based on user roles and **authorization** to ensure security.\n* **User Roles Example (University Management System)**:\n  * **Student View**: Can view marks, attendance, and paid fee structures (read-only authorization).\n  * **Faculty View**: Can enter marks, register student attendance, apply for leave, and view salary details.\n  * **Dean View**: Possesses higher authorization to access broader institution-wide information.\n* **Target Professionals**: **Interface Developers** building front-ends using technologies like HTML, Java, or PHP.\n\n### 2. \ud83d\udcd0 Conceptual Level (Conceptual Schema)\n* **Definition**: The logical blueprint that describes what data is stored in the entire database and how data items are related.\n* **Function**: Defines entities, relational tables, columns, data types, constraints, and relationships.\n  * *Example*: Expresses the relationship between a **Student table** and a **Course table**.\n* **Key Models**: Uses conceptual frameworks like **E-R Models** and **Relational Models**.\n* **Target Professionals**: **Database Designers** who design the logical data structure.\n\n### 3. \ud83d\udcbe Physical Level (Internal Schema)\n* **Definition**: Describes how the data is actually and physically stored on hardware storage devices (e.g., hard disks).\n* **Function**:\n  * Manages actual **file structures**, file locations, drive allocations, and data fragmentation.\n  * Supports different storage architectures such as **Centralized** (all data in one location) or **Distributed** (data spread across multiple locations globally).\n* **Table vs. File Storage**: Users view data in table format (e.g., **Indian Railways** train schedules displayed in columns and rows), but the disk physically stores this data as **files**. DBMS layers convert file storage into user-friendly tables.\n* **Target Professionals**: **Database Administrators (DBAs)** who control physical allocation, security, and maintenance.\n\n---\n\n## \ud83d\udcca Summary of Architecture Levels\n\n| Level | Storage Format | Role Focus | Primary User |\n| :--- | :--- | :--- | :--- |\n| **External** | User Interfaces | Customized Security Views | End Users / Front-End Devs |\n| **Conceptual** | Logical Tables | Blueprint & Relationships | Database Designers |\n| **Physical** | Disk Files | Hardware & Location | Database Administrators |",
+  "video_duration": 924.0,
+  "video_duration_formatted": "15:24",
+  "timestamps": [
+    {
+      "time": "00:00",
+      "sec": 0,
+      "label": "Lecture Introduction & Overview"
+    },
+    {
+      "time": "02:03",
+      "sec": 123,
+      "label": "Schema and Data Abstraction"
+    },
+    {
+      "time": "03:05",
+      "sec": 185,
+      "label": "Summary of Architecture Levels"
+    },
+    {
+      "time": "14:18",
+      "sec": 858,
+      "label": "The Three Levels of Architecture"
+    }
+  ],
+  "topics": [
+    {
+      "id": "topic-2",
+      "title": "\ufe0f Schema and Data Abstraction",
+      "content": "## \u2699\ufe0f Schema and Data Abstraction\n\n* **Schema**: The structure or layout used to store data (e.g., defining tables, columns, rows, and data types such as 2-byte or 4-byte integers).\n* **Data Abstraction**: Hiding complex physical storage details from users while still providing seamless access to their data.\n  * *Example*: In **Gmail**, users access photos and emails without knowing the exact physical storage location (e.g., Delhi, Mumbai, USA, UK) or underlying file formats.\n\n---",
+      "key_points": [
+        "**Schema**: The structure or layout used to store data (e.g., defining tables, columns, rows, and data types such as 2-byte or 4-byte integers).",
+        "**Data Abstraction**: Hiding complex physical storage details from users while still providing seamless access to their data.",
+        "*Example*: In **Gmail**, users access photos and emails without knowing the exact physical storage location (e.g., Delhi, Mumbai, USA, UK) or underlying file formats."
+      ],
+      "diagram": null,
+      "seconds": 123,
+      "timestamp": "02:03"
+    },
+    {
+      "id": "topic-3",
+      "title": "\ufe0f The Three Levels of Architecture",
+      "content": "## \ud83c\udfd7\ufe0f The Three Levels of Architecture\n\n```mermaid\nflowchart TD\n    A[External Level: User Views] --> B[Conceptual Level: Logical Blueprint]\n    B --> C[Physical Level: Internal File Storage]\n```\n\n### 1. \ud83d\udc41\ufe0f External Level (View Schema)\n* **Definition**: Represents how individual users view and interact with the data through front-end applications.\n* **Function**: Provides customized views based on user roles and **authorization** to ensure security.\n* **User Roles Example (University Management System)**:\n  * **Student View**: Can view marks, attendance, and paid fee structures (read-only authorization).\n  * **Faculty View**: Can enter marks, register student attendance, apply for leave, and view salary details.\n  * **Dean View**: Possesses higher authorization to access broader institution-wide information.\n* **Target Professionals**: **Interface Developers** building front-ends using technologies like HTML, Java, or PHP.\n\n### 2. \ud83d\udcd0 Conceptual Level (Conceptual Schema)\n* **Definition**: The logical blueprint that describes what data is stored in the entire database and how data items are related.\n* **Function**: Defines entities, relational tables, columns, data types, constraints, and relationships.\n  * *Example*: Expresses the relationship between a **Student table** and a **Course table**.\n* **Key Models**: Uses conceptual frameworks like **E-R Models** and **Relational Models**.\n* **Target Professionals**: **Database Designers** who design the logical data structure.\n\n### 3. \ud83d\udcbe Physical Level (Internal Schema)\n* **Definition**: Describes how the data is actually and physically stored on hardware storage devices (e.g., hard disks).\n* **Function**:\n  * Manages actual **file structures**, file locations, drive allocations, and data fragmentation.\n  * Supports different storage architectures such as **Centralized** (all data in one location) or **Distributed** (data spread across multiple locations globally).\n* **Table vs. File Storage**: Users view data in table format (e.g., **Indian Railways** train schedules displayed in columns and rows), but the disk physically stores this data as **files**. DBMS layers convert file storage into user-friendly tables.\n* **Target Professionals**: **Database Administrators (DBAs)** who control physical allocation, security, and maintenance.\n\n---",
+      "key_points": [
+        "**Definition**: Represents how individual users view and interact with the data through front-end applications.",
+        "**Function**: Provides customized views based on user roles and **authorization** to ensure security.",
+        "**User Roles Example (University Management System)**:",
+        "**Student View**: Can view marks, attendance, and paid fee structures (read-only authorization).",
+        "**Faculty View**: Can enter marks, register student attendance, apply for leave, and view salary details.",
+        "**Dean View**: Possesses higher authorization to access broader institution-wide information."
+      ],
+      "diagram": "flowchart TD\n    A[External Level: User Views] --> B[Conceptual Level: Logical Blueprint]\n    B --> C[Physical Level: Internal File Storage]",
+      "seconds": 858,
+      "timestamp": "14:18"
+    },
+    {
+      "id": "topic-4",
+      "title": "Summary of Architecture Levels",
+      "content": "## \ud83d\udcca Summary of Architecture Levels\n\n| Level | Storage Format | Role Focus | Primary User |\n| :--- | :--- | :--- | :--- |\n| **External** | User Interfaces | Customized Security Views | End Users / Front-End Devs |\n| **Conceptual** | Logical Tables | Blueprint & Relationships | Database Designers |\n| **Physical** | Disk Files | Hardware & Location | Database Administrators |",
+      "key_points": [],
+      "diagram": null,
+      "seconds": 185,
+      "timestamp": "03:05"
+    }
+  ],
+  "quiz": [
+    {
+      "id": "q-1",
+      "topic": "\ufe0f Schema and Data Abstraction",
+      "question": "Which statement regarding \ufe0f Schema and Data Abstraction is strictly correct based on the lecture?",
+      "options": [
+        "It is completely handled outside OS memory space.",
+        "It eliminates all resource requirements.",
+        "It contradicts the core principle of \ufe0f Schema and Data Abstraction.",
+        "Schema: The structure or layout used to store data (e.g., defining tables, columns, rows, and data types such as 2-byte or 4-byte integers)."
+      ],
+      "correct_index": 3,
+      "explanation": "As covered in the lecture: Schema: The structure or layout used to store data (e.g., defining tables, columns, rows, and data types such as 2-byte or 4-byte integers)."
+    },
+    {
+      "id": "q-2",
+      "topic": "\ufe0f Schema and Data Abstraction",
+      "question": "In the context of \ufe0f Schema and Data Abstraction, what key property was emphasized by the lecturer?",
+      "options": [
+        "It is restricted to single-threaded CPU architectures.",
+        "It requires manual memory deallocation per thread.",
+        "Data Abstraction: Hiding complex physical storage details from users while still providing seamless access to their data.",
+        "It operates without any data structures."
+      ],
+      "correct_index": 2,
+      "explanation": "Lecture note detail: Data Abstraction: Hiding complex physical storage details from users while still providing seamless access to their data."
+    },
+    {
+      "id": "q-3",
+      "topic": "\ufe0f The Three Levels of Architecture",
+      "question": "Which statement regarding \ufe0f The Three Levels of Architecture is strictly correct based on the lecture?",
+      "options": [
+        "It is completely handled outside OS memory space.",
+        "Definition: Represents how individual users view and interact with the data through front-end applications.",
+        "It contradicts the core principle of \ufe0f The Three Levels of Architecture.",
+        "It eliminates all resource requirements."
+      ],
+      "correct_index": 1,
+      "explanation": "As covered in the lecture: Definition: Represents how individual users view and interact with the data through front-end applications."
+    },
+    {
+      "id": "q-4",
+      "topic": "\ufe0f The Three Levels of Architecture",
+      "question": "In the context of \ufe0f The Three Levels of Architecture, what key property was emphasized by the lecturer?",
+      "options": [
+        "Function: Provides customized views based on user roles and authorization to ensure security.",
+        "It is restricted to single-threaded CPU architectures.",
+        "It requires manual memory deallocation per thread.",
+        "It operates without any data structures."
+      ],
+      "correct_index": 0,
+      "explanation": "Lecture note detail: Function: Provides customized views based on user roles and authorization to ensure security."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-1",
+      "front": "What is Three Schema Architecture?",
+      "back": "The **Three Schema Architecture** (also known as the **Three Levels of Abstraction**) was introduced in 1970 to separate user applications from the physical database."
+    },
+    {
+      "id": "fc-2",
+      "front": "What is Three Levels of Abstraction?",
+      "back": "The **Three Schema Architecture** (also known as the **Three Levels of Abstraction**) was introduced in 1970 to separate user applications from the physical database."
+    },
+    {
+      "id": "fc-3",
+      "front": "What is Data Abstraction?",
+      "back": "Its primary objective is to achieve **Data Abstraction** and **Data Independence**, ensuring users can access data without needing to know where or how it is physically stored."
+    },
+    {
+      "id": "fc-4",
+      "front": "What is Data Independence?",
+      "back": "Its primary objective is to achieve **Data Abstraction** and **Data Independence**, ensuring users can access data without needing to know where or how it is physically stored."
+    },
+    {
+      "id": "fc-5",
+      "front": "What is Schema?",
+      "back": "* **Schema**: The structure or layout used to store data (e."
+    },
+    {
+      "id": "fc-6",
+      "front": "What is Gmail?",
+      "back": "* *Example*: In **Gmail**, users access photos and emails without knowing the exact physical storage location (e."
+    },
+    {
+      "id": "fc-7",
+      "front": "What is Definition?",
+      "back": "* **Definition**: Represents how individual users view and interact with the data through front-end applications."
+    },
+    {
+      "id": "fc-8",
+      "front": "What is Function?",
+      "back": "* **Function**: Provides customized views based on user roles and **authorization** to ensure security."
+    },
+    {
+      "id": "fc-9",
+      "front": "What is authorization?",
+      "back": "* **Function**: Provides customized views based on user roles and **authorization** to ensure security."
+    },
+    {
+      "id": "fc-10",
+      "front": "What is Student View?",
+      "back": "* **Student View**: Can view marks, attendance, and paid fee structures (read-only authorization)."
+    }
+  ],
+  "revision_plan": [
+    {
+      "stage": "24 Hours (Immediate Recall)",
+      "interval": "Day 1",
+      "priority": "High",
+      "goal": "Review core definitions and key facts to consolidate short-term memory.",
+      "topics": [
+        "\ufe0f Schema and Data Abstraction",
+        "\ufe0f The Three Levels of Architecture"
+      ]
+    },
+    {
+      "stage": "3 Days (Reinforcement)",
+      "interval": "Day 3",
+      "priority": "High",
+      "goal": "Re-examine comparison tables and diagram relationships.",
+      "topics": [
+        "\ufe0f The Three Levels of Architecture",
+        "Summary of Architecture Levels"
+      ]
+    },
+    {
+      "stage": "7 Days (Weekly Review)",
+      "interval": "Day 7",
+      "priority": "Medium",
+      "goal": "Solve interactive quiz questions and test recall via flashcards.",
+      "topics": [
+        "Summary of Architecture Levels"
+      ]
+    },
+    {
+      "stage": "14 Days (Pre-Exam Polish)",
+      "interval": "Day 14",
+      "priority": "Medium",
+      "goal": "Attempt basic and intermediate interview prep questions.",
+      "topics": [
+        "\ufe0f Schema and Data Abstraction",
+        "\ufe0f The Three Levels of Architecture",
+        "Summary of Architecture Levels"
+      ]
+    },
+    {
+      "stage": "30 Days (Mastery Verification)",
+      "interval": "Day 30",
+      "priority": "Low",
+      "goal": "Final quick scan of exam focus callouts and master summary.",
+      "topics": [
+        "\ufe0f Schema and Data Abstraction",
+        "\ufe0f The Three Levels of Architecture",
+        "Summary of Architecture Levels"
+      ]
+    }
+  ],
+  "interview_questions": {
+    "basic": [
+      {
+        "id": "ib-1",
+        "question": "Define \ufe0f Schema and Data Abstraction in simple terms. What is its fundamental role?",
+        "answer": "**Schema**: The structure or layout used to store data (e.g., defining tables, columns, rows, and data types such as 2-byte or 4-byte integers)."
+      }
+    ],
+    "intermediate": [
+      {
+        "id": "ii-2",
+        "question": "How does \ufe0f The Three Levels of Architecture handle resource allocation or execution compared to alternative approaches?",
+        "answer": "**Definition**: Represents how individual users view and interact with the data through front-end applications. **Function**: Provides customized views based on user roles and **authorization** to ensure security."
+      }
+    ],
+    "advanced": [
+      {
+        "id": "ia-3",
+        "question": "What are the architectural trade-offs and common performance pitfalls associated with Summary of Architecture Levels?",
+        "answer": "Explained in Summary of Architecture Levels. "
+      }
+    ]
+  }
+}

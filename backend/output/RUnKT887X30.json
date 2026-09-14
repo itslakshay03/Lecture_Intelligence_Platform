@@ -1,0 +1,362 @@
+{
+  "video_id": "RUnKT887X30",
+  "title": "Introduction to Artificial Intelligence and Intelligent Agents",
+  "overview": "These study notes cover the fundamentals of **Artificial Intelligence (AI)**, including its core definitions, categorizations, scope, limitations, and historical evolution. They detail the concept of **AI Agents** and **Intelligent Agents**, their types, architectural components, and the step-by-step **Problem-Solving Approach** used by AI agents to formulate and solve complex problems.",
+  "notes_markdown": "# \ud83d\udcd8 Introduction to Artificial Intelligence and Intelligent Agents\n\n### \ud83d\udccc Overview\nThese study notes cover the fundamentals of **Artificial Intelligence (AI)**, including its core definitions, categorizations, scope, limitations, and historical evolution. They detail the concept of **AI Agents** and **Intelligent Agents**, their types, architectural components, and the step-by-step **Problem-Solving Approach** used by AI agents to formulate and solve complex problems.\n\n---\n\n## \ud83e\udd16 Foundations of Artificial Intelligence\n\n### Core Definition\n**Artificial Intelligence (AI)** is a branch of computer science that enables machines to think, learn, and perform tasks similar to human intelligence. It allows systems to:\n* Understand human language.\n* Recognize speech and visual images.\n* Answer queries, make decisions, and solve problems automatically.\n\n---\n\n### Classification of AI\n\nAI systems are categorized into three primary types based on their capability and level of intelligence:\n\n1. **Narrow AI (Weak AI)**\n   * Designed to execute a single specific task.\n   * Cannot operate beyond its programmed functionalities.\n   * Represent the most common form of AI currently deployed (e.g., Calculators, ChatGPT, Google Assistant, Siri).\n\n2. **General AI (Strong AI)**\n   * Capable of performing any intellectual task that a human can execute.\n   * Can learn, reason, understand, and apply knowledge across diverse, novel situations.\n   * **Current Status:** Does not exist yet; currently under active research.\n\n3. **Super AI**\n   * A hypothetical level of AI that surpasses human intelligence across all domains.\n   * Possesses superior thinking, reasoning, learning, and problem-solving skills compared to humans.\n   * **Current Status:** Purely a theoretical concept for the future.\n\n---\n\n### \ud83d\udcca Comparison of AI Types\n\n| Property | Narrow / Weak AI | General / Strong AI | Super AI |\n| :--- | :--- | :--- | :--- |\n| **Scope** | Single task | Any human task | Exceeds human ability |\n| **Learning Ability** | Fixed task execution | Human-level learning | Superior cognition |\n| **Current Status** | Widely used | Under research | Theoretical concept |\n| **Example** | ChatGPT, Siri | None | None |\n\n---\n\n## \ud83c\udf10 Applications & Limitations of AI\n\n### Scope & Applications\n\n* **Healthcare:** Rapid disease detection, analyzing medical reports, and suggesting clinical treatments.\n* **Education:** Delivering personalized learning experiences to students and powering online learning platforms.\n* **Banking & Finance:** Detecting fraudulent activities, securing online transactions, approving loans, and managing accounts.\n* **Agriculture:** Monitoring crop health, predicting weather conditions, and estimating crop yields.\n* **Transportation:** Operating self-driving vehicles, managing urban traffic, and routing via shortest paths.\n* **Security:** Face recognition systems, cyber threat detection, and online fraud prevention.\n* **Entertainment:** Content recommendation engines (movies, songs, videos), gaming AI, and automated content creation.\n\n---\n\n### Drawbacks & Limitations\n\n* **Job Displacement:** Automation of routine tasks reduces the requirement for human workers in certain roles.\n* **Absence of Human Emotions:** Lacks empathy, feelings, and real emotional comprehension.\n* **Lack of Common Sense:** Inability to exercise human common sense or adapt autonomously to unexpected real-world situations.\n* **High Maintenance Costs:** Requires ongoing updating, monitoring, and structural maintenance, demanding significant money and time.\n* **Data Dependency:** Relies heavily on large volumes of accurate, high-quality data; incomplete or wrong data results in incorrect outputs.\n\n---\n\n## \ud83d\udcdc History & Evolution of AI\n\n```\n Early Ideas \u2500\u2500\u25ba Birth of AI \u2500\u2500\u25ba Early Dev \u2500\u2500\u25ba AI Winter \u2500\u2500\u25ba Expert Systems \u2500\u2500\u25ba Machine Learning \u2500\u2500\u25ba Modern AI\n (Pre-1950s)     (1956)         (1956-70)    (1970-80)    (1980-90)          (1990-2010)         (2010-Pres)\n```\n\n1. **Early Ideas (Before 1950):** \n   * Initial conceptualization of machines capable of human-like thought. Scientists theorized that computers could be rendered intelligent.\n2. **The Birth of AI (1956):** \n   * The landmark **Dartmouth Conference** was held in the USA, where scientists formally committed to studying machine intelligence. \n   * **John McCarthy** made major foundational contributions and became known as the **Father of AI**.\n3. **Early Development Era (1956 \u2013 1970):** \n   * Rapid early progress; programs were written to solve mathematical problems and play simple games like chess. \n   * Hardware was slow with severely limited memory capacity.\n4. **The AI Winter (1970 \u2013 1980):** \n   * Research slowed significantly because hardware was insufficiently powerful for complex tasks. \n   * Unmet expectations caused governments and private firms to drastically reduce funding and investment.\n5. **Expert Systems Era (1980 \u2013 1990):** \n   * AI regained momentum with **Expert Systems**\u2014computer programs engineered to offer specialized advice like human experts.\n6. **Machine Learning Era (1990 \u2013 2010):** \n   * Transition from hardcoded rules to data-driven learning. \n   * Enabled practical applications in speech recognition, face recognition, and recommendation engines.\n7. **Modern AI Era (2010 \u2013 Present):** \n   * Driven by deep learning algorithms, massive data availability (Big Data), and high-performance hardware. \n   * Characterized by chatbots, virtual assistants, autonomous vehicles, and generative tools creating text, images, audio, and video.\n\n---\n\n## \u2699\ufe0f Intelligent Agents & Agent Architectures\n\n### What is an AI Agent?\nAn **AI Agent** is a software system that perceives its environment, makes decisions, and performs actions automatically to achieve a specific goal without continuous human intervention.\n\n#### Operational Loop of an Agent\n1. **Observe:** Gathers data from the environment via input mechanisms (e.g., cameras, sensors).\n2. **Think:** Analyzes the input and evaluates the situational context.\n3. **Decide:** Determines the optimal course of action.\n4. **Act:** Executes the selected action to complete the goal.\n\n---\n\n### \ud83d\uddc2\ufe0f The 5 Main Types of AI Agents\n\n1. **Simple Reflex Agent**\n   * Acts purely on the **current situation** using predefined **If-Then** rules.\n   * Ignores past states and history (e.g., Automatic doors, light sensors).\n\n2. **Model-Based Reflex Agent**\n   * Operates using both **current input** and stored **past information** (an internal state/model).\n   * Handles partially observable environments or missing data better (e.g., Self-driving cars).\n\n3. **Goal-Based Agent**\n   * Operates with explicit goals to achieve.\n   * Evaluates multiple candidate actions and plans ahead to select the best action sequence (e.g., Chess-playing AI).\n\n4. **Utility-Based Agent**\n   * Measures success using a **utility function** (degree of preference/benefit).\n   * Selects actions that yield the best or most efficient outcome (e.g., Food delivery routing apps).\n\n5. **Learning Agent**\n   * Operates by learning from past experiences, mistakes, and feedback.\n   * Continuously adapts and improves its performance in novel situations (e.g., ChatGPT, Netflix recommendation systems).\n\n---\n\n### Core Characteristics of an Intelligent Agent\n\n* **Autonomy:** Operates independently without continuous human intervention.\n* **Perception:** Observes its surroundings using input sensory tools (sensors, cameras, microphones).\n* **Reactivity:** Detects environmental changes and responds rapidly.\n* **Proactiveness:** Takes goal-directed initiative rather than just reacting to stimuli.\n* **Learning Ability:** Adapts to new conditions and improves performance over time.\n* **Communication:** Interacts effectively with human users or external systems (e.g., Siri, Google Assistant).\n\n---\n\n### \ud83d\uddbc\ufe0f Architecture of an Intelligent Agent\n\nAn agent interacts continuously with its environment through sensory and actuation channels.\n\n```mermaid\nflowchart LR\n    E[Environment] -->|Percepts| S[Sensors]\n    S --> A[Agent Brain]\n    A --> F[Effectors]\n    F -->|Actions| E\n```\n\n* **Environment:** The domain or workspace in which the agent operates.\n* **Percepts:** The raw perceptual data received by the agent from the environment at any given instant.\n* **Sensors:** Input devices (cameras, microphones, software feeds) used to collect environmental data.\n* **Agent Brain:** The core processing unit that evaluates percepts and decides the appropriate actions.\n* **Effectors / Actuators:** Output mechanisms (motors, displays, software commands) that execute the chosen action.\n* **Actions:** The concrete tasks performed by effectors that modify the state of the environment.\n\n---\n\n## \ud83e\udde9 Problem-Solving Approach & Problem-Solving Agents\n\n### Problem Solving in AI\nProblem solving is the structured process by which an AI system determines a sequence of actions to reach a desired goal state from a starting state.\n\n### \ud83d\udd04 Steps in the Problem-Solving Approach\n\n1. **Define the Problem:** Clearly identify the core problem statement (e.g., finding the shortest path from home to college).\n2. **Define Initial State:** Identify the starting condition where the agent begins (e.g., Home).\n3. **Define Goal State:** Specify the target outcome or destination (e.g., College).\n4. **Identify Possible Actions:** List all valid moves or operations available at any state (e.g., turn left, turn right, move straight).\n5. **Search for Best Solution:** Evaluate potential paths and select the optimal route based on criteria such as shortest distance, fastest travel time, or lowest cost.\n6. **Execute Solution:** Perform the selected sequence of actions step-by-step.\n7. **Evaluate Result:** Check whether the goal has been successfully reached; if blocked, trigger a re-search for an alternate path.\n\n---\n\n### Problem-Solving Agent Workflow\n\nA **Problem-Solving Agent** is a goal-driven intelligent agent that executes five high-level steps:\n\n$$\\text{Goal Formulation} \\longrightarrow \\text{Problem Formulation} \\longrightarrow \\text{Search} \\longrightarrow \\text{Plan Execution} \\longrightarrow \\text{Result Evaluation}$$\n\n1. **Goal Formulation:** Defines the overall target to achieve.\n2. **Problem Formulation:** Formalizes states, actions, and constraints into a structured model.\n3. **Search:** Explores potential action sequences to locate a solution path.\n4. **Execution:** Carries out the actions in the real or simulated environment.\n5. **Evaluation:** Verifies if the final state matches the defined goal state.\n\n---\n\n### \ud83d\udcd0 The 5 Components of Problem Formulation\n\nTo formally represent a problem for an AI agent, five elements must be specified:\n\n1. **Initial State:** The state where the agent starts.\n2. **Actions:** The set of all valid operations applicable at a given state.\n3. **Successor Function:** A mapping function that describes the resulting state after executing action \\(A\\) on state \\(S\\):\n   $$\\text{Result}(\\text{In}(S), \\text{Go}(A)) = \\text{In}(S')$$\n4. **Goal State:** The target state designated as the objective.\n5. **Path Cost:** A numeric cost function assigned to a path, measuring step costs (distance, time, financial cost).\n\n---\n\n### \ud83d\udd22 Step-by-Step Graph Problem Example\n\n#### Problem Parameters Given:\n* **Graph Nodes:** \\(A, B, C, D, E, L, M\\)\n* **Initial State:** Node \\(A\\)\n* **Goal State:** Node \\(M\\)\n* **Edge Costs:**\n  * \\(A \\rightarrow B = 10\\)\n  * \\(A \\rightarrow D = 100\\)\n  * \\(B \\rightarrow C = 20\\)\n  * \\(C \\rightarrow D = 12\\)\n  * \\(D \\rightarrow L = 30\\)\n\n#### Problem Formulation Breakdown:\n\n1. **Initial State:** \n   $$\\text{State}_{\\text{initial}} = A$$\n\n2. **Goal State:** \n   $$\\text{State}_{\\text{goal}} = M$$\n\n3. **Applicable Actions from State \\(A\\):**\n   $$\\text{Actions}(A) = \\{ \\text{Go}(B), \\text{Go}(D), \\text{Go}(E) \\}$$\n\n4. **Successor Function Example:**\n   $$\\text{Result}(\\text{In}(A), \\text{Go}(B)) = \\text{In}(B)$$\n\n5. **Path Cost Evaluation:**\n   * Direct path cost \\(A \\rightarrow B\\): \n     $$\\text{Cost}(A, B) = 10$$\n   * Direct path cost \\(D \\rightarrow L\\): \n     $$\\text{Cost}(D, L) = 30$$\n   * Path cost \\(A \\rightarrow B \\rightarrow C \\rightarrow D\\): \n     $$\\text{Cost}(A, B, C, D) = 10 + 20 + 12 = 42$$",
+  "video_duration": 3070.559,
+  "video_duration_formatted": "51:10",
+  "timestamps": [
+    {
+      "time": "00:00",
+      "sec": 0,
+      "label": "Lecture Introduction & Overview"
+    }
+  ],
+  "topics": [
+    {
+      "id": "topic-2",
+      "title": "\ud83e\udd16 Foundations of Artificial Intelligence",
+      "content": "## \ud83e\udd16 Foundations of Artificial Intelligence\n\n### Core Definition\n**Artificial Intelligence (AI)** is a branch of computer science that enables machines to think, learn, and perform tasks similar to human intelligence. It allows systems to:\n* Understand human language.\n* Recognize speech and visual images.\n* Answer queries, make decisions, and solve problems automatically.\n\n---\n\n### Classification of AI\n\nAI systems are categorized into three primary types based on their capability and level of intelligence:\n\n1. **Narrow AI (Weak AI)**\n   * Designed to execute a single specific task.\n   * Cannot operate beyond its programmed functionalities.\n   * Represent the most common form of AI currently deployed (e.g., Calculators, ChatGPT, Google Assistant, Siri).\n\n2. **General AI (Strong AI)**\n   * Capable of performing any intellectual task that a human can execute.\n   * Can learn, reason, understand, and apply knowledge across diverse, novel situations.\n   * **Current Status:** Does not exist yet; currently under active research.\n\n3. **Super AI**\n   * A hypothetical level of AI that surpasses human intelligence across all domains.\n   * Possesses superior thinking, reasoning, learning, and problem-solving skills compared to humans.\n   * **Current Status:** Purely a theoretical concept for the future.\n\n---\n\n### \ud83d\udcca Comparison of AI Types\n\n| Property | Narrow / Weak AI | General / Strong AI | Super AI |\n| :--- | :--- | :--- | :--- |\n| **Scope** | Single task | Any human task | Exceeds human ability |\n| **Learning Ability** | Fixed task execution | Human-level learning | Superior cognition |\n| **Current Status** | Widely used | Under research | Theoretical concept |\n| **Example** | ChatGPT, Siri | None | None |\n\n---",
+      "key_points": [
+        "Understand human language.",
+        "Recognize speech and visual images.",
+        "Answer queries, make decisions, and solve problems automatically.",
+        "Designed to execute a single specific task.",
+        "Cannot operate beyond its programmed functionalities.",
+        "Represent the most common form of AI currently deployed (e.g., Calculators, ChatGPT, Google Assistant, Siri)."
+      ],
+      "diagram": null
+    },
+    {
+      "id": "topic-3",
+      "title": "\ud83c\udf10 Applications & Limitations of AI",
+      "content": "## \ud83c\udf10 Applications & Limitations of AI\n\n### Scope & Applications\n\n* **Healthcare:** Rapid disease detection, analyzing medical reports, and suggesting clinical treatments.\n* **Education:** Delivering personalized learning experiences to students and powering online learning platforms.\n* **Banking & Finance:** Detecting fraudulent activities, securing online transactions, approving loans, and managing accounts.\n* **Agriculture:** Monitoring crop health, predicting weather conditions, and estimating crop yields.\n* **Transportation:** Operating self-driving vehicles, managing urban traffic, and routing via shortest paths.\n* **Security:** Face recognition systems, cyber threat detection, and online fraud prevention.\n* **Entertainment:** Content recommendation engines (movies, songs, videos), gaming AI, and automated content creation.\n\n---\n\n### Drawbacks & Limitations\n\n* **Job Displacement:** Automation of routine tasks reduces the requirement for human workers in certain roles.\n* **Absence of Human Emotions:** Lacks empathy, feelings, and real emotional comprehension.\n* **Lack of Common Sense:** Inability to exercise human common sense or adapt autonomously to unexpected real-world situations.\n* **High Maintenance Costs:** Requires ongoing updating, monitoring, and structural maintenance, demanding significant money and time.\n* **Data Dependency:** Relies heavily on large volumes of accurate, high-quality data; incomplete or wrong data results in incorrect outputs.\n\n---",
+      "key_points": [
+        "**Healthcare:** Rapid disease detection, analyzing medical reports, and suggesting clinical treatments.",
+        "**Education:** Delivering personalized learning experiences to students and powering online learning platforms.",
+        "**Banking & Finance:** Detecting fraudulent activities, securing online transactions, approving loans, and managing accounts.",
+        "**Agriculture:** Monitoring crop health, predicting weather conditions, and estimating crop yields.",
+        "**Transportation:** Operating self-driving vehicles, managing urban traffic, and routing via shortest paths.",
+        "**Security:** Face recognition systems, cyber threat detection, and online fraud prevention."
+      ],
+      "diagram": null
+    },
+    {
+      "id": "topic-4",
+      "title": "\ud83d\udcdc History & Evolution of AI",
+      "content": "## \ud83d\udcdc History & Evolution of AI\n\n```\n Early Ideas \u2500\u2500\u25ba Birth of AI \u2500\u2500\u25ba Early Dev \u2500\u2500\u25ba AI Winter \u2500\u2500\u25ba Expert Systems \u2500\u2500\u25ba Machine Learning \u2500\u2500\u25ba Modern AI\n (Pre-1950s)     (1956)         (1956-70)    (1970-80)    (1980-90)          (1990-2010)         (2010-Pres)\n```\n\n1. **Early Ideas (Before 1950):** \n   * Initial conceptualization of machines capable of human-like thought. Scientists theorized that computers could be rendered intelligent.\n2. **The Birth of AI (1956):** \n   * The landmark **Dartmouth Conference** was held in the USA, where scientists formally committed to studying machine intelligence. \n   * **John McCarthy** made major foundational contributions and became known as the **Father of AI**.\n3. **Early Development Era (1956 \u2013 1970):** \n   * Rapid early progress; programs were written to solve mathematical problems and play simple games like chess. \n   * Hardware was slow with severely limited memory capacity.\n4. **The AI Winter (1970 \u2013 1980):** \n   * Research slowed significantly because hardware was insufficiently powerful for complex tasks. \n   * Unmet expectations caused governments and private firms to drastically reduce funding and investment.\n5. **Expert Systems Era (1980 \u2013 1990):** \n   * AI regained momentum with **Expert Systems**\u2014computer programs engineered to offer specialized advice like human experts.\n6. **Machine Learning Era (1990 \u2013 2010):** \n   * Transition from hardcoded rules to data-driven learning. \n   * Enabled practical applications in speech recognition, face recognition, and recommendation engines.\n7. **Modern AI Era (2010 \u2013 Present):** \n   * Driven by deep learning algorithms, massive data availability (Big Data), and high-performance hardware. \n   * Characterized by chatbots, virtual assistants, autonomous vehicles, and generative tools creating text, images, audio, and video.\n\n---",
+      "key_points": [
+        "Initial conceptualization of machines capable of human-like thought. Scientists theorized that computers could be rendered intelligent.",
+        "The landmark **Dartmouth Conference** was held in the USA, where scientists formally committed to studying machine intelligence.",
+        "**John McCarthy** made major foundational contributions and became known as the **Father of AI**.",
+        "Rapid early progress; programs were written to solve mathematical problems and play simple games like chess.",
+        "Hardware was slow with severely limited memory capacity.",
+        "Research slowed significantly because hardware was insufficiently powerful for complex tasks."
+      ],
+      "diagram": null
+    },
+    {
+      "id": "topic-5",
+      "title": "\ufe0f Intelligent Agents & Agent Architectures",
+      "content": "## \u2699\ufe0f Intelligent Agents & Agent Architectures\n\n### What is an AI Agent?\nAn **AI Agent** is a software system that perceives its environment, makes decisions, and performs actions automatically to achieve a specific goal without continuous human intervention.\n\n#### Operational Loop of an Agent\n1. **Observe:** Gathers data from the environment via input mechanisms (e.g., cameras, sensors).\n2. **Think:** Analyzes the input and evaluates the situational context.\n3. **Decide:** Determines the optimal course of action.\n4. **Act:** Executes the selected action to complete the goal.\n\n---\n\n### \ud83d\uddc2\ufe0f The 5 Main Types of AI Agents\n\n1. **Simple Reflex Agent**\n   * Acts purely on the **current situation** using predefined **If-Then** rules.\n   * Ignores past states and history (e.g., Automatic doors, light sensors).\n\n2. **Model-Based Reflex Agent**\n   * Operates using both **current input** and stored **past information** (an internal state/model).\n   * Handles partially observable environments or missing data better (e.g., Self-driving cars).\n\n3. **Goal-Based Agent**\n   * Operates with explicit goals to achieve.\n   * Evaluates multiple candidate actions and plans ahead to select the best action sequence (e.g., Chess-playing AI).\n\n4. **Utility-Based Agent**\n   * Measures success using a **utility function** (degree of preference/benefit).\n   * Selects actions that yield the best or most efficient outcome (e.g., Food delivery routing apps).\n\n5. **Learning Agent**\n   * Operates by learning from past experiences, mistakes, and feedback.\n   * Continuously adapts and improves its performance in novel situations (e.g., ChatGPT, Netflix recommendation systems).\n\n---\n\n### Core Characteristics of an Intelligent Agent\n\n* **Autonomy:** Operates independently without continuous human intervention.\n* **Perception:** Observes its surroundings using input sensory tools (sensors, cameras, microphones).\n* **Reactivity:** Detects environmental changes and responds rapidly.\n* **Proactiveness:** Takes goal-directed initiative rather than just reacting to stimuli.\n* **Learning Ability:** Adapts to new conditions and improves performance over time.\n* **Communication:** Interacts effectively with human users or external systems (e.g., Siri, Google Assistant).\n\n---\n\n### \ud83d\uddbc\ufe0f Architecture of an Intelligent Agent\n\nAn agent interacts continuously with its environment through sensory and actuation channels.\n\n```mermaid\nflowchart LR\n    E[Environment] -->|Percepts| S[Sensors]\n    S --> A[Agent Brain]\n    A --> F[Effectors]\n    F -->|Actions| E\n```\n\n* **Environment:** The domain or workspace in which the agent operates.\n* **Percepts:** The raw perceptual data received by the agent from the environment at any given instant.\n* **Sensors:** Input devices (cameras, microphones, software feeds) used to collect environmental data.\n* **Agent Brain:** The core processing unit that evaluates percepts and decides the appropriate actions.\n* **Effectors / Actuators:** Output mechanisms (motors, displays, software commands) that execute the chosen action.\n* **Actions:** The concrete tasks performed by effectors that modify the state of the environment.\n\n---",
+      "key_points": [
+        "Acts purely on the **current situation** using predefined **If-Then** rules.",
+        "Ignores past states and history (e.g., Automatic doors, light sensors).",
+        "Operates using both **current input** and stored **past information** (an internal state/model).",
+        "Handles partially observable environments or missing data better (e.g., Self-driving cars).",
+        "Operates with explicit goals to achieve.",
+        "Evaluates multiple candidate actions and plans ahead to select the best action sequence (e.g., Chess-playing AI)."
+      ],
+      "diagram": "flowchart LR\n    E[Environment] -->|Percepts| S[Sensors]\n    S --> A[Agent Brain]\n    A --> F[Effectors]\n    F -->|Actions| E"
+    },
+    {
+      "id": "topic-6",
+      "title": "\ud83e\udde9 Problem-Solving Approach & Problem-Solving Agents",
+      "content": "## \ud83e\udde9 Problem-Solving Approach & Problem-Solving Agents\n\n### Problem Solving in AI\nProblem solving is the structured process by which an AI system determines a sequence of actions to reach a desired goal state from a starting state.\n\n### \ud83d\udd04 Steps in the Problem-Solving Approach\n\n1. **Define the Problem:** Clearly identify the core problem statement (e.g., finding the shortest path from home to college).\n2. **Define Initial State:** Identify the starting condition where the agent begins (e.g., Home).\n3. **Define Goal State:** Specify the target outcome or destination (e.g., College).\n4. **Identify Possible Actions:** List all valid moves or operations available at any state (e.g., turn left, turn right, move straight).\n5. **Search for Best Solution:** Evaluate potential paths and select the optimal route based on criteria such as shortest distance, fastest travel time, or lowest cost.\n6. **Execute Solution:** Perform the selected sequence of actions step-by-step.\n7. **Evaluate Result:** Check whether the goal has been successfully reached; if blocked, trigger a re-search for an alternate path.\n\n---\n\n### Problem-Solving Agent Workflow\n\nA **Problem-Solving Agent** is a goal-driven intelligent agent that executes five high-level steps:\n\n$$\\text{Goal Formulation} \\longrightarrow \\text{Problem Formulation} \\longrightarrow \\text{Search} \\longrightarrow \\text{Plan Execution} \\longrightarrow \\text{Result Evaluation}$$\n\n1. **Goal Formulation:** Defines the overall target to achieve.\n2. **Problem Formulation:** Formalizes states, actions, and constraints into a structured model.\n3. **Search:** Explores potential action sequences to locate a solution path.\n4. **Execution:** Carries out the actions in the real or simulated environment.\n5. **Evaluation:** Verifies if the final state matches the defined goal state.\n\n---\n\n### \ud83d\udcd0 The 5 Components of Problem Formulation\n\nTo formally represent a problem for an AI agent, five elements must be specified:\n\n1. **Initial State:** The state where the agent starts.\n2. **Actions:** The set of all valid operations applicable at a given state.\n3. **Successor Function:** A mapping function that describes the resulting state after executing action \\(A\\) on state \\(S\\):\n   $$\\text{Result}(\\text{In}(S), \\text{Go}(A)) = \\text{In}(S')$$\n4. **Goal State:** The target state designated as the objective.\n5. **Path Cost:** A numeric cost function assigned to a path, measuring step costs (distance, time, financial cost).\n\n---\n\n### \ud83d\udd22 Step-by-Step Graph Problem Example\n\n#### Problem Parameters Given:\n* **Graph Nodes:** \\(A, B, C, D, E, L, M\\)\n* **Initial State:** Node \\(A\\)\n* **Goal State:** Node \\(M\\)\n* **Edge Costs:**\n  * \\(A \\rightarrow B = 10\\)\n  * \\(A \\rightarrow D = 100\\)\n  * \\(B \\rightarrow C = 20\\)\n  * \\(C \\rightarrow D = 12\\)\n  * \\(D \\rightarrow L = 30\\)\n\n#### Problem Formulation Breakdown:\n\n1. **Initial State:** \n   $$\\text{State}_{\\text{initial}} = A$$\n\n2. **Goal State:** \n   $$\\text{State}_{\\text{goal}} = M$$\n\n3. **Applicable Actions from State \\(A\\):**\n   $$\\text{Actions}(A) = \\{ \\text{Go}(B), \\text{Go}(D), \\text{Go}(E) \\}$$\n\n4. **Successor Function Example:**\n   $$\\text{Result}(\\text{In}(A), \\text{Go}(B)) = \\text{In}(B)$$\n\n5. **Path Cost Evaluation:**\n   * Direct path cost \\(A \\rightarrow B\\): \n     $$\\text{Cost}(A, B) = 10$$\n   * Direct path cost \\(D \\rightarrow L\\): \n     $$\\text{Cost}(D, L) = 30$$\n   * Path cost \\(A \\rightarrow B \\rightarrow C \\rightarrow D\\): \n     $$\\text{Cost}(A, B, C, D) = 10 + 20 + 12 = 42$$",
+      "key_points": [
+        "**Graph Nodes:** \\(A, B, C, D, E, L, M\\)",
+        "**Initial State:** Node \\(A\\)",
+        "**Goal State:** Node \\(M\\)",
+        "**Edge Costs:**",
+        "\\(A \\rightarrow B = 10\\)",
+        "\\(A \\rightarrow D = 100\\)"
+      ],
+      "diagram": null
+    }
+  ],
+  "quiz": [
+    {
+      "id": "q-1",
+      "topic": "\ud83e\udd16 Foundations of Artificial Intelligence",
+      "question": "Which statement regarding \ud83e\udd16 Foundations of Artificial Intelligence is strictly correct based on the lecture?",
+      "options": [
+        "It contradicts the core principle of \ud83e\udd16 Foundations of Artificial Intelligence.",
+        "Understand human language.",
+        "It eliminates all resource requirements.",
+        "It is completely handled outside OS memory space."
+      ],
+      "correct_index": 1,
+      "explanation": "As covered in the lecture: Understand human language."
+    },
+    {
+      "id": "q-2",
+      "topic": "\ud83e\udd16 Foundations of Artificial Intelligence",
+      "question": "In the context of \ud83e\udd16 Foundations of Artificial Intelligence, what key property was emphasized by the lecturer?",
+      "options": [
+        "Recognize speech and visual images.",
+        "It is restricted to single-threaded CPU architectures.",
+        "It operates without any data structures.",
+        "It requires manual memory deallocation per thread."
+      ],
+      "correct_index": 0,
+      "explanation": "Lecture note detail: Recognize speech and visual images."
+    },
+    {
+      "id": "q-3",
+      "topic": "\ud83c\udf10 Applications & Limitations of AI",
+      "question": "Which statement regarding \ud83c\udf10 Applications & Limitations of AI is strictly correct based on the lecture?",
+      "options": [
+        "It contradicts the core principle of \ud83c\udf10 Applications & Limitations of AI.",
+        "Healthcare: Rapid disease detection, analyzing medical reports, and suggesting clinical treatments.",
+        "It is completely handled outside OS memory space.",
+        "It eliminates all resource requirements."
+      ],
+      "correct_index": 1,
+      "explanation": "As covered in the lecture: Healthcare: Rapid disease detection, analyzing medical reports, and suggesting clinical treatments."
+    },
+    {
+      "id": "q-4",
+      "topic": "\ud83c\udf10 Applications & Limitations of AI",
+      "question": "In the context of \ud83c\udf10 Applications & Limitations of AI, what key property was emphasized by the lecturer?",
+      "options": [
+        "It requires manual memory deallocation per thread.",
+        "It operates without any data structures.",
+        "Education: Delivering personalized learning experiences to students and powering online learning platforms.",
+        "It is restricted to single-threaded CPU architectures."
+      ],
+      "correct_index": 2,
+      "explanation": "Lecture note detail: Education: Delivering personalized learning experiences to students and powering online learning platforms."
+    },
+    {
+      "id": "q-5",
+      "topic": "\ud83d\udcdc History & Evolution of AI",
+      "question": "Which statement regarding \ud83d\udcdc History & Evolution of AI is strictly correct based on the lecture?",
+      "options": [
+        "It is completely handled outside OS memory space.",
+        "Initial conceptualization of machines capable of human-like thought. Scientists theorized that computers could be rendered intelligent.",
+        "It contradicts the core principle of \ud83d\udcdc History & Evolution of AI.",
+        "It eliminates all resource requirements."
+      ],
+      "correct_index": 1,
+      "explanation": "As covered in the lecture: Initial conceptualization of machines capable of human-like thought. Scientists theorized that computers could be rendered intelligent."
+    },
+    {
+      "id": "q-6",
+      "topic": "\ud83d\udcdc History & Evolution of AI",
+      "question": "In the context of \ud83d\udcdc History & Evolution of AI, what key property was emphasized by the lecturer?",
+      "options": [
+        "It operates without any data structures.",
+        "It requires manual memory deallocation per thread.",
+        "It is restricted to single-threaded CPU architectures.",
+        "The landmark Dartmouth Conference was held in the USA, where scientists formally committed to studying machine intelligence."
+      ],
+      "correct_index": 3,
+      "explanation": "Lecture note detail: The landmark Dartmouth Conference was held in the USA, where scientists formally committed to studying machine intelligence."
+    },
+    {
+      "id": "q-7",
+      "topic": "\ufe0f Intelligent Agents & Agent Architectures",
+      "question": "Which statement regarding \ufe0f Intelligent Agents & Agent Architectures is strictly correct based on the lecture?",
+      "options": [
+        "Acts purely on the current situation using predefined If-Then rules.",
+        "It contradicts the core principle of \ufe0f Intelligent Agents & Agent Architectures.",
+        "It eliminates all resource requirements.",
+        "It is completely handled outside OS memory space."
+      ],
+      "correct_index": 0,
+      "explanation": "As covered in the lecture: Acts purely on the current situation using predefined If-Then rules."
+    },
+    {
+      "id": "q-8",
+      "topic": "\ufe0f Intelligent Agents & Agent Architectures",
+      "question": "In the context of \ufe0f Intelligent Agents & Agent Architectures, what key property was emphasized by the lecturer?",
+      "options": [
+        "Ignores past states and history (e.g., Automatic doors, light sensors).",
+        "It operates without any data structures.",
+        "It is restricted to single-threaded CPU architectures.",
+        "It requires manual memory deallocation per thread."
+      ],
+      "correct_index": 0,
+      "explanation": "Lecture note detail: Ignores past states and history (e.g., Automatic doors, light sensors)."
+    },
+    {
+      "id": "q-9",
+      "topic": "\ud83e\udde9 Problem-Solving Approach & Problem-Solving Agents",
+      "question": "Which statement regarding \ud83e\udde9 Problem-Solving Approach & Problem-Solving Agents is strictly correct based on the lecture?",
+      "options": [
+        "It eliminates all resource requirements.",
+        "It contradicts the core principle of \ud83e\udde9 Problem-Solving Approach & Problem-Solving Agents.",
+        "Graph Nodes: \\(A, B, C, D, E, L, M\\)",
+        "It is completely handled outside OS memory space."
+      ],
+      "correct_index": 2,
+      "explanation": "As covered in the lecture: Graph Nodes: \\(A, B, C, D, E, L, M\\)"
+    },
+    {
+      "id": "q-10",
+      "topic": "\ud83e\udde9 Problem-Solving Approach & Problem-Solving Agents",
+      "question": "In the context of \ud83e\udde9 Problem-Solving Approach & Problem-Solving Agents, what key property was emphasized by the lecturer?",
+      "options": [
+        "It is restricted to single-threaded CPU architectures.",
+        "It operates without any data structures.",
+        "It requires manual memory deallocation per thread.",
+        "Initial State: Node \\(A\\)"
+      ],
+      "correct_index": 3,
+      "explanation": "Lecture note detail: Initial State: Node \\(A\\)"
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "fc-1",
+      "front": "What is Artificial Intelligence (AI)?",
+      "back": "These study notes cover the fundamentals of **Artificial Intelligence (AI)**, including its core definitions, categorizations, scope, limitations, and historical evolution."
+    },
+    {
+      "id": "fc-2",
+      "front": "What is AI Agents?",
+      "back": "They detail the concept of **AI Agents** and **Intelligent Agents**, their types, architectural components, and the step-by-step **Problem-Solving Approach** used by AI agents to formulate and solve complex problems."
+    },
+    {
+      "id": "fc-3",
+      "front": "What is Intelligent Agents?",
+      "back": "They detail the concept of **AI Agents** and **Intelligent Agents**, their types, architectural components, and the step-by-step **Problem-Solving Approach** used by AI agents to formulate and solve complex problems."
+    },
+    {
+      "id": "fc-4",
+      "front": "What is Problem-Solving Approach?",
+      "back": "They detail the concept of **AI Agents** and **Intelligent Agents**, their types, architectural components, and the step-by-step **Problem-Solving Approach** used by AI agents to formulate and solve complex problems."
+    },
+    {
+      "id": "fc-5",
+      "front": "What is Narrow AI (Weak AI)?",
+      "back": "Key technical term explained in \ud83e\udd16 Foundations of Artificial Intelligence."
+    },
+    {
+      "id": "fc-6",
+      "front": "What is General AI (Strong AI)?",
+      "back": "Key technical term explained in \ud83e\udd16 Foundations of Artificial Intelligence."
+    },
+    {
+      "id": "fc-7",
+      "front": "What is Current Status:?",
+      "back": "* **Current Status:** Does not exist yet; currently under active research."
+    },
+    {
+      "id": "fc-8",
+      "front": "What is Super AI?",
+      "back": "Key technical term explained in \ud83e\udd16 Foundations of Artificial Intelligence."
+    },
+    {
+      "id": "fc-9",
+      "front": "What is Scope?",
+      "back": "Key technical term explained in \ud83e\udd16 Foundations of Artificial Intelligence."
+    },
+    {
+      "id": "fc-10",
+      "front": "What is Learning Ability?",
+      "back": "Key technical term explained in \ud83e\udd16 Foundations of Artificial Intelligence."
+    }
+  ],
+  "revision_plan": [
+    {
+      "stage": "24 Hours (Immediate Recall)",
+      "interval": "Day 1",
+      "priority": "High",
+      "goal": "Review core definitions and key facts to consolidate short-term memory.",
+      "topics": [
+        "\ud83e\udd16 Foundations of Artificial Intelligence",
+        "\ud83c\udf10 Applications & Limitations of AI"
+      ]
+    },
+    {
+      "stage": "3 Days (Reinforcement)",
+      "interval": "Day 3",
+      "priority": "High",
+      "goal": "Re-examine comparison tables and diagram relationships.",
+      "topics": [
+        "\ud83c\udf10 Applications & Limitations of AI",
+        "\ud83d\udcdc History & Evolution of AI"
+      ]
+    },
+    {
+      "stage": "7 Days (Weekly Review)",
+      "interval": "Day 7",
+      "priority": "Medium",
+      "goal": "Solve interactive quiz questions and test recall via flashcards.",
+      "topics": [
+        "\ud83d\udcdc History & Evolution of AI",
+        "\ufe0f Intelligent Agents & Agent Architectures"
+      ]
+    },
+    {
+      "stage": "14 Days (Pre-Exam Polish)",
+      "interval": "Day 14",
+      "priority": "Medium",
+      "goal": "Attempt basic and intermediate interview prep questions.",
+      "topics": [
+        "\ud83e\udd16 Foundations of Artificial Intelligence",
+        "\ud83c\udf10 Applications & Limitations of AI",
+        "\ud83d\udcdc History & Evolution of AI",
+        "\ufe0f Intelligent Agents & Agent Architectures",
+        "\ud83e\udde9 Problem-Solving Approach & Problem-Solving Agents"
+      ]
+    },
+    {
+      "stage": "30 Days (Mastery Verification)",
+      "interval": "Day 30",
+      "priority": "Low",
+      "goal": "Final quick scan of exam focus callouts and master summary.",
+      "topics": [
+        "\ud83e\udd16 Foundations of Artificial Intelligence",
+        "\ud83c\udf10 Applications & Limitations of AI",
+        "\ud83d\udcdc History & Evolution of AI",
+        "\ufe0f Intelligent Agents & Agent Architectures",
+        "\ud83e\udde9 Problem-Solving Approach & Problem-Solving Agents"
+      ]
+    }
+  ],
+  "interview_questions": {
+    "basic": [
+      {
+        "id": "ib-1",
+        "question": "Define \ud83e\udd16 Foundations of Artificial Intelligence in simple terms. What is its fundamental role?",
+        "answer": "Understand human language."
+      },
+      {
+        "id": "ib-4",
+        "question": "Define \ufe0f Intelligent Agents & Agent Architectures in simple terms. What is its fundamental role?",
+        "answer": "Acts purely on the **current situation** using predefined **If-Then** rules."
+      }
+    ],
+    "intermediate": [
+      {
+        "id": "ii-2",
+        "question": "How does \ud83c\udf10 Applications & Limitations of AI handle resource allocation or execution compared to alternative approaches?",
+        "answer": "**Healthcare:** Rapid disease detection, analyzing medical reports, and suggesting clinical treatments. **Education:** Delivering personalized learning experiences to students and powering online learning platforms."
+      },
+      {
+        "id": "ii-5",
+        "question": "How does \ud83e\udde9 Problem-Solving Approach & Problem-Solving Agents handle resource allocation or execution compared to alternative approaches?",
+        "answer": "**Graph Nodes:** \\(A, B, C, D, E, L, M\\) **Initial State:** Node \\(A\\)"
+      }
+    ],
+    "advanced": [
+      {
+        "id": "ia-3",
+        "question": "What are the architectural trade-offs and common performance pitfalls associated with \ud83d\udcdc History & Evolution of AI?",
+        "answer": "Initial conceptualization of machines capable of human-like thought. Scientists theorized that computers could be rendered intelligent. Research slowed significantly because hardware was insufficiently powerful for complex tasks."
+      }
+    ]
+  }
+}
